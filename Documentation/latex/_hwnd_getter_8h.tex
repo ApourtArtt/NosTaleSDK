@@ -1,0 +1,47 @@
+\hypertarget{_hwnd_getter_8h}{}\doxysection{C\+:/code/\+Ditz/\+Client\+Modding\+API/\+Client\+Modding/\+Memory\+Helper/\+Hwnd\+Getter.h File Reference}
+\label{_hwnd_getter_8h}\index{C:/code/Ditz/ClientModdingAPI/ClientModding/MemoryHelper/HwndGetter.h@{C:/code/Ditz/ClientModdingAPI/ClientModding/MemoryHelper/HwndGetter.h}}
+{\ttfamily \#include $<$Tl\+Help32.\+h$>$}\newline
+{\ttfamily \#include $<$Windows.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+BOOL CALLBACK \mbox{\hyperlink{_hwnd_getter_8h_a22115cc1dd3aa5f1ba8ea4de05fe0a40}{Enum\+Windows\+Call\+Back}} (HWND hwnd, LPARAM l\+Param)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_callback}{Callback}} used for finding the game hwnd. \end{DoxyCompactList}\item 
+HWND \mbox{\hyperlink{_hwnd_getter_8h_a0bc764212cb6bad07a3378c9f49b95a5}{get\+Hwnd}} ()
+\begin{DoxyCompactList}\small\item\em The function finds the hwnd of the Nostale window in the current proccess. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_hwnd_getter_8h_a22115cc1dd3aa5f1ba8ea4de05fe0a40}\label{_hwnd_getter_8h_a22115cc1dd3aa5f1ba8ea4de05fe0a40}} 
+\index{HwndGetter.h@{HwndGetter.h}!EnumWindowsCallBack@{EnumWindowsCallBack}}
+\index{EnumWindowsCallBack@{EnumWindowsCallBack}!HwndGetter.h@{HwndGetter.h}}
+\doxysubsubsection{\texorpdfstring{EnumWindowsCallBack()}{EnumWindowsCallBack()}}
+{\footnotesize\ttfamily BOOL CALLBACK Enum\+Windows\+Call\+Back (\begin{DoxyParamCaption}\item[{HWND}]{hwnd,  }\item[{LPARAM}]{l\+Param }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_callback}{Callback}} used for finding the game hwnd. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hwnd} & HWND of the process we are looping \\
+\hline
+{\em l\+Param} & Pointer to a custom parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+FALSE if we found the HWND, TRUE to keep looping 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_hwnd_getter_8h_a0bc764212cb6bad07a3378c9f49b95a5}\label{_hwnd_getter_8h_a0bc764212cb6bad07a3378c9f49b95a5}} 
+\index{HwndGetter.h@{HwndGetter.h}!getHwnd@{getHwnd}}
+\index{getHwnd@{getHwnd}!HwndGetter.h@{HwndGetter.h}}
+\doxysubsubsection{\texorpdfstring{getHwnd()}{getHwnd()}}
+{\footnotesize\ttfamily HWND get\+Hwnd (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The function finds the hwnd of the Nostale window in the current proccess. 
+
+\begin{DoxyReturn}{Returns}
+the HWND 
+\end{DoxyReturn}

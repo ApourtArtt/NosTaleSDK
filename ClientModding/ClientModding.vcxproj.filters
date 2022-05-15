@@ -1,0 +1,494 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="MemoryHelper">
+      <UniqueIdentifier>{493dd64e-0e81-4f03-ba6a-0e7d8c342492}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{54b7b768-d432-465b-9d0a-0f8f2a68aaec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api">
+      <UniqueIdentifier>{ebe6dec4-cfbe-467e-8169-b12b8c2ce060}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\DelphiClasses">
+      <UniqueIdentifier>{a6f57d04-a5bd-4dc4-94e5-d1e43a9464ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\Properties">
+      <UniqueIdentifier>{13af1e59-2451-4376-8f48-34b060c203cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\Properties\Graphical">
+      <UniqueIdentifier>{d2a505f1-293b-4070-aff2-2356ed950448}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\Properties\Logical">
+      <UniqueIdentifier>{8e4b415e-c058-47c0-888d-be1c48a844c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\PacketManager">
+      <UniqueIdentifier>{f438df06-8083-446c-ad79-2af6aec25122}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\CustomClasses">
+      <UniqueIdentifier>{e79c838b-b9d2-484b-a432-f9cb47292cff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\CustomClasses\Connection">
+      <UniqueIdentifier>{5325e890-b770-4ff0-af6e-81b849ef0f25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\CustomClasses\MapCommon">
+      <UniqueIdentifier>{e5e87221-665e-4792-9b19-e60ddd050b63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\CustomClasses\MapCommon\MapObject">
+      <UniqueIdentifier>{46c1a847-862b-48d7-bbe7-cb9e468df20f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\DiscordManager">
+      <UniqueIdentifier>{9eb97fe2-530e-477b-930a-3e03eb0852c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\CustomClasses\UI">
+      <UniqueIdentifier>{dd046b01-27c7-44dc-bd12-5abb25d1922f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\DiscordManager\sdk">
+      <UniqueIdentifier>{efe604fd-2e09-4e90-ad56-e653d2885149}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\CustomClasses\Wrappers">
+      <UniqueIdentifier>{266543d9-5221-42ee-b537-33359843b75f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\CustomClasses\Wrappers\Game">
+      <UniqueIdentifier>{003c0c5f-5dfa-4db8-a45f-ea7eee5132db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\CustomClasses\Wrappers\Widgets">
+      <UniqueIdentifier>{8b25a3a5-d83b-4922-9f6e-1654970bce7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\Enums">
+      <UniqueIdentifier>{4daa0fc4-d7b9-4bbd-82d2-143329dff423}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Api\Properties\Logical\String.h">
+      <Filter>Api\Properties\Logical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Logical\Callback.h">
+      <Filter>Api\Properties\Logical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Graphical\Bgra.h">
+      <Filter>Api\Properties\Graphical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Graphical\Border.h">
+      <Filter>Api\Properties\Graphical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Graphical\Cursor.h">
+      <Filter>Api\Properties\Graphical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Graphical\GhostBorder.h">
+      <Filter>Api\Properties\Graphical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Graphical\IconProperties.h">
+      <Filter>Api\Properties\Graphical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Graphical\ImageData.h">
+      <Filter>Api\Properties\Graphical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Graphical\ImagePadding.h">
+      <Filter>Api\Properties\Graphical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Graphical\PictureView.h">
+      <Filter>Api\Properties\Graphical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Graphical\TextAlignment.h">
+      <Filter>Api\Properties\Graphical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Graphical\TextPosition.h">
+      <Filter>Api\Properties\Graphical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Graphical\TextShadowOrientation.h">
+      <Filter>Api\Properties\Graphical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Graphical\TextStyle.h">
+      <Filter>Api\Properties\Graphical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TObject.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TLBSWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TList.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TLBSWidgetList.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TEWScrollBar.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TEWControlWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TEWCaptionBar.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TEWParentMoveWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TEWEditWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TEWControlWidgetEX.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TEWLabels.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TEWLabel.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TEWControlWidgetEvent.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTIconWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTCoverIcon.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TEWMoveWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TEWCustomPanelWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TEWScrollBarThumb.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TEWScrollBarTrack.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TEWCustomFormWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TEWCustomButtonWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TEWGraphicButtonWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\PacketManager\PacketManager.h">
+      <Filter>Api\PacketManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryHelper\PatternScan.h">
+      <Filter>MemoryHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryHelper\Patch.h">
+      <Filter>MemoryHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Split.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\CustomClasses\Connection\Connection.h">
+      <Filter>Api\CustomClasses\Connection</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\CustomClasses\Connection\ServChan.h">
+      <Filter>Api\CustomClasses\Connection</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\CustomClasses\MapCommon\MapCommon.h">
+      <Filter>Api\CustomClasses\MapCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\CustomClasses\MapCommon\Fog.h">
+      <Filter>Api\CustomClasses\MapCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Logger.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\CustomClasses\MapCommon\MapObject.h">
+      <Filter>Api\CustomClasses\MapCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\CustomClasses\MapCommon\MapObject\Color.h">
+      <Filter>Api\CustomClasses\MapCommon\MapObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DiscordManager\DiscordManager.h">
+      <Filter>Api\DiscordManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\ClassSearcher.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\code\discordsdk\cpp\types.h">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\code\discordsdk\cpp\storage_manager.h">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\code\discordsdk\cpp\store_manager.h">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\code\discordsdk\cpp\achievement_manager.h">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\code\discordsdk\cpp\activity_manager.h">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\code\discordsdk\cpp\application_manager.h">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\code\discordsdk\cpp\core.h">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\code\discordsdk\cpp\discord.h">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\code\discordsdk\cpp\event.h">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\code\discordsdk\cpp\ffi.h">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\code\discordsdk\cpp\image_manager.h">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\code\discordsdk\cpp\lobby_manager.h">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\code\discordsdk\cpp\network_manager.h">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\code\discordsdk\cpp\overlay_manager.h">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\code\discordsdk\cpp\relationship_manager.h">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\code\discordsdk\cpp\voice_manager.h">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\code\discordsdk\cpp\user_manager.h">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientModding.h" />
+    <ClInclude Include="Api\CustomClasses\UI\UI.h">
+      <Filter>Api\CustomClasses\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\CustomClasses\UI\Fps.h">
+      <Filter>Api\CustomClasses\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\CustomClasses\UI\Resolution.h">
+      <Filter>Api\CustomClasses\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\CustomClasses\Wrappers\Game\SceneManager.h">
+      <Filter>Api\CustomClasses\Wrappers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TLBSCamera.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TLBSRotDamper.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTDataList.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTItemList.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TSceneManager.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Logical\PartnerEquipmentIcons.h">
+      <Filter>Api\Properties\Logical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Logical\PartnerInformation.h">
+      <Filter>Api\Properties\Logical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Logical\PartnerResistanceIcons.h">
+      <Filter>Api\Properties\Logical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Logical\PartnerSkills.h">
+      <Filter>Api\Properties\Logical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Logical\PartnerSkillsAutomaticButtons.h">
+      <Filter>Api\Properties\Logical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Logical\PartnerSpSkillIcons.h">
+      <Filter>Api\Properties\Logical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Logical\PartnerSpSkillLevel.h">
+      <Filter>Api\Properties\Logical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Logical\PetInformation.h">
+      <Filter>Api\Properties\Logical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterStandardInfoWidget.h">
+      <Filter>Api\CustomClasses\Wrappers\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTNewCharacterStandardInfoWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTGameOptionWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TGameRootWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryHelper\HwndGetter.h">
+      <Filter>MemoryHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Enums\CellType.h">
+      <Filter>Api\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Logical\MapGrid.h">
+      <Filter>Api\Properties\Logical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\GameRootWidget.h">
+      <Filter>Api\CustomClasses\Wrappers\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\GameOptionWidget.h">
+      <Filter>Api\CustomClasses\Wrappers\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TEWButtonWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTQuickSlotWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTTimeAniIcon.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\QuickSlotWidget.h">
+      <Filter>Api\CustomClasses\Wrappers\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterSkillInfoWidget.h">
+      <Filter>Api\CustomClasses\Wrappers\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTNewCharacterSkillInfoWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\CustomClasses\UI\SkillsCooldown.h">
+      <Filter>Api\CustomClasses\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryHelper\TrampolineHook.h">
+      <Filter>MemoryHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\MonsterSummaryInfoWidget.h">
+      <Filter>Api\CustomClasses\Wrappers\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\CustomClasses\UI\KeyBindManager.h">
+      <Filter>Api\CustomClasses\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Enums\KeyCode.h">
+      <Filter>Api\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Enums\KeyModifier.h">
+      <Filter>Api\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\CustomClasses\UI\KeyBindWidget.h">
+      <Filter>Api\CustomClasses\UI</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Api\PacketManager\PacketManager.cpp">
+      <Filter>Api\PacketManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\CustomClasses\Connection\Connection.cpp">
+      <Filter>Api\CustomClasses\Connection</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\CustomClasses\MapCommon\MapCommon.cpp">
+      <Filter>Api\CustomClasses\MapCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\DiscordManager\DiscordManager.cpp">
+      <Filter>Api\DiscordManager</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\code\discordsdk\cpp\storage_manager.cpp">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\code\discordsdk\cpp\store_manager.cpp">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\code\discordsdk\cpp\types.cpp">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\code\discordsdk\cpp\achievement_manager.cpp">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\code\discordsdk\cpp\activity_manager.cpp">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\code\discordsdk\cpp\application_manager.cpp">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\code\discordsdk\cpp\core.cpp">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\code\discordsdk\cpp\image_manager.cpp">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\code\discordsdk\cpp\lobby_manager.cpp">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\code\discordsdk\cpp\network_manager.cpp">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\code\discordsdk\cpp\overlay_manager.cpp">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\code\discordsdk\cpp\relationship_manager.cpp">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\code\discordsdk\cpp\user_manager.cpp">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\code\discordsdk\cpp\voice_manager.cpp">
+      <Filter>Api\DiscordManager\sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientModding.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Api\CustomClasses\UI\UI.cpp">
+      <Filter>Api\CustomClasses\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\CustomClasses\Wrappers\Game\SceneManager.cpp">
+      <Filter>Api\CustomClasses\Wrappers\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterStandardInfoWidget.cpp">
+      <Filter>Api\CustomClasses\Wrappers\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\GameOptionWidget.cpp">
+      <Filter>Api\CustomClasses\Wrappers\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\CustomClasses\UI\Resolution.cpp">
+      <Filter>Api\CustomClasses\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\CustomClasses\Connection\ServChan.cpp">
+      <Filter>Api\CustomClasses\Connection</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\CustomClasses\MapCommon\Fog.cpp">
+      <Filter>Api\CustomClasses\MapCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\CustomClasses\MapCommon\MapObject\Color.cpp">
+      <Filter>Api\CustomClasses\MapCommon\MapObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\CustomClasses\UI\Fps.cpp">
+      <Filter>Api\CustomClasses\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\GameRootWidget.cpp">
+      <Filter>Api\CustomClasses\Wrappers\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\QuickSlotWidget.cpp">
+      <Filter>Api\CustomClasses\Wrappers\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterSkillInfoWidget.cpp">
+      <Filter>Api\CustomClasses\Wrappers\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\CustomClasses\UI\SkillsCooldown.cpp">
+      <Filter>Api\CustomClasses\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryHelper\TrampolineHook.cpp">
+      <Filter>MemoryHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\MonsterSummaryInfoWidget.cpp">
+      <Filter>Api\CustomClasses\Wrappers\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\CustomClasses\UI\KeyBindManager.cpp">
+      <Filter>Api\CustomClasses\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\CustomClasses\UI\KeyBindWidget.cpp">
+      <Filter>Api\CustomClasses\UI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Api\DelphiClasses\TNTMonsterSummaryInfoWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </None>
+  </ItemGroup>
+</Project>

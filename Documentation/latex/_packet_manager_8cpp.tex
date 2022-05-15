@@ -1,0 +1,99 @@
+\hypertarget{_packet_manager_8cpp}{}\doxysection{C\+:/code/\+Ditz/\+Client\+Modding\+API/\+Client\+Modding/\+Api/\+Packet\+Manager/\+Packet\+Manager.cpp File Reference}
+\label{_packet_manager_8cpp}\index{C:/code/Ditz/ClientModdingAPI/ClientModding/Api/PacketManager/PacketManager.cpp@{C:/code/Ditz/ClientModdingAPI/ClientModding/Api/PacketManager/PacketManager.cpp}}
+{\ttfamily \#include \char`\"{}Packet\+Manager.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Properties/\+Logical/\+String.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../\+Utils/\+Split.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../\+Memory\+Helper/\+Pattern\+Scan.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../\+Memory\+Helper/\+Patch.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_packet_manager_8cpp_a66e0e96150d8966e07fc2b3c1016dfb8}{detour\+Send\+Func}} ()
+\item 
+void \mbox{\hyperlink{_packet_manager_8cpp_a25529d83f6f1c568985ed25240016462}{detour\+Rcvd\+Func}} ()
+\item 
+void \mbox{\hyperlink{_packet_manager_8cpp_aecd9ddf8e40b0fa5be38e5d6005b7f2a}{\+\_\+\+\_\+declspec}} (naked) \mbox{\hyperlink{_packet_manager_8cpp_a66e0e96150d8966e07fc2b3c1016dfb8}{detour\+Send\+Func}}()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::function$<$ void(char $\ast$)$>$ \mbox{\hyperlink{_packet_manager_8cpp_a6e58fc8a025bddd863192c450f024149}{onS}}
+\item 
+std\+::function$<$ void(char $\ast$)$>$ \mbox{\hyperlink{_packet_manager_8cpp_a8176d314352f784a55c2c4d9d9be8a6d}{onR}}
+\item 
+void $\ast$ \mbox{\hyperlink{_packet_manager_8cpp_ada7cb54f92c96601397eed911b44bb53}{lpv\+Send\+Addy}} = nullptr
+\item 
+void $\ast$ \mbox{\hyperlink{_packet_manager_8cpp_aa87a34663759b8aa10e88ecfff49b9b8}{lpv\+Recv\+Addy}} = nullptr
+\item 
+void $\ast$ \mbox{\hyperlink{_packet_manager_8cpp_ae7e21a09d4226b8cb6c8eaac5fc99874}{lpv\+Packet\+This}} = nullptr
+\item 
+uint32\+\_\+t \mbox{\hyperlink{_packet_manager_8cpp_ab3697041acb475598b540b57fefca5c5}{jmp\+Back\+Rcvd\+Func}} = 0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{_packet_manager_8cpp_ac7a2de4489c83658f1caaa58290d2562}{jmp\+Back\+Send\+Func}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_packet_manager_8cpp_aecd9ddf8e40b0fa5be38e5d6005b7f2a}\label{_packet_manager_8cpp_aecd9ddf8e40b0fa5be38e5d6005b7f2a}} 
+\index{PacketManager.cpp@{PacketManager.cpp}!\_\_declspec@{\_\_declspec}}
+\index{\_\_declspec@{\_\_declspec}!PacketManager.cpp@{PacketManager.cpp}}
+\doxysubsubsection{\texorpdfstring{\_\_declspec()}{\_\_declspec()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+declspec (\begin{DoxyParamCaption}\item[{naked}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_packet_manager_8cpp_a25529d83f6f1c568985ed25240016462}\label{_packet_manager_8cpp_a25529d83f6f1c568985ed25240016462}} 
+\index{PacketManager.cpp@{PacketManager.cpp}!detourRcvdFunc@{detourRcvdFunc}}
+\index{detourRcvdFunc@{detourRcvdFunc}!PacketManager.cpp@{PacketManager.cpp}}
+\doxysubsubsection{\texorpdfstring{detourRcvdFunc()}{detourRcvdFunc()}}
+{\footnotesize\ttfamily void detour\+Rcvd\+Func (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_packet_manager_8cpp_a66e0e96150d8966e07fc2b3c1016dfb8}\label{_packet_manager_8cpp_a66e0e96150d8966e07fc2b3c1016dfb8}} 
+\index{PacketManager.cpp@{PacketManager.cpp}!detourSendFunc@{detourSendFunc}}
+\index{detourSendFunc@{detourSendFunc}!PacketManager.cpp@{PacketManager.cpp}}
+\doxysubsubsection{\texorpdfstring{detourSendFunc()}{detourSendFunc()}}
+{\footnotesize\ttfamily void detour\+Send\+Func (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_packet_manager_8cpp_ab3697041acb475598b540b57fefca5c5}\label{_packet_manager_8cpp_ab3697041acb475598b540b57fefca5c5}} 
+\index{PacketManager.cpp@{PacketManager.cpp}!jmpBackRcvdFunc@{jmpBackRcvdFunc}}
+\index{jmpBackRcvdFunc@{jmpBackRcvdFunc}!PacketManager.cpp@{PacketManager.cpp}}
+\doxysubsubsection{\texorpdfstring{jmpBackRcvdFunc}{jmpBackRcvdFunc}}
+{\footnotesize\ttfamily uint32\+\_\+t jmp\+Back\+Rcvd\+Func = 0}
+
+\mbox{\Hypertarget{_packet_manager_8cpp_ac7a2de4489c83658f1caaa58290d2562}\label{_packet_manager_8cpp_ac7a2de4489c83658f1caaa58290d2562}} 
+\index{PacketManager.cpp@{PacketManager.cpp}!jmpBackSendFunc@{jmpBackSendFunc}}
+\index{jmpBackSendFunc@{jmpBackSendFunc}!PacketManager.cpp@{PacketManager.cpp}}
+\doxysubsubsection{\texorpdfstring{jmpBackSendFunc}{jmpBackSendFunc}}
+{\footnotesize\ttfamily uint32\+\_\+t jmp\+Back\+Send\+Func = 0}
+
+\mbox{\Hypertarget{_packet_manager_8cpp_ae7e21a09d4226b8cb6c8eaac5fc99874}\label{_packet_manager_8cpp_ae7e21a09d4226b8cb6c8eaac5fc99874}} 
+\index{PacketManager.cpp@{PacketManager.cpp}!lpvPacketThis@{lpvPacketThis}}
+\index{lpvPacketThis@{lpvPacketThis}!PacketManager.cpp@{PacketManager.cpp}}
+\doxysubsubsection{\texorpdfstring{lpvPacketThis}{lpvPacketThis}}
+{\footnotesize\ttfamily void $\ast$ lpv\+Packet\+This = nullptr}
+
+\mbox{\Hypertarget{_packet_manager_8cpp_aa87a34663759b8aa10e88ecfff49b9b8}\label{_packet_manager_8cpp_aa87a34663759b8aa10e88ecfff49b9b8}} 
+\index{PacketManager.cpp@{PacketManager.cpp}!lpvRecvAddy@{lpvRecvAddy}}
+\index{lpvRecvAddy@{lpvRecvAddy}!PacketManager.cpp@{PacketManager.cpp}}
+\doxysubsubsection{\texorpdfstring{lpvRecvAddy}{lpvRecvAddy}}
+{\footnotesize\ttfamily void $\ast$ lpv\+Recv\+Addy = nullptr}
+
+\mbox{\Hypertarget{_packet_manager_8cpp_ada7cb54f92c96601397eed911b44bb53}\label{_packet_manager_8cpp_ada7cb54f92c96601397eed911b44bb53}} 
+\index{PacketManager.cpp@{PacketManager.cpp}!lpvSendAddy@{lpvSendAddy}}
+\index{lpvSendAddy@{lpvSendAddy}!PacketManager.cpp@{PacketManager.cpp}}
+\doxysubsubsection{\texorpdfstring{lpvSendAddy}{lpvSendAddy}}
+{\footnotesize\ttfamily void$\ast$ lpv\+Send\+Addy = nullptr}
+
+\mbox{\Hypertarget{_packet_manager_8cpp_a8176d314352f784a55c2c4d9d9be8a6d}\label{_packet_manager_8cpp_a8176d314352f784a55c2c4d9d9be8a6d}} 
+\index{PacketManager.cpp@{PacketManager.cpp}!onR@{onR}}
+\index{onR@{onR}!PacketManager.cpp@{PacketManager.cpp}}
+\doxysubsubsection{\texorpdfstring{onR}{onR}}
+{\footnotesize\ttfamily std\+::function$<$void(char$\ast$)$>$ onR}
+
+\mbox{\Hypertarget{_packet_manager_8cpp_a6e58fc8a025bddd863192c450f024149}\label{_packet_manager_8cpp_a6e58fc8a025bddd863192c450f024149}} 
+\index{PacketManager.cpp@{PacketManager.cpp}!onS@{onS}}
+\index{onS@{onS}!PacketManager.cpp@{PacketManager.cpp}}
+\doxysubsubsection{\texorpdfstring{onS}{onS}}
+{\footnotesize\ttfamily std\+::function$<$void(char$\ast$)$>$ onS}
+

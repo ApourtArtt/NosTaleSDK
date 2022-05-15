@@ -1,0 +1,61 @@
+\hypertarget{class_window_base}{}\doxysection{Window\+Base Class Reference}
+\label{class_window_base}\index{WindowBase@{WindowBase}}
+
+
+Represents the game \mbox{\hyperlink{class_window_base}{Window\+Base}} structure.  
+
+
+
+
+{\ttfamily \#include $<$Resolution.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_window_base_aad73d40a14d24cd8145a36ddac0c9310}{uknown}}
+\item 
+int \mbox{\hyperlink{class_window_base_abf36b5e14bd128695938d952e9717551}{x}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_resolution}{Resolution}} width. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_window_base_abd853ee015d04db5580cb6f9dfdd2675}{y}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_resolution}{Resolution}} heigh. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the game \mbox{\hyperlink{class_window_base}{Window\+Base}} structure. 
+
+TODO\+: If game is using 32 bit in the game settings and you untick the \char`\"{}window mode\char`\"{} when you try to change a resolution using our custom widget it breaks the resolution and it looks very weird. I took a look and it seems like the function in this scenario is called 2 times, one for setting the \char`\"{}full screen\char`\"{} mode and another one to set the actual resolution.
+
+So we need to fix this or maybe add our own callback to the \char`\"{}window mode\char`\"{} button to avoid this. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_window_base_aad73d40a14d24cd8145a36ddac0c9310}\label{class_window_base_aad73d40a14d24cd8145a36ddac0c9310}} 
+\index{WindowBase@{WindowBase}!uknown@{uknown}}
+\index{uknown@{uknown}!WindowBase@{WindowBase}}
+\doxysubsubsection{\texorpdfstring{uknown}{uknown}}
+{\footnotesize\ttfamily int Window\+Base\+::uknown}
+
+\mbox{\Hypertarget{class_window_base_abf36b5e14bd128695938d952e9717551}\label{class_window_base_abf36b5e14bd128695938d952e9717551}} 
+\index{WindowBase@{WindowBase}!x@{x}}
+\index{x@{x}!WindowBase@{WindowBase}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily int Window\+Base\+::x}
+
+
+
+\mbox{\hyperlink{class_resolution}{Resolution}} width. 
+
+\mbox{\Hypertarget{class_window_base_abd853ee015d04db5580cb6f9dfdd2675}\label{class_window_base_abd853ee015d04db5580cb6f9dfdd2675}} 
+\index{WindowBase@{WindowBase}!y@{y}}
+\index{y@{y}!WindowBase@{WindowBase}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily int Window\+Base\+::y}
+
+
+
+\mbox{\hyperlink{class_resolution}{Resolution}} heigh. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/code/\+Ditz/\+Client\+Modding\+API/\+Client\+Modding/\+Api/\+Custom\+Classes/\+UI/\mbox{\hyperlink{_resolution_8h}{Resolution.\+h}}\end{DoxyCompactItemize}

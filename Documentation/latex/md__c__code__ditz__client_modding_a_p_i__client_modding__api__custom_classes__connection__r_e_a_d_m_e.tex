@@ -1,0 +1,9 @@
+Gives access to some session-\/related informations. This object is accessible through {\ttfamily connection}.\hypertarget{md__c__code__ditz__client_modding_a_p_i__client_modding__api__custom_classes__connection__r_e_a_d_m_e_autotoc_md1}{}\doxysection{Serv\+Chan}\label{md__c__code__ditz__client_modding_a_p_i__client_modding__api__custom_classes__connection__r_e_a_d_m_e_autotoc_md1}
+Accessed through {\ttfamily connection.\+serv\+Chan} This object gives access to the server and channel ID, like \+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::cout}
+\DoxyCodeLine{    << \textcolor{stringliteral}{"{}We are on server "{}} << connection.servChan.GetServer()}
+\DoxyCodeLine{    << \textcolor{stringliteral}{"{} and on channel "{}}  << connection.servChan.GetChannel();}
+
+\end{DoxyCode}
+ 

@@ -1,0 +1,93 @@
+\hypertarget{class_packet_manager}{}\doxysection{Packet\+Manager Class Reference}
+\label{class_packet_manager}\index{PacketManager@{PacketManager}}
+
+
+Class that holds all packet related stuff (Hooking and Custom packets).  
+
+
+
+
+{\ttfamily \#include $<$Packet\+Manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_packet_manager_a7320fcc2691fa82b89a1cb6b666b2b6f}{Packet\+Manager}} ()
+\item 
+\mbox{\hyperlink{class_packet_manager_a9d47311266ca292dbd2a6f7d9167463a}{$\sim$\+Packet\+Manager}} ()
+\item 
+bool \mbox{\hyperlink{class_packet_manager_a35a918468c81b840884f58fc3faa6ff4}{Subscribe}} (\mbox{\hyperlink{_packet_manager_8h_a0a80a7bc045affcf10846075b88cbca0}{Packet\+Type}} \mbox{\hyperlink{_packet_manager_8h_a0a80a7bc045affcf10846075b88cbca0}{Packet\+Type}}, const std\+::string \&Packet\+Header, const std\+::function$<$ void(std\+::string \&)$>$ \&\mbox{\hyperlink{class_callback}{Callback}})
+\item 
+bool \mbox{\hyperlink{class_packet_manager_afce22d490757b74578943ef904718c55}{Unsubscribe}} (\mbox{\hyperlink{_packet_manager_8h_a0a80a7bc045affcf10846075b88cbca0}{Packet\+Type}} \mbox{\hyperlink{_packet_manager_8h_a0a80a7bc045affcf10846075b88cbca0}{Packet\+Type}}, const std\+::string \&Packet\+Header)
+\item 
+void \mbox{\hyperlink{class_packet_manager_a52242b2bf0f8de263839878e7e96bfb4}{Send}} (const std\+::string \&Packet)
+\item 
+void \mbox{\hyperlink{class_packet_manager_a2100fd104e0e6880ecd2aa2dc7f09edf}{Receive}} (const std\+::string \&Packet)
+\item 
+void \mbox{\hyperlink{class_packet_manager_aeccabe2f888a445fea4aa104ab8b7e98}{on\+Sent}} (char $\ast$Packet)
+\item 
+void \mbox{\hyperlink{class_packet_manager_ab049cc33076494fe3db522477c64dad4}{on\+Rcvd}} (char $\ast$Packet)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that holds all packet related stuff (Hooking and Custom packets). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_packet_manager_a7320fcc2691fa82b89a1cb6b666b2b6f}\label{class_packet_manager_a7320fcc2691fa82b89a1cb6b666b2b6f}} 
+\index{PacketManager@{PacketManager}!PacketManager@{PacketManager}}
+\index{PacketManager@{PacketManager}!PacketManager@{PacketManager}}
+\doxysubsubsection{\texorpdfstring{PacketManager()}{PacketManager()}}
+{\footnotesize\ttfamily Packet\+Manager\+::\+Packet\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_packet_manager_a9d47311266ca292dbd2a6f7d9167463a}\label{class_packet_manager_a9d47311266ca292dbd2a6f7d9167463a}} 
+\index{PacketManager@{PacketManager}!````~PacketManager@{$\sim$PacketManager}}
+\index{````~PacketManager@{$\sim$PacketManager}!PacketManager@{PacketManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$PacketManager()}{~PacketManager()}}
+{\footnotesize\ttfamily Packet\+Manager\+::$\sim$\+Packet\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_packet_manager_ab049cc33076494fe3db522477c64dad4}\label{class_packet_manager_ab049cc33076494fe3db522477c64dad4}} 
+\index{PacketManager@{PacketManager}!onRcvd@{onRcvd}}
+\index{onRcvd@{onRcvd}!PacketManager@{PacketManager}}
+\doxysubsubsection{\texorpdfstring{onRcvd()}{onRcvd()}}
+{\footnotesize\ttfamily void Packet\+Manager\+::on\+Rcvd (\begin{DoxyParamCaption}\item[{char $\ast$}]{Packet }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_packet_manager_aeccabe2f888a445fea4aa104ab8b7e98}\label{class_packet_manager_aeccabe2f888a445fea4aa104ab8b7e98}} 
+\index{PacketManager@{PacketManager}!onSent@{onSent}}
+\index{onSent@{onSent}!PacketManager@{PacketManager}}
+\doxysubsubsection{\texorpdfstring{onSent()}{onSent()}}
+{\footnotesize\ttfamily void Packet\+Manager\+::on\+Sent (\begin{DoxyParamCaption}\item[{char $\ast$}]{Packet }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_packet_manager_a2100fd104e0e6880ecd2aa2dc7f09edf}\label{class_packet_manager_a2100fd104e0e6880ecd2aa2dc7f09edf}} 
+\index{PacketManager@{PacketManager}!Receive@{Receive}}
+\index{Receive@{Receive}!PacketManager@{PacketManager}}
+\doxysubsubsection{\texorpdfstring{Receive()}{Receive()}}
+{\footnotesize\ttfamily void Packet\+Manager\+::\+Receive (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Packet }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_packet_manager_a52242b2bf0f8de263839878e7e96bfb4}\label{class_packet_manager_a52242b2bf0f8de263839878e7e96bfb4}} 
+\index{PacketManager@{PacketManager}!Send@{Send}}
+\index{Send@{Send}!PacketManager@{PacketManager}}
+\doxysubsubsection{\texorpdfstring{Send()}{Send()}}
+{\footnotesize\ttfamily void Packet\+Manager\+::\+Send (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Packet }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_packet_manager_a35a918468c81b840884f58fc3faa6ff4}\label{class_packet_manager_a35a918468c81b840884f58fc3faa6ff4}} 
+\index{PacketManager@{PacketManager}!Subscribe@{Subscribe}}
+\index{Subscribe@{Subscribe}!PacketManager@{PacketManager}}
+\doxysubsubsection{\texorpdfstring{Subscribe()}{Subscribe()}}
+{\footnotesize\ttfamily bool Packet\+Manager\+::\+Subscribe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_packet_manager_8h_a0a80a7bc045affcf10846075b88cbca0}{Packet\+Type}}}]{Packet\+Type,  }\item[{const std\+::string \&}]{Packet\+Header,  }\item[{const std\+::function$<$ void(std\+::string \&)$>$ \&}]{Callback }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_packet_manager_afce22d490757b74578943ef904718c55}\label{class_packet_manager_afce22d490757b74578943ef904718c55}} 
+\index{PacketManager@{PacketManager}!Unsubscribe@{Unsubscribe}}
+\index{Unsubscribe@{Unsubscribe}!PacketManager@{PacketManager}}
+\doxysubsubsection{\texorpdfstring{Unsubscribe()}{Unsubscribe()}}
+{\footnotesize\ttfamily bool Packet\+Manager\+::\+Unsubscribe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_packet_manager_8h_a0a80a7bc045affcf10846075b88cbca0}{Packet\+Type}}}]{Packet\+Type,  }\item[{const std\+::string \&}]{Packet\+Header }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/code/\+Ditz/\+Client\+Modding\+API/\+Client\+Modding/\+Api/\+Packet\+Manager/\mbox{\hyperlink{_packet_manager_8h}{Packet\+Manager.\+h}}\item 
+C\+:/code/\+Ditz/\+Client\+Modding\+API/\+Client\+Modding/\+Api/\+Packet\+Manager/\mbox{\hyperlink{_packet_manager_8cpp}{Packet\+Manager.\+cpp}}\end{DoxyCompactItemize}
