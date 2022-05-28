@@ -1,7 +1,3 @@
-# ClientModdingAPI
-
-## Discord library
-
 # NostaleWidget
 
 ## How to compile
