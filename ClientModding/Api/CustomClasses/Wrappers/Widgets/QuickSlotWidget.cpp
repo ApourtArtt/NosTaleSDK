@@ -1,5 +1,6 @@
 #include "QuickSlotWidget.h"
 #include "../../../../MemoryHelper/PatternScan.h"
+#include "../../../../Utils/Logger.h"
 
 QuickSlotWidget& QuickSlotWidget::getInstance()
 {
@@ -44,10 +45,12 @@ void QuickSlotWidget::getAddress()
 	if (!address)
 	{
 		quickSlotWidget = nullptr;
+		Logger::Log("Failed loading QuickSlotWidget address");
 		return;
 	}
 
 	quickSlotWidget = ***(TNTQuickSlotWidget****)address;
+	Logger::Log("QuickSlotWidget pattern address: %x - widget address: %x", address, quickSlotWidget);
 }
 
 void QuickSlotWidget::addCooldownLabels()

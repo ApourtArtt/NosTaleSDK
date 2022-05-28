@@ -10,44 +10,53 @@ DiscordManager::DiscordManager()
 {
 	activity.SetType(discord::ActivityType::Playing);
 	activity.GetTimestamps().SetStart(time(0));
-	activity.GetAssets().SetLargeImage("ditz_logo");
-	activity.GetAssets().SetLargeText("Ditz");
+	activity.GetAssets().SetLargeImage("Image name");
+	activity.GetAssets().SetLargeText("Name of your server");
 }
 
 DiscordManager::~DiscordManager()
 {
 	started = false;
-	if (runner.joinable())
+	if (runner.joinable()) [[likely]]
 		runner.join();
-	if (core)
+	if (core) [[likely]]
+	{
 		delete core;
+		core = nullptr;
+	}
 }
 
-void DiscordManager::Start()
+bool DiscordManager::Start()
 {
-	if (core)
+	if (core) [[likely]]
+	{
 		delete core;
+		core = nullptr;
+	}
 
 	started = true;
-	auto res = discord::Core::Create(858502310669582346, (uint64_t)discord::CreateFlags::Default, &core);
-	if (res == discord::Result::Ok)
+	auto res = discord::Core::Create(858502310669582346 /* Replace it with your application id */, static_cast<uint64_t>(discord::CreateFlags::Default), &core);
+	if (res != discord::Result::Ok)
+		return false;
+
+	runner = std::thread([&]
 	{
-		runner = std::thread([&]
+		core->UserManager().OnCurrentUserUpdate.Connect([&]()
 		{
-			core->UserManager().OnCurrentUserUpdate.Connect([&]()
-			{
-				core->UserManager().GetCurrentUser(&user);
-			});
-			updateActivity();
-			while (started)
-			{
-				core->RunCallbacks();
-				Sleep(500);
-			}
-			delete core;
-			core = nullptr;
+			core->UserManager().GetCurrentUser(&user);
 		});
-	}
+
+		updateActivity();
+		while (started)
+		{
+			core->RunCallbacks();
+			Sleep(500);
+		}
+
+		delete core;
+		core = nullptr;
+	});
+	return true;
 }
 
 void DiscordManager::Stop()
@@ -91,17 +100,6 @@ void DiscordManager::updateActivity()
 
 		switch (gameActivity)
 		{
-			/*
-			
-	AFK,
-	FARM,
-	ORGANIZE_RAID,
-	PARTICIPATE_RAID,
-	TRAIN_PET,
-	FISH,
-	COOK,
-			*/
-		// TODO: little image + text on hover
 		case DiscordGameActivity::AFK:
 			activity.SetState("Idle");
 			break;

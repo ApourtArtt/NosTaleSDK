@@ -40,7 +40,7 @@ void MonsterSummaryInfoWidget::getAddresses()
 
 	if (!address)
 	{
-		Logger::log("Error on TNTMonsterSummaryInfoWidget pattern scan.\n");
+		Logger::Log("Error on TNTMonsterSummaryInfoWidget pattern scan.\n");
 		monsterSummaryInfoWidget = nullptr;
 		return;
 	}

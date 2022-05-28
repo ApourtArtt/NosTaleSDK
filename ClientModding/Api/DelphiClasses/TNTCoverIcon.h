@@ -1,6 +1,6 @@
 #pragma once
 #include "TNTIconWidget.h"
-#include "../../../../../Properties/Graphical/IconProperties.h"
+#include "../Properties/Graphical/IconProperties.h"
 #pragma pack(push, 1)
 
 /**

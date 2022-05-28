@@ -35,36 +35,75 @@ private:
 class ClassSearcher
 {
 public:
-	static bool Initialize(const std::vector<std::string>& ClassesName)
+	[[nodiscard]] static int Initialize()
 	{
+		std::vector<std::string> classesName{
+			"TEWButtonWidget",
+			"TEWCaptionBar",
+			"TEWControlWidget",
+			"TEWControlWidgetEvent",
+			"TEWControlWidgetEX",
+			"TEWCustomButtonWidget",
+			"TEWCustomFormWidget",
+			"TEWCustomPanelWidget",
+			"TEWEditWidget",
+			"TEWGraphicButtonWidget",
+			"TEWLabel",
+			"TEWLabels",
+			"TEWMoveWidget",
+			"TEWScrollBar",
+			"TEWScrollBarThumb",
+			"TEWScrollBarTrack",
+			"TGameRootWidget",
+			"TLBSCamera",
+			"TLBSRotDamper",
+			"TLBSWidget",
+			"TLBSWidgetHandler",
+			"TLBSWidgetList",
+			"TList",
+			"TNTCoverIcon",
+			"TNTDataList",
+			"TNTGameOptionWidget",
+			"TNTIconWidget",
+			"TNTItemList",
+			"TNTMonsterSummaryInfoWidget",
+			"TNTNewCharacterSkillInfoWidget",
+			"TNTNewCharacterStandardInfoWidget",
+			"TNTQuickSlotWidget",
+			"TNTTimeAniIcon",
+			"TObject",
+			"TSceneManager",
+		};
+
 		MODULEINFO mInfo = { 0 };
-		HMODULE hModuleExe = GetModuleHandle(NULL);
-		if (hModuleExe == 0) return false;
+		HMODULE hModuleExe = GetModuleHandle(nullptr);
+		if (hModuleExe == 0) return -2;
 		GetModuleInformation(GetCurrentProcess(), hModuleExe, &mInfo, sizeof(MODULEINFO));
 		DWORD base = (DWORD)mInfo.lpBaseOfDll;
 		DWORD size = (DWORD)mInfo.SizeOfImage;
 		data.resize(size);
 		memcpy(data.data(), (char*)base, size);
 
-		for (auto& className : ClassesName)
+		for (size_t i = 0; i < classesName.size(); i++)
 		{
-			std::string pattern = getPattern(className);
+			std::string pattern = getPattern(classesName[i]);
 			int pos = data.find(pattern);
 			if (pos == std::string::npos)
-				return false;
+				return i;
 			int addr = base + pos;
 
-			for (int32_t i = addr - 4;; i--)
+			for (int32_t j = addr - 4;; j--)
 			{
-				if (i < base)
-					return false;
-				if (*(int32_t*)i == addr)
+				if (j < base)
+					return i;
+				if (*(int32_t*)j == addr)
 				{
-					classesInfo.emplace(className, ClassInfo(className, *(int32_t*)(i + 4), i - 0x20, *(int32_t*)i));
+					classesInfo.emplace(classesName[i], ClassInfo(classesName[i], *(int32_t*)(j + 4), j - 0x20, *(int32_t*)j));
 					break;
 				}
 			}
 		}
+		return -1;
 	}
 
 	static const ClassInfo& GetClassInfoFromName(const std::string& ClassName)

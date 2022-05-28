@@ -1,6 +1,7 @@
 #include "PacketManager.h"
 #include "../Properties/Logical/String.h"
 #include "../../Utils/Split.h"
+#include "../../Utils/Logger.h"
 #include "../../MemoryHelper/PatternScan.h"
 #include "../../MemoryHelper/Patch.h"
 
@@ -8,73 +9,82 @@ void detourSendFunc();
 void detourRcvdFunc();
 std::function<void(char*)> onS, onR;
 
-PacketManager::PacketManager()
+PacketManager::~PacketManager()
+{
+	if (hookSend != nullptr)
+	{
+		delete hookSend;
+		hookSend = nullptr;
+	}
+	if (hookRecv != nullptr)
+	{
+		delete hookRecv;
+		hookRecv = nullptr;
+	}
+}
+
+bool PacketManager::Initialize()
 {
 	lpvSendAddy = PatternScan(
 		"\x53\x56\x8B\xF2\x8B\xD8\xEB\x04",
 		"xxxxxxxx"
 	);
+	if (lpvSendAddy == nullptr)
+		return false;
+
 	lpvRecvAddy = PatternScan(
 		"\x55\x8B\xEC\x83\xC4\xF0\x53\x56\x57\x33\xC9\x89\x4D\xF4\x89\x4D\xF0\x89\x55\xFC\x8B\xD8\x8B\x45\xFC",
 		"xxxxx?xxxxxxx?xx?xx?xxxx?"
 	);
+	if (lpvRecvAddy == nullptr)
+		return false;
+
 	lpvPacketThis = PatternScan(
 		"\xA1\x00\x00\x00\x00\x8B\x00\xE8\x00\x00\x00\x00\xA1\x00\x00\x00\x00\x8B\x00\x33\xD2\x89\x10",
 		"x????xxx????x????xxxxxx",
 		1
 	);
+	if (lpvPacketThis == nullptr)
+		return false;
 
-	onS = [&](char* Packet) { onSent(Packet); };
-	onR = [&](char* Packet) { onRcvd(Packet); };
+
+	onS = [this](char* Packet) { onSent(Packet); };
+	onR = [this](char* Packet) { onRcvd(Packet); };
 
 	hookSend = new TrampolineHook(lpvSendAddy, detourSendFunc, HOOK_SIZE);
 	hookRecv = new TrampolineHook(lpvRecvAddy, detourRcvdFunc, HOOK_SIZE);
-}
-
-PacketManager::~PacketManager()
-{
-	delete hookSend;
-	delete hookRecv;
-}
-
-bool PacketManager::Subscribe(PacketType PacketType, const std::string& PacketHeader, const std::function<void(std::string&)>& Callback)
-{
-	if (PacketType == PacketType::SENT)
-	{
-		sent.lock();
-		if (sentSubscriptions.find(PacketHeader) == sentSubscriptions.end())
-			sentSubscriptions.emplace(PacketHeader, Callback);
-		sent.unlock();
-	}
-	else
-	{
-		rcvd.lock();
-		if (rcvdSubscriptions.find(PacketHeader) == rcvdSubscriptions.end())
-			rcvdSubscriptions.emplace(PacketHeader, Callback);
-		rcvd.unlock();
-	}
 
 	return true;
 }
 
-bool PacketManager::Unsubscribe(PacketType PacketType, const std::string& PacketHeader)
+void PacketManager::Subscribe(PacketType PacketType, const std::string& PacketHeader, const std::function<void(std::string&)>& Callback)
 {
+	rcvd.lock();
+
+	if (PacketType == PacketType::SENT)
+		sentSubscriptions[PacketHeader].push_back(Callback);
+	else
+		rcvdSubscriptions[PacketHeader].push_back(Callback);
+
+	rcvd.unlock();
+}
+
+void PacketManager::Unsubscribe(PacketType PacketType, const std::string& PacketHeader)
+{
+	rcvd.lock();
+
 	if (PacketType == PacketType::SENT)
 	{
-		sent.lock();
 		if (sentSubscriptions.find(PacketHeader) != sentSubscriptions.end())
 			sentSubscriptions.erase(PacketHeader);
-		sent.unlock();
 	}
 	else
 	{
-		rcvd.lock();
 		if (rcvdSubscriptions.find(PacketHeader) != rcvdSubscriptions.end())
 			rcvdSubscriptions.erase(PacketHeader);
-		rcvd.unlock();
 	}
 
-	return true;
+	rcvd.unlock();
 }
 
 void PacketManager::Send(const std::string& Packet)
@@ -118,11 +128,14 @@ void PacketManager::onSent(char* Packet)
 
 	std::string packet = Packet;
 	auto header = packet.substr(0, packet.find(' ', 0));
+	if (header.find('#') > -1) // The header could be "#something^like^that" and we only want "#something"
+		header = packet.substr(0, packet.find('^', 0));
 
-
-	auto&& subscriber = sentSubscriptions.find(header);
-	if (subscriber != sentSubscriptions.end())
-		subscriber->second(packet);
+	if (rcvdSubscriptions.find(header) != rcvdSubscriptions.end())
+	{
+		for (auto& subscriber : rcvdSubscriptions[header])
+			subscriber(packet);
+	}
 
 	sent.unlock();
 }
@@ -133,11 +146,14 @@ void PacketManager::onRcvd(char* Packet)
 
 	std::string packet = Packet;
 	auto header = packet.substr(0, packet.find(' ', 0));
+	if (header.find('#') > -1) // The header could be "#something^like^that" and we only want "#something"
+		header = packet.substr(0, packet.find('^', 0));
 
-
-	auto&& subscriber = rcvdSubscriptions.find(header);
-	if (subscriber != rcvdSubscriptions.end())
-		subscriber->second(packet);
+	if (rcvdSubscriptions.find(header) != rcvdSubscriptions.end())
+	{
+		for (auto& subscriber : rcvdSubscriptions[header])
+			subscriber(packet);
+	}
 
 	rcvd.unlock();
 }
@@ -148,10 +164,18 @@ void detourSendFunc()
 
 	__asm
 	{
+		pushad;
+		pushfd;
 		mov packet, edx;
 	}
 
 	onS(packet);
+
+	__asm
+	{
+		popfd;
+		popad;
+	}
 }
 
 void detourRcvdFunc()
@@ -160,8 +184,16 @@ void detourRcvdFunc()
 
 	__asm
 	{
+		pushad;
+		pushfd;
 		mov packet, edx;
 	}
 
 	onR(packet);
+
+	__asm
+	{
+		popfd;
+		popad;
+	}
 }

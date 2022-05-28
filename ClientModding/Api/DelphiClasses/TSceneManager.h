@@ -1,6 +1,9 @@
 #pragma once
 #include "TObject.h"
+#include "TLBSCamera.h"
 #include "../Properties/Logical/MapGrid.h"
+#include "../../MemoryHelper/PatternScan.h"
+#include "../../Utils/Logger.h"
 
 /**
  * @brief Representation of the game TSceneManager structure.
@@ -8,6 +11,23 @@
 class TSceneManager : public TObject
 {
 public:
+	[[nodiscard]] MapGrid* getMapGrid() { return mapGrid; }
+	[[nodiscard]] TLBSCamera* getCamera() { return camera; }
+
+	[[nodiscard]] static TSceneManager* getNosTaleUniqueInstance()
+	{
+		auto patternAddr = PatternScan(
+			"\xA1\x00\x00\x00\x00\x00\x00\x00\x00\x58\x00\x0F\x84\xBF",
+			"x????????xxxxx",
+			1
+		);
+
+		Logger::Log("[TSceneManager] Pattern address: %x", patternAddr);
+
+		return ***(TSceneManager****)patternAddr;
+	}
+
+private:
 	uint32_t playerListPtr; //0x0004
 	uint32_t monsterListPtr; //0x0008
 	uint32_t npcListPtr; //0x000C
@@ -23,7 +43,7 @@ public:
 	int16_t targetSkillX; //0x0054
 	int16_t targetSkillY; //0x0056
 	char pad_0058[20]; //0x0058
-	class TLBSCamera* TLBSCameraPtr; //0x006C
+	TLBSCamera* camera; //0x006C
 	char pad_0070[48]; //0x0070
-}; //Size: 0x00A0
+};
 static_assert(sizeof(TSceneManager) == 0xA0, "TSceneManager does not have a size of 0xA0");

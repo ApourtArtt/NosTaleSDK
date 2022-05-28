@@ -36,6 +36,7 @@ void __declspec(naked) resolutionHook()
 
 Resolution::Resolution()
 {
+	return;
 	getAddresses();
 
 	resolutions =

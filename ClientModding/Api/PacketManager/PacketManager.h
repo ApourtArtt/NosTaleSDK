@@ -16,23 +16,24 @@ enum class PacketType { SENT, RCVD };
 class PacketManager
 {
 public:
-	PacketManager();
 	~PacketManager();
 
-	bool Subscribe(PacketType PacketType, const std::string& PacketHeader, const std::function<void(std::string&)>& Callback);
-	bool Unsubscribe(PacketType PacketType, const std::string& PacketHeader);
+	bool Initialize();
+
+	void Subscribe(PacketType PacketType, const std::string& PacketHeader, const std::function<void(std::string&)>& Callback);
+	void Unsubscribe(PacketType PacketType, const std::string& PacketHeader);
 
 	void Send(const std::string& Packet);
 	void Receive(const std::string& Packet);
 
-	void onSent(char* Packet);
-	void onRcvd(char* Packet);
-
 private:
 	static constexpr int HOOK_SIZE = 6;
 
-	std::map<std::string, std::function<void(std::string&)>> sentSubscriptions;
-	std::map<std::string, std::function<void(std::string&)>> rcvdSubscriptions;
+	void onSent(char* Packet);
+	void onRcvd(char* Packet);
+
+	std::map<std::string, std::vector<std::function<void(std::string&)>>> sentSubscriptions;
+	std::map<std::string, std::vector<std::function<void(std::string&)>>> rcvdSubscriptions;
 
 	std::mutex sent;
 	std::mutex rcvd;

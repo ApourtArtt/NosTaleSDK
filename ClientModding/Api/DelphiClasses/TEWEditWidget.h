@@ -1,7 +1,7 @@
 #pragma once
-#include "../TEWControlWidget.h"
-#include "../../../../Properties/Logical/String.h"
-#include "../../../../Properties/Logical/Callback.h"
+#include "TEWControlWidget.h"
+#include "../Properties/Logical/String.h"
+#include "../Properties/Logical/Callback.h"
 #include <vector>
 #pragma pack(push, 1)
 

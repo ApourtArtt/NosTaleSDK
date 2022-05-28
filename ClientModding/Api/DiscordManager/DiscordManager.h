@@ -27,7 +27,7 @@ public:
 	DiscordManager();
 	~DiscordManager();
 
-	void Start();
+	bool Start();
 	void Stop();
 
 	void SetPseudonym(const std::string& Pseudonym);

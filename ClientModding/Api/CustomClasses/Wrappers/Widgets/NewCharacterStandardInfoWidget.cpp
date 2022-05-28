@@ -24,9 +24,11 @@ NewCharacterStandardInfoWidget& NewCharacterStandardInfoWidget::getInstance()
 void NewCharacterStandardInfoWidget::makeBeautiful()
 {
     if (characterStandardInfoWidget == nullptr) return;
+    Logger::Log("1");
 
     // If widget has been already resized
     if (characterStandardInfoWidget->getWidth() > DEFAULT_WIDTH) return;
+    Logger::Log("2");
 
     makeMainWidgetBeautiful();
     makeCharacterWidgetBeautiful();
@@ -251,8 +253,10 @@ void NewCharacterStandardInfoWidget::getAddresses()
     if (address == nullptr)
     {
         characterStandardInfoWidget = nullptr;
+        Logger::Log("Failed :(");
         return;
     }
 
     characterStandardInfoWidget = ***(TNTNewCharacterStandardInfoWidget****)address;
+    Logger::Log("%x", characterStandardInfoWidget);
 }

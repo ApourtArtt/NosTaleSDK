@@ -8,7 +8,7 @@
 class Color
 {
 public:
-	Color();
+	[[nodiscard]] bool Initialize();
 
 	void SetRed(float Red);
 	void SetGreen(float Green);
@@ -19,7 +19,5 @@ public:
 	void SetBlueDelta(float Blue);
 
 private:
-	uintptr_t GetAddress();
-
-	uintptr_t address; ///< Game address where the Color structure is located.
+	uintptr_t address;
 };

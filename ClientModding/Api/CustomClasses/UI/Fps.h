@@ -24,7 +24,7 @@ public:
 	void SetFps(int Fps);
 
 private:
-	uintptr_t GetAddress();
+	void GetAddress();
 
 	uintptr_t address; ///< Game address where the sleep value is located.
 };

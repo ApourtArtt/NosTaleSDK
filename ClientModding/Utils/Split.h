@@ -2,13 +2,13 @@
 #include <vector>
 #include <string>
 
-static std::vector<std::string> Split(const std::string& origin, const std::string& delim)
+[[nodiscard]] static std::vector<std::string> Split(const std::string& origin, const std::string& delim) noexcept
 {
     std::vector<std::string> ret;
     std::string::size_type n = 0;
     std::string::size_type cur = n;
     std::string::size_type delim_size = delim.size();
-    while (true)
+    while (true) [[likely]]
     {
         n = origin.find(delim, cur);
         if (n == std::string::npos)

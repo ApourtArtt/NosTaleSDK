@@ -1,14 +1,18 @@
 #include "SkillsCooldown.h"
 #include "../../../MemoryHelper/PatternScan.h"
 #include "../../../MemoryHelper/Patch.h"
+#include "../../../Utils/Logger.h"
 #include <iostream>
 
-constexpr int HOOK_SIZE = 6;
-DWORD TNTQuickSlotWidgetAddress;
-DWORD TNTNewCharacterSkillInfoWidgetAddress;
-TEWLabel* label;
-TNTTimeAniIcon* icon;
-int8_t state;
+namespace
+{
+	constexpr int HOOK_SIZE = 6;
+	DWORD TNTQuickSlotWidgetAddress;
+	DWORD TNTNewCharacterSkillInfoWidgetAddress;
+	TEWLabel* label;
+	TNTTimeAniIcon* icon;
+	int8_t state;
+}
 
 void __declspec(naked) hideSkillLabelsHook()
 {
@@ -22,7 +26,6 @@ void __declspec(naked) hideSkillLabelsHook()
 	{
 		if ((DWORD)icon->getParent() == TNTQuickSlotWidgetAddress)
 			label = QuickSlotWidget::getInstance().getCooldownLabel(icon);
-
 		else if ((DWORD)icon->getParent() == TNTNewCharacterSkillInfoWidgetAddress)
 			label = NewCharacterSkillInfoWidget::getInstance().getCooldownLabel(icon);
 
@@ -56,10 +59,8 @@ void skillCooldownHook()
 	{
 		if ((DWORD)m_icon->getParent() == (DWORD)TNTQuickSlotWidgetAddress)
 			m_label = QuickSlotWidget::getInstance().getCooldownLabel(m_icon);
-
 		else if ((DWORD)m_icon->getParent() == TNTNewCharacterSkillInfoWidgetAddress)
 			m_label = NewCharacterSkillInfoWidget::getInstance().getCooldownLabel(m_icon);
-
 		else
 			return;
 
@@ -68,9 +69,7 @@ void skillCooldownHook()
 		m_seconds = (m_currentCooldown % 60);
 		m_text = m_label->getText();
 		swprintf_s(m_text, 10, L"%02d:%02d", m_minutes, m_seconds);
-
-		if (!m_label->isVisible())
-			m_label->setVisible(true);
+		m_label->setVisible(true);
 	}
 }
 
@@ -83,7 +82,12 @@ SkillsCooldown::SkillsCooldown()
 SkillsCooldown::~SkillsCooldown()
 {
 	for (int i = 0; i < HOOK_NUMBER; i++)
+	{
+		if (trmpHook[i] == nullptr)
+			continue;
 		delete trmpHook[i];
+		trmpHook[i] = nullptr;
+	}
 }
 
 void SkillsCooldown::getAddresses()
@@ -102,6 +106,8 @@ void SkillsCooldown::getAddresses()
 
 	TNTQuickSlotWidgetAddress = QuickSlotWidget::getInstance().getTNTQuickSlotWidgetAddress();
 	TNTNewCharacterSkillInfoWidgetAddress = NewCharacterSkillInfoWidget::getInstance().getTNTNewCharacterSkillInfoWidgetAddress();
+
+	Logger::Log("[SkillsCooldown] pattern addresses: [%x, %x]", hookAddress[0], hookAddress[1]);
 }
 
 void SkillsCooldown::hookFunctions()

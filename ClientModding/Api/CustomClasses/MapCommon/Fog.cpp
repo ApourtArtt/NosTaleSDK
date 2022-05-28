@@ -1,7 +1,28 @@
 #include "Fog.h"
+#include "../../../Utils/Logger.h"
 
-Fog::Fog() : address(GetAddress())
+bool Fog::Initialize()
 {
+	auto patternAddr = PatternScan(
+		"\x80\x3D\x00\x00\x00\x00\x00\x74\x00\xA1\x00\x00\x00\x00\x8B\x00\x50\x6A",
+		"xx????xx?x????xxxx",
+		10
+	);
+	if (patternAddr == nullptr)
+		return false;
+	Logger::Log("[Fog] Pattern address: %x", patternAddr);
+
+	address = *(uintptr_t*)patternAddr;
+	if (address == NULL)
+		return false;
+	Logger::Log("[Fog] |_ %x", address);
+
+	address = *(uintptr_t*)address;
+	if (address == NULL)
+		return false;
+	Logger::Log("[Fog]  |_ %x", address);
+
+	return true;
 }
 
 void Fog::SetBlue(uint8_t Blue)
@@ -27,13 +48,4 @@ void Fog::SetFirstFog(float Value)
 void Fog::SetSecondFog(float Value)
 {
 	*(float*)(address + 0x0C) = Value;
-}
-
-uintptr_t Fog::GetAddress()
-{
-	return *(uintptr_t*)*(uintptr_t*)PatternScan(
-		"\x80\x3D\x00\x00\x00\x00\x00\x74\x00\xA1\x00\x00\x00\x00\x8B\x00\x50\x6A",
-		"xx????xx?x????xxxx",
-		10
-	);
 }

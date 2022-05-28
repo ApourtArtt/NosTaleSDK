@@ -20,7 +20,7 @@ public:
 	int32_t getVTable() const { return vTable; }
 
 protected:
-	int32_t vTable; // 0x00 Define the widget type
+	int32_t vTable; // 0x00
 };
 static_assert(sizeof(TObject) == 0x04, "TObject does not have a size of 0x04.");
 

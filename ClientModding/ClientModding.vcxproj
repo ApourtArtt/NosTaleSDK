@@ -25,9 +25,7 @@
     <ClInclude Include="Api\CustomClasses\UI\Resolution.h" />
     <ClInclude Include="Api\CustomClasses\UI\SkillsCooldown.h" />
     <ClInclude Include="Api\CustomClasses\UI\UI.h" />
-    <ClInclude Include="Api\CustomClasses\Wrappers\Game\SceneManager.h" />
     <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\GameOptionWidget.h" />
-    <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\GameRootWidget.h" />
     <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\MonsterSummaryInfoWidget.h" />
     <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterSkillInfoWidget.h" />
     <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterStandardInfoWidget.h" />
@@ -35,6 +33,7 @@
     <ClInclude Include="Api\DelphiClasses\TLBSCamera.h" />
     <ClInclude Include="Api\DelphiClasses\TLBSRotDamper.h" />
     <ClInclude Include="Api\DelphiClasses\TEWButtonWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TLBSWidgetHandler.h" />
     <ClInclude Include="Api\DelphiClasses\TNTGameOptionWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTNewCharacterSkillInfoWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTNewCharacterStandardInfoWidget.h" />
@@ -73,11 +72,11 @@
     <ClInclude Include="C:\code\discordsdk\cpp\types.h" />
     <ClInclude Include="C:\code\discordsdk\cpp\user_manager.h" />
     <ClInclude Include="C:\code\discordsdk\cpp\voice_manager.h" />
-    <ClInclude Include="Api\CustomClasses\MapCommon\MapObject.h" />
     <ClInclude Include="Api\CustomClasses\MapCommon\MapObject\Color.h" />
     <ClInclude Include="Api\DelphiClasses\ClassSearcher.h" />
     <ClInclude Include="Api\DiscordManager\DiscordManager.h" />
     <ClInclude Include="ClientModding.h" />
+    <ClInclude Include="Example.h" />
     <ClInclude Include="MemoryHelper\HwndGetter.h" />
     <ClInclude Include="MemoryHelper\Patch.h" />
     <ClInclude Include="MemoryHelper\PatternScan.h" />
@@ -136,9 +135,7 @@
     <ClCompile Include="Api\CustomClasses\UI\Resolution.cpp" />
     <ClCompile Include="Api\CustomClasses\UI\SkillsCooldown.cpp" />
     <ClCompile Include="Api\CustomClasses\UI\UI.cpp" />
-    <ClCompile Include="Api\CustomClasses\Wrappers\Game\SceneManager.cpp" />
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\GameOptionWidget.cpp" />
-    <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\GameRootWidget.cpp" />
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\MonsterSummaryInfoWidget.cpp" />
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterSkillInfoWidget.cpp" />
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterStandardInfoWidget.cpp" />
@@ -159,6 +156,7 @@
     <ClCompile Include="C:\code\discordsdk\cpp\voice_manager.cpp" />
     <ClCompile Include="Api\DiscordManager\DiscordManager.cpp" />
     <ClCompile Include="ClientModding.cpp" />
+    <ClCompile Include="Example.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Api\CustomClasses\Connection\Connection.cpp" />
     <ClCompile Include="Api\CustomClasses\MapCommon\MapCommon.cpp" />
@@ -180,26 +178,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -258,7 +256,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>C:\code\discordsdk\cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -276,7 +274,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>C:\code\discordsdk\cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>

@@ -1,7 +1,9 @@
 #include "Fps.h"
 
-Fps::Fps() : address(GetAddress())
+Fps::Fps()
 {
+	return;
+	GetAddress();
 }
 
 void Fps::SetRefreshRate(int RefreshRate)
@@ -16,9 +18,9 @@ void Fps::SetFps(int Fps)
 	else *(uintptr_t*)address = 500 / Fps;
 }
 
-uintptr_t Fps::GetAddress()
+void Fps::GetAddress()
 {
-	return *(uintptr_t*)PatternScan(
+	address = *(uintptr_t*)PatternScan(
 		"\xA3\x60\xC7\x6F\x00\xEB\x0A",
 		"x????xx",
 		1

@@ -49,9 +49,6 @@
     <Filter Include="Api\CustomClasses\Wrappers">
       <UniqueIdentifier>{266543d9-5221-42ee-b537-33359843b75f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Api\CustomClasses\Wrappers\Game">
-      <UniqueIdentifier>{003c0c5f-5dfa-4db8-a45f-ea7eee5132db}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Api\CustomClasses\Wrappers\Widgets">
       <UniqueIdentifier>{8b25a3a5-d83b-4922-9f6e-1654970bce7c}</UniqueIdentifier>
     </Filter>
@@ -195,9 +192,6 @@
     <ClInclude Include="Utils\Logger.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Api\CustomClasses\MapCommon\MapObject.h">
-      <Filter>Api\CustomClasses\MapCommon</Filter>
-    </ClInclude>
     <ClInclude Include="Api\CustomClasses\MapCommon\MapObject\Color.h">
       <Filter>Api\CustomClasses\MapCommon\MapObject</Filter>
     </ClInclude>
@@ -268,9 +262,6 @@
     <ClInclude Include="Api\CustomClasses\UI\Resolution.h">
       <Filter>Api\CustomClasses\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Api\CustomClasses\Wrappers\Game\SceneManager.h">
-      <Filter>Api\CustomClasses\Wrappers\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Api\DelphiClasses\TLBSCamera.h">
       <Filter>Api\DelphiClasses</Filter>
     </ClInclude>
@@ -331,9 +322,6 @@
     <ClInclude Include="Api\Properties\Logical\MapGrid.h">
       <Filter>Api\Properties\Logical</Filter>
     </ClInclude>
-    <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\GameRootWidget.h">
-      <Filter>Api\CustomClasses\Wrappers\Widgets</Filter>
-    </ClInclude>
     <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\GameOptionWidget.h">
       <Filter>Api\CustomClasses\Wrappers\Widgets</Filter>
     </ClInclude>
@@ -376,6 +364,10 @@
     <ClInclude Include="Api\CustomClasses\UI\KeyBindWidget.h">
       <Filter>Api\CustomClasses\UI</Filter>
     </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TLBSWidgetHandler.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Example.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Api\PacketManager\PacketManager.cpp">
@@ -437,9 +429,6 @@
     <ClCompile Include="Api\CustomClasses\UI\UI.cpp">
       <Filter>Api\CustomClasses\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Api\CustomClasses\Wrappers\Game\SceneManager.cpp">
-      <Filter>Api\CustomClasses\Wrappers\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterStandardInfoWidget.cpp">
       <Filter>Api\CustomClasses\Wrappers\Widgets</Filter>
     </ClCompile>
@@ -460,9 +449,6 @@
     </ClCompile>
     <ClCompile Include="Api\CustomClasses\UI\Fps.cpp">
       <Filter>Api\CustomClasses\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\GameRootWidget.cpp">
-      <Filter>Api\CustomClasses\Wrappers\Widgets</Filter>
     </ClCompile>
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\QuickSlotWidget.cpp">
       <Filter>Api\CustomClasses\Wrappers\Widgets</Filter>
@@ -485,6 +471,7 @@
     <ClCompile Include="Api\CustomClasses\UI\KeyBindWidget.cpp">
       <Filter>Api\CustomClasses\UI</Filter>
     </ClCompile>
+    <ClCompile Include="Example.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Api\DelphiClasses\TNTMonsterSummaryInfoWidget.h">

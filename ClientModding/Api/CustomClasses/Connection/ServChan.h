@@ -7,11 +7,11 @@
 class ServChan
 {
 public:
-	ServChan();
+	[[nodiscard]] bool Initialize();
 
-	short GetServer() const;
-	short GetChannel() const;
+	[[nodiscard]] short GetServer() const;
+	[[nodiscard]] short GetChannel() const;
 
 private:
-	uintptr_t address; ///< Game address to find server and channel values
+	uintptr_t address;
 };

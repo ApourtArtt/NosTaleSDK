@@ -9,6 +9,8 @@ class Connection
 public:
 	Connection();
 
+	[[nodiscard]] bool Initialize();
+
 	ServChan servChan;
 
 private:

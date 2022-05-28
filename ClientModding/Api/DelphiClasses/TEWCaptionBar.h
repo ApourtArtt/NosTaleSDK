@@ -1,8 +1,8 @@
 #pragma once
 #include "TEWParentMoveWidget.h"
-#include "../../../../Properties/Graphical/TextPosition.h"
-#include "../../../../Properties/Graphical/TextStyle.h"
-#include "../../../../Properties/Logical/String.h"
+#include "../Properties/Graphical/TextPosition.h"
+#include "../Properties/Graphical/TextStyle.h"
+#include "../Properties/Logical/String.h"
 #pragma pack(push, 1)
 
 /**

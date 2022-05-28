@@ -1,6 +1,6 @@
 #pragma once
-#include "../TEWControlWidget.h"
-#include "../../../../Properties/Graphical/GhostBorder.h"
+#include "TEWControlWidget.h"
+#include "../Properties/Graphical/GhostBorder.h"
 #pragma pack(push, 1)
 
 /**

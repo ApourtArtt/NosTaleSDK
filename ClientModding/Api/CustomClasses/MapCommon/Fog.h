@@ -9,7 +9,7 @@
 class Fog
 {
 public:
-	Fog();
+	[[nodiscard]] bool Initialize();
 
 	void SetBlue(uint8_t Blue);
 	void SetGreen(uint8_t Green);
@@ -19,7 +19,5 @@ public:
 	void SetSecondFog(float Value);
 
 private:
-	uintptr_t GetAddress();
-
-	uintptr_t address; ///< Game address of the Fog structure
+	uintptr_t address;
 };
