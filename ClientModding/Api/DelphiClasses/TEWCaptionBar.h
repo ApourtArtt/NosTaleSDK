@@ -11,7 +11,7 @@
 class TEWCaptionBar : public TEWParentMoveWidget
 {
 public:
-	TEWCaptionBar(TLBSWidget* Parent, Border Border, bgra Bgra, TextStyle TextStyle, TextPosition TextPosition, GhostBorder GhostBorder = GhostBorder())
+	TEWCaptionBar(TLBSWidget* Parent, Border Border, Bgra Bgra, TextStyle TextStyle, TextPosition TextPosition, GhostBorder GhostBorder = GhostBorder())
 		: TEWParentMoveWidget(ClassSearcher::GetClassInfoFromName("TEWCaptionBar").GetVTable()
 		, 0x1, Parent, nullptr, Border)
 		, textStyle(TextStyle)
@@ -34,6 +34,6 @@ protected:
 	char unknown19[3];					// 0xA1
 	TextPosition textPosition;			// 0xA4
 };
-static_assert(sizeof(TEWCaptionBar) == 0xB4, "TewCaptionBar does not have a size of 0xB4.");
+static_assert(sizeof(TEWCaptionBar) == 0xB4, "TEWCaptionBar does not have a size of 0xB4.");
 
 #pragma pack(pop)

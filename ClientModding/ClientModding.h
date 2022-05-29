@@ -22,6 +22,12 @@ public:
 private:
 	void on_PR_tit(std::string& packet);
 
+	HWND hwnd{};
+
+protected:
+	virtual bool beforeRun() { return true; }
+	virtual void tick() {}
+
 	Connection connection{};
 	MapCommon mapCommon{};
 	DiscordManager discordMng{};
@@ -29,10 +35,4 @@ private:
 
 	TLBSWidgetHandler* ntWidgetHandler{ nullptr };
 	TSceneManager* ntSceneMng{ nullptr };
-
-	HWND hwnd{};
-
-protected:
-	virtual bool beforeRun() { return true; }
-	virtual void tick() {}
 };

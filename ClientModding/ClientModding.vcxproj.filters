@@ -368,6 +368,7 @@
       <Filter>Api\DelphiClasses</Filter>
     </ClInclude>
     <ClInclude Include="Example.h" />
+    <ClInclude Include="ExampleRatufuWidget.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Api\PacketManager\PacketManager.cpp">
@@ -472,6 +473,7 @@
       <Filter>Api\CustomClasses\UI</Filter>
     </ClCompile>
     <ClCompile Include="Example.cpp" />
+    <ClCompile Include="ExampleRatufuWidget.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Api\DelphiClasses\TNTMonsterSummaryInfoWidget.h">

@@ -18,6 +18,14 @@ bool Example::beforeRun()
 	// once this is called, everything is ready.
 	// You should add here, everything that must be initialized, done once.
 	// Example: if you want to create a widget, you should create it here.
+
+	if (!ratufuWidget.Initialize(ntWidgetHandler->getGameRootWidget()))
+	{
+		Logger::Log("[RatufuWidget] Failed initialization");
+		return false;
+	}
+	Logger::Log("[RatufuWidget] Successfully initialized");
+
 	return true;
 }
 

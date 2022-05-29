@@ -1,5 +1,4 @@
 #include "Example.h"
-#include "Utils/Logger.h"
 
 void EventLoop(HMODULE hModule)
 {
