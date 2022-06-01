@@ -90,7 +90,21 @@ void __declspec(naked) wingsHook() noexcept
 WingsManager::WingsManager(const WingsManagerConfig& Config)
 	: config(Config)
 {
-	wings.merge(config.AdditionalWings);
+	for (auto const& [k1, v1] : config.AdditionalWings)
+	{
+		if (wings.find(k1) == wings.end())
+			wings.insert({ k1, v1 });
+		else
+		{
+			for (auto const& [k2, v2] : v1)
+			{
+				if (wings[k1].find(k2) == wings[k1].end())
+					wings[k1].insert({ k2, v2 });
+				else
+					wings[k1][k2] = v2;
+			}
+		}
+	}
 }
 
 bool WingsManager::Initialize()
