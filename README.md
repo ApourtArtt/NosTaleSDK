@@ -1,5 +1,23 @@
 # NostaleWidget
 
+## Features
+### Big features
+- [x] Discord integration (tutorial TODO)
+- [x] Widget creation ([tutorial](https://github.com/ApourtArtt/NostaleWidget/wiki/Windows-and-widgets))
+- [x] Widget modification (tutorial TODO)
+- [x] Packet management and interaction ([tutorial](https://github.com/ApourtArtt/NostaleWidget/wiki/Packet-management))
+
+### Little features
+- [x] Access to server and channel values in game
+- [x] Change map fog color, intensity, objects color
+- [x] Idle the game when not visible
+- [ ] See target HP/MP
+- [ ] See cooldown timers
+- [ ] Ctrl+Z while busy without breaking action
+- [ ] Add range for talking with NPC
+
+### You can also submit your idea in the issues
+
 ## How to compile
 I recommand using Visual Studio (2019 or 2022) - C++17 and above is supported
 
