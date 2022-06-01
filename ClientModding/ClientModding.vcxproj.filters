@@ -388,6 +388,9 @@
     <ClInclude Include="Api\Hooks\WingsManager\DefaultWings.h">
       <Filter>Api\Hooks\WingsManager</Filter>
     </ClInclude>
+    <ClInclude Include="Api\Hooks\WingsManager\DefaultAuras.h">
+      <Filter>Api\Hooks\WingsManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Api\PacketManager\PacketManager.cpp">

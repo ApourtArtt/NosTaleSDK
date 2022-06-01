@@ -47,6 +47,7 @@
     <ClInclude Include="Api\Enums\CellType.h" />
     <ClInclude Include="Api\Enums\KeyCode.h" />
     <ClInclude Include="Api\Enums\KeyModifier.h" />
+    <ClInclude Include="Api\Hooks\WingsManager\DefaultAuras.h" />
     <ClInclude Include="Api\Hooks\WingsManager\DefaultWings.h" />
     <ClInclude Include="Api\Hooks\WingsManager\WingsManager.h" />
     <ClInclude Include="Api\Hooks\WingsManager\WingsConfig.h" />
