@@ -6,7 +6,7 @@
 - [x] Widget creation ([tutorial](https://github.com/ApourtArtt/NostaleWidget/wiki/Windows-and-widgets))
 - [x] Widget modification (tutorial TODO)
 - [x] Packet management and interaction ([tutorial](https://github.com/ApourtArtt/NostaleWidget/wiki/Packet-management))
-- [x] Wings creation and modification (tutorial TODO)
+- [x] Wings and Auras creation and modification (tutorial TODO)
 
 ### Little features
 - [x] Access to server and channel values in game
