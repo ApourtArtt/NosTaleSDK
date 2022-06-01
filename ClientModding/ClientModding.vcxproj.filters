@@ -55,6 +55,9 @@
     <Filter Include="Api\Enums">
       <UniqueIdentifier>{4daa0fc4-d7b9-4bbd-82d2-143329dff423}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Api\Hooks">
+      <UniqueIdentifier>{2d75ffc5-5f50-4238-9d9a-61030361f22f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Api\Properties\Logical\String.h">
@@ -369,6 +372,9 @@
     </ClInclude>
     <ClInclude Include="Example.h" />
     <ClInclude Include="ExampleRatufuWidget.h" />
+    <ClInclude Include="Api\Hooks\WingsManager.h">
+      <Filter>Api\Hooks</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Api\PacketManager\PacketManager.cpp">
@@ -474,6 +480,9 @@
     </ClCompile>
     <ClCompile Include="Example.cpp" />
     <ClCompile Include="ExampleRatufuWidget.cpp" />
+    <ClCompile Include="Api\Hooks\WingsManager.cpp">
+      <Filter>Api\Hooks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Api\DelphiClasses\TNTMonsterSummaryInfoWidget.h">

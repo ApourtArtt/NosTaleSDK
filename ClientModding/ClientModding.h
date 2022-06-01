@@ -8,6 +8,8 @@
 #include "Api/DiscordManager/DiscordManager.h"
 #include "Api/PacketManager/PacketManager.h"
 
+#include "Api/Hooks/WingsManager.h"
+
 class ClientModding
 {
 public:
@@ -32,6 +34,8 @@ protected:
 	MapCommon mapCommon{};
 	DiscordManager discordMng{};
 	PacketManager packetMng{};
+
+	WingsManager wingsMng{};
 
 	TLBSWidgetHandler* ntWidgetHandler{ nullptr };
 	TSceneManager* ntSceneMng{ nullptr };

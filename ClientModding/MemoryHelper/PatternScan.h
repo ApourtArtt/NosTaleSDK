@@ -26,14 +26,18 @@ static MODULEINFO GetModuleInfo()
  * @param Offset Added to final pattern scan result
  * @return Address found + offset
  */
-static void* PatternScan(const char* Pattern, const char* Mask, uint32_t Offset = 0)
+static void* PatternScan(const char* Pattern, const char* Mask, uint32_t Offset = 0, uint32_t Start = 0)
 {
     MODULEINFO mInfo = GetModuleInfo();
 	auto base = (uint32_t)mInfo.lpBaseOfDll;
 	auto size = (uint32_t)mInfo.SizeOfImage;
     uint32_t patternLength = strlen(Mask);
 
-    for (auto i = 0; i < size - patternLength; i++)
+    auto i = Start;
+    if (i > base)
+        i -= base;
+
+    for (; i < size - patternLength; i++)
     {
         bool found = true;
         for (DWORD j = 0; j < patternLength && found; j++)

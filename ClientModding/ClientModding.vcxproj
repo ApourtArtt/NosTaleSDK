@@ -46,6 +46,7 @@
     <ClInclude Include="Api\Enums\CellType.h" />
     <ClInclude Include="Api\Enums\KeyCode.h" />
     <ClInclude Include="Api\Enums\KeyModifier.h" />
+    <ClInclude Include="Api\Hooks\WingsManager.h" />
     <ClInclude Include="Api\Properties\Logical\MapGrid.h" />
     <ClInclude Include="Api\Properties\Logical\PartnerEquipmentIcons.h" />
     <ClInclude Include="Api\Properties\Logical\PartnerInformation.h" />
@@ -141,6 +142,7 @@
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterSkillInfoWidget.cpp" />
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterStandardInfoWidget.cpp" />
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\QuickSlotWidget.cpp" />
+    <ClCompile Include="Api\Hooks\WingsManager.cpp" />
     <ClCompile Include="C:\code\discordsdk\cpp\achievement_manager.cpp" />
     <ClCompile Include="C:\code\discordsdk\cpp\activity_manager.cpp" />
     <ClCompile Include="C:\code\discordsdk\cpp\application_manager.cpp" />

@@ -30,6 +30,14 @@ bool ClientModding::Initialize()
 		Logger::Log("[PacketManager] Failed initialization");
 		return false;
 	}
+	Logger::Log("[PacketManager] Successfully initialized");
+
+	if (!wingsMng.Initialize())
+	{
+		Logger::Log("[WingsManager] failed initialization");
+		return false;
+	}
+	Logger::Log("[WingsManager] Successfully initialized");
 
 	if (!connection.Initialize())
 	{
@@ -82,8 +90,6 @@ void ClientModding::Run(unsigned int sleepTime)
 
 void ClientModding::Tick()
 {
-	Logger::Log("yes");
-
 	// Automatically turn off the game render when window is minimized
 	if (!IsWindowVisible(hwnd))
 		ntWidgetHandler->getGameRootWidget()->setVisible(false);
