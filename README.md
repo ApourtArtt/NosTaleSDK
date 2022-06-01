@@ -19,7 +19,7 @@
 ### You can also submit your idea in the issues
 
 ## How to compile
-I recommand using Visual Studio (2019 or 2022) - C++17 and above is supported
+I recommand using Visual Studio (2019 or 2022) - C++20 is supported
 
 ### 1) You should add Discord SDK
 Create a folder in `C:` named `code`. Unzip the [Discord SDK](https://dl-game-sdk.discordapp.net/2.5.6/discord_game_sdk.zip) in this folder, name it `discordsdk`. You should have a path : `C:\code\discordsdk`.\
