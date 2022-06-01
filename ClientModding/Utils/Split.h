@@ -11,7 +11,7 @@
     while (true) [[likely]]
     {
         n = origin.find(delim, cur);
-        if (n == std::string::npos)
+        if (n == std::string::npos) [[unlikely]]
         {
             ret.emplace_back(origin, cur, origin.size()-cur);
             break;

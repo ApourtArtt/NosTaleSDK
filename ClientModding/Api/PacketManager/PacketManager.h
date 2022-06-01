@@ -5,14 +5,10 @@
 #include <mutex>
 #include "../../MemoryHelper/TrampolineHook.h"
 
-/**
- * @brief Represents type of packet.
- */
+// Represents type of packet
 enum class PacketType { SENT, RCVD };
 
-/**
- * @brief Class that holds all packet related stuff (Hooking and Custom packets).
- */
+// @brief Class that holds all packet related stuff (Hooking and Custom packets)
 class PacketManager
 {
 public:
@@ -27,7 +23,7 @@ public:
 	void Receive(const std::string& Packet);
 
 private:
-	static constexpr int HOOK_SIZE = 6;
+	std::string getPacketHeader(const std::string& Packet);
 
 	void onSent(char* Packet);
 	void onRcvd(char* Packet);
@@ -38,10 +34,10 @@ private:
 	std::mutex sent;
 	std::mutex rcvd;
 
-	TrampolineHook* hookSend;
-	TrampolineHook* hookRecv;
+	TrampolineHook* hookSend{ nullptr };
+	TrampolineHook* hookRecv{ nullptr };
 
-	void* lpvSendAddy = nullptr;
-	void* lpvRecvAddy = nullptr;
-	void*lpvPacketThis = nullptr;
+	void* lpvSendAddy{ nullptr };
+	void* lpvRecvAddy{ nullptr };
+	void* lpvPacketThis{ nullptr };
 };

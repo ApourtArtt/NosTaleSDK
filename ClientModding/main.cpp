@@ -1,8 +1,47 @@
 #include "Example.h"
 
-void EventLoop(HMODULE hModule)
+void Start(HMODULE hModule)
 {
-    Example example;
+    ClientModdingConfig config =
+    {
+        .DiscordConfig =
+        {
+            .Active = true,
+            .ApplicationId = 858502310669582346,
+            .ApplicationName = "App Name",
+            .ImageName = "logo",
+        },
+        .WingsConfig = wingsMap
+        {
+            { 25, levelToId
+                {
+                    { 1, 1209 },
+                    { 2, 1208 },
+                    { 3, 1202 },
+                    { 4, 1202 },
+                    { 5, 1202 },
+                    { 6, 1202 },
+                    { 7, 1202 },
+                    { 8, 1202 },
+                    { 9, 1202 },
+                    { 10, 1202 },
+                    { 11, 1202 },
+                    { 12, 1202 },
+                    { 13, 1202 },
+                    { 14, 1202 },
+                    { 15, 1202 },
+                    { 16, 1202 },
+                    { 17, 1202 },
+                    { 18, 1202 },
+                    { 19, 1202 },
+                    { 20, 1202 },
+                }
+            },
+        },
+        .EventLoopDelay = 1000,
+    };
+
+    Example example(config);
     if (!example.Initialize())
     {
         Logger::Log("Failed initializing ClientModding");
@@ -10,7 +49,7 @@ void EventLoop(HMODULE hModule)
     }
     Logger::Log("Client Modding successfully initialized");
 
-    example.Run(1000);
+    example.Run();
 }
 
 DWORD WINAPI MainThread(HMODULE hModule)
@@ -18,7 +57,7 @@ DWORD WINAPI MainThread(HMODULE hModule)
     Logger::Load();
     Logger::Log("Dll injected successfully");
 
-    EventLoop(hModule);
+    Start(hModule);
 
     Logger::Unload();
     FreeLibraryAndExitThread(hModule, 0);

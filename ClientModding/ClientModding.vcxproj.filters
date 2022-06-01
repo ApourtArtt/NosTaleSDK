@@ -58,6 +58,9 @@
     <Filter Include="Api\Hooks">
       <UniqueIdentifier>{2d75ffc5-5f50-4238-9d9a-61030361f22f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Api\Hooks\WingsManager">
+      <UniqueIdentifier>{b1b79a3c-8517-465a-8396-5bba9032093e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Api\Properties\Logical\String.h">
@@ -372,8 +375,18 @@
     </ClInclude>
     <ClInclude Include="Example.h" />
     <ClInclude Include="ExampleRatufuWidget.h" />
-    <ClInclude Include="Api\Hooks\WingsManager.h">
-      <Filter>Api\Hooks</Filter>
+    <ClInclude Include="ClientModdingConfig.h" />
+    <ClInclude Include="Api\DiscordManager\DiscordConfig.h">
+      <Filter>Api\DiscordManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Hooks\WingsManager\WingsManager.h">
+      <Filter>Api\Hooks\WingsManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Hooks\WingsManager\WingsConfig.h">
+      <Filter>Api\Hooks\WingsManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Hooks\WingsManager\DefaultWings.h">
+      <Filter>Api\Hooks\WingsManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -480,8 +493,8 @@
     </ClCompile>
     <ClCompile Include="Example.cpp" />
     <ClCompile Include="ExampleRatufuWidget.cpp" />
-    <ClCompile Include="Api\Hooks\WingsManager.cpp">
-      <Filter>Api\Hooks</Filter>
+    <ClCompile Include="Api\Hooks\WingsManager\WingsManager.cpp">
+      <Filter>Api\Hooks\WingsManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,17 +1,19 @@
 #include "TrampolineHook.h"
 #include <Windows.h>
 #include <iostream>
-
 #include "Patch.h"
 
-constexpr int PUSHAD_OPCODE = 0x60;
-constexpr int PUSHFD_OPCODE = 0x9C;
-constexpr int CALL_OPCODE = 0xE8;
-constexpr int POPFD_OPCODE = 0x9D;
-constexpr int POPAD_OPCODE = 0x61;
-constexpr int JMP_OPCODE = 0xE9;
-constexpr int NOP_OPCODE = 0x90;
-constexpr int TRAMPOLINE_INSTRUCTIONS_SIZE = 14;
+namespace
+{
+    constexpr int PUSHAD_OPCODE = 0x60;
+    constexpr int PUSHFD_OPCODE = 0x9C;
+    constexpr int CALL_OPCODE = 0xE8;
+    constexpr int POPFD_OPCODE = 0x9D;
+    constexpr int POPAD_OPCODE = 0x61;
+    constexpr int JMP_OPCODE = 0xE9;
+    constexpr int NOP_OPCODE = 0x90;
+    constexpr int TRAMPOLINE_INSTRUCTIONS_SIZE = 14;
+}
 
 TrampolineHook::TrampolineHook(LPVOID target, LPVOID hook, int len, bool ExecuteOriginalBytes)
 {

@@ -5,7 +5,7 @@
 class Example : public ClientModding // We need to inherit from ClientModding
 {
 public:
-	explicit Example();
+	explicit Example(const ClientModdingConfig& Config);
 
 private:
 	bool beforeRun() override;

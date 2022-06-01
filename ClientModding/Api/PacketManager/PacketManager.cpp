@@ -5,9 +5,13 @@
 #include "../../MemoryHelper/PatternScan.h"
 #include "../../MemoryHelper/Patch.h"
 
+namespace
+{
+	std::function<void(char*)> onS, onR;
+}
+
 void detourSendFunc();
 void detourRcvdFunc();
-std::function<void(char*)> onS, onR;
 
 PacketManager::~PacketManager()
 {
@@ -51,8 +55,8 @@ bool PacketManager::Initialize()
 	onS = [this](char* Packet) { onSent(Packet); };
 	onR = [this](char* Packet) { onRcvd(Packet); };
 
-	hookSend = new TrampolineHook(lpvSendAddy, detourSendFunc, HOOK_SIZE);
-	hookRecv = new TrampolineHook(lpvRecvAddy, detourRcvdFunc, HOOK_SIZE);
+	hookSend = new TrampolineHook(lpvSendAddy, detourSendFunc, 6);
+	hookRecv = new TrampolineHook(lpvRecvAddy, detourRcvdFunc, 6);
 
 	return true;
 }
@@ -122,18 +126,26 @@ void PacketManager::Receive(const std::string& Packet)
 	}
 }
 
+std::string PacketManager::getPacketHeader(const std::string& Packet)
+{
+	std::string packet = Packet;
+	std::string header = packet.substr(0, packet.find(' ', 0));
+	// The header could be "#something^like^that" and we only want "#something"
+	if (header.find('#') > -1)
+		header = packet.substr(0, packet.find('^', 0));
+	return header;
+}
+
 void PacketManager::onSent(char* Packet)
 {
+	std::string packet(Packet);
+	std::string header = getPacketHeader(packet);
+
 	sent.lock();
 
-	std::string packet = Packet;
-	auto header = packet.substr(0, packet.find(' ', 0));
-	if (header.find('#') > -1) // The header could be "#something^like^that" and we only want "#something"
-		header = packet.substr(0, packet.find('^', 0));
-
-	if (rcvdSubscriptions.find(header) != rcvdSubscriptions.end())
+	if (sentSubscriptions.find(header) != sentSubscriptions.end())
 	{
-		for (auto& subscriber : rcvdSubscriptions[header])
+		for (auto& subscriber : sentSubscriptions[header])
 			subscriber(packet);
 	}
 
@@ -142,12 +154,10 @@ void PacketManager::onSent(char* Packet)
 
 void PacketManager::onRcvd(char* Packet)
 {
-	rcvd.lock();
+	std::string packet(Packet);
+	std::string header = getPacketHeader(packet);
 
-	std::string packet = Packet;
-	auto header = packet.substr(0, packet.find(' ', 0));
-	if (header.find('#') > -1) // The header could be "#something^like^that" and we only want "#something"
-		header = packet.substr(0, packet.find('^', 0));
+	sent.lock();
 
 	if (rcvdSubscriptions.find(header) != rcvdSubscriptions.end())
 	{
@@ -155,7 +165,7 @@ void PacketManager::onRcvd(char* Packet)
 			subscriber(packet);
 	}
 
-	rcvd.unlock();
+	sent.unlock();
 }
 
 void detourSendFunc()

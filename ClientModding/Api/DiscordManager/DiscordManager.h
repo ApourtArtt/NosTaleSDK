@@ -1,12 +1,9 @@
 #pragma once
 #pragma comment(lib, "discord_game_sdk.dll.lib")
-#include "discord.h"
+#include "DiscordConfig.h"
 #include <thread>
 #include <mutex>
 
-/**
- * @brief Discord RPC activity.
- */
 enum class DiscordGameActivity
 {
 	AFK,
@@ -18,13 +15,10 @@ enum class DiscordGameActivity
 	COOK,
 };
 
-/**
- * @brief Class for the discord RPC.
- */
 class DiscordManager
 {
 public:
-	DiscordManager();
+	DiscordManager(const DiscordManagerConfig& Config);
 	~DiscordManager();
 
 	bool Start();
@@ -36,6 +30,8 @@ public:
 
 private:
 	void updateActivity();
+
+	DiscordManagerConfig config;
 
 	discord::Core* core;
 	discord::User user;

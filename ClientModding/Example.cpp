@@ -1,6 +1,7 @@
 #include "Example.h"
 
-Example::Example()
+Example::Example(const ClientModdingConfig& Config)
+	: ClientModding(Config)
 {
 	// If you want to do something before ClientModding::Initialize runs.
 	// You must use beforeRun is priority - this should only be used when

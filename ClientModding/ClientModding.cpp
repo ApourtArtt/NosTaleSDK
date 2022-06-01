@@ -2,7 +2,10 @@
 #include "MemoryHelper/HwndGetter.h"
 #include "Utils/Split.h"
 
-ClientModding::ClientModding()
+ClientModding::ClientModding(const ClientModdingConfig& Config)
+	: config(Config)
+	, discordMng(Config.DiscordConfig)
+	, wingsMng(Config.WingsConfig)
 {
 	packetMng.Subscribe(PacketType::RCVD, "tit", [this](std::string& Packet) { on_PR_tit(Packet); });
 }
@@ -72,7 +75,7 @@ bool ClientModding::Initialize()
 	return true;
 }
 
-void ClientModding::Run(unsigned int sleepTime)
+void ClientModding::Run()
 {
 	if (!beforeRun())
 	{
@@ -83,8 +86,8 @@ void ClientModding::Run(unsigned int sleepTime)
 
 	while (true)
 	{
-		Sleep(sleepTime);
 		Tick();
+		Sleep(config.EventLoopDelay);
 	}
 }
 

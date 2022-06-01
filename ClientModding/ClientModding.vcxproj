@@ -43,10 +43,13 @@
     <ClInclude Include="Api\DelphiClasses\TNTDataList.h" />
     <ClInclude Include="Api\DelphiClasses\TNTItemList.h" />
     <ClInclude Include="Api\DelphiClasses\TSceneManager.h" />
+    <ClInclude Include="Api\DiscordManager\DiscordConfig.h" />
     <ClInclude Include="Api\Enums\CellType.h" />
     <ClInclude Include="Api\Enums\KeyCode.h" />
     <ClInclude Include="Api\Enums\KeyModifier.h" />
-    <ClInclude Include="Api\Hooks\WingsManager.h" />
+    <ClInclude Include="Api\Hooks\WingsManager\DefaultWings.h" />
+    <ClInclude Include="Api\Hooks\WingsManager\WingsManager.h" />
+    <ClInclude Include="Api\Hooks\WingsManager\WingsConfig.h" />
     <ClInclude Include="Api\Properties\Logical\MapGrid.h" />
     <ClInclude Include="Api\Properties\Logical\PartnerEquipmentIcons.h" />
     <ClInclude Include="Api\Properties\Logical\PartnerInformation.h" />
@@ -77,6 +80,7 @@
     <ClInclude Include="Api\DelphiClasses\ClassSearcher.h" />
     <ClInclude Include="Api\DiscordManager\DiscordManager.h" />
     <ClInclude Include="ClientModding.h" />
+    <ClInclude Include="ClientModdingConfig.h" />
     <ClInclude Include="Example.h" />
     <ClInclude Include="ExampleRatufuWidget.h" />
     <ClInclude Include="MemoryHelper\HwndGetter.h" />
@@ -142,7 +146,7 @@
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterSkillInfoWidget.cpp" />
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterStandardInfoWidget.cpp" />
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\QuickSlotWidget.cpp" />
-    <ClCompile Include="Api\Hooks\WingsManager.cpp" />
+    <ClCompile Include="Api\Hooks\WingsManager\WingsManager.cpp" />
     <ClCompile Include="C:\code\discordsdk\cpp\achievement_manager.cpp" />
     <ClCompile Include="C:\code\discordsdk\cpp\activity_manager.cpp" />
     <ClCompile Include="C:\code\discordsdk\cpp\application_manager.cpp" />

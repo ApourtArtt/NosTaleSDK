@@ -1,17 +1,21 @@
 ﻿#include "DiscordManager.h"
 #include <Windows.h>
 
-DiscordManager::DiscordManager()
-	: core(nullptr)
+DiscordManager::DiscordManager(const DiscordManagerConfig& Config)
+	: config(Config)
+	, core(nullptr)
 	, user()
 	, started(false)
 	, channel(-1)
 	, gameActivity(DiscordGameActivity::AFK)
 {
-	activity.SetType(discord::ActivityType::Playing);
-	activity.GetTimestamps().SetStart(time(0));
-	activity.GetAssets().SetLargeImage("Image name");
-	activity.GetAssets().SetLargeText("Name of your server");
+	if (config.Active)
+	{
+		activity.SetType(discord::ActivityType::Playing);
+		activity.GetTimestamps().SetStart(time(0));
+		activity.GetAssets().SetLargeText(config.ApplicationName.c_str());
+		activity.GetAssets().SetLargeImage(config.ImageName.c_str());
+	}
 }
 
 DiscordManager::~DiscordManager()
@@ -28,6 +32,12 @@ DiscordManager::~DiscordManager()
 
 bool DiscordManager::Start()
 {
+	if (!config.Active) [[unlikely]]
+		return true; // Because we want this program to run
+
+	if (started) [[unlikely]]
+		return false;
+
 	if (core) [[likely]]
 	{
 		delete core;
@@ -35,7 +45,7 @@ bool DiscordManager::Start()
 	}
 
 	started = true;
-	auto res = discord::Core::Create(858502310669582346 /* Replace it with your application id */, static_cast<uint64_t>(discord::CreateFlags::Default), &core);
+	auto res = discord::Core::Create(config.ApplicationId, static_cast<uint64_t>(discord::CreateFlags::Default), &core);
 	if (res != discord::Result::Ok)
 		return false;
 
@@ -50,7 +60,7 @@ bool DiscordManager::Start()
 		while (started)
 		{
 			core->RunCallbacks();
-			Sleep(500);
+			Sleep(1000);
 		}
 
 		delete core;
