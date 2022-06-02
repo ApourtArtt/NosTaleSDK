@@ -34,6 +34,7 @@
     <ClInclude Include="Api\DelphiClasses\TLBSRotDamper.h" />
     <ClInclude Include="Api\DelphiClasses\TEWButtonWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TLBSWidgetHandler.h" />
+    <ClInclude Include="Api\DelphiClasses\TMapPlayerObj.h" />
     <ClInclude Include="Api\DelphiClasses\TNTGameOptionWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTNewCharacterSkillInfoWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTNewCharacterStandardInfoWidget.h" />
@@ -47,10 +48,14 @@
     <ClInclude Include="Api\Enums\CellType.h" />
     <ClInclude Include="Api\Enums\KeyCode.h" />
     <ClInclude Include="Api\Enums\KeyModifier.h" />
+    <ClInclude Include="Api\Hooks\StuffManager\DefaultWeaponGlow.h" />
+    <ClInclude Include="Api\Hooks\StuffManager\StuffConfig.h" />
+    <ClInclude Include="Api\Hooks\StuffManager\StuffManager.h" />
     <ClInclude Include="Api\Hooks\WingsManager\DefaultAuras.h" />
     <ClInclude Include="Api\Hooks\WingsManager\DefaultWings.h" />
     <ClInclude Include="Api\Hooks\WingsManager\WingsManager.h" />
     <ClInclude Include="Api\Hooks\WingsManager\WingsConfig.h" />
+    <ClInclude Include="Api\Properties\Graphical\WeaponGlowingStyle.h" />
     <ClInclude Include="Api\Properties\Logical\MapGrid.h" />
     <ClInclude Include="Api\Properties\Logical\PartnerEquipmentIcons.h" />
     <ClInclude Include="Api\Properties\Logical\PartnerInformation.h" />
@@ -147,6 +152,7 @@
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterSkillInfoWidget.cpp" />
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterStandardInfoWidget.cpp" />
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\QuickSlotWidget.cpp" />
+    <ClCompile Include="Api\Hooks\StuffManager\StuffManager.cpp" />
     <ClCompile Include="Api\Hooks\WingsManager\WingsManager.cpp" />
     <ClCompile Include="C:\code\discordsdk\cpp\achievement_manager.cpp" />
     <ClCompile Include="C:\code\discordsdk\cpp\activity_manager.cpp" />

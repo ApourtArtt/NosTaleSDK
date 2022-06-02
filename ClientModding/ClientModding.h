@@ -8,8 +8,9 @@
 #include "Api/DelphiClasses/TSceneManager.h"
 
 #include "Api/DiscordManager/DiscordManager.h"
-#include "Api/Hooks/WingsManager/WingsManager.h"
 #include "Api/PacketManager/PacketManager.h"
+#include "Api/Hooks/StuffManager/StuffManager.h"
+#include "Api/Hooks/WingsManager/WingsManager.h"
 
 
 // ClientModding is the interface you should inherit from.
@@ -41,10 +42,11 @@ protected:
 
 	Connection connection{};
 	MapCommon mapCommon{};
+
 	DiscordManager discordMng;
 	PacketManager packetMng{};
-
 	WingsManager wingsMng;
+	StuffManager stuffMng;
 
 	TLBSWidgetHandler* ntWidgetHandler{ nullptr };
 	TSceneManager* ntSceneMng{ nullptr };

@@ -11,7 +11,8 @@ void Start(HMODULE hModule)
             .ApplicationName = "App Name",
             .ImageName = "logo",
         },
-        .WingsConfig = {
+        .WingsConfig =
+        {
             .AdditionalWings = wingsMap
             {
                 { 25, levelToId
@@ -36,12 +37,31 @@ void Start(HMODULE hModule)
                         { 18, 1202 },
                         { 19, 1202 },
                         { 20, 1202 },
-                    }
-                }
+                    },
+                },
             },
             .AdditionalAuras = levelToId
             {
                 { 20, 7907 },
+            },
+        },
+        .StuffConfig = {
+            .AdditionalWeaponsGlow = glowsMap
+            {
+                { 9, upgradeToGlow
+                    {
+                        { 100, WeaponGlow
+                            {
+                                .SecondaryGlowColor = Bgra(255, 0, 0, 255),
+                                .SecondaryGlowSize = 1.5,
+                                .SecondaryGlowStyle = WeaponGlowingStyle::FAST_CIRCULAR,
+                                .PrimaryGlowColor = Bgra(0, 0, 255, 255),
+                                .PrimaryGlowSize = 2.,
+                                .PrimaryGlowStyle = WeaponGlowingStyle::ALWAYS,
+                            },
+                        },
+                    },
+                },
             },
         },
         .EventLoopDelay = 1000,

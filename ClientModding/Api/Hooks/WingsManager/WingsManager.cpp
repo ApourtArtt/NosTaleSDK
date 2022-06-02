@@ -12,6 +12,7 @@ namespace
 	wingStyleId style;
 	wingLevel level;
 	std::map<wingStyleId, levelToId> wings = defaultWings;
+
 	levelToId auras;
 }
 

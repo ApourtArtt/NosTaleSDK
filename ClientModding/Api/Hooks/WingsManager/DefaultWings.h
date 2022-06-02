@@ -3,13 +3,13 @@
 
 constexpr wingLevel ARENA_WINNER_SKELETON_LEVEL = 96;
 constexpr wingLevel ARENA_WINNER_WINGS_LEVEL = 97;
-constexpr wingId ARENA_WINNER_SKELETON_ID = 0xF77;
-constexpr wingId ARENA_WINNER_WINGS_ID = 0xF78;
+constexpr wingId ARENA_WINNER_SKELETON_ID = 3959;
+constexpr wingId ARENA_WINNER_WINGS_ID = 3960;
 
 constexpr wingStyleId NO_SKIN = 0;
 constexpr wingStyleId DEVIL_WING = 2;
 
-std::map<wingStyleId, levelToId> defaultWings =
+wingsMap defaultWings =
 {
 	{ NO_SKIN, levelToId
 		{

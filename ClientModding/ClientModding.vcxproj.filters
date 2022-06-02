@@ -61,6 +61,9 @@
     <Filter Include="Api\Hooks\WingsManager">
       <UniqueIdentifier>{b1b79a3c-8517-465a-8396-5bba9032093e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Api\Hooks\StuffManager">
+      <UniqueIdentifier>{dd478514-e156-44e2-ad6b-224f43735d84}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Api\Properties\Logical\String.h">
@@ -391,6 +394,21 @@
     <ClInclude Include="Api\Hooks\WingsManager\DefaultAuras.h">
       <Filter>Api\Hooks\WingsManager</Filter>
     </ClInclude>
+    <ClInclude Include="Api\Hooks\StuffManager\StuffManager.h">
+      <Filter>Api\Hooks\StuffManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Hooks\StuffManager\StuffConfig.h">
+      <Filter>Api\Hooks\StuffManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Properties\Graphical\WeaponGlowingStyle.h">
+      <Filter>Api\Properties\Graphical</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Hooks\StuffManager\DefaultWeaponGlow.h">
+      <Filter>Api\Hooks\StuffManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TMapPlayerObj.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Api\PacketManager\PacketManager.cpp">
@@ -498,6 +516,9 @@
     <ClCompile Include="ExampleRatufuWidget.cpp" />
     <ClCompile Include="Api\Hooks\WingsManager\WingsManager.cpp">
       <Filter>Api\Hooks\WingsManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Hooks\StuffManager\StuffManager.cpp">
+      <Filter>Api\Hooks\StuffManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

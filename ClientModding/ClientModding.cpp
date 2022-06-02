@@ -6,6 +6,7 @@ ClientModding::ClientModding(const ClientModdingConfig& Config)
 	: config(Config)
 	, discordMng(Config.DiscordConfig)
 	, wingsMng(Config.WingsConfig)
+	, stuffMng(Config.StuffConfig)
 {
 	packetMng.Subscribe(PacketType::RCVD, "tit", [this](std::string& Packet) { on_PR_tit(Packet); });
 }
@@ -41,6 +42,13 @@ bool ClientModding::Initialize()
 		return false;
 	}
 	Logger::Log("[WingsManager] Successfully initialized");
+
+	if (!stuffMng.Initialize())
+	{
+		Logger::Log("[StuffManager] failed initialization");
+		return false;
+	}
+	Logger::Log("[StuffManager] Successfully initialized");
 
 	if (!connection.Initialize())
 	{

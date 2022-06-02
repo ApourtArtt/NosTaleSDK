@@ -1,7 +1,7 @@
 #pragma once
 #include "WingsConfig.h"
 
-std::map<wingLevel, auraId> defaultAuras =
+levelToId defaultAuras =
 {
 	{ 16, 7905 },
 	{ 17, 7906 },

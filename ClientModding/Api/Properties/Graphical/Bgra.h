@@ -7,6 +7,7 @@
 class Bgra
 {
 public:
+	Bgra() : Bgra(0, 0, 0, 0) {}
 	Bgra(uint8_t Blue, uint8_t Green, uint8_t Red, uint8_t Alpha)
 		: blue(Blue)
 		, green(Green)
