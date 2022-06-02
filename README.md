@@ -7,7 +7,7 @@
 - [x] Widget modification (tutorial TODO)
 - [x] Packet management and interaction ([tutorial](https://github.com/ApourtArtt/NostaleWidget/wiki/Packet-management))
 - [x] Wings and Auras creation and modification (tutorial TODO)
-- [ ] Weapons and Armors rarity/upgrade addition and glowing modding (tutorial TODO)
+- [ ] Weapons and Armors rarity/upgrade addition and glowing modding ([tutorial](https://github.com/ApourtArtt/NostaleWidget/wiki/Stuff-management))
 
 ### Little features
 - [x] Access to server and channel values in game
