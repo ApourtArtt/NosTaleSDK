@@ -6,7 +6,7 @@
 - [x] Widget creation ([tutorial](https://github.com/ApourtArtt/NostaleWidget/wiki/Windows-and-widgets))
 - [x] Widget modification (tutorial TODO)
 - [x] Packet management and interaction ([tutorial](https://github.com/ApourtArtt/NostaleWidget/wiki/Packet-management))
-- [x] Wings and Auras creation and modification (tutorial TODO)
+- [x] Wings and Auras creation and modification ([tutorial](https://github.com/ApourtArtt/NostaleWidget/wiki/Wings-management))
 - [ ] Weapons and Armors rarity/upgrade addition and glowing modding ([tutorial](https://github.com/ApourtArtt/NostaleWidget/wiki/Stuff-management))
 
 ### Little features
