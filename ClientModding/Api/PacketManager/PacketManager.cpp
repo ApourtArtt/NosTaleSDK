@@ -29,27 +29,39 @@ PacketManager::~PacketManager()
 
 bool PacketManager::Initialize()
 {
+	auto _ = Logger::PushPopModuleName("PacketManager");
 	lpvSendAddy = PatternScan(
 		"\x53\x56\x8B\xF2\x8B\xD8\xEB\x04",
 		"xxxxxxxx"
 	);
 	if (lpvSendAddy == nullptr)
+	{
+		Logger::Error("Failed scanning pattern");
 		return false;
+	}
+	Logger::Log("lpvSendAddy = %x", lpvSendAddy);
 
 	lpvRecvAddy = PatternScan(
 		"\x55\x8B\xEC\x83\xC4\xF0\x53\x56\x57\x33\xC9\x89\x4D\xF4\x89\x4D\xF0\x89\x55\xFC\x8B\xD8\x8B\x45\xFC",
 		"xxxxx?xxxxxxx?xx?xx?xxxx?"
 	);
 	if (lpvRecvAddy == nullptr)
+	{
+		Logger::Error("Failed scanning pattern");
 		return false;
+	}
+	Logger::Log("lpvRecvAddy = %x", lpvRecvAddy);
 
 	lpvPacketThis = PatternScan(
 		"\xA1\x00\x00\x00\x00\x8B\x00\xE8\x00\x00\x00\x00\xA1\x00\x00\x00\x00\x8B\x00\x33\xD2\x89\x10",
-		"x????xxx????x????xxxxxx",
-		1
+		"x????xxx????x????xxxxxx", 1
 	);
 	if (lpvPacketThis == nullptr)
+	{
+		Logger::Error("Failed scanning pattern");
 		return false;
+	}
+	Logger::Log("lpvPacketThis = %x", lpvPacketThis);
 
 
 	onS = [this](char* Packet) { onSent(Packet); };
@@ -58,6 +70,7 @@ bool PacketManager::Initialize()
 	hookSend = new TrampolineHook(lpvSendAddy, detourSendFunc, 6);
 	hookRecv = new TrampolineHook(lpvRecvAddy, detourRcvdFunc, 6);
 
+	Logger::Success("Successfully initialized");
 	return true;
 }
 

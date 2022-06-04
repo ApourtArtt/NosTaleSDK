@@ -51,6 +51,10 @@
     <ClInclude Include="Api\Hooks\StuffManager\DefaultWeaponGlow.h" />
     <ClInclude Include="Api\Hooks\StuffManager\StuffConfig.h" />
     <ClInclude Include="Api\Hooks\StuffManager\StuffManager.h" />
+    <ClInclude Include="Api\Hooks\UIManager\SpyHpMp\SpyHpMpManager.h" />
+    <ClInclude Include="Api\Hooks\UIManager\SpyHpMp\SpyHpMpConfig.h" />
+    <ClInclude Include="Api\Hooks\UIManager\UIManager.h" />
+    <ClInclude Include="Api\Hooks\UIManager\UIConfig.h" />
     <ClInclude Include="Api\Hooks\WingsManager\DefaultAuras.h" />
     <ClInclude Include="Api\Hooks\WingsManager\DefaultWings.h" />
     <ClInclude Include="Api\Hooks\WingsManager\WingsManager.h" />
@@ -153,6 +157,8 @@
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterStandardInfoWidget.cpp" />
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\QuickSlotWidget.cpp" />
     <ClCompile Include="Api\Hooks\StuffManager\StuffManager.cpp" />
+    <ClCompile Include="Api\Hooks\UIManager\SpyHpMp\SpyHpMpManager.cpp" />
+    <ClCompile Include="Api\Hooks\UIManager\UIManager.cpp" />
     <ClCompile Include="Api\Hooks\WingsManager\WingsManager.cpp" />
     <ClCompile Include="C:\code\discordsdk\cpp\achievement_manager.cpp" />
     <ClCompile Include="C:\code\discordsdk\cpp\activity_manager.cpp" />
@@ -271,7 +277,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalIncludeDirectories>C:\code\discordsdk\cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -289,7 +295,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalIncludeDirectories>C:\code\discordsdk\cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>

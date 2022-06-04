@@ -1,26 +1,65 @@
 #pragma once
-#include <WTypes.h>
 #include <Windows.h>
-#include <stdio.h>
-#include <chrono>
-#include <string>
-#include <iostream>
 #include <mutex>
+#include <stack>
+#include <iostream>
+#include <functional>
+#include <string>
+#include <stdarg.h>
+#include <chrono>
+#include <format>
+#include <source_location>
 
-namespace Logger
+class Logger
 {
-    static FILE* output;
-    inline static std::mutex writer;
+private:
+    inline static std::string indent;
+    inline static std::mutex mu;
+    inline static std::stack<std::string> moduleNames;
 
-    static void Load(const std::string& Filename = "CONOUT$")
+    class Defer
+    {
+    public:
+        Defer(std::function<void()> F) : f(F) {}
+        ~Defer() { f(); }
+
+    private:
+        std::function<void()> f;
+    };
+
+    // https://stackoverflow.com/a/66402319/10771848
+    struct FormatWithLocation
+    {
+        const char* value;
+        std::source_location loc;
+
+        FormatWithLocation(const char* s, const std::source_location& l = std::source_location::current())
+            : value(s), loc(l)
+        {}
+    };
+
+    inline static constexpr char RESET[] = "\033[0m";
+    inline static constexpr char RED[] = "\033[31m";
+    inline static constexpr char GREEN[] = "\033[32m";
+
+public:
+
+    static void Flush() { fflush(stdout); }
+
+    static void Load(const std::string& Filename = "")
     {
         AllocConsole();
-        freopen_s(&output, Filename.c_str(), "w", stdout);
+        freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
+
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        DWORD mode;
+        GetConsoleMode(hConsole, &mode);
+        mode |= ENABLE_PROCESSED_OUTPUT | ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+        SetConsoleMode(hConsole, mode);
     }
 
     static void Unload()
     {
-        fclose(output);
         FreeConsole();
     }
 
@@ -31,61 +70,92 @@ namespace Logger
         auto dp = floor<days>(tp);
         year_month_day ymd{ dp };
         hh_mm_ss time{ floor<milliseconds>(tp - dp) };
-        std::string res;
-        res.reserve(30); // "[dd/mm/yyyy hh:mm:ss.mmmmmm] "
-        res = "["
-            + std::to_string(static_cast<unsigned>(ymd.day()))
-            + "/"
-            + std::to_string(static_cast<unsigned>(ymd.month()))
-            + "/"
-            + std::to_string(static_cast<int>(ymd.year()))
-            + " "
-            + std::to_string(time.hours().count())
-            + ":"
-            + std::to_string(time.minutes().count())
-            + ":"
-            + std::to_string(time.seconds().count())
-            + "."
-            + std::to_string(time.subseconds().count())
-            + "] ";
-        return res;
+        return std::format("[{} {:%T}]", ymd, time);
     }
 
-
-    static void Log(const char* message, ...)
+    template <typename... Args>
+    static void Log(const char* msg, Args&&... args)
     {
-        writer.lock();
+        mu.lock();
 
         printf("%s", GetTime().c_str());
 
-        va_list ap;
-        va_start(ap, message);
-        vfprintf(stdout, message, ap);
-        va_end(ap);
+        for (size_t i = 1; i < moduleNames.size(); i++)
+            printf("%s", indent.c_str());
+        if (moduleNames.size() > 0)
+            printf("[%s] ", moduleNames.top().c_str());
 
+        printf(msg, args...);
         printf("\n");
 
-        writer.unlock();
+        mu.unlock();
     }
 
-    static void Log(const wchar_t* message, ...)
+    template <typename... Args>
+    static void Success(const char* msg, Args&&... args)
     {
-        writer.lock();
+        mu.lock();
 
-        printf("%s", GetTime().c_str());
+        printf("%s%s", GetTime().c_str(), GREEN);
 
-        va_list ap;
-        va_start(ap, message);
-        vfwprintf(stdout, message, ap);
-        va_end(ap);
+        for (size_t i = 1; i < moduleNames.size(); i++)
+            printf("%s", indent.c_str());
+        if (moduleNames.size() > 0)
+            printf("[%s] ", moduleNames.top().c_str());
 
-        printf("\n");
+        printf(msg, args...);
+        printf("%s\n", RESET);
 
-        writer.unlock();
+        mu.unlock();
     }
 
-    static void Flush()
+    template <typename... Args>
+    static void Error(FormatWithLocation fmt, Args&&... args)
     {
-        fflush(stdout);
+        mu.lock();
+
+        printf("%s%s", GetTime().c_str(), RED);
+
+        for (size_t i = 1; i < moduleNames.size(); i++)
+            printf("%s", indent.c_str());
+        if (moduleNames.size() > 0)
+            printf("[%s] ", moduleNames.top().c_str());
+
+        printf("file: %s:%d:%d (%s)\n", fmt.loc.file_name(), fmt.loc.line(), fmt.loc.column(), fmt.loc.function_name());
+        printf(fmt.value, args...);
+        printf("%s\n", RESET);
+
+        Flush();
+
+        mu.unlock();
+    }
+
+    static void PushModuleName(const std::string& Name)
+    {
+        auto t = GetTime();
+        mu.lock();
+        moduleNames.push(Name);
+        mu.unlock();
+    }
+
+    static void PopModuleName()
+    {
+        mu.lock();
+        moduleNames.pop();
+        mu.unlock();
+    }
+
+    [[nodiscard]] static Defer PushPopModuleName(const std::string& Name)
+    {
+        PushModuleName(Name);
+        Log("");
+        return Defer(PopModuleName);
+    }
+
+    static void IndentModuleName(const std::string& Indent)
+    {
+        mu.lock();
+        indent = Indent;
+        mu.unlock();
     }
 };

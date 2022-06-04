@@ -10,9 +10,6 @@
 * 0x78, 0x90, 0x98 are callbacks
 */
 
-/**
- * @brief Representation of the game TNTIconWidget structure.
- */
 class TNTIconWidget : public TEWControlWidgetEvent
 {
 public:
@@ -46,6 +43,6 @@ protected:
 	IconProperties* image;	// 0xA8
 	char unknown20[32];		// 0xAC
 };
-static_assert(sizeof(TNTIconWidget) == 0xCC, "TNTIconWidget does not have a size of 0xC4.");
+static_assert(sizeof(TNTIconWidget) == 0xCC, "TNTIconWidget does not have a size of 0xCC.");
 
 #pragma pack(pop)

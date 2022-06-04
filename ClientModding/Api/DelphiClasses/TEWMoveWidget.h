@@ -6,9 +6,6 @@
 * Find those 16 unknowns bytes (0x70)
 */
 
-/**
- * @brief Representation of the game TEWMoveWidget structure.
- */
 class TEWMoveWidget : public TEWControlWidgetEvent
 {
 public:

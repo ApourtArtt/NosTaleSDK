@@ -71,28 +71,36 @@ StuffManager::StuffManager(const StuffManagerConfig& Config)
 
 bool StuffManager::Initialize()
 {
+	auto _ = Logger::PushPopModuleName("StuffManager");
+
 	auto patternAddrUpgradeRarityDisplay = PatternScan(
 		"\x53\x85\xc0\x0f\x84\xee\x04\x00\x00\x80\xb8\x06\x02\x00\x00\x00\x0f\x87\xe1\x04\x00\x00\x80\xfa\x09\x73\x00",
-		"xxxxx????x??????xx????xx?x?",
-		22
+		"xxxxx????x??????xx????xx?x?", 22
 	);
 	if (patternAddrUpgradeRarityDisplay == nullptr)
+	{
+		Logger::Error("Failed scanning pattern");
 		return false;
-
-	Logger::Log("[StuffManager] Pattern address UpgradeRarityDisplay: %x", patternAddrUpgradeRarityDisplay);
+	}
+	Logger::Log("patternAddrUpgradeRarityDisplay = %x", patternAddrUpgradeRarityDisplay);
 
 	if (!Hook((BYTE*)patternAddrUpgradeRarityDisplay, (BYTE*)upgradeRarityDisplayHook, 6))
+	{
+		Logger::Error("Failed hooking");
 		return false;
+	}
 
 	jmpbackUpgradeRarityDisplay = (uintptr_t)PatternScan("\x5B\xC3",
-		"xx",
-		0,
+		"xx", 0,
 		(uint32_t)patternAddrUpgradeRarityDisplay // I want the pattern that follows patternAddrWings - I don't want the first one met
 	);
 	if (jmpbackUpgradeRarityDisplay == NULL)
+	{
+		Logger::Error("Failed scanning pattern");
 		return false;
+	}
+	Logger::Log("jmpbackUpgradeRarityDisplay = %x", jmpbackUpgradeRarityDisplay);
 
-	Logger::Log("[StuffManager] Pattern address jmpbackUpgradeRarityDisplay: %x", jmpbackUpgradeRarityDisplay);
-
+	Logger::Success("Successfully initialized");
 	return true;
 }

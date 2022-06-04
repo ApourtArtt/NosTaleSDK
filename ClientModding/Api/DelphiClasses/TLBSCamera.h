@@ -2,9 +2,6 @@
 #include "TLBSRotDamper.h"
 #pragma pack(push, 1)
 
-/**
- * @brief Representation of the game TLBSCamera structure.
- */
 class TLBSCamera : public TObject
 {
 public:

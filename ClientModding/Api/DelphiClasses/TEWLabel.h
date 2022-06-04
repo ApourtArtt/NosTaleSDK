@@ -9,9 +9,6 @@
 * Make it possible to configure pxBeforeTextX/Y, x/y
 */
 
-/**
- * @brief Representation of the game TEWLabel structure.
- */
 class TEWLabel : public TEWControlWidgetEX
 {
 public:

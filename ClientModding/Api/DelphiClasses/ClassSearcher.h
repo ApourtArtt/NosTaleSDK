@@ -6,6 +6,7 @@
 #include <vector>
 #include <Windows.h>
 #include <Psapi.h>
+#include "../../Utils/Logger.h"
 
 class ClassInfo
 {
@@ -35,8 +36,10 @@ private:
 class ClassSearcher
 {
 public:
-	[[nodiscard]] static int Initialize()
+	[[nodiscard]] static bool Initialize()
 	{
+		auto _ = Logger::PushPopModuleName("ClassSearcher");
+
 		std::vector<std::string> classesName{
 			"TEWButtonWidget",
 			"TEWCaptionBar",
@@ -77,7 +80,11 @@ public:
 
 		MODULEINFO mInfo = { 0 };
 		HMODULE hModuleExe = GetModuleHandle(nullptr);
-		if (hModuleExe == 0) return -2;
+		if (hModuleExe == 0)
+		{
+			Logger::Error("Failed getting module handle");
+			return false;
+		}
 		GetModuleInformation(GetCurrentProcess(), hModuleExe, &mInfo, sizeof(MODULEINFO));
 		DWORD base = (DWORD)mInfo.lpBaseOfDll;
 		DWORD size = (DWORD)mInfo.SizeOfImage;
@@ -89,21 +96,30 @@ public:
 			std::string pattern = getPattern(classesName[i]);
 			int pos = data.find(pattern);
 			if (pos == std::string::npos)
-				return i;
+			{
+				Logger::Error("Failed finding class %s", classesName[i].c_str());
+				return false;
+			}
 			int addr = base + pos;
 
 			for (int32_t j = addr - 4;; j--)
 			{
 				if (j < base)
-					return i;
+				{
+					Logger::Error("Failed finding class %s", classesName[i].c_str());
+					return false;
+				}
 				if (*(int32_t*)j == addr)
 				{
 					classesInfo.emplace(classesName[i], ClassInfo(classesName[i], *(int32_t*)(j + 4), j - 0x20, *(int32_t*)j));
+					Logger::Log("Class %s = %x", classesName[i].c_str(), j - 0x20);
 					break;
 				}
 			}
 		}
-		return -1;
+
+		Logger::Success("Successfully initialized");
+		return true;
 	}
 
 	static const ClassInfo& GetClassInfoFromName(const std::string& ClassName)

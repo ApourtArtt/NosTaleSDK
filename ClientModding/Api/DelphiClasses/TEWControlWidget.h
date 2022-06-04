@@ -4,9 +4,6 @@
 #include "../Properties/Graphical/ImageData.h"
 #pragma pack(push, 1)
 
-/**
- * @brief Representation of the game TEWControlWidget structure.
- */
 class TEWControlWidget : public TLBSWidget
 {
 public:
@@ -35,6 +32,6 @@ protected:
 	int32_t functionArgument;	// 0x0060 Probably some callbacks. Don't touch it while we don't need it
 	int32_t unknown12;			// 0x0064
 };
-static_assert(sizeof(TEWControlWidget) == 0x0068, "TEWControlWidget does not have a size of 0x0068.");
+static_assert(sizeof(TEWControlWidget) == 0x68, "TEWControlWidget does not have a size of 0x68.");
 
 #pragma pack(pop)

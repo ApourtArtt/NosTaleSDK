@@ -1,9 +1,7 @@
 #pragma once
 #include <stdlib.h>
+#pragma pack(push, 1)
 
-/**
- * @brief Representation of the game TList structure.
- */
 template<class T>
 class TList : public TObject
 {
@@ -67,3 +65,6 @@ private:
 	int32_t length;			// 0x08
 	int32_t capacity;		// 0x0c
 };
+static_assert(sizeof(TList<int32_t>) == 0x10, "TList does not have a size of 0x10.");
+
+#pragma pack(pop)

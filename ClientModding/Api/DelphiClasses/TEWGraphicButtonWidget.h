@@ -7,9 +7,6 @@
 * Find unknowns
 */
 
-/**
- * @brief Representation of the game TEWGraphicButtonWidget structure.
- */
 class TEWGraphicButtonWidget : public TEWCustomButtonWidget
 {
 public:

@@ -5,9 +5,6 @@
 #include "../Properties/Logical/String.h"
 #pragma pack(push, 1)
 
-/**
- * @brief Representation of the game TEWCaptionBar structure.
- */
 class TEWCaptionBar : public TEWParentMoveWidget
 {
 public:

@@ -6,9 +6,6 @@
 * Find those 8 unknowns bytes (0x68)
 */
 
-/**
- * @brief Representation of the game TEWControlWidgetEvent structure.
- */
 class TEWControlWidgetEvent : public TEWControlWidget
 {
 public:

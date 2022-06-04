@@ -5,6 +5,7 @@
 #include "TEWGraphicButtonWidget.h"
 #include "TEWLabel.h"
 #include "TEWLabels.h"
+#pragma pack(push, 1)
 
 // TODO: Find uknown values
 
@@ -101,3 +102,5 @@ public:
 	uint32_t TGameRootWidgetPtr_2; //0x01DC TGameRootWidget
 }; //Size: 0x01E0
 static_assert(sizeof(TNTGameOptionWidget) == 0x1E0);
+
+#pragma pack(pop)

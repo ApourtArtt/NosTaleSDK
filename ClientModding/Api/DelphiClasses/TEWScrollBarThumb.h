@@ -2,9 +2,6 @@
 #include "TEWCustomPanelWidget.h"
 #pragma pack(push, 1)
 
-/**
- * @brief Representation of the game TEWScrollBarThumb structure.
- */
 class TEWScrollBarThumb : public TEWCustomPanelWidget
 {
 public:

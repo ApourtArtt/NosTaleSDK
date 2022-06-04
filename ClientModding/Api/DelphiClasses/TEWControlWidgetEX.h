@@ -2,9 +2,6 @@
 #include "TEWControlWidget.h"
 #pragma pack(push, 1)
 
-/**
- * @brief Representation of the game TEWControlWidgetEx structure.
- */
 class TEWControlWidgetEX : public TEWControlWidget
 {
 public:

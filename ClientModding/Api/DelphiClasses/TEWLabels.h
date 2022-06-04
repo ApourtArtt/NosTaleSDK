@@ -12,9 +12,6 @@
 * Rework this class : it is a TEWLabel__s__, so it should be multiple labels (stored in 0x84, as a ptr to another struct)
 */
 
-/**
- * @brief Representation of the game TEWLabels structure.
- */
 class TEWLabels : public TEWControlWidgetEX
 {
 public:

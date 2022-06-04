@@ -7,87 +7,63 @@ ClientModding::ClientModding(const ClientModdingConfig& Config)
 	, discordMng(Config.DiscordConfig)
 	, wingsMng(Config.WingsConfig)
 	, stuffMng(Config.StuffConfig)
+	, uiMng(Config.UIConfig)
 {
 	packetMng.Subscribe(PacketType::RCVD, "tit", [this](std::string& Packet) { on_PR_tit(Packet); });
+	if (config.UIConfig.SpyHpMpConfig.Activate)
+	{
+		packetMng.Subscribe(PacketType::RCVD, "pst", [this](std::string& Packet) { on_PR_pst(Packet); });
+		packetMng.Subscribe(PacketType::RCVD, "aa_pst", [this](std::string& Packet) { on_PR_aa_pst(Packet); });
+	}
 }
 
 ClientModding::~ClientModding() {}
 
 bool ClientModding::Initialize()
 {
+	auto _ = Logger::PushPopModuleName("ClientModding");
 	hwnd = getHwnd();
+	discordMng.Start(); // If it fails, the player should still be able to play: don't return false
 
-	if (int res = ClassSearcher::Initialize() != -1)
-	{
-		Logger::Log("[ClassSearcher] Failed initializing: %d", res);
+	if (!ClassSearcher::Initialize())
 		return false;
-	}
-	Logger::Log("[ClassSearcher] Successfully initialized");
-
-	if (!discordMng.Start()) // If it fails, the player should still be able to play: don't return false
-		Logger::Log("[DiscordManager] Failed starting");
-	else
-		Logger::Log("[DiscordManager] Successfully started");
 
 	if (!packetMng.Initialize())
-	{
-		Logger::Log("[PacketManager] Failed initialization");
 		return false;
-	}
-	Logger::Log("[PacketManager] Successfully initialized");
 
 	if (!wingsMng.Initialize())
-	{
-		Logger::Log("[WingsManager] failed initialization");
 		return false;
-	}
-	Logger::Log("[WingsManager] Successfully initialized");
 
 	if (!stuffMng.Initialize())
-	{
-		Logger::Log("[StuffManager] failed initialization");
 		return false;
-	}
-	Logger::Log("[StuffManager] Successfully initialized");
+
+	if (!uiMng.Initialize())
+		return false;
 
 	if (!connection.Initialize())
-	{
-		Logger::Log("[Connection] Failed initialization");
 		return false;
-	}
-	Logger::Log("[Connection] Successfully initialized");
 
 	if (!mapCommon.Initialize())
-	{
-		Logger::Log("[MapCommon] Failed initialization");
 		return false;
-	}
-	Logger::Log("[MapCommon] Successfully initialized");
 
 	ntWidgetHandler = TLBSWidgetHandler::getNosTaleUniqueInstance();
 	if (ntWidgetHandler == nullptr)
-	{
-		Logger::Log("[TLBSWidgetHandler] Failed initialization");
 		return false;
-	}
-	Logger::Log("[TLBSWidgetHandler] Successfully initialized: %x", ntWidgetHandler);
 
 	ntSceneMng = TSceneManager::getNosTaleUniqueInstance();
 	if (ntSceneMng == nullptr)
-	{
-		Logger::Log("[TSceneManager] Failed initialization");
 		return false;
-	}
-	Logger::Log("[TSceneManager] Successfully initialized: %x", ntSceneMng);
 
+	Logger::Success("Successfully initialized");
 	return true;
 }
 
 void ClientModding::Run()
 {
+	auto _ = Logger::PushPopModuleName("ClientModding");
 	if (!beforeRun())
 	{
-		Logger::Log("Unable to run");
+		Logger::Error("Unable to run");
 		return;
 	}
 	Logger::Log("Now running...");
@@ -114,4 +90,12 @@ void ClientModding::on_PR_tit(std::string& packet)
 	std::string pseudo = words[2];
 	discordMng.SetPseudonym(pseudo);
 	discordMng.SetChannel(connection.servChan.GetChannel());
+}
+
+void ClientModding::on_PR_pst(std::string& packet)
+{
+}
+
+void ClientModding::on_PR_aa_pst(std::string& packet)
+{
 }

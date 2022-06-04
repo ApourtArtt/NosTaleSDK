@@ -6,16 +6,12 @@
 #include "TEWLabel.h"
 #include "TEWButtonWidget.h"
 #include "TEWGraphicButtonWidget.h"
+#pragma pack(push, 1)
 
-// To make the compiler happy, need to be added
+// TODO To make the compiler happy, need to be added
 class TNTChatEditWidget {};
 class TNTMaskingGaugeWidget {};
 
-#pragma pack(push, 1)
-
-/**
- * @brief Representation of the game TNTMonsterSummaryInfoWidget structure.
- */
 class TNTMonsterSummaryInfoWidget : public TEWCustomFormWidget
 {
 public:
@@ -59,6 +55,7 @@ public:
 	uint16_t uknown_var_2; //0x016A Used when you click on the whisper button to open the chat
 	TNTChatEditWidget* chatEditWidget; //0x016C
 	TNTIconWidget* buffIcons[8]; //0x0170
-}; //Size: 0x0190
+};
 static_assert(sizeof(TNTMonsterSummaryInfoWidget) == 0x190, "TNTMonsterSummaryInfoWidget does not have a size of 0x190");
+
 #pragma pack(pop)

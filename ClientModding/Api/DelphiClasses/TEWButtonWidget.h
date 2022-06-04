@@ -6,9 +6,6 @@
 
 // TODO: find uknown values
 
-/**
- * @brief Representation of the game TEWButtonWidget structure.
- */
 class TEWButtonWidget : public TEWGraphicButtonWidget
 {
 public:
@@ -34,7 +31,7 @@ protected:
 	class TextStyle textStyle; //0x00E4
 	char pad_00EF[25]; //0x00EF
 	class TextPosition textPosition; //0x0108
-}; //Size: 0x0118
+};
 static_assert(sizeof(TEWButtonWidget) == 0x118, "TEWButtonWidget does not have a size of 0x118");
 
-#pragma pack(pop) 
+#pragma pack(pop)

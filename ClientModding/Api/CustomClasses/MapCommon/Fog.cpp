@@ -3,25 +3,36 @@
 
 bool Fog::Initialize()
 {
+	auto _ = Logger::PushPopModuleName("Fog");
+
 	auto patternAddr = PatternScan(
 		"\x80\x3D\x00\x00\x00\x00\x00\x74\x00\xA1\x00\x00\x00\x00\x8B\x00\x50\x6A",
-		"xx????xx?x????xxxx",
-		10
+		"xx????xx?x????xxxx", 10
 	);
 	if (patternAddr == nullptr)
+	{
+		Logger::Error("Failed scanning pattern");
 		return false;
-	Logger::Log("[Fog] Pattern address: %x", patternAddr);
+	}
+	Logger::Log("patternAddr = %x", patternAddr);
 
 	address = *(uintptr_t*)patternAddr;
 	if (address == NULL)
+	{
+		Logger::Error("Failed scanning pattern");
 		return false;
-	Logger::Log("[Fog] |_ %x", address);
+	}
+	Logger::Log("address = %x", address);
 
 	address = *(uintptr_t*)address;
 	if (address == NULL)
+	{
+		Logger::Error("Failed scanning pattern");
 		return false;
-	Logger::Log("[Fog]  |_ %x", address);
+	}
+	Logger::Log("address = %x", address);
 
+	Logger::Success("Successfully initialized");
 	return true;
 }
 

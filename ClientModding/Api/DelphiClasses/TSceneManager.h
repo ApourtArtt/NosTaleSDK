@@ -16,14 +16,21 @@ public:
 
 	[[nodiscard]] static TSceneManager* getNosTaleUniqueInstance()
 	{
+		auto _ = Logger::PushPopModuleName("TSceneManager");
+
 		auto patternAddr = PatternScan(
 			"\xA1\x00\x00\x00\x00\x00\x00\x00\x00\x58\x00\x0F\x84\xBF",
 			"x????????xxxxx",
 			1
 		);
+		if (patternAddr == nullptr)
+		{
+			Logger::Error("Failed scanning pattern");
+			return nullptr;
+		}
+		Logger::Log("patternAddr = %x", patternAddr);
 
-		Logger::Log("[TSceneManager] Pattern address: %x", patternAddr);
-
+		Logger::Success("Successfully initialized");
 		return ***(TSceneManager****)patternAddr;
 	}
 

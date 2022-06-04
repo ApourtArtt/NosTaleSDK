@@ -2,9 +2,6 @@
 #include "TObject.h"
 #pragma pack(push, 1)
 
-/**
- * @brief Representation of the game TLBSRotDamper struture.
- */
 class TLBSRotDamper : public TObject
 {
 public:

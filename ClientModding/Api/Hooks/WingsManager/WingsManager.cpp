@@ -154,51 +154,65 @@ WingsManager::WingsManager(const WingsManagerConfig& Config)
 
 bool WingsManager::Initialize()
 {
+	auto _ = Logger::PushPopModuleName("WingsManager");
+
 	auto patternAddrWings = PatternScan(
 		"\x55\x8b\xec\x51\x53\x56\x84\xd2\x74\x08\x83\xc4\xf0\xe8\x00\x00\x00\x00\x8b\xda\x8b\xf0\x8b\x45\x0c\x83\xf8\x15",
-		"xxxxxxxxxxxxxx????xxxxxxxxxx",
-		25
+		"xxxxxxxxxxxxxx????xxxxxxxxxx", 25
 	);
 	if (patternAddrWings == nullptr)
+	{
+		Logger::Error("Failed scanning pattern");
 		return false;
+	}
 
-	Logger::Log("[WingsManager] Pattern address Wings: %x", patternAddrWings);
+	Logger::Log("patternAddrWings = %x", patternAddrWings);
 
 	if (!Hook((BYTE*)patternAddrWings, (BYTE*)wingsHook, 9))
+	{
+		Logger::Error("Failed hooking");
 		return false;
+	}
 
 	jmpbackWings = (uintptr_t)PatternScan("\x6a\xff\x33\xc9\x33\xd2\x8b\xc6",
-		"xxxxxxxx",
-		0,
+		"xxxxxxxx", 0,
 		(uint32_t)patternAddrWings // I want the pattern that follows patternAddrWings - I don't want the first one met
 	);
 	if (jmpbackWings == NULL)
+	{
+		Logger::Error("Failed scanning pattern");
 		return false;
-
-	Logger::Log("[WingsManager] Pattern address JumpBackWings: %x", jmpbackWings);
+	}
+	Logger::Log("jmpbackWings = %x", jmpbackWings);
 
 	auto patternAddrAura = PatternScan(
 		"\x55\x8b\xec\x51\x53\x56\x84\xd2\x74\x00\x83\xc4\x00\xe8\x00\x00\x00\x00\x8b\xda\x8b\xf0\x8a\x40\x00\x88\x40\x00\x83\xc1\xf0\x83\xf9\x04\x77\x00",
-		"xxxxxxxxx?xx?x????xxxxx??x??xxxxxxx?",
-		28
+		"xxxxxxxxx?xx?x????xxxxx??x??xxxxxxx?", 28
 	);
 	if (patternAddrAura == nullptr)
+	{
+		Logger::Error("Failed scanning pattern");
 		return false;
-
-	Logger::Log("[WingsManager] Pattern address Aura: %x", patternAddrAura);
+	}
+	Logger::Log("patternAddrAura = %x", patternAddrAura);
 
 	if (!Hook((BYTE*)patternAddrAura, (BYTE*)auraHook, 9))
+	{
+		Logger::Error("Failed hooking");
 		return false;
+	}
 
 	jmpbackAura = (uintptr_t)PatternScan("\x6a\xff\x33\xc9\x33\xd2\x8b\xc6\xe8\x00\x00\x00\x00\xe8\x00\x00\x00\x00\x89\x45\xfc\x8d\x45\xfc\x50\x6a\x00\x8b\x46\x10\x33\xc9\x8b\x55\x0c",
-		"xxxxxxxxx????x????xxxxxxxxxxxxxxxxx",
-		0,
+		"xxxxxxxxx????x????xxxxxxxxxxxxxxxxx",0,
 		(uint32_t)patternAddrAura // I want the pattern that follows patternAddrAura - I don't want the first one met
 	);
 	if (jmpbackAura == NULL)
+	{
+		Logger::Error("Failed scanning pattern");
 		return false;
+	}
+	Logger::Log("jmpbackAura = %x", jmpbackAura);
 
-	Logger::Log("[WingsManager] Pattern address JumpBackAura: %x", jmpbackAura);
-	
+	Logger::Success("Successfully initialized");
     return true;
 }

@@ -29,7 +29,6 @@ bool ExampleRatufuWidget::Initialize(TLBSWidget* Parent)
 	);
 	Parent->addWidget(form);
 	form->setVisible(true);
-	Logger::Log("%x\n", form);
 
 	TEWLabel* label = new TEWLabel(
 		form,
@@ -39,7 +38,6 @@ bool ExampleRatufuWidget::Initialize(TLBSWidget* Parent)
 	);
 	form->addWidget(label);
 	label->setVisible(true);
-	Logger::Log("%x\n", label);
 	TEWCaptionBar* captionBar = new TEWCaptionBar(
 		form,
 		Border(0, 0, 150, 35), Bgra(255, 255, 0, 127),
@@ -48,7 +46,6 @@ bool ExampleRatufuWidget::Initialize(TLBSWidget* Parent)
 	);
 	form->addWidget(captionBar);
 	captionBar->setVisible(true);
-	Logger::Log("%x\n", captionBar);
 
 	TEWGraphicButtonWidget* button = new TEWGraphicButtonWidget(
 		form,
@@ -65,7 +62,6 @@ bool ExampleRatufuWidget::Initialize(TLBSWidget* Parent)
 	);
 	form->addWidget(button);
 	button->setVisible(true);
-	Logger::Log("%x\n", button);
 
 	return true;
 }

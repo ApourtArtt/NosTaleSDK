@@ -14,6 +14,7 @@ Example::Example(const ClientModdingConfig& Config)
 
 bool Example::beforeRun()
 {
+	auto _ = Logger::PushPopModuleName("Example");
 	// This method is called after calling Example::Run().
 	// You can expect every widgets and modules provided by this API to work
 	// once this is called, everything is ready.
@@ -21,12 +22,9 @@ bool Example::beforeRun()
 	// Example: if you want to create a widget, you should create it here.
 
 	if (!ratufuWidget.Initialize(ntWidgetHandler->getGameRootWidget()))
-	{
-		Logger::Log("[RatufuWidget] Failed initialization");
 		return false;
-	}
-	Logger::Log("[RatufuWidget] Successfully initialized");
 
+	Logger::Success("Successfully initialized");
 	return true;
 }
 

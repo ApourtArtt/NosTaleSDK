@@ -11,6 +11,7 @@
 #include "Api/PacketManager/PacketManager.h"
 #include "Api/Hooks/StuffManager/StuffManager.h"
 #include "Api/Hooks/WingsManager/WingsManager.h"
+#include "Api/Hooks/UIManager/UIManager.h"
 
 
 // ClientModding is the interface you should inherit from.
@@ -31,6 +32,8 @@ public:
 
 private:
 	void on_PR_tit(std::string& packet);
+	void on_PR_pst(std::string& packet);
+	void on_PR_aa_pst(std::string& packet);
 
 	HWND hwnd{};
 
@@ -47,6 +50,7 @@ protected:
 	PacketManager packetMng{};
 	WingsManager wingsMng;
 	StuffManager stuffMng;
+	UIManager uiMng;
 
 	TLBSWidgetHandler* ntWidgetHandler{ nullptr };
 	TSceneManager* ntSceneMng{ nullptr };

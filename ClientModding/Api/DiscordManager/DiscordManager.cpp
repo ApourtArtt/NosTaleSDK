@@ -1,13 +1,9 @@
 ﻿#include "DiscordManager.h"
 #include <Windows.h>
+#include "../../Utils/Logger.h"
 
 DiscordManager::DiscordManager(const DiscordManagerConfig& Config)
 	: config(Config)
-	, core(nullptr)
-	, user()
-	, started(false)
-	, channel(-1)
-	, gameActivity(DiscordGameActivity::AFK)
 {
 	if (config.Active)
 	{
@@ -32,11 +28,19 @@ DiscordManager::~DiscordManager()
 
 bool DiscordManager::Start()
 {
+	auto _ = Logger::PushPopModuleName("DiscordManager");
+
 	if (!config.Active) [[unlikely]]
-		return true; // Because we want this program to run
+	{
+		Logger::Log("Not started because config.Active is false");
+		return true; // true because this is not an error
+	}
 
 	if (started) [[unlikely]]
+	{
+		Logger::Error("Already started");
 		return false;
+	}
 
 	if (core) [[likely]]
 	{
@@ -47,7 +51,10 @@ bool DiscordManager::Start()
 	started = true;
 	auto res = discord::Core::Create(config.ApplicationId, static_cast<uint64_t>(discord::CreateFlags::Default), &core);
 	if (res != discord::Result::Ok)
+	{
+		Logger::Error("Failed creating Discord session");
 		return false;
+	}
 
 	runner = std::thread([&]
 	{
@@ -66,6 +73,8 @@ bool DiscordManager::Start()
 		delete core;
 		core = nullptr;
 	});
+
+	Logger::Success("Successfully started");
 	return true;
 }
 

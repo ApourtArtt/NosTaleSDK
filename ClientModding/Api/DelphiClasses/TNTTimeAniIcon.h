@@ -14,8 +14,7 @@ public:
 	char pad_010D[1]; //0x010D
 	uint8_t isOnCooldown; //0x010E
 	char pad_010F[1]; //0x010F
-}; //Size: 0x0110
-static_assert(sizeof(TNTTimeAniIcon) == 0x110);
-
+};
+static_assert(sizeof(TNTTimeAniIcon) == 0x110, "TNTTimeAniIcon does not have a size of 0x110");
 
 #pragma pack(pop)

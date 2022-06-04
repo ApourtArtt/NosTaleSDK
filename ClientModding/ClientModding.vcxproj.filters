@@ -64,6 +64,12 @@
     <Filter Include="Api\Hooks\StuffManager">
       <UniqueIdentifier>{dd478514-e156-44e2-ad6b-224f43735d84}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Api\Hooks\UIManager">
+      <UniqueIdentifier>{5885b69d-c135-4f50-8871-a407394b3e43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\Hooks\UIManager\SpyHpMp">
+      <UniqueIdentifier>{9d160620-9a23-4e79-bd3e-6ce8159e4fb0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Api\Properties\Logical\String.h">
@@ -409,6 +415,18 @@
     <ClInclude Include="Api\DelphiClasses\TMapPlayerObj.h">
       <Filter>Api\DelphiClasses</Filter>
     </ClInclude>
+    <ClInclude Include="Api\Hooks\UIManager\UIManager.h">
+      <Filter>Api\Hooks\UIManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Hooks\UIManager\UIConfig.h">
+      <Filter>Api\Hooks\UIManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Hooks\UIManager\SpyHpMp\SpyHpMpManager.h">
+      <Filter>Api\Hooks\UIManager\SpyHpMp</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Hooks\UIManager\SpyHpMp\SpyHpMpConfig.h">
+      <Filter>Api\Hooks\UIManager\SpyHpMp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Api\PacketManager\PacketManager.cpp">
@@ -519,6 +537,12 @@
     </ClCompile>
     <ClCompile Include="Api\Hooks\StuffManager\StuffManager.cpp">
       <Filter>Api\Hooks\StuffManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Hooks\UIManager\UIManager.cpp">
+      <Filter>Api\Hooks\UIManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Hooks\UIManager\SpyHpMp\SpyHpMpManager.cpp">
+      <Filter>Api\Hooks\UIManager\SpyHpMp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

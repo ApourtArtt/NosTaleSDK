@@ -3,9 +3,6 @@
 #include "../Properties/Graphical/GhostBorder.h"
 #pragma pack(push, 1)
 
-/**
- * @brief Representation of the game TEWParentMoveWidget structure.
- */
 class TEWParentMoveWidget : public TEWControlWidget
 {
 public:

@@ -10,11 +10,9 @@
 
 // TODO: Find uknown values
 
-/**
- * @brief Represents the game TNTQuickSlotWidget structure.
- */
 class TNTQuickSlotWidget : public TEWCustomFormWidget
 {
+	// TODO make private
 public:
 	char pad_00BC[4]; //0x00BC
 	TEWCustomPanelWidget* moveWidgetButton; //0x00C0 this is the blue button to move the widget in-game
@@ -31,7 +29,7 @@ public:
 	TEWGraphicButtonWidget* lockWidgetButton; //0x01D4
 	TEWGraphicButtonWidget* changeLabelsButton; //0x01D8
 	char pad_01DC[4]; //0x01DC
-}; //Size: 0x01E0
-static_assert(sizeof(TNTQuickSlotWidget) == 0x1E0);
+};
+static_assert(sizeof(TNTQuickSlotWidget) == 0x1E0, "TNTQuickSlotWidget does not have a size of 0x1E0");
 
 #pragma pack(pop)

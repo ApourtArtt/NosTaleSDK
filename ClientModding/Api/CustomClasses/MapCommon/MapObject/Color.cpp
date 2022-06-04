@@ -2,26 +2,37 @@
 
 bool Color::Initialize()
 {
+	auto _ = Logger::PushPopModuleName("Color");
+
 	auto patternAddr = PatternScan(
 		"\xA5\xA5\xA5\xA5\x5F\x5E\xA1\x00\x00\x00\x00\x56\x57\x8B\xF7\x8D\x78\x04\xA5\xA5\xA5\xA5\x5F\x5E",
-		"xxxxxxx????xxxxxxxxxxxxx",
-		7
+		"xxxxxxx????xxxxxxxxxxxxx", 7
 	);
 
 	if (patternAddr == nullptr)
+	{
+		Logger::Error("Failed scanning pattern");
 		return false;
-	Logger::Log("[Color] Pattern address: %x", patternAddr);
+	}
+	Logger::Log("patternAddr = %x", patternAddr);
 
 	address = *(uintptr_t*)patternAddr;
 	if (address == NULL)
+	{
+		Logger::Error("Failed scanning pattern");
 		return false;
-	Logger::Log("[Color] |_ %x", address);
+	}
+	Logger::Log("address = %x", address);
 
 	address = *(uintptr_t*)address;
 	if (address == NULL)
+	{
+		Logger::Error("Failed scanning pattern");
 		return false;
-	Logger::Log("[Color]  |_ %x", address);
+	}
+	Logger::Log("address = %x", address);
 
+	Logger::Success("Successfully initialized");
 	return true;
 }
 

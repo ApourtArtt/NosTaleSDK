@@ -5,9 +5,6 @@
 #include "../Properties/Graphical/Cursor.h"
 #pragma pack(push, 1)
 
-/**
- * @brief Representation of the game TLBSWidget structure.
- */
 class TLBSWidget : public TObject
 {
 public:

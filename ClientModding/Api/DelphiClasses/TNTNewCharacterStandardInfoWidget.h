@@ -17,13 +17,11 @@
 #include "../Properties/Logical/PetInformation.h"
 #pragma pack(push, 1)
 
-constexpr int PARTNER_ARRAY_SIZE = 12;
-constexpr int PET_ARRAY_SIZE = 10;
-
 // TODO: Find uknown values
+static constexpr int PARTNER_ARRAY_SIZE = 12;
+static constexpr int PET_ARRAY_SIZE = 10;
 
-
-// Just to make the compiler happy, need reverse
+// TODO Just to make the compiler happy, need reverse
 class TNTCommonInfoBoard {};
 class TNTActInfoWidget {};
 class TNTNewFamilyInfoWidget {};
@@ -34,7 +32,7 @@ class TNTTitleInfoWidget {};
 
 class TNTNewCharacterStandardInfoWidget : public TEWCustomFormWidget
 {
-public:
+public: // TODO make private
 	char pad_00BC[4]; //0x00BC
 	TEWGraphicButtonWidget* questionMarkButton; //0x00C0 
 	TEWGraphicButtonWidget* closeButton; //0x00C4 
@@ -224,7 +222,7 @@ public:
 	TNTTitleInfoWidget* TNTTitleInfoWidgetPtr; //0x47E0 
 	int32_t entityIndex; //0x47E4
 	PartnerInformation aPartnerInformation[PARTNER_ARRAY_SIZE]; //0x47E8
-}; //Size: 0x519C
-static_assert(sizeof(TNTNewCharacterStandardInfoWidget) == 0x519C);
+};
+static_assert(sizeof(TNTNewCharacterStandardInfoWidget) == 0x519C, "TNTNewCharacterStandardInfoWidget does not have a size of 0x519C");
 
 #pragma pack(pop)

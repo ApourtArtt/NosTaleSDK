@@ -33,14 +33,14 @@ private:
 
 	DiscordManagerConfig config;
 
-	discord::Core* core;
-	discord::User user;
-	discord::Activity activity;
+	discord::Core* core{ nullptr };
+	discord::User user{};
+	discord::Activity activity{};
 
 	std::thread runner;
-	bool started;
+	bool started{ false };
 
 	std::string pseudonym;
-	short channel;
-	DiscordGameActivity gameActivity;
+	short channel{ -1 };
+	DiscordGameActivity gameActivity{ DiscordGameActivity::AFK };
 };

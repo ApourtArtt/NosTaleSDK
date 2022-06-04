@@ -4,9 +4,6 @@
 #include "../Properties/Logical/Callback.h"
 #pragma pack(push, 1)
 
-/**
- * @brief Representation of the game TEWScrollBarTrack structure.
- */
 class TEWScrollBarTrack : public TEWCustomPanelWidget
 {
 public:

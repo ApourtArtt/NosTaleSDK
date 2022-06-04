@@ -7,9 +7,6 @@
 * Find unknowns
 */
 
-/**
- * @brief Representation of the game TEWCustomPanelWidget structure.
- */
 class TEWCustomPanelWidget : public TEWMoveWidget
 {
 public:

@@ -5,9 +5,6 @@
 #include <vector>
 #pragma pack(push, 1)
 
-/**
- * @brief Representation of the game TEWEditWidget structure.
- */
 class TEWEditWidget : public TEWControlWidget
 {
 public:

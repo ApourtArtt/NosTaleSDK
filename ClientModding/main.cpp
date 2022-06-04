@@ -17,9 +17,9 @@ void Start(HMODULE hModule)
             {
                 { 25, levelToId
                     {
-                        { 1, 1209 },
-                        { 2, 1208 },
-                        { 3, 1202 },
+                        { 1, 1346 },
+                        { 2, 1347 },
+                        { 3, 1348 },
                         { 4, 1202 },
                         { 5, 1202 },
                         { 6, 1202 },
@@ -45,7 +45,8 @@ void Start(HMODULE hModule)
                 { 20, 7907 },
             },
         },
-        .StuffConfig = {
+        .StuffConfig =
+        {
             .AdditionalWeaponsGlow = glowsMap
             {
                 { 9, upgradeToGlow
@@ -64,24 +65,34 @@ void Start(HMODULE hModule)
                 },
             },
         },
+        .UIConfig =
+        {
+            .SpyHpMpConfig =
+            {
+                .Activate = true,
+            },
+        },
         .EventLoopDelay = 1000,
     };
 
     Example example(config);
     if (!example.Initialize())
     {
-        Logger::Log("Failed initializing ClientModding");
+        Logger::Error("Failed initializing Example");
         return;
     }
-    Logger::Log("Client Modding successfully initialized");
+    Logger::Success("Client Modding successfully Example");
 
     example.Run();
+    Sleep(5000);
 }
 
 DWORD WINAPI MainThread(HMODULE hModule)
 {
-    Logger::Load();
-    Logger::Log("Dll injected successfully");
+    Logger::Load("test.txt");
+    Logger::IndentModuleName("   ");
+    Sleep(1000);
+    Logger::Success("Dll successfully injected");
 
     Start(hModule);
 
