@@ -13,7 +13,7 @@
 - [x] Access to server and channel values in game
 - [x] Change map fog color, intensity, objects color
 - [x] Idle the game when not visible
-- [ ] See target/group HP/MP
+- [x] See target/group HP/MP
 - [ ] See cooldown timers
 - [ ] Ctrl+Z while busy without breaking action
 - [ ] Add range for talking with NPC
