@@ -70,6 +70,15 @@
     <Filter Include="Api\Hooks\UIManager\SpyHpMp">
       <UniqueIdentifier>{9d160620-9a23-4e79-bd3e-6ce8159e4fb0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Api\PacketManager\Packets">
+      <UniqueIdentifier>{c70af452-e601-4c4e-95a2-6d8f86f1800b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\PacketManager\Packets\Sent">
+      <UniqueIdentifier>{cce51115-23cb-4e67-b08a-a6bff13e030c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\PacketManager\Packets\Rcvd">
+      <UniqueIdentifier>{661fa454-ebd3-4a0e-83af-32435a017b2a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Api\Properties\Logical\String.h">
@@ -426,6 +435,33 @@
     </ClInclude>
     <ClInclude Include="Api\Hooks\UIManager\SpyHpMp\SpyHpMpConfig.h">
       <Filter>Api\Hooks\UIManager\SpyHpMp</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTMaskingGaugeWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTPartySummaryInfoWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\ToNumber.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\PacketManager\Packets\Rcvd\PR_st.h">
+      <Filter>Api\PacketManager\Packets\Rcvd</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\PacketManager\Packets\PacketRcvd.h">
+      <Filter>Api\PacketManager\Packets</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\PacketManager\Packets\Rcvd\PR_aa_st.h">
+      <Filter>Api\PacketManager\Packets\Rcvd</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Enums\EntityType.h">
+      <Filter>Api\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\PacketManager\Packets\Rcvd\PR_pst.h">
+      <Filter>Api\PacketManager\Packets\Rcvd</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\PacketManager\Packets\Rcvd\PR_aa_pst.h">
+      <Filter>Api\PacketManager\Packets\Rcvd</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

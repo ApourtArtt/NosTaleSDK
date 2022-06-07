@@ -1,8 +1,7 @@
 #pragma once
 #include "SpyHpMp/SpyHpMpConfig.h"
 
-class UIManagerConfig
+struct UIManagerConfig
 {
-public:
-	SpHpMpManagerConfig SpyHpMpConfig;
+	SpyHpMpManagerConfig SpyHpMpConfig;
 };

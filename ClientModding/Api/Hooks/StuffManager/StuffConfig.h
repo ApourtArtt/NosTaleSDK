@@ -4,8 +4,7 @@
 typedef std::map<Upgrade, WeaponGlow> upgradeToGlow;
 typedef std::map<Rarity, upgradeToGlow> glowsMap;
 
-class StuffManagerConfig
+struct StuffManagerConfig
 {
-public:
 	glowsMap AdditionalWeaponsGlow;
 };

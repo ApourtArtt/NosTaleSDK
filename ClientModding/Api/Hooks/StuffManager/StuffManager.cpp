@@ -12,42 +12,82 @@ namespace
 	std::map<Rarity, std::map<Upgrade, WeaponGlow>> weaponGlows = defaultWeaponGlows;
 }
 
-void __declspec(naked) upgradeRarityDisplayHook() noexcept
+namespace
+{
+	//Upgrade weaponUpgrade;
+	//Rarity weaponRarity;
+	//TMapPlayerObj* player;
+}
+
+void __stdcall  upgradeRarityDisplayHook(TMapPlayerObj* player, Rarity weaponRarity, Upgrade weaponUpgrade)
+{
+	player->setWeaponRarity(weaponRarity);
+	player->setWeaponUpgrade(weaponUpgrade);
+
+	WeaponGlow glow;
+	glow = defaultNoGlow;
+
+	if (weaponGlows.count(weaponRarity) > 0 && weaponGlows[weaponRarity].count(weaponUpgrade) > 0)
+		glow = weaponGlows[weaponRarity][weaponUpgrade];
+
+	player->setWeaponGlow(glow);
+}
+
+void __declspec(naked) hk_UpgradeRarityDisplayHook() noexcept
 {
 	__asm
 	{
 		pushad;
 		pushfd;
+
+		push cl;
+		push dl;
+		push eax;
+
+		call upgradeRarityDisplayHook;
+
+		popfd;
+		popad;
+		jmp jmpbackUpgradeRarityDisplay;
 	}
+}
 
-	Upgrade weaponUpgrade;
-	Rarity weaponRarity;
-	TMapPlayerObj* player;
-
-	// TODO: player.207/208 offset
-
+/*
+void __declspec(naked) hk_UpgradeRarityDisplayHook() noexcept
+{
 	__asm
 	{
+		pushad;
+		pushfd;
+
 		mov weaponUpgrade, cl;
 		mov weaponRarity, dl;
 		mov player, eax;
 	}
 
+	player->setWeaponRarity(weaponRarity);
+	player->setWeaponUpgrade(weaponUpgrade);
+	
 	WeaponGlow glow;
 	glow = defaultNoGlow;
+
 	if (weaponGlows.count(weaponRarity) > 0 && weaponGlows[weaponRarity].count(weaponUpgrade) > 0)
 		glow = weaponGlows[weaponRarity][weaponUpgrade];
 
 	player->setWeaponGlow(glow);
-
+	
 	__asm
 	{
+		mov cl, weaponUpgrade;
+		mov dl, weaponRarity;
+		mov eax, player;
+
 		popfd;
 		popad;
 
 		jmp jmpbackUpgradeRarityDisplay;
 	}
-}
+}*/
 
 StuffManager::StuffManager(const StuffManagerConfig& Config)
     : config(Config)
@@ -84,7 +124,7 @@ bool StuffManager::Initialize()
 	}
 	Logger::Log("patternAddrUpgradeRarityDisplay = %x", patternAddrUpgradeRarityDisplay);
 
-	if (!Hook((BYTE*)patternAddrUpgradeRarityDisplay, (BYTE*)upgradeRarityDisplayHook, 6))
+	if (!Hook((BYTE*)patternAddrUpgradeRarityDisplay, (BYTE*)hk_UpgradeRarityDisplayHook, 6))
 	{
 		Logger::Error("Failed hooking");
 		return false;

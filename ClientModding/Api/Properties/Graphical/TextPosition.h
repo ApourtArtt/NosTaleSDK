@@ -1,14 +1,10 @@
 #pragma once
-
 #include <stdint.h>
 #include <cstring>
 #include "String.h"
 #include "../Logical/String.h"
 #pragma pack(push, 1)
 
-/**
- * @brief Game text position representation.
- */
 class TextPosition
 {
 public:
@@ -16,7 +12,7 @@ public:
 		: TextPosition(0, 0, 0, 0, nullptr, false)
 	{}
 
-	TextPosition(int16_t X, int16_t Y, int16_t PxPerLine, int16_t LineSpacing, AString* Text, bool IsVisible)
+	TextPosition(int16_t X, int16_t Y, int16_t PxPerLine, int16_t LineSpacing, WString* Text, bool IsVisible)
 		: x(X)
 		, y(Y)
 		, pxPerLine(PxPerLine)
@@ -44,6 +40,7 @@ public:
 	const int16_t getY() const { return y; }
 	wchar_t* getText() const { return text; }
 	void setText(wchar_t* Text) { text = Text; }
+	void setVisible(bool Visible) { isVisible = Visible; }
 
 	/*static unsigned char* get(std::vector<TextPosition> texts)
 	{

@@ -12,6 +12,8 @@
 class TEWLabel : public TEWControlWidgetEX
 {
 public:
+	static constexpr std::string_view NAME = "TEWLabel";
+	explicit TEWLabel() {}
 	TEWLabel(TLBSWidget* Parent, Border Border, TextStyle TextStyle, TextPosition TextPosition)
 		: TEWControlWidgetEX(ClassSearcher::GetClassInfoFromName("TEWLabel").GetVTable()
 		, 0x21, Parent, nullptr, Border)
@@ -27,10 +29,9 @@ public:
 		textPosition.setText(text);
 	}
 
-	wchar_t* getText() const 
-	{
-		return textPosition.getText();
-	}
+	wchar_t* getText() const { return textPosition.getText(); }
+
+	TextPosition& getTextPosition() { return textPosition; }
 
 	void setPxPerLine(int16_t px) { textPosition.setPxPerLine(px); }
 

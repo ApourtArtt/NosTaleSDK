@@ -52,7 +52,7 @@ void NewCharacterSkillInfoWidget::addCooldownLabels()
 			icon,
 			Border(4, 13, 40, 40),
 			TextStyle(1, TextShadowOrientation::ShadowBottomRight, Bgra(255, 255, 255, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-			TextPosition(1, 1, 30, 16, new AString(L"00:00"), true)
+			TextPosition(1, 1, 30, 16, new WString(L"00:00"), true)
 		);
 
 		icon->addWidget(label);

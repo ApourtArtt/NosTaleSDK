@@ -10,11 +10,12 @@ ClientModding::ClientModding(const ClientModdingConfig& Config)
 	, uiMng(Config.UIConfig)
 {
 	packetMng.Subscribe(PacketType::RCVD, "tit", [this](std::string& Packet) { on_PR_tit(Packet); });
-	if (config.UIConfig.SpyHpMpConfig.Activate)
-	{
-		packetMng.Subscribe(PacketType::RCVD, "pst", [this](std::string& Packet) { on_PR_pst(Packet); });
-		packetMng.Subscribe(PacketType::RCVD, "aa_pst", [this](std::string& Packet) { on_PR_aa_pst(Packet); });
-	}
+
+	packetMng.Subscribe(PacketType::RCVD, "st", [this](std::string& Packet) { on_PR_st(Packet); });
+	packetMng.Subscribe(PacketType::RCVD, "aa_st", [this](std::string& Packet) { on_PR_aa_st(Packet); });
+
+	packetMng.Subscribe(PacketType::RCVD, "pst", [this](std::string& Packet) { on_PR_pst(Packet); });
+	packetMng.Subscribe(PacketType::RCVD, "aa_pst", [this](std::string& Packet) { on_PR_aa_pst(Packet); });
 }
 
 ClientModding::~ClientModding() {}
@@ -22,10 +23,19 @@ ClientModding::~ClientModding() {}
 bool ClientModding::Initialize()
 {
 	auto _ = Logger::PushPopModuleName("ClientModding");
+
 	hwnd = getHwnd();
-	discordMng.Start(); // If it fails, the player should still be able to play: don't return false
+	discordMng.Start();
 
 	if (!ClassSearcher::Initialize())
+		return false;
+
+	ntWidgetHandler = TLBSWidgetHandler::getNosTaleUniqueInstance();
+	if (ntWidgetHandler == nullptr)
+		return false;
+
+	ntSceneMng = TSceneManager::getNosTaleUniqueInstance();
+	if (ntSceneMng == nullptr)
 		return false;
 
 	if (!packetMng.Initialize())
@@ -46,14 +56,6 @@ bool ClientModding::Initialize()
 	if (!mapCommon.Initialize())
 		return false;
 
-	ntWidgetHandler = TLBSWidgetHandler::getNosTaleUniqueInstance();
-	if (ntWidgetHandler == nullptr)
-		return false;
-
-	ntSceneMng = TSceneManager::getNosTaleUniqueInstance();
-	if (ntSceneMng == nullptr)
-		return false;
-
 	Logger::Success("Successfully initialized");
 	return true;
 }
@@ -61,6 +63,7 @@ bool ClientModding::Initialize()
 void ClientModding::Run()
 {
 	auto _ = Logger::PushPopModuleName("ClientModding");
+
 	if (!beforeRun())
 	{
 		Logger::Error("Unable to run");
@@ -92,10 +95,26 @@ void ClientModding::on_PR_tit(std::string& packet)
 	discordMng.SetChannel(connection.servChan.GetChannel());
 }
 
+void ClientModding::on_PR_st(std::string& packet)
+{
+	PR_st p(packet);
+	uiMng.GetSpyHpMpManager().On_PR_st(p);
+}
+
+void ClientModding::on_PR_aa_st(std::string& packet)
+{
+	PR_aa_st p(packet);
+	uiMng.GetSpyHpMpManager().On_PR_aa_st(p);
+}
+
 void ClientModding::on_PR_pst(std::string& packet)
 {
+	PR_pst p(packet);
+	uiMng.GetSpyHpMpManager().On_PR_pst(p);
 }
 
 void ClientModding::on_PR_aa_pst(std::string& packet)
 {
+	PR_aa_pst p(packet);
+	uiMng.GetSpyHpMpManager().On_PR_aa_pst(p);
 }

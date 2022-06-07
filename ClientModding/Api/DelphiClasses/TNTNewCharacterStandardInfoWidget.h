@@ -78,15 +78,15 @@ public: // TODO make private
 	TNTIconWidget* weaponCostumeIconWidget; //0x0164 
 	TNTIconWidget* wingsCostumeIconWidget; //0x0168 
 	TEWCustomPanelWidget* statisticsCustomPanel; //0x016C 
-	TNTItemList<uint32_t>* uknownList; //0x0170 
+	TNTItemList* uknownList; //0x0170 
 	TNTIconWidget* petIconWidgets[PET_ARRAY_SIZE]; //0x0174 
 	TEWGraphicButtonWidget* characterHeadButton; //0x019C 
 	TEWGraphicButtonWidget* partnerHeadButton[PARTNER_ARRAY_SIZE]; //0x01A0 
 	TEWGraphicButtonWidget* petHeadButton[PET_ARRAY_SIZE]; //0x01D0 
-	TNTItemList<uint32_t>* uknownList_2; //0x01F8 
+	TNTItemList* uknownList_2; //0x01F8 
 	TNTIconWidget* characterHeadIconWidget; //0x01FC 
 	TNTIconWidget* partnerHeadIconWidget[PARTNER_ARRAY_SIZE]; //0x0200 
-	TNTItemList<uint32_t>* uknownList_3; //0x0230 
+	TNTItemList* uknownList_3; //0x0230 
 	TNTIconWidget* weaponStatIconWidget_1; //0x0234 
 	TNTIconWidget* weaponStatIconWidget_2; //0x0238 
 	TNTIconWidget* characterStatSpacer_1; //0x023C 
@@ -151,9 +151,9 @@ public: // TODO make private
 	PartnerSpSkillIcons aPartnerSpSkillIconWidget[PARTNER_ARRAY_SIZE]; //0x0354 Equipment, resistance and skills
 	TEWCustomPanelWidget* aPartnerCustomPanelWidgets[PET_ARRAY_SIZE]; //0x03E4 From here there are additional custom panels for each slot
 	TNTIconWidget* aPartnerSpIconWidget[PARTNER_ARRAY_SIZE]; //0x040C 
-	TNTItemList<uint32_t>* uknownList_4; //0x043C 
-	TNTItemList<uint32_t>* uknownList_5; //0x0440
-	TNTItemList<uint32_t>* uknownList_6; //0x0444
+	TNTItemList* uknownList_4; //0x043C 
+	TNTItemList* uknownList_5; //0x0440
+	TNTItemList* uknownList_6; //0x0444
 	TEWControlWidgetEX* partnerSpControlWidgetEx; //0x0448
 	TEWControlWidgetEX* partnerSpBorderEffectControlWidgetEx; //0x044C
 	char pad_0450[12]; //0x0450
@@ -180,8 +180,8 @@ public: // TODO make private
 	TNTIconWidget* partnerWaterResistanceIconWidget; //0x06D8 
 	TNTIconWidget* partnerLightResistanceIconWidget; //0x06DC 
 	TNTIconWidget* partnerShadowResistanceIconWidget; //0x06E0 
-	TNTItemList<uint32_t>* uknownList_7; //0x06E4 
-	TNTItemList<uint32_t>* uknownList_8; //0x06E8
+	TNTItemList* uknownList_7; //0x06E4 
+	TNTItemList* uknownList_8; //0x06E8
 	TEWLabels* petInfoLabels; //0x06EC 
 	TNTCommonInfoBoard* TNTCommonInfoBoardPtr; //0x06F0 
 	TNTIconWidget* petAttackStatIconWidget_1; //0x06F4 

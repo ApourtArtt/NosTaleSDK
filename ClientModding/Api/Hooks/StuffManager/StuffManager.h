@@ -7,6 +7,7 @@ public:
 	explicit StuffManager(const StuffManagerConfig& Config);
 	bool Initialize();
 
+
 private:
 	StuffManagerConfig config;
 };

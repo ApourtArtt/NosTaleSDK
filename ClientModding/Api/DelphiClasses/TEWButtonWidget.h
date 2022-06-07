@@ -4,7 +4,7 @@
 #include "../Properties/Graphical/TextPosition.h"
 #pragma pack(push, 1)
 
-// TODO: find uknown values
+// TODO: find unknown values
 
 class TEWButtonWidget : public TEWGraphicButtonWidget
 {
@@ -21,10 +21,7 @@ public:
 		textPosition.setText(text);
 	}
 
-	wchar_t* getText() const
-	{
-		return textPosition.getText();
-	}
+	wchar_t* getText() const { return textPosition.getText(); }
 
 protected:
 	char pad_00DC[8]; //0x00DC

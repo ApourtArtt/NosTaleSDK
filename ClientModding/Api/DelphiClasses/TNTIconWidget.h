@@ -13,7 +13,7 @@
 class TNTIconWidget : public TEWControlWidgetEvent
 {
 public:
-	TNTIconWidget(int VTable, int8_t EvenThing, TLBSWidget* Parent, TLBSWidgetList* Childs, Border Border)
+	TNTIconWidget(uint32_t VTable, int8_t EvenThing, TLBSWidget* Parent, TLBSWidgetList* Childs, Border Border)
 		: TEWControlWidgetEvent(VTable, EvenThing, Parent, Childs, Border)
 	{}
 

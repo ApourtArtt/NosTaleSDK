@@ -10,7 +10,7 @@ public:
 		: TList(1)
 	{}
 
-	TList(int32_t _capacity)
+	TList(uint32_t _capacity)
 		: TObject(ClassSearcher::GetClassInfoFromName("TList").GetVTable())
 		, length(0)
 		, capacity(_capacity)
@@ -48,12 +48,12 @@ public:
 		items = newItems;
 	}
 
-	int32_t size() const
+	uint32_t size() const
 	{
 		return length;
 	}
 
-	T get_item_at_index(int index)
+	T getItem(int index)
 	{
 		if (index >= length || index < 0)
 			return nullptr;
@@ -62,8 +62,8 @@ public:
 
 	T* items;				// 0x04
 private:
-	int32_t length;			// 0x08
-	int32_t capacity;		// 0x0c
+	uint32_t length;		// 0x08
+	uint32_t capacity;		// 0x0c
 };
 static_assert(sizeof(TList<int32_t>) == 0x10, "TList does not have a size of 0x10.");
 

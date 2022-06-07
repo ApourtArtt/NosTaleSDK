@@ -2,9 +2,8 @@
 #include <string>
 #include "discord.h"
 
-class DiscordManagerConfig
+struct DiscordManagerConfig
 {
-public:
 	bool Active{ false };
 	discord::ClientId ApplicationId;
 	std::string ApplicationName;

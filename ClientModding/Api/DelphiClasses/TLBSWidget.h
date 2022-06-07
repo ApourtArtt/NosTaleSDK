@@ -8,16 +8,17 @@
 class TLBSWidget : public TObject
 {
 public:
-    TLBSWidget(int VTable, int8_t EvenThing, TLBSWidget* Parent, TLBSWidgetList* Childs, Border Border)
+    explicit TLBSWidget() {} // Allows deep copy
+    TLBSWidget(uint32_t VTable, int8_t EvenThing, TLBSWidget* Parent, TLBSWidgetList* Children, Border Border)
         : evenThing(EvenThing)
         , parent(Parent)
-        , childs(Childs)
+        , children(Children)
         , border(Border)
     {
         vTable = VTable;
         visible = false;
-        if (childs == nullptr)
-            childs = new TLBSWidgetList();
+        if (children == nullptr)
+            children = new TLBSWidgetList();
         unknownWidget = nullptr;
         isHandlingClick = false;
         isLastWidgetClicked = false;
@@ -57,7 +58,7 @@ public:
 
     void addWidget(TLBSWidget* Child)
     {
-        childs->push_back(Child);
+        children->push_back(Child);
         Child->setWidgetParent(this);
     }
 
@@ -67,12 +68,89 @@ public:
         useCustomCursor = UseCustomCursor;
     }
 
+    std::vector<TLBSWidget*> findClasses(const std::string& ClassName)
+    {
+        if (children == nullptr)
+        {
+            Logger::Error("children == nullptr");
+            return {};
+        }
+
+        auto classInfo = ClassSearcher::GetClassInfoFromName(ClassName);
+        if (classInfo.GetName() != ClassName)
+        {
+            Logger::PushPopModuleName("TLBSWidget");
+            Logger::Error("Class %s not found", ClassName.c_str());
+            return {};
+        }
+
+        std::vector<TLBSWidget*> widgets;
+
+        for (auto i = 0; i < children->size(); i++)
+        {
+            if (classInfo.GetVTable() == children->getItem(i)->getVTable())
+                widgets.push_back(children->getItem(i));
+        }
+
+        return widgets;
+    }
+
+    std::vector<TLBSWidget*> findClasses(std::string_view ClassName)
+    {
+        return findClasses(std::string(ClassName.data()));
+    }
+
+    std::vector<TLBSWidget*> findClassesWithExpectedSize(const std::string& ClassName, uint32_t Size)
+    {
+        if (children == nullptr)
+        {
+            Logger::Error("children == nullptr");
+            return {};
+        }
+
+        auto classInfo = ClassSearcher::GetClassInfoFromName(ClassName);
+        if (classInfo.GetName() != ClassName)
+        {
+            Logger::PushPopModuleName("TLBSWidget");
+            Logger::Error("Class %s not found", ClassName.c_str());
+            return {};
+        }
+
+        std::vector<TLBSWidget*> widgets;
+
+        for (auto i = 0; i < children->size(); i++)
+        {
+            if (children == nullptr)
+            {
+                Logger::Error("Child n%d == nullptr", i);
+                continue;
+            }
+            if (classInfo.GetVTable() == children->getItem(i)->getVTable())
+                widgets.push_back(children->getItem(i));
+        }
+
+        if (widgets.size() != Size)
+        {
+            Logger::Error("Expected size of %d, have %d, for %s", Size, widgets.size(), ClassName.c_str());
+            for (auto i = 0; i < widgets.size(); i++)
+                Logger::Error("Child n%d == %x", i, widgets[i]);
+            return {};
+        }
+
+        return widgets;
+    }
+
+    std::vector<TLBSWidget*> findClassesWithExpectedSize(std::string_view ClassName, uint32_t Size)
+    {
+        return findClassesWithExpectedSize(std::string(ClassName.data()), Size);
+    }
+
     void setWidgetBorder(Border Border) { border = Border; }
     void setWidgetParent(TLBSWidget* Parent) { parent = Parent; } // TODO : remove from the parent if it is already in it
     void setVisible(bool IsVisible) { visible = IsVisible; }
     void setHandlingClick(bool IsHandlingClick) { isHandlingClick = IsHandlingClick; }
     void shouldSavePosition(bool SavePosition) { savePosition = SavePosition; }
-    TLBSWidgetList getChilds() { return *childs; }
+    TLBSWidgetList getChildren() { return *children; }
     bool isVisible() const { return visible; }
     int getWidth() const { return border.botRightX - border.topLeftX; }
     int getHeight() const { return border.botRightY - border.topLeftY; }
@@ -91,7 +169,7 @@ protected:
     char unknown2[2];           // 0x1C Unknown
     Cursor cursor;              // 0x1E
     bool useCustomCursor;       // 0x1F
-    TLBSWidgetList* childs;     // 0x20 List of childs
+    TLBSWidgetList* children;     // 0x20 List of childs
 };
 static_assert(sizeof(TLBSWidget) == 0x24, "TLBSWidget does not have a size of 0x24.");
 

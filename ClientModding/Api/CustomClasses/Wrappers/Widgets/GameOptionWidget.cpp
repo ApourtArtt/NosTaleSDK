@@ -39,7 +39,7 @@ void GameOptionWidget::makeBeautiful()
 		gameOptionWidget->displayConfigurationWidget,
 		Border(12, 68, 238, 15),
 		TextStyle(1, TextShadowOrientation::ShadowBottomRight, Bgra(255, 255, 255, 255), Bgra(0, 0, 0, 255), TextAlignment::TopLeft),
-		TextPosition(1, 1, 236, 13, new AString(L"FPS limit"), true)
+		TextPosition(1, 1, 236, 13, new WString(L"FPS limit"), true)
 	);
 
 	// Main fps combo widget
@@ -57,7 +57,7 @@ void GameOptionWidget::makeBeautiful()
 		4,
 		1,												
 		TextStyle(1, TextShadowOrientation::ShadowBottomRight, Bgra(4, 242, 177, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(3, 1, 88, 17, new AString(L"- - -"), true)
+		TextPosition(3, 1, 88, 17, new WString(L"- - -"), true)
 	);
 
 	// Fps combo box arrow
@@ -96,7 +96,7 @@ void GameOptionWidget::makeBeautiful()
 		4,
 		3,
 		TextStyle(1, TextShadowOrientation::ShadowBottomRight, Bgra(4, 242, 177, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(3, 1, 88, 17, new AString(L"30"), true)
+		TextPosition(3, 1, 88, 17, new WString(L"30"), true)
 	);
 
 	fps60Button = new TEWButtonWidget(
@@ -119,7 +119,7 @@ void GameOptionWidget::makeBeautiful()
 		4,
 		3,
 		TextStyle(1, TextShadowOrientation::ShadowBottomRight, Bgra(4, 242, 177, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(3, 1, 88, 17, new AString(L"60"), true)
+		TextPosition(3, 1, 88, 17, new WString(L"60"), true)
 	);
 
 	fps120Button = new TEWButtonWidget(
@@ -142,7 +142,7 @@ void GameOptionWidget::makeBeautiful()
 		4,
 		3,
 		TextStyle(1, TextShadowOrientation::ShadowBottomRight, Bgra(4, 242, 177, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(3, 1, 88, 17, new AString(L"120"), true)
+		TextPosition(3, 1, 88, 17, new WString(L"120"), true)
 	);
 
 	fps144Button = new TEWButtonWidget(
@@ -165,7 +165,7 @@ void GameOptionWidget::makeBeautiful()
 		4,
 		3,
 		TextStyle(1, TextShadowOrientation::ShadowBottomRight, Bgra(4, 242, 177, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(3, 1, 88, 17, new AString(L"144"), true)
+		TextPosition(3, 1, 88, 17, new WString(L"144"), true)
 	);
 
 	fps240Button = new TEWButtonWidget(
@@ -188,7 +188,7 @@ void GameOptionWidget::makeBeautiful()
 		4,
 		3,
 		TextStyle(1, TextShadowOrientation::ShadowBottomRight, Bgra(4, 242, 177, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(3, 1, 88, 17, new AString(L"240"), true)
+		TextPosition(3, 1, 88, 17, new WString(L"240"), true)
 	);
 
 	fpsUnlimitedButton = new TEWButtonWidget(
@@ -211,7 +211,7 @@ void GameOptionWidget::makeBeautiful()
 		4,
 		3,
 		TextStyle(1, TextShadowOrientation::ShadowBottomRight, Bgra(4, 242, 177, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(3, 1, 88, 17, new AString(L"Unlimited"), true)
+		TextPosition(3, 1, 88, 17, new WString(L"Unlimited"), true)
 	);
 
 	// Create resolution combo box
@@ -229,7 +229,7 @@ void GameOptionWidget::makeBeautiful()
 		4,
 		1,
 		TextStyle(1, TextShadowOrientation::ShadowBottomRight, Bgra(4, 242, 177, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(3, 1, 88, 17, new AString(L"- - -"), true)
+		TextPosition(3, 1, 88, 17, new WString(L"- - -"), true)
 	);
 
 	resolutionComboBoxArrowButton = new TEWGraphicButtonWidget(
@@ -266,7 +266,7 @@ void GameOptionWidget::makeBeautiful()
 		4,
 		3,
 		TextStyle(1, TextShadowOrientation::ShadowBottomRight, Bgra(4, 242, 177, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(3, 1, 88, 17, new AString(L"1024x700"), true)
+		TextPosition(3, 1, 88, 17, new WString(L"1024x700"), true)
 	);
 
 	resolution1024x768Button = new TEWButtonWidget(
@@ -289,7 +289,7 @@ void GameOptionWidget::makeBeautiful()
 		4,
 		3,
 		TextStyle(1, TextShadowOrientation::ShadowBottomRight, Bgra(4, 242, 177, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(3, 1, 88, 17, new AString(L"1024x768"), true)
+		TextPosition(3, 1, 88, 17, new WString(L"1024x768"), true)
 	);
 
 	resolution1280x1024Button = new TEWButtonWidget(
@@ -312,7 +312,7 @@ void GameOptionWidget::makeBeautiful()
 		4,
 		3,
 		TextStyle(1, TextShadowOrientation::ShadowBottomRight, Bgra(4, 242, 177, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(3, 1, 88, 17, new AString(L"1280x1024"), true)
+		TextPosition(3, 1, 88, 17, new WString(L"1280x1024"), true)
 	);
 
 	resolution1280x800Button = new TEWButtonWidget(
@@ -335,7 +335,7 @@ void GameOptionWidget::makeBeautiful()
 		4,
 		3,
 		TextStyle(1, TextShadowOrientation::ShadowBottomRight, Bgra(4, 242, 177, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(3, 1, 88, 17, new AString(L"1280x800"), true)
+		TextPosition(3, 1, 88, 17, new WString(L"1280x800"), true)
 	);
 
 	resolution1440x900Button = new TEWButtonWidget(
@@ -358,7 +358,7 @@ void GameOptionWidget::makeBeautiful()
 		4,
 		3,
 		TextStyle(1, TextShadowOrientation::ShadowBottomRight, Bgra(4, 242, 177, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(3, 1, 88, 17, new AString(L"1440x900"), true)
+		TextPosition(3, 1, 88, 17, new WString(L"1440x900"), true)
 	);
 
 	resolution1680x1050Button = new TEWButtonWidget(
@@ -381,7 +381,7 @@ void GameOptionWidget::makeBeautiful()
 		4,
 		3,
 		TextStyle(1, TextShadowOrientation::ShadowBottomRight, Bgra(4, 242, 177, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(3, 1, 88, 17, new AString(L"1680x1050"), true)
+		TextPosition(3, 1, 88, 17, new WString(L"1680x1050"), true)
 	);
 
 	resolution1920x1080Button = new TEWButtonWidget(
@@ -404,7 +404,7 @@ void GameOptionWidget::makeBeautiful()
 		4,
 		3,
 		TextStyle(1, TextShadowOrientation::ShadowBottomRight, Bgra(4, 242, 177, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(3, 1, 88, 17, new AString(L"1920x1080"), true)
+		TextPosition(3, 1, 88, 17, new WString(L"1920x1080"), true)
 	);
 
 	resolutionFullScreenWindowed = new TEWButtonWidget(
@@ -427,7 +427,7 @@ void GameOptionWidget::makeBeautiful()
 		4,
 		3,
 		TextStyle(1, TextShadowOrientation::ShadowBottomRight, Bgra(4, 242, 177, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(3, 1, 88, 17, new AString(L"FullScreen"), true)
+		TextPosition(3, 1, 88, 17, new WString(L"FullScreen"), true)
 	);
 
 	// Move bottom buttons
@@ -486,7 +486,7 @@ void GameOptionWidget::makeBeautiful()
 		keyBindButton,
 		Border(0, 6, 119, 16),
 		TextStyle(1, TextShadowOrientation::ShadowAll, Bgra(255, 219, 187, 255), Bgra(198, 82, 16, 255), TextAlignment::CenteredCentered),
-		TextPosition(1, 1, 117, 14, new AString(L"Change keybinds"), true)
+		TextPosition(1, 1, 117, 14, new WString(L"Change keybinds"), true)
 	);
 
 	printf("Key bind button = %p\n", keyBindButton);

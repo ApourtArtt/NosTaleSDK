@@ -2,19 +2,11 @@
 #include <cstring>
 #include <stdlib.h>
 
-/**
- * @brief Game string class.
- */
 class String
 {
 public:
-	String()
-		: length(0)
-		, buffer(nullptr)
-	{}
-
+	String() {}
 	String(const char* str)
-		: String()
 	{
 		set(str);
 	}
@@ -31,7 +23,6 @@ public:
 	void set(const char* str)
 	{
 		if (str == nullptr) return;
-		if (buffer != nullptr) free(buffer);
 
 		length = strlen(str);
 		buffer = (char*)malloc(length + 0x08 + 1);
@@ -48,40 +39,22 @@ public:
 	size_t size() const { return buffer == nullptr ? 0 : length; }
 
 private:
-	size_t length;
-	char* buffer;  // -0x08 : refCounting ; -0x04 : size ; 0x00 : buffer
+	size_t length{ 0 };
+	char* buffer{ nullptr };  // -0x08 : refCounting ; -0x04 : size ; 0x00 : buffer
 };
 
-/**
- * @brief Game unicode string class.
- */
-class AString
+class WString
 {
 public:
-	AString()
-		: length(0)
-		, buffer(nullptr)
-	{}
-
-	AString(const wchar_t* str)
-		: AString()
+	WString(){}
+	WString(const wchar_t* str)
 	{
 		set(str);
-	}
-
-	~AString()
-	{
-		if (buffer != nullptr)
-		{
-			free(buffer);
-			buffer = nullptr;
-		}
 	}
 
 	void set(const wchar_t* str)
 	{
 		if (str == nullptr) return;
-		if (buffer != nullptr) free(buffer);
 
 		length = wcslen(str) * 2;
 		buffer = (wchar_t*)malloc(length + 0x08 + 1);
@@ -98,6 +71,6 @@ public:
 	size_t size() const { return buffer == nullptr ? 0 : length; }
 
 private:
-	size_t length;
-	wchar_t* buffer; // -0x08 : refCounting ; -0x04 : size ; 0x00 : buffer
+	size_t length{ 0 };
+	wchar_t* buffer{ nullptr }; // -0x08 : refCounting ; -0x04 : size ; 0x00 : buffer
 };

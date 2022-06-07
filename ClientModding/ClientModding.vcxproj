@@ -36,8 +36,10 @@
     <ClInclude Include="Api\DelphiClasses\TLBSWidgetHandler.h" />
     <ClInclude Include="Api\DelphiClasses\TMapPlayerObj.h" />
     <ClInclude Include="Api\DelphiClasses\TNTGameOptionWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTMaskingGaugeWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTNewCharacterSkillInfoWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTNewCharacterStandardInfoWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTPartySummaryInfoWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTQuickSlotWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTTimeAniIcon.h" />
     <ClInclude Include="Api\DelphiClasses\TGameRootWidget.h" />
@@ -46,6 +48,7 @@
     <ClInclude Include="Api\DelphiClasses\TSceneManager.h" />
     <ClInclude Include="Api\DiscordManager\DiscordConfig.h" />
     <ClInclude Include="Api\Enums\CellType.h" />
+    <ClInclude Include="Api\Enums\EntityType.h" />
     <ClInclude Include="Api\Enums\KeyCode.h" />
     <ClInclude Include="Api\Enums\KeyModifier.h" />
     <ClInclude Include="Api\Hooks\StuffManager\DefaultWeaponGlow.h" />
@@ -59,6 +62,11 @@
     <ClInclude Include="Api\Hooks\WingsManager\DefaultWings.h" />
     <ClInclude Include="Api\Hooks\WingsManager\WingsManager.h" />
     <ClInclude Include="Api\Hooks\WingsManager\WingsConfig.h" />
+    <ClInclude Include="Api\PacketManager\Packets\PacketRcvd.h" />
+    <ClInclude Include="Api\PacketManager\Packets\Rcvd\PR_aa_pst.h" />
+    <ClInclude Include="Api\PacketManager\Packets\Rcvd\PR_aa_st.h" />
+    <ClInclude Include="Api\PacketManager\Packets\Rcvd\PR_pst.h" />
+    <ClInclude Include="Api\PacketManager\Packets\Rcvd\PR_st.h" />
     <ClInclude Include="Api\Properties\Graphical\WeaponGlowingStyle.h" />
     <ClInclude Include="Api\Properties\Logical\MapGrid.h" />
     <ClInclude Include="Api\Properties\Logical\PartnerEquipmentIcons.h" />
@@ -140,6 +148,7 @@
     <ClInclude Include="MemoryHelper\TrampolineHook.h" />
     <ClInclude Include="Utils\Logger.h" />
     <ClInclude Include="Utils\Split.h" />
+    <ClInclude Include="Utils\ToNumber.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Api\CustomClasses\Connection\ServChan.cpp" />

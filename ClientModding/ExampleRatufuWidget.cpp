@@ -34,7 +34,7 @@ bool ExampleRatufuWidget::Initialize(TLBSWidget* Parent)
 		form,
 		Border(45, 125, 110, 145),
 		TextStyle(3, TextShadowOrientation::ShadowTopLeft, Bgra(0, 255, 255, 127), Bgra(255, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(0, 0, 66, 15, new AString(L"Click me!"), true)
+		TextPosition(0, 0, 66, 15, new WString(L"Click me!"), true)
 	);
 	form->addWidget(label);
 	label->setVisible(true);
@@ -42,7 +42,7 @@ bool ExampleRatufuWidget::Initialize(TLBSWidget* Parent)
 		form,
 		Border(0, 0, 150, 35), Bgra(255, 255, 0, 127),
 		TextStyle(3, TextShadowOrientation::ShadowBottom, Bgra(255, 255, 0, 127), Bgra(255, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(0, 0, 150, 25, new AString(L"Titlebar"), true)
+		TextPosition(0, 0, 150, 25, new WString(L"Titlebar"), true)
 	);
 	form->addWidget(captionBar);
 	captionBar->setVisible(true);

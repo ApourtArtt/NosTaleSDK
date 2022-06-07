@@ -9,7 +9,7 @@
 class TEWCustomFormWidget : public TEWCustomPanelWidget
 {
 public:
-	TEWCustomFormWidget(int VTable, int8_t EvenThing, TLBSWidget* Parent, TLBSWidgetList* Childs, Border Border)
+	TEWCustomFormWidget(uint32_t VTable, int8_t EvenThing, TLBSWidget* Parent, TLBSWidgetList* Childs, Border Border)
 		: TEWCustomPanelWidget(VTable, EvenThing, Parent, Childs, Border)
 	{}
 

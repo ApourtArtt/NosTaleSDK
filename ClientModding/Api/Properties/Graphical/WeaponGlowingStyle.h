@@ -25,4 +25,6 @@ public:
 	float PrimaryGlowSize{ 0. };
 	WeaponGlowingStyle PrimaryGlowStyle{ WeaponGlowingStyle::NO_GLOWING };
 };
+static_assert(sizeof(WeaponGlow) == 0x12, "WeaponGlow does not have a size of 0x12.");
+
 #pragma pack(pop)

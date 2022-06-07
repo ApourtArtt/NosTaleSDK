@@ -10,7 +10,7 @@
 class TEWCustomButtonWidget : public TEWCustomPanelWidget
 {
 public:
-	TEWCustomButtonWidget(int VTable, int8_t EvenThing, TLBSWidget* Parent, TLBSWidgetList* Childs, Border Border)
+	TEWCustomButtonWidget(uint32_t VTable, int8_t EvenThing, TLBSWidget* Parent, TLBSWidgetList* Childs, Border Border)
 		: TEWCustomPanelWidget(VTable, EvenThing, Parent, Childs, Border)
 	{
 		makeSound = true;

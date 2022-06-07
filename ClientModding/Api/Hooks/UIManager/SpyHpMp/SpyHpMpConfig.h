@@ -1,7 +1,19 @@
 #pragma once
 
-class SpHpMpManagerConfig
+enum class SpyType
 {
-public:
+	APPROXIMATION,
+	REAL,
+};
+
+struct SpyHpMpConfig
+{
 	bool Activate{ false };
+	SpyType SpyType{ SpyType::APPROXIMATION };
+};
+
+struct SpyHpMpManagerConfig
+{
+	SpyHpMpConfig SpyTarget;
+	SpyHpMpConfig SpyGroup;
 };

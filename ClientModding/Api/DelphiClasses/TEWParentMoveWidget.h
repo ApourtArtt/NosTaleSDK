@@ -6,7 +6,7 @@
 class TEWParentMoveWidget : public TEWControlWidget
 {
 public:
-	TEWParentMoveWidget(int VTable, int8_t EvenThing, TLBSWidget* Parent, TLBSWidgetList* Childs, Border Border)
+	TEWParentMoveWidget(uint32_t VTable, int8_t EvenThing, TLBSWidget* Parent, TLBSWidgetList* Childs, Border Border)
 		: TEWControlWidget(VTable, EvenThing, Parent, Childs, Border)
 	{
 

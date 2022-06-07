@@ -6,6 +6,6 @@ class TGameRootWidget : public TLBSWidget
 {
 
 };
-static_assert(sizeof(TGameRootWidget) == 0x24, "TLBSCamera does not have a size of 0x24");
+static_assert(sizeof(TGameRootWidget) == 0x24, "TGameRootWidget does not have a size of 0x24");
 
 #pragma pack(pop)

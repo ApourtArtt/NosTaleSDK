@@ -13,14 +13,22 @@ public:
 		: vTable(ClassSearcher::GetClassInfoFromName("TObject").GetVTable())
 	{}
 
-	TObject(int32_t vTableAddy)
+	TObject(uint32_t vTableAddy)
 		: vTable(vTableAddy)
 	{}
 
-	int32_t getVTable() const { return vTable; }
+	uint32_t getVTable() const { return vTable; }
+
+	template<typename T>
+	static T* deepCopy(T* Object)
+	{
+		T* output = new T;
+		memcpy(output, Object, sizeof(*Object));
+		return output;
+	}
 
 protected:
-	int32_t vTable; // 0x00
+	uint32_t vTable; // 0x00
 };
 static_assert(sizeof(TObject) == 0x04, "TObject does not have a size of 0x04.");
 

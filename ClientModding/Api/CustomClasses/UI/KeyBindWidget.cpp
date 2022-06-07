@@ -103,7 +103,7 @@ void KeyBindWidget::makeTabBar()
 		generalTabButton,
 		Border(0, 0, tabButtonWidth, tabButtonHeight),
 		TextStyle(2, TextShadowOrientation::ShadowNone, Bgra(196, 199, 197, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(5, 11, 81, 16, new AString(L"General"), true)
+		TextPosition(5, 11, 81, 16, new WString(L"General"), true)
 	);
 
 	generalTabLabel->setVisible(true);
@@ -127,7 +127,7 @@ void KeyBindWidget::makeTabBar()
 		quicklistTabButton,
 		Border(0, 0, tabButtonWidth, tabButtonHeight),
 		TextStyle(2, TextShadowOrientation::ShadowNone, Bgra(196, 199, 197, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(5, 11, 81, 16, new AString(L"Quicklist"), true)
+		TextPosition(5, 11, 81, 16, new WString(L"Quicklist"), true)
 	);
 
 	quicklistTabLabel->setVisible(true);
@@ -151,7 +151,7 @@ void KeyBindWidget::makeTabBar()
 		matesTabButton,
 		Border(0, 0, tabButtonWidth, tabButtonHeight),
 		TextStyle(2, TextShadowOrientation::ShadowNone, Bgra(196, 199, 197, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(5, 11, 81, 16, new AString(L"Mates"), true)
+		TextPosition(5, 11, 81, 16, new WString(L"Mates"), true)
 	);
 
 	matesTabLabel->setVisible(true);
@@ -175,7 +175,7 @@ void KeyBindWidget::makeTabBar()
 		emotesTabButton,
 		Border(0, 0, tabButtonWidth, tabButtonHeight),
 		TextStyle(2, TextShadowOrientation::ShadowNone, Bgra(196, 199, 197, 255), Bgra(0, 0, 0, 255), TextAlignment::CenteredCentered),
-		TextPosition(5, 11, 81, 16, new AString(L"Emotes"), true)
+		TextPosition(5, 11, 81, 16, new WString(L"Emotes"), true)
 	);
 
 	emotesTabLabel->setVisible(true);
@@ -190,7 +190,7 @@ void KeyBindWidget::makeTitle()
 		this,
 		Border(0, 0, WIDTH, 30),
 		TextStyle(3, TextShadowOrientation::ShadowRight, Bgra(255, 255, 255, 255), Bgra(63, 63, 63, 255), TextAlignment::CenteredLeft),
-		TextPosition(10, 16, WIDTH, 0, new AString(L"Keybinds"), true)
+		TextPosition(10, 16, WIDTH, 0, new WString(L"Keybinds"), true)
 	);
 
 	titleLabel->setVisible(true);

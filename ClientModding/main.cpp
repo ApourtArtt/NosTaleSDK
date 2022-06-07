@@ -69,7 +69,16 @@ void Start(HMODULE hModule)
         {
             .SpyHpMpConfig =
             {
-                .Activate = true,
+                .SpyTarget = SpyHpMpConfig
+                {
+                    .Activate = true,
+                    .SpyType = SpyType::REAL,
+                },
+                .SpyGroup =
+                {
+                    .Activate = true,
+                    .SpyType = SpyType::REAL,
+                },
             },
         },
         .EventLoopDelay = 1000,
@@ -81,8 +90,8 @@ void Start(HMODULE hModule)
         Logger::Error("Failed initializing Example");
         return;
     }
-    Logger::Success("Client Modding successfully Example");
 
+    Logger::Success(" -> Example-ClientModding successfully initialized");
     example.Run();
     Sleep(5000);
 }

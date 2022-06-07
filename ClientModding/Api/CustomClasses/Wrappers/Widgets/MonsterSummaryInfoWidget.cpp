@@ -54,10 +54,10 @@ void MonsterSummaryInfoWidget::makeBeautiful()
 
 	monsterSummaryInfoWidget->oldHeadCircle->setVisible(true);
 	monsterSummaryInfoWidget->oldHeadIcon->setVisible(true);
-	monsterSummaryInfoWidget->getChilds().get_item_at_index(3)->setVisible(true); // Old head background
+	monsterSummaryInfoWidget->getChildren().getItem(3)->setVisible(true); // Old head background
 
-	TEWCustomPanelWidget* hpBar = (TEWCustomPanelWidget*)monsterSummaryInfoWidget->healthBar;
-	TEWCustomPanelWidget* mpBar = (TEWCustomPanelWidget*)monsterSummaryInfoWidget->manaBar;
+	TEWCustomPanelWidget* hpBar = (TEWCustomPanelWidget*)monsterSummaryInfoWidget->gaugeHp;
+	TEWCustomPanelWidget* mpBar = (TEWCustomPanelWidget*)monsterSummaryInfoWidget->gaugeMp;
 
 	// Increase main widget
 	monsterSummaryInfoWidget->incrementSize(GENERAL_OFFSET, 0);
@@ -76,10 +76,10 @@ void MonsterSummaryInfoWidget::makeBeautiful()
 	monsterSummaryInfoWidget->isCapturableIcon->moveWidget(GENERAL_OFFSET, 0);
 	monsterSummaryInfoWidget->displayMenuButton->moveWidget(GENERAL_OFFSET, 0);
 	monsterSummaryInfoWidget->closeButton->moveWidget(GENERAL_OFFSET, 0);
-	monsterSummaryInfoWidget->getChilds().get_item_at_index(TYPE_CONTROL_INDEX)->moveWidget(GENERAL_OFFSET, 0);
-	monsterSummaryInfoWidget->getChilds().get_item_at_index(ELEMENT_CONTROL_INDEX)->moveWidget(GENERAL_OFFSET, 0);
-	monsterSummaryInfoWidget->getChilds().get_item_at_index(CAPTURE_CONTROL_INDEX)->moveWidget(GENERAL_OFFSET, 0);
-	monsterSummaryInfoWidget->getChilds().get_item_at_index(OTHER_CONTROL_INDEX)->moveWidget(GENERAL_OFFSET, 0);
+	monsterSummaryInfoWidget->getChildren().getItem(TYPE_CONTROL_INDEX)->moveWidget(GENERAL_OFFSET, 0);
+	monsterSummaryInfoWidget->getChildren().getItem(ELEMENT_CONTROL_INDEX)->moveWidget(GENERAL_OFFSET, 0);
+	monsterSummaryInfoWidget->getChildren().getItem(CAPTURE_CONTROL_INDEX)->moveWidget(GENERAL_OFFSET, 0);
+	monsterSummaryInfoWidget->getChildren().getItem(OTHER_CONTROL_INDEX)->moveWidget(GENERAL_OFFSET, 0);
 
 	// Move the menu buttons
 	for (int i = 0; i < MENU_BUTTONS_SIZE; i++)

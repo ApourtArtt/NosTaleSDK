@@ -4,9 +4,8 @@
 #include "Api/Hooks/StuffManager/StuffConfig.h"
 #include "Api/Hooks/UIManager/UIConfig.h"
 
-class ClientModdingConfig
+struct ClientModdingConfig
 {
-public:
 	// Configure the Discord SDK
 	DiscordManagerConfig DiscordConfig;
 	// Configure the wings manager

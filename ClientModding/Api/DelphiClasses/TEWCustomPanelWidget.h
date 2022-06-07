@@ -10,7 +10,7 @@
 class TEWCustomPanelWidget : public TEWMoveWidget
 {
 public:
-	TEWCustomPanelWidget(int VTable, int8_t EvenThing, TLBSWidget* Parent, TLBSWidgetList* Childs, Border Border)
+	TEWCustomPanelWidget(uint32_t VTable, int8_t EvenThing, TLBSWidget* Parent, TLBSWidgetList* Childs, Border Border)
 		: TEWMoveWidget(VTable, EvenThing, Parent, Childs, Border)
 	{
 

@@ -1,11 +1,20 @@
 #pragma once
 #include "TGameRootWidget.h"
+#include "../../MemoryHelper/PatternScan.h"
 #pragma pack(push, 1)
 
 class TLBSWidgetHandler : public TObject
 {
 public:
-	TGameRootWidget* getGameRootWidget() { return gameRootWidget; }
+	TGameRootWidget* getGameRootWidget()
+	{
+		if (gameRootWidget == nullptr)
+		{
+			Logger::PushModuleName("TLBSWidgetHandler");
+			Logger::Error("gameRootWidget == nullptr");
+		}
+		return gameRootWidget;
+	}
 
 	static TLBSWidgetHandler* getNosTaleUniqueInstance()
 	{

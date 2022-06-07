@@ -8,7 +8,7 @@
 class TEWEditWidget : public TEWControlWidget
 {
 public:
-	TEWEditWidget(int VTable, int8_t EvenThing, TLBSWidget* Parent, TLBSWidgetList* Childs, Border Border)
+	TEWEditWidget(uint32_t VTable, int8_t EvenThing, TLBSWidget* Parent, TLBSWidgetList* Childs, Border Border)
 		: TEWControlWidget(VTable, EvenThing, Parent, Childs, Border)
 		, textBgra(255, 255, 255, 255)
 		, selectionBgra(255, 255, 255, 255)

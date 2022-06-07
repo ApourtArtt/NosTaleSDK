@@ -8,9 +8,8 @@ typedef int32_t auraId;
 typedef std::map<wingLevel, wingId> levelToId;
 typedef std::map<wingStyleId, levelToId> wingsMap;
 
-class WingsManagerConfig
+struct WingsManagerConfig
 {
-public:
 	wingsMap AdditionalWings;
 	levelToId AdditionalAuras;
 };

@@ -6,15 +6,20 @@
 #include "TEWLabel.h"
 #include "TEWButtonWidget.h"
 #include "TEWGraphicButtonWidget.h"
+#include "TNTMaskingGaugeWidget.h"
 #pragma pack(push, 1)
 
 // TODO To make the compiler happy, need to be added
 class TNTChatEditWidget {};
-class TNTMaskingGaugeWidget {};
 
 class TNTMonsterSummaryInfoWidget : public TEWCustomFormWidget
 {
 public:
+	static constexpr std::string_view NAME = "TNTMonsterSummaryInfoWidget";
+
+	TNTMaskingGaugeWidget* getHpGauge() { return gaugeHp; }
+	TNTMaskingGaugeWidget* getMpGauge() { return gaugeMp; }
+
 	char pad_00BC[4]; //0x00BC
 	TEWControlWidgetEX* oldHeadCircle; //0x00C0
 	TEWCustomPanelWidget* widgetPanel; //0x00C4
@@ -22,8 +27,8 @@ public:
 	char pad_00CC[12]; //0x00CC
 	TEWLabel* nameLabel; //0x00D8
 	char pad_00DC[32]; //0x00DC
-	TNTMaskingGaugeWidget* healthBar; //0x00FC
-	TNTMaskingGaugeWidget* manaBar; //0x0100
+	TNTMaskingGaugeWidget* gaugeHp; //0x00FC
+	TNTMaskingGaugeWidget* gaugeMp; //0x0100
 	TNTIconWidget* entityTypeIcon; //0x0104
 	TNTIconWidget* elementIcon; //0x0108
 	TNTIconWidget* isCapturableIcon; //0x010C
