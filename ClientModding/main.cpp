@@ -66,6 +66,13 @@ void Start(HMODULE hModule)
                     },
                 }
             },
+            .InteractionConfig =
+            {
+                .NpcTalkRangeConfig =
+                {
+                    .DefaultTalkRange = 255,
+                },
+            },
         },
         .ConnectionConfig =
         {

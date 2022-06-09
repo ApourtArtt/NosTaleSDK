@@ -25,8 +25,6 @@ ClientModding::ClientModding(const ClientModdingConfig& Config)
 	packetMng.Subscribe(PacketType::RCVD, "aa_pst", [this](std::string& Packet) { on_PR_aa_pst(Packet); });
 }
 
-ClientModding::~ClientModding() {}
-
 bool ClientModding::Initialize()
 {
 	auto _ = Logger::PushPopModuleName("ClientModding");
@@ -34,10 +32,10 @@ bool ClientModding::Initialize()
 	if (!ClassSearcher::Initialize())
 		return false;
 
-	if (TLBSWidgetHandler::getNosTaleUniqueInstance() == nullptr)
+	if (TLBSWidgetHandler::getNtInstance() == nullptr)
 		return false;
 
-	if (TSceneManager::getNosTaleUniqueInstance() == nullptr)
+	if (TSceneManager::getNtInstance() == nullptr)
 		return false;
 
 	if (!characterMng.Initialize())
@@ -101,23 +99,51 @@ void ClientModding::on_PR_tit(std::string& packet)
 void ClientModding::on_PR_st(std::string& packet)
 {
 	PR_st p(packet);
+	if (!p.IsValid())
+	{
+		Logger::PushPopModuleName("ClientModding");
+		Logger::Error("Packet [%s] is not valid", p.GetPacket().c_str());
+		return;
+	}
+
 	uiMng.GetSpyHpMpManager().On_PR_st(p);
 }
 
 void ClientModding::on_PR_aa_st(std::string& packet)
 {
 	PR_aa_st p(packet);
+	if (!p.IsValid())
+	{
+		Logger::PushPopModuleName("ClientModding");
+		Logger::Error("Packet [%s] is not valid", p.GetPacket().c_str());
+		return;
+	}
+
 	uiMng.GetSpyHpMpManager().On_PR_aa_st(p);
 }
 
 void ClientModding::on_PR_pst(std::string& packet)
 {
 	PR_pst p(packet);
+	if (!p.IsValid())
+	{
+		Logger::PushPopModuleName("ClientModding");
+		Logger::Error("Packet [%s] is not valid", p.GetPacket().c_str());
+		return;
+	}
+
 	uiMng.GetSpyHpMpManager().On_PR_pst(p);
 }
 
 void ClientModding::on_PR_aa_pst(std::string& packet)
 {
 	PR_aa_pst p(packet);
+	if (!p.IsValid())
+	{
+		Logger::PushPopModuleName("ClientModding");
+		Logger::Error("Packet [%s] is not valid", p.GetPacket().c_str());
+		return;
+	}
+
 	uiMng.GetSpyHpMpManager().On_PR_aa_pst(p);
 }

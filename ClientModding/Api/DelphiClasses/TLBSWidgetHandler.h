@@ -16,7 +16,7 @@ public:
 		return gameRootWidget;
 	}
 
-	static TLBSWidgetHandler* getNosTaleUniqueInstance()
+	static TLBSWidgetHandler* getNtInstance()
 	{
 		static bool init = false;
 		static void* patternAddr = nullptr;

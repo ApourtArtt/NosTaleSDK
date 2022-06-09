@@ -3,9 +3,6 @@
 #include "../Properties/Graphical/IconProperties.h"
 #pragma pack(push, 1)
 
-/**
- * @brief Representation of the game TNTCoverIcon structure.
- */
 class TNTCoverIcon : public TNTIconWidget
 {
 public:
@@ -24,11 +21,11 @@ public:
 	bool isUsingFilter() const { return useFilter; } bool getUseFilter() const { return isUsingFilter(); }
 
 protected:
-	char unknown21[4];	// 0xC4
-	Bgra filter;		// 0xC8
-	bool useFilter;		// 0xCC
-	char unknown22[3];	// 0xCD
+	char unknown21[4];	// 0xCC
+	Bgra filter;		// 0xD0
+	bool useFilter;		// 0xD4
+	char unknown22[3];	// 0xD5
 };
-static_assert(sizeof(TNTCoverIcon) == 0xD0, "TNTCoverIcon does not have a size of 0xD0.");
+static_assert(sizeof(TNTCoverIcon) == 0xD8, "TNTCoverIcon does not have a size of 0xD8.");
 
 #pragma pack(pop)

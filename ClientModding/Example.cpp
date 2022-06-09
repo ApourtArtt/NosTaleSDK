@@ -5,11 +5,10 @@ Example::Example(const ClientModdingConfig& Config)
 	: ClientModding(Config)
 {
 	// If you want to do something before ClientModding::Initialize runs.
-	// You must use beforeRun is priority - this should only be used when
-	// your instruction would not work in beforeRun.
-	// The reason is that nearly nothing (actually, only Discord is ready)
-	// when this function is called, while beforeRun is called *after*
-	// everything is initialized.
+	// However, you must use beforeRun in priority - this should only be
+	// used when your instruction would not work in beforeRun.
+	// The reason is that nearly nothing when this function is called,
+	// while beforeRun is called *after* everything is initialized.
 	// Exception for packet handling, you can already subscribe here.
 }
 
@@ -22,7 +21,7 @@ bool Example::beforeRun()
 	// You should add here, everything that must be initialized, done once.
 	// Example: if you want to create a widget, you should create it here.
 
-	if (!ratufuWidget.Initialize(TLBSWidgetHandler::getNosTaleUniqueInstance()->getGameRootWidget()))
+	if (!ratufuWidget.Initialize(TLBSWidgetHandler::getNtInstance()->getGameRootWidget()))
 		return false;
 
 	Logger::Success("Successfully initialized");

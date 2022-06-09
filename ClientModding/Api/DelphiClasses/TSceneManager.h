@@ -4,6 +4,7 @@
 #include "../Properties/Logical/MapGrid.h"
 #include "../../MemoryHelper/PatternScan.h"
 #include "../../Utils/Logger.h"
+#pragma pack(push, 1)
 
 /**
  * @brief Representation of the game TSceneManager structure.
@@ -14,14 +15,13 @@ public:
 	[[nodiscard]] MapGrid* getMapGrid() { return mapGrid; }
 	[[nodiscard]] TLBSCamera* getCamera() { return camera; }
 
-	[[nodiscard]] static TSceneManager* getNosTaleUniqueInstance()
+	[[nodiscard]] static TSceneManager* getNtInstance()
 	{
 		auto _ = Logger::PushPopModuleName("TSceneManager");
 
 		auto patternAddr = PatternScan(
 			"\xA1\x00\x00\x00\x00\x00\x00\x00\x00\x58\x00\x0F\x84\xBF",
-			"x????????xxxxx",
-			1
+			"x????????xxxxx", 1
 		);
 		if (patternAddr == nullptr)
 		{
@@ -54,3 +54,5 @@ private:
 	char pad_0070[48]; //0x0070
 };
 static_assert(sizeof(TSceneManager) == 0xA0, "TSceneManager does not have a size of 0xA0");
+
+#pragma pack(pop)

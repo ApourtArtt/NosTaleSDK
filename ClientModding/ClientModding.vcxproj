@@ -64,9 +64,14 @@
     <ClInclude Include="Api\DelphiClasses\TGameRootWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTDataList.h" />
     <ClInclude Include="Api\DelphiClasses\TNTItemList.h" />
+    <ClInclude Include="Api\DelphiClasses\TPlayerObjManager.h" />
     <ClInclude Include="Api\DelphiClasses\TSceneManager.h" />
     <ClInclude Include="Api\Managers\CharacterManager\CharacterConfig.h" />
     <ClInclude Include="Api\Managers\CharacterManager\CharacterManager.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\InteractionManager\InteractionConfig.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\InteractionManager\InteractionManager.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\InteractionManager\NpcTalkRangeNpcManager\NpcTalkRangeConfig.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\InteractionManager\NpcTalkRangeNpcManager\NpcTalkRangeManager.h" />
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager\AuraConfig.h" />
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager\AuraManager.h" />
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager\DefaultAura.h" />
@@ -184,6 +189,8 @@
     <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\user_manager.cpp" />
     <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\voice_manager.cpp" />
     <ClCompile Include="Api\Managers\CharacterManager\CharacterManager.cpp" />
+    <ClCompile Include="Api\Managers\CharacterManager\InteractionManager\InteractionManager.cpp" />
+    <ClCompile Include="Api\Managers\CharacterManager\InteractionManager\NpcTalkRangeNpcManager\NpcTalkRangeManager.cpp" />
     <ClCompile Include="Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager\AuraManager.cpp" />
     <ClCompile Include="Api\Managers\CharacterManager\StuffManager\SpManager\SpManager.cpp" />
     <ClCompile Include="Api\Managers\CharacterManager\StuffManager\SpManager\WingManager\WingManager.cpp" />

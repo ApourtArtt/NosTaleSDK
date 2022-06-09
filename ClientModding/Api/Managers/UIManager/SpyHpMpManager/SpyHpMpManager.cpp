@@ -13,7 +13,7 @@ SpyHpMpManager::SpyHpMpManager(const SpyHpMpManagerConfig& Config) noexcept
 bool SpyHpMpManager::initialize() noexcept
 {
 
-	TLBSWidgetHandler* ntWidgetHandler = TLBSWidgetHandler::getNosTaleUniqueInstance();
+	TLBSWidgetHandler* ntWidgetHandler = TLBSWidgetHandler::getNtInstance();
 	if (ntWidgetHandler == nullptr)
 		return false;
 
@@ -88,11 +88,6 @@ void SpyHpMpManager::On_PR_st(const PR_st& Packet) noexcept
 		return;
 	if (!targetSpy.init)
 		return;
-	if (!Packet.IsValid())
-	{
-		Logger::Error("Packet not valid:\n%s", Packet.GetPacket().c_str());
-		return;
-	}
 
 	std::wstring hpStr = std::to_wstring(Packet.GetCurrentHp()) + L"/" + std::to_wstring((std::max)(0, (int)roundf(((double)Packet.GetCurrentHp()) / (double)Packet.GetHpPercentage() * 100)));
 	targetSpy.hpString.set(hpStr.c_str());
@@ -109,11 +104,6 @@ void SpyHpMpManager::On_PR_aa_st(const PR_aa_st& Packet) noexcept
 		return;
 	if (!targetSpy.init)
 		return;
-	if (!Packet.IsValid())
-	{
-		Logger::Error("Packet not valid:\n%s", Packet.GetPacket().c_str());
-		return;
-	}
 
 	std::wstring hpStr = std::to_wstring(Packet.GetCurrentHp()) + L"/" + std::to_wstring(Packet.GetMaxHp());
 	targetSpy.hpString.set(hpStr.c_str());
@@ -128,11 +118,6 @@ void SpyHpMpManager::On_PR_pst(const PR_pst& Packet) noexcept
 {
 	if (!config.SpyGroup.Activate || config.SpyGroup.SpyType != SpyType::APPROXIMATION)
 		return;
-	if (!Packet.IsValid())
-	{
-		Logger::Error("Packet not valid:\n%s", Packet.GetPacket().c_str());
-		return;
-	}
 
 	int8_t id = Packet.GetGroupOrder();
 	if (groupSpies.count(id) == 0 || !groupSpies[id].init)
@@ -151,11 +136,6 @@ void SpyHpMpManager::On_PR_aa_pst(const PR_aa_pst& Packet) noexcept
 {
 	if (!config.SpyGroup.Activate || config.SpyGroup.SpyType != SpyType::REAL)
 		return;
-	if (!Packet.IsValid())
-	{
-		Logger::Error("Packet not valid:\n%s", Packet.GetPacket().c_str());
-		return;
-	}
 
 	int8_t id = Packet.GetGroupOrder();
 	if (groupSpies.count(id) == 0 || !groupSpies[id].init)

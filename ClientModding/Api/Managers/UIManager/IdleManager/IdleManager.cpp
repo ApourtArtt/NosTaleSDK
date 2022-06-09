@@ -35,5 +35,5 @@ void IdleManager::tick() noexcept
 	if (!config.Activated)
 		return;
 
-	TLBSWidgetHandler::getNosTaleUniqueInstance()->getGameRootWidget()->setVisible(IsWindowVisible(hwnd));
+	TLBSWidgetHandler::getNtInstance()->getGameRootWidget()->setVisible(IsWindowVisible(hwnd));
 }

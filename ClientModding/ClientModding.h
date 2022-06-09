@@ -17,7 +17,7 @@ class ClientModding
 {
 public:
 	explicit ClientModding(const ClientModdingConfig& Config);
-	virtual ~ClientModding();
+	virtual ~ClientModding() {}
 
 	bool Initialize();
 	void Run();
