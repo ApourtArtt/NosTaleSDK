@@ -141,8 +141,7 @@ void SpyHpMpManager::On_PR_aa_pst(const PR_aa_pst& Packet) noexcept
 	if (groupSpies.count(id) == 0 || !groupSpies[id].init)
 		return;
 
-	//std::wstring hpStr = std::to_wstring(Packet.GetCurrentHp()) + L"/" + std::to_wstring(Packet.GetMaxHp());
-	std::wstring hpStr = L"hola";
+	std::wstring hpStr = std::to_wstring(Packet.GetCurrentHp()) + L"/" + std::to_wstring(Packet.GetMaxHp());
 	groupSpies[id].hpString.set(hpStr.c_str());
 	groupSpies[id].hpLabel->setText(groupSpies[id].hpString.get());
 
