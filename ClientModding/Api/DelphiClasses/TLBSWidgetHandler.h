@@ -10,7 +10,7 @@ public:
 	{
 		if (gameRootWidget == nullptr)
 		{
-			Logger::PushModuleName("TLBSWidgetHandler");
+			auto _ = Logger::PushPopModuleName("TLBSWidgetHandler");
 			Logger::Error("gameRootWidget == nullptr");
 		}
 		return gameRootWidget;

@@ -22,9 +22,6 @@
     <Filter Include="Api\Properties\Logical">
       <UniqueIdentifier>{8e4b415e-c058-47c0-888d-be1c48a844c2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Api\PacketManager">
-      <UniqueIdentifier>{f438df06-8083-446c-ad79-2af6aec25122}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Api\CustomClasses">
       <UniqueIdentifier>{e79c838b-b9d2-484b-a432-f9cb47292cff}</UniqueIdentifier>
     </Filter>
@@ -37,14 +34,8 @@
     <Filter Include="Api\CustomClasses\MapCommon\MapObject">
       <UniqueIdentifier>{46c1a847-862b-48d7-bbe7-cb9e468df20f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Api\DiscordManager">
-      <UniqueIdentifier>{9eb97fe2-530e-477b-930a-3e03eb0852c6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Api\CustomClasses\UI">
       <UniqueIdentifier>{dd046b01-27c7-44dc-bd12-5abb25d1922f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Api\DiscordManager\sdk">
-      <UniqueIdentifier>{efe604fd-2e09-4e90-ad56-e653d2885149}</UniqueIdentifier>
     </Filter>
     <Filter Include="Api\CustomClasses\Wrappers">
       <UniqueIdentifier>{266543d9-5221-42ee-b537-33359843b75f}</UniqueIdentifier>
@@ -55,29 +46,65 @@
     <Filter Include="Api\Enums">
       <UniqueIdentifier>{4daa0fc4-d7b9-4bbd-82d2-143329dff423}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Api\Hooks">
-      <UniqueIdentifier>{2d75ffc5-5f50-4238-9d9a-61030361f22f}</UniqueIdentifier>
+    <Filter Include="Api\Managers">
+      <UniqueIdentifier>{df2d3a9f-3ffd-4d32-a095-266390d4ec81}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Api\Hooks\WingsManager">
-      <UniqueIdentifier>{b1b79a3c-8517-465a-8396-5bba9032093e}</UniqueIdentifier>
+    <Filter Include="Api\Managers\ConnectionManager">
+      <UniqueIdentifier>{cbdd6bf7-90be-49b6-ac11-a6b98bba6932}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Api\Hooks\StuffManager">
-      <UniqueIdentifier>{dd478514-e156-44e2-ad6b-224f43735d84}</UniqueIdentifier>
+    <Filter Include="Api\Managers\MapManager">
+      <UniqueIdentifier>{68844d05-9e78-41e4-8b5a-20229c958ff1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Api\Hooks\UIManager">
-      <UniqueIdentifier>{5885b69d-c135-4f50-8871-a407394b3e43}</UniqueIdentifier>
+    <Filter Include="Api\Managers\PacketManager">
+      <UniqueIdentifier>{b84a5263-086f-47c9-97f6-184ec74e9776}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Api\Hooks\UIManager\SpyHpMp">
-      <UniqueIdentifier>{9d160620-9a23-4e79-bd3e-6ce8159e4fb0}</UniqueIdentifier>
+    <Filter Include="Api\Managers\UIManager">
+      <UniqueIdentifier>{ba235d23-68c9-483c-806f-db7f81509c3b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Api\PacketManager\Packets">
-      <UniqueIdentifier>{c70af452-e601-4c4e-95a2-6d8f86f1800b}</UniqueIdentifier>
+    <Filter Include="Api\Managers\PacketManager\Packets">
+      <UniqueIdentifier>{797b5508-4341-45c4-a31a-1ed8cb36402f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Api\PacketManager\Packets\Sent">
-      <UniqueIdentifier>{cce51115-23cb-4e67-b08a-a6bff13e030c}</UniqueIdentifier>
+    <Filter Include="Api\Managers\PacketManager\Packets\Rcvd">
+      <UniqueIdentifier>{4f49558b-c06e-43ae-8d06-542b919c6dd0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Api\PacketManager\Packets\Rcvd">
-      <UniqueIdentifier>{661fa454-ebd3-4a0e-83af-32435a017b2a}</UniqueIdentifier>
+    <Filter Include="Api\Managers\PacketManager\Packets\Sent">
+      <UniqueIdentifier>{85dbed6a-7674-4263-8e4f-208c18c54591}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\Managers\CharacterManager">
+      <UniqueIdentifier>{dae9c66b-76f4-4e59-bbcc-d23df22e8c3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\Managers\UIManager\SpyHpMpManager">
+      <UniqueIdentifier>{df7c2718-34d9-4b7c-998c-8cabda898394}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\Managers\DiscordManager">
+      <UniqueIdentifier>{05222af7-f63a-4d70-9769-71e1e7b56d34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\Managers\UIManager\IdleManager">
+      <UniqueIdentifier>{8a25e8d9-c886-42a5-8b99-5c58553f3d95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\Managers\ConnectionManager\ServChanManager">
+      <UniqueIdentifier>{07b30509-0329-4af6-969e-ae6435ce8a56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\Managers\CharacterManager\StuffManager">
+      <UniqueIdentifier>{a9b1a4eb-08b9-4809-a651-1215dbdcc93a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\Managers\CharacterManager\StuffManager\WeaponManager">
+      <UniqueIdentifier>{26535bfd-ffc3-4b30-b90f-059024f8060b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\Managers\CharacterManager\StuffManager\SpManager">
+      <UniqueIdentifier>{6c995e43-3f08-490b-aaa7-852ce720b567}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\Managers\CharacterManager\StuffManager\SpManager\WingManager">
+      <UniqueIdentifier>{39ac0086-904e-4330-ae54-5acaade1ab78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager">
+      <UniqueIdentifier>{cbf6e14b-ac29-42c3-872a-145b065274a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\Managers\MapManager\ColorManager">
+      <UniqueIdentifier>{17c976fe-8e90-4742-b11e-676ec193f312}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\Managers\DiscordManager\discordsdk">
+      <UniqueIdentifier>{b8ffd7f1-3481-4822-88b0-ebb66cf1b738}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -189,9 +216,6 @@
     <ClInclude Include="Api\DelphiClasses\TEWGraphicButtonWidget.h">
       <Filter>Api\DelphiClasses</Filter>
     </ClInclude>
-    <ClInclude Include="Api\PacketManager\PacketManager.h">
-      <Filter>Api\PacketManager</Filter>
-    </ClInclude>
     <ClInclude Include="MemoryHelper\PatternScan.h">
       <Filter>MemoryHelper</Filter>
     </ClInclude>
@@ -201,80 +225,11 @@
     <ClInclude Include="Utils\Split.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Api\CustomClasses\Connection\Connection.h">
-      <Filter>Api\CustomClasses\Connection</Filter>
-    </ClInclude>
-    <ClInclude Include="Api\CustomClasses\Connection\ServChan.h">
-      <Filter>Api\CustomClasses\Connection</Filter>
-    </ClInclude>
-    <ClInclude Include="Api\CustomClasses\MapCommon\MapCommon.h">
-      <Filter>Api\CustomClasses\MapCommon</Filter>
-    </ClInclude>
-    <ClInclude Include="Api\CustomClasses\MapCommon\Fog.h">
-      <Filter>Api\CustomClasses\MapCommon</Filter>
-    </ClInclude>
     <ClInclude Include="Utils\Logger.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Api\CustomClasses\MapCommon\MapObject\Color.h">
-      <Filter>Api\CustomClasses\MapCommon\MapObject</Filter>
-    </ClInclude>
-    <ClInclude Include="Api\DiscordManager\DiscordManager.h">
-      <Filter>Api\DiscordManager</Filter>
-    </ClInclude>
     <ClInclude Include="Api\DelphiClasses\ClassSearcher.h">
       <Filter>Api\DelphiClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\code\discordsdk\cpp\types.h">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\code\discordsdk\cpp\storage_manager.h">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\code\discordsdk\cpp\store_manager.h">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\code\discordsdk\cpp\achievement_manager.h">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\code\discordsdk\cpp\activity_manager.h">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\code\discordsdk\cpp\application_manager.h">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\code\discordsdk\cpp\core.h">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\code\discordsdk\cpp\discord.h">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\code\discordsdk\cpp\event.h">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\code\discordsdk\cpp\ffi.h">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\code\discordsdk\cpp\image_manager.h">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\code\discordsdk\cpp\lobby_manager.h">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\code\discordsdk\cpp\network_manager.h">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\code\discordsdk\cpp\overlay_manager.h">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\code\discordsdk\cpp\relationship_manager.h">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\code\discordsdk\cpp\voice_manager.h">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\code\discordsdk\cpp\user_manager.h">
-      <Filter>Api\DiscordManager\sdk</Filter>
     </ClInclude>
     <ClInclude Include="ClientModding.h" />
     <ClInclude Include="Api\CustomClasses\UI\UI.h">
@@ -394,47 +349,11 @@
     <ClInclude Include="Example.h" />
     <ClInclude Include="ExampleRatufuWidget.h" />
     <ClInclude Include="ClientModdingConfig.h" />
-    <ClInclude Include="Api\DiscordManager\DiscordConfig.h">
-      <Filter>Api\DiscordManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Api\Hooks\WingsManager\WingsManager.h">
-      <Filter>Api\Hooks\WingsManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Api\Hooks\WingsManager\WingsConfig.h">
-      <Filter>Api\Hooks\WingsManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Api\Hooks\WingsManager\DefaultWings.h">
-      <Filter>Api\Hooks\WingsManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Api\Hooks\WingsManager\DefaultAuras.h">
-      <Filter>Api\Hooks\WingsManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Api\Hooks\StuffManager\StuffManager.h">
-      <Filter>Api\Hooks\StuffManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Api\Hooks\StuffManager\StuffConfig.h">
-      <Filter>Api\Hooks\StuffManager</Filter>
-    </ClInclude>
     <ClInclude Include="Api\Properties\Graphical\WeaponGlowingStyle.h">
       <Filter>Api\Properties\Graphical</Filter>
     </ClInclude>
-    <ClInclude Include="Api\Hooks\StuffManager\DefaultWeaponGlow.h">
-      <Filter>Api\Hooks\StuffManager</Filter>
-    </ClInclude>
     <ClInclude Include="Api\DelphiClasses\TMapPlayerObj.h">
       <Filter>Api\DelphiClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="Api\Hooks\UIManager\UIManager.h">
-      <Filter>Api\Hooks\UIManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Api\Hooks\UIManager\UIConfig.h">
-      <Filter>Api\Hooks\UIManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Api\Hooks\UIManager\SpyHpMp\SpyHpMpManager.h">
-      <Filter>Api\Hooks\UIManager\SpyHpMp</Filter>
-    </ClInclude>
-    <ClInclude Include="Api\Hooks\UIManager\SpyHpMp\SpyHpMpConfig.h">
-      <Filter>Api\Hooks\UIManager\SpyHpMp</Filter>
     </ClInclude>
     <ClInclude Include="Api\DelphiClasses\TNTMaskingGaugeWidget.h">
       <Filter>Api\DelphiClasses</Filter>
@@ -445,80 +364,188 @@
     <ClInclude Include="Utils\ToNumber.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Api\PacketManager\Packets\Rcvd\PR_st.h">
-      <Filter>Api\PacketManager\Packets\Rcvd</Filter>
-    </ClInclude>
-    <ClInclude Include="Api\PacketManager\Packets\PacketRcvd.h">
-      <Filter>Api\PacketManager\Packets</Filter>
-    </ClInclude>
-    <ClInclude Include="Api\PacketManager\Packets\Rcvd\PR_aa_st.h">
-      <Filter>Api\PacketManager\Packets\Rcvd</Filter>
-    </ClInclude>
     <ClInclude Include="Api\Enums\EntityType.h">
       <Filter>Api\Enums</Filter>
     </ClInclude>
-    <ClInclude Include="Api\PacketManager\Packets\Rcvd\PR_pst.h">
-      <Filter>Api\PacketManager\Packets\Rcvd</Filter>
+    <ClInclude Include="Api\Managers\ConnectionManager\ConnectionManager.h">
+      <Filter>Api\Managers\ConnectionManager</Filter>
     </ClInclude>
-    <ClInclude Include="Api\PacketManager\Packets\Rcvd\PR_aa_pst.h">
-      <Filter>Api\PacketManager\Packets\Rcvd</Filter>
+    <ClInclude Include="Api\Managers\DiscordManager\DiscordManager.h">
+      <Filter>Api\Managers\DiscordManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\DiscordManager\DiscordConfig.h">
+      <Filter>Api\Managers\DiscordManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\MapManager\MapManager.h">
+      <Filter>Api\Managers\MapManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\PacketManager\PacketManager.h">
+      <Filter>Api\Managers\PacketManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\PacketManager\Packets\Rcvd\PR_aa_pst.h">
+      <Filter>Api\Managers\PacketManager\Packets\Rcvd</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\PacketManager\Packets\Rcvd\PR_aa_st.h">
+      <Filter>Api\Managers\PacketManager\Packets\Rcvd</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\PacketManager\Packets\Rcvd\PR_pst.h">
+      <Filter>Api\Managers\PacketManager\Packets\Rcvd</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\PacketManager\Packets\Rcvd\PR_st.h">
+      <Filter>Api\Managers\PacketManager\Packets\Rcvd</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\PacketManager\Packets\PacketRcvd.h">
+      <Filter>Api\Managers\PacketManager\Packets</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\UIManager\UIConfig.h">
+      <Filter>Api\Managers\UIManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\UIManager\UIManager.h">
+      <Filter>Api\Managers\UIManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\UIManager\SpyHpMpManager\SpyHpMpManager.h">
+      <Filter>Api\Managers\UIManager\SpyHpMpManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\UIManager\SpyHpMpManager\SpyHpMpConfig.h">
+      <Filter>Api\Managers\UIManager\SpyHpMpManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\Manager.h">
+      <Filter>Api\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTSpecialWingFx.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTSpecialDragonFx.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\UIManager\SpyHpMpManager\Spy.h">
+      <Filter>Api\Managers\UIManager\SpyHpMpManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\PacketManager\PacketConfig.h">
+      <Filter>Api\Managers\PacketManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\MapManager\MapConfig.h">
+      <Filter>Api\Managers\MapManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\CharacterManager.h">
+      <Filter>Api\Managers\CharacterManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\CharacterConfig.h">
+      <Filter>Api\Managers\CharacterManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\UIManager\IdleManager\IdleManager.h">
+      <Filter>Api\Managers\UIManager\IdleManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\UIManager\IdleManager\IdleConfig.h">
+      <Filter>Api\Managers\UIManager\IdleManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\ConnectionManager\ConnectionConfig.h">
+      <Filter>Api\Managers\ConnectionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\ConnectionManager\ServChanManager\ServChanManager.h">
+      <Filter>Api\Managers\ConnectionManager\ServChanManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\ConnectionManager\ServChanManager\ServChanConfig.h">
+      <Filter>Api\Managers\ConnectionManager\ServChanManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\WeaponManager\WeaponConfig.h">
+      <Filter>Api\Managers\CharacterManager\StuffManager\WeaponManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\WeaponManager\DefaultWeaponGlow.h">
+      <Filter>Api\Managers\CharacterManager\StuffManager\WeaponManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\WeaponManager\WeaponManager.h">
+      <Filter>Api\Managers\CharacterManager\StuffManager\WeaponManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffConfig.h">
+      <Filter>Api\Managers\CharacterManager\StuffManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\SpConfig.h">
+      <Filter>Api\Managers\CharacterManager\StuffManager\SpManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\SpManager.h">
+      <Filter>Api\Managers\CharacterManager\StuffManager\SpManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffManager.h">
+      <Filter>Api\Managers\CharacterManager\StuffManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\WingManager\WingConfig.h">
+      <Filter>Api\Managers\CharacterManager\StuffManager\SpManager\WingManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\WingManager\WingManager.h">
+      <Filter>Api\Managers\CharacterManager\StuffManager\SpManager\WingManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\WingManager\DefaultWing.h">
+      <Filter>Api\Managers\CharacterManager\StuffManager\SpManager\WingManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager\AuraConfig.h">
+      <Filter>Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager\DefaultAura.h">
+      <Filter>Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager\AuraManager.h">
+      <Filter>Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\MapManager\ColorManager\ColorManager.h">
+      <Filter>Api\Managers\MapManager\ColorManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\MapManager\ColorManager\ColorConfig.h">
+      <Filter>Api\Managers\MapManager\ColorManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\achievement_manager.h">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\activity_manager.h">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\application_manager.h">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\core.h">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\discord.h">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\event.h">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\ffi.h">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\image_manager.h">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\lobby_manager.h">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\network_manager.h">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\overlay_manager.h">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\relationship_manager.h">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\storage_manager.h">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\store_manager.h">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\types.h">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\user_manager.h">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\voice_manager.h">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Api\PacketManager\PacketManager.cpp">
-      <Filter>Api\PacketManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Api\CustomClasses\Connection\Connection.cpp">
-      <Filter>Api\CustomClasses\Connection</Filter>
-    </ClCompile>
-    <ClCompile Include="Api\CustomClasses\MapCommon\MapCommon.cpp">
-      <Filter>Api\CustomClasses\MapCommon</Filter>
-    </ClCompile>
-    <ClCompile Include="Api\DiscordManager\DiscordManager.cpp">
-      <Filter>Api\DiscordManager</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\code\discordsdk\cpp\storage_manager.cpp">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\code\discordsdk\cpp\store_manager.cpp">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\code\discordsdk\cpp\types.cpp">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\code\discordsdk\cpp\achievement_manager.cpp">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\code\discordsdk\cpp\activity_manager.cpp">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\code\discordsdk\cpp\application_manager.cpp">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\code\discordsdk\cpp\core.cpp">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\code\discordsdk\cpp\image_manager.cpp">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\code\discordsdk\cpp\lobby_manager.cpp">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\code\discordsdk\cpp\network_manager.cpp">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\code\discordsdk\cpp\overlay_manager.cpp">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\code\discordsdk\cpp\relationship_manager.cpp">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\code\discordsdk\cpp\user_manager.cpp">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\code\discordsdk\cpp\voice_manager.cpp">
-      <Filter>Api\DiscordManager\sdk</Filter>
-    </ClCompile>
     <ClCompile Include="ClientModding.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Api\CustomClasses\UI\UI.cpp">
@@ -532,15 +559,6 @@
     </ClCompile>
     <ClCompile Include="Api\CustomClasses\UI\Resolution.cpp">
       <Filter>Api\CustomClasses\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="Api\CustomClasses\Connection\ServChan.cpp">
-      <Filter>Api\CustomClasses\Connection</Filter>
-    </ClCompile>
-    <ClCompile Include="Api\CustomClasses\MapCommon\Fog.cpp">
-      <Filter>Api\CustomClasses\MapCommon</Filter>
-    </ClCompile>
-    <ClCompile Include="Api\CustomClasses\MapCommon\MapObject\Color.cpp">
-      <Filter>Api\CustomClasses\MapCommon\MapObject</Filter>
     </ClCompile>
     <ClCompile Include="Api\CustomClasses\UI\Fps.cpp">
       <Filter>Api\CustomClasses\UI</Filter>
@@ -568,17 +586,95 @@
     </ClCompile>
     <ClCompile Include="Example.cpp" />
     <ClCompile Include="ExampleRatufuWidget.cpp" />
-    <ClCompile Include="Api\Hooks\WingsManager\WingsManager.cpp">
-      <Filter>Api\Hooks\WingsManager</Filter>
+    <ClCompile Include="Api\Managers\ConnectionManager\ConnectionManager.cpp">
+      <Filter>Api\Managers\ConnectionManager</Filter>
     </ClCompile>
-    <ClCompile Include="Api\Hooks\StuffManager\StuffManager.cpp">
-      <Filter>Api\Hooks\StuffManager</Filter>
+    <ClCompile Include="Api\Managers\DiscordManager\DiscordManager.cpp">
+      <Filter>Api\Managers\DiscordManager</Filter>
     </ClCompile>
-    <ClCompile Include="Api\Hooks\UIManager\UIManager.cpp">
-      <Filter>Api\Hooks\UIManager</Filter>
+    <ClCompile Include="Api\Managers\MapManager\MapManager.cpp">
+      <Filter>Api\Managers\MapManager</Filter>
     </ClCompile>
-    <ClCompile Include="Api\Hooks\UIManager\SpyHpMp\SpyHpMpManager.cpp">
-      <Filter>Api\Hooks\UIManager\SpyHpMp</Filter>
+    <ClCompile Include="Api\Managers\PacketManager\PacketManager.cpp">
+      <Filter>Api\Managers\PacketManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Managers\UIManager\UIManager.cpp">
+      <Filter>Api\Managers\UIManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Managers\UIManager\SpyHpMpManager\SpyHpMpManager.cpp">
+      <Filter>Api\Managers\UIManager\SpyHpMpManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Managers\UIManager\SpyHpMpManager\Spy.cpp">
+      <Filter>Api\Managers\UIManager\SpyHpMpManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Managers\CharacterManager\CharacterManager.cpp">
+      <Filter>Api\Managers\CharacterManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Managers\UIManager\IdleManager\IdleManager.cpp">
+      <Filter>Api\Managers\UIManager\IdleManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Managers\ConnectionManager\ServChanManager\ServChanManager.cpp">
+      <Filter>Api\Managers\ConnectionManager\ServChanManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Managers\CharacterManager\StuffManager\WeaponManager\WeaponManager.cpp">
+      <Filter>Api\Managers\CharacterManager\StuffManager\WeaponManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Managers\CharacterManager\StuffManager\SpManager\SpManager.cpp">
+      <Filter>Api\Managers\CharacterManager\StuffManager\SpManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Managers\CharacterManager\StuffManager\StuffManager.cpp">
+      <Filter>Api\Managers\CharacterManager\StuffManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Managers\CharacterManager\StuffManager\SpManager\WingManager\WingManager.cpp">
+      <Filter>Api\Managers\CharacterManager\StuffManager\SpManager\WingManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager\AuraManager.cpp">
+      <Filter>Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Managers\MapManager\ColorManager\ColorManager.cpp">
+      <Filter>Api\Managers\MapManager\ColorManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\achievement_manager.cpp">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\activity_manager.cpp">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\application_manager.cpp">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\core.cpp">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\image_manager.cpp">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\lobby_manager.cpp">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\network_manager.cpp">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\overlay_manager.cpp">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\relationship_manager.cpp">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\storage_manager.cpp">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\store_manager.cpp">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\types.cpp">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\user_manager.cpp">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\voice_manager.cpp">
+      <Filter>Api\Managers\DiscordManager\discordsdk</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

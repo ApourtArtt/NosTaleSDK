@@ -1,20 +1,19 @@
 #pragma once
-#include "Api/DiscordManager/DiscordConfig.h"
-#include "Api/Hooks/WingsManager/WingsConfig.h"
-#include "Api/Hooks/StuffManager/StuffConfig.h"
-#include "Api/Hooks/UIManager/UIConfig.h"
+#include "Api/Managers/CharacterManager/CharacterConfig.h"
+#include "Api/Managers/ConnectionManager/ConnectionConfig.h"
+#include "Api/Managers/DiscordManager/DiscordConfig.h"
+#include "Api/Managers/MapManager/MapConfig.h"
+#include "Api/Managers/PacketManager/PacketConfig.h"
+#include "Api/Managers/UIManager/UIConfig.h"
 
 struct ClientModdingConfig
 {
-	// Configure the Discord SDK
+	CharacterManagerConfig CharacterConfig;
+	ConnectionManagerConfig ConnectionConfig;
 	DiscordManagerConfig DiscordConfig;
-	// Configure the wings manager
-	WingsManagerConfig WingsConfig;
-	// Configure the stuff manager
-	StuffManagerConfig StuffConfig;
-	// Configure the UI manager
+	MapManagerConfig MapConfig;
+	PacketManagerConfig PacketConfig;
 	UIManagerConfig UIConfig;
 	
-	// Delay between two iterations of the event loop
 	unsigned int EventLoopDelay{ 10 };
 };

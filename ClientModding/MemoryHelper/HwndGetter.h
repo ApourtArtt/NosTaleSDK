@@ -9,7 +9,7 @@
  * @param lParam Pointer to a custom parameter
  * @return FALSE if we found the HWND, TRUE to keep looping
  */
-BOOL CALLBACK EnumWindowsCallBack(HWND hwnd, LPARAM lParam)
+static BOOL CALLBACK EnumWindowsCallBack(HWND hwnd, LPARAM lParam)
 {
 	constexpr int maxLength = 255;
 	wchar_t className[maxLength] = { 0 };
@@ -30,7 +30,7 @@ BOOL CALLBACK EnumWindowsCallBack(HWND hwnd, LPARAM lParam)
  * 
  * @return the HWND 
  */
-HWND getHwnd()
+static HWND getHwnd()
 {
 	HWND hwnd = 0;
 	EnumWindows(EnumWindowsCallBack, (LPARAM)&hwnd);

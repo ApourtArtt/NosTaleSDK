@@ -1,14 +1,21 @@
 #include "ClientModding.h"
 #include "MemoryHelper/HwndGetter.h"
 #include "Utils/Split.h"
+#include "Api/DelphiClasses/TLBSWidgetHandler.h"
+#include "Api/DelphiClasses/TSceneManager.h"
+
 
 ClientModding::ClientModding(const ClientModdingConfig& Config)
 	: config(Config)
+	, characterMng(Config.CharacterConfig)
+	, connectionMng(Config.ConnectionConfig)
 	, discordMng(Config.DiscordConfig)
-	, wingsMng(Config.WingsConfig)
-	, stuffMng(Config.StuffConfig)
+	, mapMng(Config.MapConfig)
+	, packetMng(Config.PacketConfig)
 	, uiMng(Config.UIConfig)
 {
+	auto _ = Logger::PushPopModuleName("ClientModding");
+
 	packetMng.Subscribe(PacketType::RCVD, "tit", [this](std::string& Packet) { on_PR_tit(Packet); });
 
 	packetMng.Subscribe(PacketType::RCVD, "st", [this](std::string& Packet) { on_PR_st(Packet); });
@@ -24,36 +31,31 @@ bool ClientModding::Initialize()
 {
 	auto _ = Logger::PushPopModuleName("ClientModding");
 
-	hwnd = getHwnd();
-	discordMng.Start();
-
 	if (!ClassSearcher::Initialize())
 		return false;
 
-	ntWidgetHandler = TLBSWidgetHandler::getNosTaleUniqueInstance();
-	if (ntWidgetHandler == nullptr)
+	if (TLBSWidgetHandler::getNosTaleUniqueInstance() == nullptr)
 		return false;
 
-	ntSceneMng = TSceneManager::getNosTaleUniqueInstance();
-	if (ntSceneMng == nullptr)
+	if (TSceneManager::getNosTaleUniqueInstance() == nullptr)
+		return false;
+
+	if (!characterMng.Initialize())
+		return false;
+
+	if (!connectionMng.Initialize())
+		return false;
+
+	if (!discordMng.Initialize())
+		return false;
+
+	if (!mapMng.Initialize())
 		return false;
 
 	if (!packetMng.Initialize())
 		return false;
 
-	if (!wingsMng.Initialize())
-		return false;
-
-	if (!stuffMng.Initialize())
-		return false;
-
 	if (!uiMng.Initialize())
-		return false;
-
-	if (!connection.Initialize())
-		return false;
-
-	if (!mapCommon.Initialize())
 		return false;
 
 	Logger::Success("Successfully initialized");
@@ -80,11 +82,12 @@ void ClientModding::Run()
 
 void ClientModding::Tick()
 {
-	// Automatically turn off the game render when window is minimized
-	if (!IsWindowVisible(hwnd))
-		ntWidgetHandler->getGameRootWidget()->setVisible(false);
-	else
-		ntWidgetHandler->getGameRootWidget()->setVisible(true);
+	characterMng.Tick();
+	connectionMng.Tick();
+	discordMng.Tick();
+	mapMng.Tick();
+	packetMng.Tick();
+	uiMng.Tick();
 }
 
 void ClientModding::on_PR_tit(std::string& packet)
@@ -92,7 +95,7 @@ void ClientModding::on_PR_tit(std::string& packet)
 	auto words = Split(packet, " ");
 	std::string pseudo = words[2];
 	discordMng.SetPseudonym(pseudo);
-	discordMng.SetChannel(connection.servChan.GetChannel());
+	discordMng.SetChannel(connectionMng.GetServChanManager().GetChannel());
 }
 
 void ClientModding::on_PR_st(std::string& packet)

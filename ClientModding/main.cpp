@@ -4,84 +4,106 @@ void Start(HMODULE hModule)
 {
     ClientModdingConfig config =
     {
+        .CharacterConfig =
+        {
+            .StuffConfig =
+            {
+                .WeaponConfig =
+                {
+                    .AdditionalWeaponsGlow = glowsMap
+                    {
+                        { 9, upgradeToGlow
+                            {
+                                { 100, WeaponGlow
+                                    {
+                                        .SecondaryGlowColor = Bgra(255, 0, 0, 255),
+                                        .SecondaryGlowSize = 1.5,
+                                        .SecondaryGlowStyle = WeaponGlowingStyle::FAST_CIRCULAR,
+                                        .PrimaryGlowColor = Bgra(0, 0, 255, 255),
+                                        .PrimaryGlowSize = 2.,
+                                        .PrimaryGlowStyle = WeaponGlowingStyle::ALWAYS,
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
+                .SpConfig =
+                {
+                    .AuraConfig = levelToId
+                    {
+                        { 20, 7907 },
+                    },
+                    .WingConfig =
+                    {
+                        .AdditionalWings = wingsMap
+                        {
+                            { 25, levelToId
+                                {
+                                    { 1, 1346 },
+                                    { 2, 1347 },
+                                    { 3, 1348 },
+                                    { 4, 1202 },
+                                    { 5, 1202 },
+                                    { 6, 1202 },
+                                    { 7, 1202 },
+                                    { 8, 1202 },
+                                    { 9, 1202 },
+                                    { 10, 1202 },
+                                    { 11, 1202 },
+                                    { 12, 1202 },
+                                    { 13, 1202 },
+                                    { 14, 1202 },
+                                    { 15, 1202 },
+                                    { 16, 1202 },
+                                    { 17, 1202 },
+                                    { 18, 1202 },
+                                    { 19, 1202 },
+                                    { 20, 1202 },
+                                },
+                            },
+                        },
+                    },
+                }
+            },
+        },
+        .ConnectionConfig =
+        {
+
+        },
         .DiscordConfig =
         {
             .Active = true,
             .ApplicationId = 858502310669582346,
             .ApplicationName = "App Name",
-            .ImageName = "logo",
+            .ImageName = "ditz_logo",
         },
-        .WingsConfig =
+        .MapConfig =
         {
-            .AdditionalWings = wingsMap
-            {
-                { 25, levelToId
-                    {
-                        { 1, 1346 },
-                        { 2, 1347 },
-                        { 3, 1348 },
-                        { 4, 1202 },
-                        { 5, 1202 },
-                        { 6, 1202 },
-                        { 7, 1202 },
-                        { 8, 1202 },
-                        { 9, 1202 },
-                        { 10, 1202 },
-                        { 11, 1202 },
-                        { 12, 1202 },
-                        { 13, 1202 },
-                        { 14, 1202 },
-                        { 15, 1202 },
-                        { 16, 1202 },
-                        { 17, 1202 },
-                        { 18, 1202 },
-                        { 19, 1202 },
-                        { 20, 1202 },
-                    },
-                },
-            },
-            .AdditionalAuras = levelToId
-            {
-                { 20, 7907 },
-            },
+
         },
-        .StuffConfig =
+        .PacketConfig =
         {
-            .AdditionalWeaponsGlow = glowsMap
-            {
-                { 9, upgradeToGlow
-                    {
-                        { 100, WeaponGlow
-                            {
-                                .SecondaryGlowColor = Bgra(255, 0, 0, 255),
-                                .SecondaryGlowSize = 1.5,
-                                .SecondaryGlowStyle = WeaponGlowingStyle::FAST_CIRCULAR,
-                                .PrimaryGlowColor = Bgra(0, 0, 255, 255),
-                                .PrimaryGlowSize = 2.,
-                                .PrimaryGlowStyle = WeaponGlowingStyle::ALWAYS,
-                            },
-                        },
-                    },
-                },
-            },
+
         },
         .UIConfig =
         {
+
             .SpyHpMpConfig =
             {
                 .SpyTarget = SpyHpMpConfig
                 {
                     .Activate = true,
-                    .SpyType = SpyType::REAL,
+                    .SpyType = SpyType::APPROXIMATION,
                 },
                 .SpyGroup =
                 {
                     .Activate = true,
-                    .SpyType = SpyType::REAL,
+                    .SpyType = SpyType::APPROXIMATION,
                 },
             },
         },
-        .EventLoopDelay = 1000,
+        .EventLoopDelay = 10,
     };
 
     Example example(config);
@@ -98,9 +120,8 @@ void Start(HMODULE hModule)
 
 DWORD WINAPI MainThread(HMODULE hModule)
 {
-    Logger::Load("test.txt");
+    Logger::Load();
     Logger::IndentModuleName("   ");
-    Sleep(1000);
     Logger::Success("Dll successfully injected");
 
     Start(hModule);

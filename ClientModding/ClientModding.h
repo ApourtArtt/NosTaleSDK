@@ -1,18 +1,12 @@
 #pragma once
 #include "ClientModdingConfig.h"
 
-#include "Api/CustomClasses/MapCommon/MapCommon.h"
-#include "Api/CustomClasses/Connection/Connection.h"
-
-#include "Api/DelphiClasses/TLBSWidgetHandler.h"
-#include "Api/DelphiClasses/TSceneManager.h"
-
-#include "Api/DiscordManager/DiscordManager.h"
-#include "Api/PacketManager/PacketManager.h"
-#include "Api/Hooks/StuffManager/StuffManager.h"
-#include "Api/Hooks/WingsManager/WingsManager.h"
-#include "Api/Hooks/UIManager/UIManager.h"
-
+#include "Api/Managers/CharacterManager/CharacterManager.h"
+#include "Api/Managers/ConnectionManager/ConnectionManager.h"
+#include "Api/Managers/DiscordManager/DiscordManager.h"
+#include "Api/Managers/MapManager/MapManager.h"
+#include "Api/Managers/PacketManager/PacketManager.h"
+#include "Api/Managers/UIManager/UIManager.h"
 
 // ClientModding is the interface you should inherit from.
 // This class is handling everything:
@@ -37,23 +31,16 @@ private:
 	void on_PR_pst(std::string& packet);
 	void on_PR_aa_pst(std::string& packet);
 
-	HWND hwnd{};
-
 protected:
 	virtual bool beforeRun() { return true; }
 	virtual void tick() {}
 
 	ClientModdingConfig config;
 
-	Connection connection{};
-	MapCommon mapCommon{};
-
+	CharacterManager characterMng;
+	ConnectionManager connectionMng;
 	DiscordManager discordMng;
-	PacketManager packetMng{};
-	WingsManager wingsMng;
-	StuffManager stuffMng;
+	MapManager mapMng;
+	PacketManager packetMng;
 	UIManager uiMng;
-
-	TLBSWidgetHandler* ntWidgetHandler{ nullptr };
-	TSceneManager* ntSceneMng{ nullptr };
 };

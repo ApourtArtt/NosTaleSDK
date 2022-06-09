@@ -1,4 +1,5 @@
 #include "Example.h"
+#include "Api/DelphiClasses/TLBSWidgetHandler.h"
 
 Example::Example(const ClientModdingConfig& Config)
 	: ClientModding(Config)
@@ -21,7 +22,7 @@ bool Example::beforeRun()
 	// You should add here, everything that must be initialized, done once.
 	// Example: if you want to create a widget, you should create it here.
 
-	if (!ratufuWidget.Initialize(ntWidgetHandler->getGameRootWidget()))
+	if (!ratufuWidget.Initialize(TLBSWidgetHandler::getNosTaleUniqueInstance()->getGameRootWidget()))
 		return false;
 
 	Logger::Success("Successfully initialized");
