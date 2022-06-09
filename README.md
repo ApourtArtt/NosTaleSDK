@@ -43,3 +43,4 @@ You will also need to copy `C:\code\discordsdk\lib\x86\discord_game_sdk.dll` int
 
 [Flowx3](https://github.com/Flowx3)
 [Hatz](https://github.com/hatz02)
+[Limo96](https://github.com/Limo96)
