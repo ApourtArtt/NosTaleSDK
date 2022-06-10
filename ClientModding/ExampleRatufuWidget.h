@@ -4,7 +4,7 @@
 class ExampleRatufuWidget
 {
 public:
-	[[nodiscard]] bool Initialize(TLBSWidget* Parent);
+	[[nodiscard]] bool Initialize(TLBSWidget* Parent, std::function<void()> OnClick);
 
 private:
 };

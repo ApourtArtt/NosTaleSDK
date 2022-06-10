@@ -21,7 +21,10 @@ bool Example::beforeRun()
 	// You should add here, everything that must be initialized, done once.
 	// Example: if you want to create a widget, you should create it here.
 
-	if (!ratufuWidget.Initialize(TLBSWidgetHandler::getNtInstance()->getGameRootWidget()))
+	if (!ratufuWidget.Initialize(TLBSWidgetHandler::getNtInstance()->getGameRootWidget(), [this]
+	{
+		packetMng.Receive("info test");
+	}))
 		return false;
 
 	Logger::Success("Successfully initialized");

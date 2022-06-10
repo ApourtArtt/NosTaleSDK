@@ -6,18 +6,24 @@
 #include "Api/DelphiClasses/TEWGraphicButtonWidget.h"
 #include "Api/DelphiClasses/TEWLabel.h"
 
-void _fastcall testFunc(TLBSWidget* Parent, TLBSWidget* Child)
+#include "Api/Managers/PacketManager/PacketManager.h"
+
+namespace
 {
-	TEWGraphicButtonWidget* child = reinterpret_cast<TEWGraphicButtonWidget*>(Child);
-	Logger::Log("Clicked\n");
-	return;
+	std::function<void()> onClick;
+
+	void testFunc()
+	{
+		onClick();
+	}
 }
 
-
-bool ExampleRatufuWidget::Initialize(TLBSWidget* Parent)
+bool ExampleRatufuWidget::Initialize(TLBSWidget* Parent, std::function<void()> OnClick)
 {
 	if (Parent == nullptr)
 		return false;
+
+	onClick = OnClick;
 
 	TEWCustomFormWidget* form = new TEWCustomFormWidget(
 		Parent,
@@ -62,6 +68,8 @@ bool ExampleRatufuWidget::Initialize(TLBSWidget* Parent)
 	);
 	form->addWidget(button);
 	button->setVisible(true);
+
+	Logger::Log("%x [%x] [%x] [%x]", button, testFunc, testFunc, Callback(testFunc, 0));
 
 	return true;
 }

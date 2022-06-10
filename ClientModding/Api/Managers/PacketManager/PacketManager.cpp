@@ -182,7 +182,8 @@ void PacketManager::Send(const std::string& Packet)
 
 	_asm
 	{
-		MOV EAX, DWORD PTR DS : [lpvPacketThis]
+		MOV ESI, this
+		MOV EAX, [esi].lpvPacketThis
 		MOV EAX, DWORD PTR DS : [EAX]
 		MOV EAX, DWORD PTR DS : [EAX]
 		MOV EAX, DWORD PTR DS : [EAX]
@@ -199,7 +200,8 @@ void PacketManager::Receive(const std::string& Packet)
 
 	_asm
 	{
-		MOV EAX, DWORD PTR DS : [lpvPacketThis]
+		MOV ESI, this
+		MOV EAX, [esi].lpvPacketThis
 		MOV EAX, DWORD PTR DS : [EAX]
 		MOV EAX, DWORD PTR DS : [EAX]
 		MOV EAX, DWORD PTR DS : [EAX]

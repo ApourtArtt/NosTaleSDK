@@ -39,10 +39,6 @@ namespace
 			pushad;
 			pushfd;
 
-			//push ecx;
-			//push eax;
-			//push esi;
-
 			push ecx;
 			push eax;
 			push ebx;
