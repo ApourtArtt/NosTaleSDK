@@ -39,9 +39,13 @@ namespace
 			pushad;
 			pushfd;
 
+			//push ecx;
+			//push eax;
+			//push esi;
+
 			push ecx;
 			push eax;
-			push esi;
+			push ebx;
 
 			call wingsDisplay;
 
@@ -92,8 +96,8 @@ bool WingManager::initialize() noexcept
 		return false;
 	}
 
-	jmpback = (uintptr_t)PatternScan("\x6a\xff\x33\xc9\x33\xd2\x8b\xc6",
-		"xxxxxxxx", 0,
+	jmpback = (uintptr_t)PatternScan("\x6a\xff\x33\xc9\x33\xd2",
+		"xxxxxx", 0,
 		(uint32_t)patternAddrWings // I want the pattern that follows patternAddrWings - I don't want the first one met
 	);
 	if (jmpback == NULL)
