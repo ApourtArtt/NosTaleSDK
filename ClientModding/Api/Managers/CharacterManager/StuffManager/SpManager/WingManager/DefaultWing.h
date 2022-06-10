@@ -11,22 +11,23 @@ constexpr wingStyleId ANGEL_WING = 1;
 constexpr wingStyleId DEMON_WING = 2;
 constexpr wingStyleId FIRE_WING = 3;
 constexpr wingStyleId ICE_WING = 4;
-constexpr wingStyleId TITAN_WING = 5;
-constexpr wingStyleId ARCHANGEL_WING = 6;
-constexpr wingStyleId ARCHDEMON_WING = 7;
-constexpr wingStyleId BLAZING_FIRE_WING = 8;
-constexpr wingStyleId FROSTY_ICE_WING = 9;
-constexpr wingStyleId GOLDEN_WING = 10;
-constexpr wingStyleId ONYX_WING = 11;
-constexpr wingStyleId FAIRY_WING = 12;
-constexpr wingStyleId MEGA_TITAN_WING = 13;
-constexpr wingStyleId ZEPHYR_WING = 14;
-constexpr wingStyleId LIGHTNING_WING = 15;
-constexpr wingStyleId BLADE_WING = 16;
-constexpr wingStyleId CRYSTAL_WING = 17;
-constexpr wingStyleId PETAL_WING = 18;
-constexpr wingStyleId MOON_WING = 19;
-constexpr wingStyleId RETRO_GREEN_WING = 20;
+constexpr wingStyleId NO_SKIN_2 = 5;
+constexpr wingStyleId TITAN_WING = 6;
+constexpr wingStyleId ARCHANGEL_WING = 7;
+constexpr wingStyleId ARCHDEMON_WING = 8;
+constexpr wingStyleId BLAZING_FIRE_WING = 9;
+constexpr wingStyleId FROSTY_ICE_WING = 10;
+constexpr wingStyleId GOLDEN_WING = 11;
+constexpr wingStyleId ONYX_WING = 12;
+constexpr wingStyleId FAIRY_WING = 13;
+constexpr wingStyleId MEGA_TITAN_WING = 14;
+constexpr wingStyleId ZEPHYR_WING = 15;
+constexpr wingStyleId LIGHTNING_WING = 16;
+constexpr wingStyleId BLADE_WING = 17;
+constexpr wingStyleId CRYSTAL_WING = 18;
+constexpr wingStyleId PETAL_WING = 19;
+constexpr wingStyleId MOON_WING = 20;
+constexpr wingStyleId RETRO_GREEN_WING = 21;
 
 wingsMap defaultWings =
 {
@@ -148,6 +149,30 @@ wingsMap defaultWings =
 			{ 18, 1249 },
 			{ 19, 1249 },
 			{ 20, 1249 },
+		}
+	},
+	{ NO_SKIN_2, levelToId
+		{
+			{ 1, 1200 },
+			{ 2, 1200 },
+			{ 3, 1201 },
+			{ 4, 1201 },
+			{ 5, 1202 },
+			{ 6, 1202 },
+			{ 7, 1203 },
+			{ 8, 1203 },
+			{ 9, 1204 },
+			{ 10, 1204 },
+			{ 11, 1205 },
+			{ 12, 1206 },
+			{ 13, 1207 },
+			{ 14, 1208 },
+			{ 15, 1209 },
+			{ 16, 1209 },
+			{ 17, 1209 },
+			{ 18, 1209 },
+			{ 19, 1209 },
+			{ 20, 1209 },
 		}
 	},
 	{ TITAN_WING , levelToId
