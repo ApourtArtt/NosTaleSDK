@@ -133,7 +133,7 @@ void PacketManager::tick() noexcept
 
 void PacketManager::Subscribe(PacketType PacketType, const std::string& PacketHeader, const std::function<void(std::string&)>& Callback)
 {
-	Logger::PushPopModuleName("PacketManager");
+	auto _ = Logger::PushPopModuleName("PacketManager");
 	rcvd.lock();
 
 	if (PacketType == PacketType::SENT)
@@ -179,11 +179,11 @@ void PacketManager::Send(const std::string& Packet)
 	String str(Packet.data());
 	void* callAddy = lpvSendAddy;
 	char* packet = str.get();
+	void* packetThis = lpvPacketThis;
 
 	_asm
 	{
-		MOV ESI, this
-		MOV EAX, [esi].lpvPacketThis
+		MOV EAX, packetThis;
 		MOV EAX, DWORD PTR DS : [EAX]
 		MOV EAX, DWORD PTR DS : [EAX]
 		MOV EAX, DWORD PTR DS : [EAX]
@@ -197,11 +197,11 @@ void PacketManager::Receive(const std::string& Packet)
 	String str(Packet.data());
 	char* packet = str.get();
 	void* callAddy = lpvRecvAddy;
+	void* packetThis = lpvPacketThis;
 
 	_asm
 	{
-		MOV ESI, this
-		MOV EAX, [esi].lpvPacketThis
+		MOV EAX, packetThis;
 		MOV EAX, DWORD PTR DS : [EAX]
 		MOV EAX, DWORD PTR DS : [EAX]
 		MOV EAX, DWORD PTR DS : [EAX]
