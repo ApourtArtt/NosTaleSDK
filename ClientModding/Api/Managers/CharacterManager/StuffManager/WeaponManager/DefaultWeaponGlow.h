@@ -247,13 +247,15 @@ upgradeToGlow defaultAboveLegendaryWeaponGlows =
 
 glowsMap defaultWeaponGlows =
 {
-	{ 0, defaultSubLegendaryWeaponGlows },
-	{ 1, defaultSubLegendaryWeaponGlows },
-	{ 2, defaultSubLegendaryWeaponGlows },
-	{ 3, defaultSubLegendaryWeaponGlows },
-	{ 4, defaultSubLegendaryWeaponGlows },
-	{ 5, defaultSubLegendaryWeaponGlows },
-	{ 6, defaultSubLegendaryWeaponGlows },
-	{ 7, defaultAboveLegendaryWeaponGlows },
-	{ 8, defaultAboveLegendaryWeaponGlows },
+	{ RarityType::DAMAGED,		defaultSubLegendaryWeaponGlows },
+	{ RarityType::LOW_LEVEL,	defaultSubLegendaryWeaponGlows },
+	{ RarityType::_,			defaultSubLegendaryWeaponGlows },
+	{ RarityType::USEFUL,		defaultSubLegendaryWeaponGlows },
+	{ RarityType::GOOD,			defaultSubLegendaryWeaponGlows },
+	{ RarityType::HIGH_QUALITY,	defaultSubLegendaryWeaponGlows },
+	{ RarityType::EXCELLENT,	defaultSubLegendaryWeaponGlows },
+	{ RarityType::ANCIENT,		defaultSubLegendaryWeaponGlows },
+	{ RarityType::MYSTERIOUS,	defaultSubLegendaryWeaponGlows },
+	{ RarityType::LEGENDARY,	defaultAboveLegendaryWeaponGlows },
+	{ RarityType::PHENOMENAL,	defaultAboveLegendaryWeaponGlows },
 };

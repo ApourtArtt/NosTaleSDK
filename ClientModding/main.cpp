@@ -12,7 +12,7 @@ void Start(HMODULE hModule)
                 {
                     .AdditionalWeaponsGlow = glowsMap
                     {
-                        { 9, upgradeToGlow
+                        { RarityType(9), upgradeToGlow
                             {
                                 { 100, WeaponGlow
                                     {
@@ -64,7 +64,11 @@ void Start(HMODULE hModule)
                             },
                         },
                     },
-                }
+                },
+                .StuffRarityConfig = rarityToTextStyle
+                {
+                    { RarityType(9), TextStyle(2, TextShadowOrientation::ShadowAll, Bgra(255, 127, 255, 255), Bgra(255, 0, 0, 255), TextAlignment::CenteredCentered) },
+                },
             },
             .InteractionConfig =
             {

@@ -66,6 +66,7 @@
     <ClInclude Include="Api\DelphiClasses\TNTItemList.h" />
     <ClInclude Include="Api\DelphiClasses\TPlayerObjManager.h" />
     <ClInclude Include="Api\DelphiClasses\TSceneManager.h" />
+    <ClInclude Include="Api\Enums\RarityType.h" />
     <ClInclude Include="Api\Managers\CharacterManager\CharacterConfig.h" />
     <ClInclude Include="Api\Managers\CharacterManager\CharacterManager.h" />
     <ClInclude Include="Api\Managers\CharacterManager\InteractionManager\InteractionConfig.h" />
@@ -82,6 +83,9 @@
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\WingManager\WingManager.h" />
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffConfig.h" />
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffManager.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\DefaultWeaponRarityTextStyle.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\StuffRarityConfig.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\StuffRarityManager.h" />
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\WeaponManager\DefaultWeaponGlow.h" />
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\WeaponManager\WeaponConfig.h" />
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\WeaponManager\WeaponManager.h" />
@@ -195,6 +199,7 @@
     <ClCompile Include="Api\Managers\CharacterManager\StuffManager\SpManager\SpManager.cpp" />
     <ClCompile Include="Api\Managers\CharacterManager\StuffManager\SpManager\WingManager\WingManager.cpp" />
     <ClCompile Include="Api\Managers\CharacterManager\StuffManager\StuffManager.cpp" />
+    <ClCompile Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\StuffRarityManager.cpp" />
     <ClCompile Include="Api\Managers\CharacterManager\StuffManager\WeaponManager\WeaponManager.cpp" />
     <ClCompile Include="Api\Managers\ConnectionManager\ServChanManager\ServChanManager.cpp" />
     <ClCompile Include="Api\Managers\MapManager\ColorManager\ColorManager.cpp" />

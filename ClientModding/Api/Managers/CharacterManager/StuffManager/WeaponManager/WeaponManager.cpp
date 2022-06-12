@@ -7,9 +7,9 @@
 namespace
 {
 	uintptr_t jmpbackUpgradeRarityDisplay;
-	std::map<Rarity, std::map<Upgrade, WeaponGlow>> weaponGlows = defaultWeaponGlows;
+	std::map<RarityType, std::map<Upgrade, WeaponGlow>> weaponGlows = defaultWeaponGlows;
 
-	void __stdcall upgradeRarityDisplay(TMapPlayerObj* player, Rarity weaponRarity, Upgrade weaponUpgrade)
+	void __stdcall upgradeRarityDisplay(TMapPlayerObj* player, RarityType weaponRarity, Upgrade weaponUpgrade)
 	{
 		player->setWeaponRarity(weaponRarity);
 		player->setWeaponUpgrade(weaponUpgrade);

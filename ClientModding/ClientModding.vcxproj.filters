@@ -112,6 +112,9 @@
     <Filter Include="Api\Managers\CharacterManager\InteractionManager\NpcTalkRangeManager">
       <UniqueIdentifier>{e333bbd3-6fac-4698-8095-6e434c038235}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager">
+      <UniqueIdentifier>{2a241265-bdfa-4c08-9c88-d66d6a1acd95}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Api\Properties\Logical\String.h">
@@ -565,6 +568,18 @@
     <ClInclude Include="Api\Managers\CharacterManager\InteractionManager\NpcTalkRangeNpcManager\NpcTalkRangeManager.h">
       <Filter>Api\Managers\CharacterManager\InteractionManager\NpcTalkRangeManager</Filter>
     </ClInclude>
+    <ClInclude Include="Api\Enums\RarityType.h">
+      <Filter>Api\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\StuffRarityManager.h">
+      <Filter>Api\Managers\CharacterManager\StuffManager\StuffRarityManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\StuffRarityConfig.h">
+      <Filter>Api\Managers\CharacterManager\StuffManager\StuffRarityManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\DefaultWeaponRarityTextStyle.h">
+      <Filter>Api\Managers\CharacterManager\StuffManager\StuffRarityManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClientModding.cpp" />
@@ -702,6 +717,9 @@
     </ClCompile>
     <ClCompile Include="Api\Managers\CharacterManager\InteractionManager\NpcTalkRangeNpcManager\NpcTalkRangeManager.cpp">
       <Filter>Api\Managers\CharacterManager\InteractionManager\NpcTalkRangeManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\StuffRarityManager.cpp">
+      <Filter>Api\Managers\CharacterManager\StuffManager\StuffRarityManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
