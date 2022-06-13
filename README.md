@@ -1,6 +1,6 @@
 # NostaleWidget
 
-I have been asked multiple times the last day if there was a way to donate for this project. The answer was no.\
+I have been asked multiple times the last days if there was a way to donate for this project. The answer was no.\
 After thinking about it, I am happy to give you a way to donate [here](https://donner.croix-rouge.fr/urgence-ukraine/~mon-don?_cv=1).\
 This is not for me, but at least you know what to do if you want to thank me for this project!\
 (For french people, you need to know you can get a partial tax exemption by donating to an association)
