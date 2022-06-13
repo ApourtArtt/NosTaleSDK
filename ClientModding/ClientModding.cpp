@@ -101,7 +101,7 @@ void ClientModding::on_PR_st(std::string& packet)
 	PR_st p(packet);
 	if (!p.IsValid())
 	{
-		Logger::PushPopModuleName("ClientModding");
+		auto _ = Logger::PushPopModuleName("ClientModding");
 		Logger::Error("Packet [%s] is not valid", p.GetPacket().c_str());
 		return;
 	}
@@ -114,7 +114,7 @@ void ClientModding::on_PR_aa_st(std::string& packet)
 	PR_aa_st p(packet);
 	if (!p.IsValid())
 	{
-		Logger::PushPopModuleName("ClientModding");
+		auto _ = Logger::PushPopModuleName("ClientModding");
 		Logger::Error("Packet [%s] is not valid", p.GetPacket().c_str());
 		return;
 	}
@@ -127,7 +127,7 @@ void ClientModding::on_PR_pst(std::string& packet)
 	PR_pst p(packet);
 	if (!p.IsValid())
 	{
-		Logger::PushPopModuleName("ClientModding");
+		auto _ = Logger::PushPopModuleName("ClientModding");
 		Logger::Error("Packet [%s] is not valid", p.GetPacket().c_str());
 		return;
 	}
@@ -140,7 +140,7 @@ void ClientModding::on_PR_aa_pst(std::string& packet)
 	PR_aa_pst p(packet);
 	if (!p.IsValid())
 	{
-		Logger::PushPopModuleName("ClientModding");
+		auto _ = Logger::PushPopModuleName("ClientModding");
 		Logger::Error("Packet [%s] is not valid", p.GetPacket().c_str());
 		return;
 	}

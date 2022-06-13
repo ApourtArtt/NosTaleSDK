@@ -5,7 +5,7 @@ rarityToTextStyle defaultRarityTextStyle =
 {
 	{ RarityType::DAMAGED,		TextStyle(2, TextShadowOrientation::ShadowNone, Bgra(133, 144, 255, 255), Bgra(), TextAlignment::CenteredCentered) },
 	{ RarityType::LOW_LEVEL,	TextStyle(2, TextShadowOrientation::ShadowNone, Bgra(204, 168, 255, 255), Bgra(), TextAlignment::CenteredCentered) },
-	{ RarityType::_,			TextStyle(2, TextShadowOrientation::ShadowNone, Bgra(0, 0, 0, 255), Bgra(), TextAlignment::CenteredCentered) },
+	{ RarityType::_,			TextStyle(2, TextShadowOrientation::ShadowNone, Bgra(255, 255, 255, 255), Bgra(), TextAlignment::CenteredCentered) },
 	{ RarityType::USEFUL,		TextStyle(2, TextShadowOrientation::ShadowNone, Bgra(252, 189, 192, 255), Bgra(), TextAlignment::CenteredCentered) },
 	{ RarityType::GOOD,			TextStyle(2, TextShadowOrientation::ShadowNone, Bgra(133, 255, 114, 255), Bgra(), TextAlignment::CenteredCentered) },
 	{ RarityType::HIGH_QUALITY,	TextStyle(2, TextShadowOrientation::ShadowNone, Bgra(255, 205, 145, 255), Bgra(), TextAlignment::CenteredCentered) },

@@ -23,5 +23,5 @@ private:
 	void tick() noexcept override;
 
 	Spy targetSpy;
-	std::map<int8_t, Spy> groupSpies;
+	std::vector<Spy> groupSpies;
 };

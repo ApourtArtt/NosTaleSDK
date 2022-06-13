@@ -1,6 +1,6 @@
 #pragma once
 #include "../PacketRcvd.h"
-#include "../../../Enums/EntityType.h"
+#include "../../../../Enums/EntityType.h"
 
 class PR_aa_pst : public PacketRcvd
 {
@@ -8,14 +8,14 @@ public:
     [[nodiscard]] explicit PR_aa_pst(const std::string& Packet)
         : PacketRcvd(Packet)
     {
-        Logger::Log("%s", Packet.c_str());
         isValid = check();
     }
 
-    [[nodiscard]] int8_t GetGroupOrder() const noexcept { return groupOrder; }
+    [[nodiscard]] EntityType GetEntityType() const noexcept { return entityType; }
+    [[nodiscard]] int32_t GetEntityId() const noexcept { return entityId; }
     [[nodiscard]] int32_t GetCurrentHp() const noexcept { return currentHp; }
-    [[nodiscard]] int32_t GetCurrentMp() const noexcept { return currentMp; }
     [[nodiscard]] int32_t GetMaxHp() const noexcept { return maxHp; }
+    [[nodiscard]] int32_t GetCurrentMp() const noexcept { return currentMp; }
     [[nodiscard]] int32_t GetMaxMp() const noexcept { return maxMp; }
 
 private:
@@ -24,19 +24,22 @@ private:
         if (!isValid) [[unlikely]]
             return false;
 
-        if (packs.size() != 6) [[unlikely]]
+        if (packs.size() != 7) [[unlikely]]
             return false;
 
-        if (!checkGroupOrder()) [[unlikely]]
+        if (!checkEntityType()) [[unlikely]]
+            return false;
+
+        if (!checkEntityId()) [[unlikely]]
             return false;
 
         if (!checkCurrentHp()) [[unlikely]]
             return false;
 
-        if (!checkCurrentMp()) [[unlikely]]
+        if (!checkMaxHp()) [[unlikely]]
             return false;
 
-        if (!checkMaxHp()) [[unlikely]]
+        if (!checkCurrentMp()) [[unlikely]]
             return false;
 
         if (!checkMaxMp()) [[unlikely]]
@@ -45,13 +48,23 @@ private:
         return true;
     }
 
-    [[nodiscard]] bool checkGroupOrder()
+    [[nodiscard]] bool checkEntityType()
     {
-        auto val = ToNumber<int8_t>(packs[2].c_str());
+        auto val = ToNumber<int8_t>(packs[1].c_str());
         if (!val.has_value()) [[unlikely]]
             return false;
 
-        groupOrder = val.value();
+        entityType = static_cast<EntityType>(val.value());
+        return true;
+    }
+
+    [[nodiscard]] bool checkEntityId()
+    {
+        auto val = ToNumber<int32_t>(packs[2].c_str());
+        if (!val.has_value()) [[unlikely]]
+            return false;
+
+        entityId = val.value();
         return true;
     }
 
@@ -65,6 +78,16 @@ private:
         return true;
     }
 
+    [[nodiscard]] bool checkMaxHp()
+    {
+        auto val = ToNumber<int32_t>(packs[4].c_str());
+        if (!val.has_value()) [[unlikely]]
+            return false;
+
+        maxHp = val.value();
+        return true;
+    }
+
     [[nodiscard]] bool checkCurrentMp()
     {
         auto val = ToNumber<int32_t>(packs[5].c_str());
@@ -75,15 +98,6 @@ private:
         return true;
     }
 
-    [[nodiscard]] bool checkMaxHp()
-    {
-        auto val = ToNumber<int32_t>(packs[4].c_str());
-        if (!val.has_value()) [[unlikely]]
-            return false;
-
-        maxHp = val.value();
-        return true;
-    }
 
     [[nodiscard]] bool checkMaxMp()
     {
@@ -95,9 +109,10 @@ private:
         return true;
     }
 
-    int8_t groupOrder;
+    EntityType entityType;
+    int32_t entityId;
     int32_t currentHp;
-    int32_t currentMp;
     int32_t maxHp;
+    int32_t currentMp;
     int32_t maxMp;
 };

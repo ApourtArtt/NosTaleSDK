@@ -1,11 +1,13 @@
 #include "Spy.h"
 
-std::optional<Spy> Spy::Create(TNTMaskingGaugeWidget* hpGauge, TNTMaskingGaugeWidget* mpGauge)
+std::optional<Spy> Spy::Create(TNTPartySummaryInfoWidget* party, TNTMaskingGaugeWidget* hpGauge, TNTMaskingGaugeWidget* mpGauge)
 {
 	auto _ = Logger::PushPopModuleName("Spy");
 	Logger::Log("hpGauge: %x mpGauge: %x", hpGauge, mpGauge);
 
 	Spy spy;
+
+	spy.partySummaryInfoWidget = party;
 
 	TEWLabel* hpLabel = spy.createGaugeElements(hpGauge, &spy.hpString);
 	if (hpLabel == nullptr)

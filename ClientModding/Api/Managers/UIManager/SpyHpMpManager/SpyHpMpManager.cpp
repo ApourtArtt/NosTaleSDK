@@ -12,7 +12,6 @@ SpyHpMpManager::SpyHpMpManager(const SpyHpMpManagerConfig& Config) noexcept
 
 bool SpyHpMpManager::initialize() noexcept
 {
-
 	TLBSWidgetHandler* ntWidgetHandler = TLBSWidgetHandler::getNtInstance();
 	if (ntWidgetHandler == nullptr)
 		return false;
@@ -33,7 +32,7 @@ bool SpyHpMpManager::initialize() noexcept
 		TNTMaskingGaugeWidget* hpGauge = widget->getHpGauge();
 		TNTMaskingGaugeWidget* mpGauge = widget->getMpGauge();
 
-		auto spy = Spy::Create(hpGauge, mpGauge);
+		auto spy = Spy::Create(nullptr, hpGauge, mpGauge);
 		if (!spy.has_value())
 			return false;
 
@@ -59,11 +58,11 @@ bool SpyHpMpManager::initialize() noexcept
 			TNTMaskingGaugeWidget* hpGauge = reinterpret_cast<TNTMaskingGaugeWidget*>(gauges[0]);
 			TNTMaskingGaugeWidget* mpGauge = reinterpret_cast<TNTMaskingGaugeWidget*>(gauges[1]);
 
-			auto spy = Spy::Create(hpGauge, mpGauge);
+			auto spy = Spy::Create(reinterpret_cast<TNTPartySummaryInfoWidget*>(widgets[i]), hpGauge, mpGauge);
 			if (!spy.has_value())
 				return false;
 
-			groupSpies.insert({ static_cast<int8_t>(groupSpies.size()), spy.value() });
+			groupSpies.push_back(spy.value());
 		}
 	}
 	else
@@ -119,17 +118,33 @@ void SpyHpMpManager::On_PR_pst(const PR_pst& Packet) noexcept
 	if (!config.SpyGroup.Activate || config.SpyGroup.SpyType != SpyType::APPROXIMATION)
 		return;
 
-	int8_t id = Packet.GetGroupOrder();
-	if (groupSpies.count(id) == 0 || !groupSpies[id].init)
+	auto entityType = Packet.GetEntityType();
+	auto entityId = Packet.GetEntityId();
+	auto groupId = -1;
+	auto weirdEntityType = 1;
+
+	if (entityType != EntityType::CHARACTER)
+		weirdEntityType = 3;
+
+	for (auto i = 0; i < groupSpies.size(); i++)
+	{
+		if (groupSpies[i].partySummaryInfoWidget->getEntityId() == entityId && groupSpies[i].partySummaryInfoWidget->getEntityType() == weirdEntityType)
+		{
+			groupId = i;
+			break;
+		}
+	}
+	
+	if (groupId < 0 || groupId >= groupSpies.size() || !groupSpies[groupId].init)
 		return;
 
 	std::wstring hpStr = std::to_wstring(Packet.GetCurrentHp()) + L"/" + std::to_wstring((std::max)(0, (int)roundf(((double)Packet.GetCurrentHp() / (double)Packet.GetHpPercentage() * 100))));
-	groupSpies[id].hpString.set(hpStr.c_str());
-	groupSpies[id].hpLabel->setText(groupSpies[id].hpString.get());
+	groupSpies[groupId].hpString.set(hpStr.c_str());
+	groupSpies[groupId].hpLabel->setText(groupSpies[groupId].hpString.get());
 
 	std::wstring mpStr = std::to_wstring(Packet.GetCurrentMp()) + L"/" + std::to_wstring((std::max)(0, (int)roundf(((double)Packet.GetCurrentMp() / (double)Packet.GetMpPercentage() * 100))));
-	groupSpies[id].mpString.set(mpStr.c_str());
-	groupSpies[id].mpLabel->setText(groupSpies[id].mpString.get());
+	groupSpies[groupId].mpString.set(mpStr.c_str());
+	groupSpies[groupId].mpLabel->setText(groupSpies[groupId].mpString.get());
 }
 
 void SpyHpMpManager::On_PR_aa_pst(const PR_aa_pst& Packet) noexcept
@@ -137,15 +152,31 @@ void SpyHpMpManager::On_PR_aa_pst(const PR_aa_pst& Packet) noexcept
 	if (!config.SpyGroup.Activate || config.SpyGroup.SpyType != SpyType::REAL)
 		return;
 
-	int8_t id = Packet.GetGroupOrder();
-	if (groupSpies.count(id) == 0 || !groupSpies[id].init)
+	auto entityType = Packet.GetEntityType();
+	auto entityId = Packet.GetEntityId();
+	auto groupId = -1;
+	auto weirdEntityType = 1;
+
+	if (entityType != EntityType::CHARACTER)
+		weirdEntityType = 3;
+
+	for (auto i = 0; i < groupSpies.size(); i++)
+	{
+		if (groupSpies[i].partySummaryInfoWidget->getEntityId() == entityId && groupSpies[i].partySummaryInfoWidget->getEntityType() == weirdEntityType)
+		{
+			groupId = i;
+			break;
+		}
+	}
+
+	if (groupId < 0 || groupId >= groupSpies.size() || !groupSpies[groupId].init)
 		return;
 
 	std::wstring hpStr = std::to_wstring(Packet.GetCurrentHp()) + L"/" + std::to_wstring(Packet.GetMaxHp());
-	groupSpies[id].hpString.set(hpStr.c_str());
-	groupSpies[id].hpLabel->setText(groupSpies[id].hpString.get());
+	groupSpies[groupId].hpString.set(hpStr.c_str());
+	groupSpies[groupId].hpLabel->setText(groupSpies[groupId].hpString.get());
 
 	std::wstring mpStr = std::to_wstring(Packet.GetCurrentMp()) + L"/" + std::to_wstring(Packet.GetMaxMp());
-	groupSpies[id].mpString.set(mpStr.c_str());
-	groupSpies[id].mpLabel->setText(groupSpies[id].mpString.get());
+	groupSpies[groupId].mpString.set(mpStr.c_str());
+	groupSpies[groupId].mpLabel->setText(groupSpies[groupId].mpString.get());
 }

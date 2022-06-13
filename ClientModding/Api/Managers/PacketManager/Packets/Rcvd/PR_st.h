@@ -1,6 +1,6 @@
 #pragma once
 #include "../PacketRcvd.h"
-#include "../../../Enums/EntityType.h"
+#include "../../../../Enums/EntityType.h"
 
 class PR_st : public PacketRcvd
 {
@@ -8,7 +8,6 @@ public:
 	[[nodiscard]] explicit PR_st(const std::string& Packet)
 		: PacketRcvd(Packet)
 	{
-        Logger::Log("%s", Packet.c_str());
 		isValid = check();
 	}
 

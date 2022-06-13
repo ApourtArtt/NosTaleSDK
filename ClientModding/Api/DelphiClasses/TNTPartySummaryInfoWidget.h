@@ -12,6 +12,9 @@ class TNTPartySummaryInfoWidget : public TEWCustomPanelWidget
 public:
 	static constexpr std::string_view NAME = "TNTPartySummaryInfoWidget";
 
+	char getEntityType() { return entityType; }
+	int32_t getEntityId() { return entityId; }
+
 private:
 	// TODO: offset are not fix, need to handle it another way
 	char unknown19[4]; // 0xA4
@@ -29,9 +32,11 @@ private:
 	TEWControlWidgetEX* bottomLeftImage; // 0xD4
 	TEWGraphicButtonWidget* topRightButton; // 0xD8
 	char unknown22[4]; // 0xDC
-	char unknown23[4]; // 0xE0
-	char unknown24[4]; // 0xE4
-	char unknown25[4]; // 0xE8
+	char ignoreForNow; // 0xE0 1 = player 2 = pet 3 = partner
+	char entityType; // 0xE1 note: not really entityType, so not of type EntityType (mate = 3 instead of 2)
+	char unknown23[2]; // 0xE2
+	int32_t entityId; // 0xE4
+	char unknown24[4]; // 0xE8
 	TNTIconWidget* buff1; // 0xEC
 	TNTIconWidget* buff2; // 0xF0
 	TNTIconWidget* buff3; // 0xF4
@@ -40,7 +45,7 @@ private:
 	TNTIconWidget* buff6; // 0x100
 	TNTIconWidget* buff7; // 0x104
 	TNTIconWidget* buff8; // 0x108
-	char unknown26[4]; // 0x10C
+	char unknown25[4]; // 0x10C
 	void* TNTGraphicButtonAtSpecialCard; // 0x110 SP button
 };
 static_assert(sizeof(TNTPartySummaryInfoWidget) == 0x114, "TNTPartySummaryInfoWidget does not have a size of 0x114");
