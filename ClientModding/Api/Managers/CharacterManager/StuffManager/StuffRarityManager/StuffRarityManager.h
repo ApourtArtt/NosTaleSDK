@@ -13,4 +13,5 @@ private:
 	void tick() noexcept override;
 
 	[[nodiscard]] bool initializeRarityTextStyleDisplay() noexcept;
+	[[nodiscard]] bool initializeRarityTextDisplayHover() noexcept;
 };

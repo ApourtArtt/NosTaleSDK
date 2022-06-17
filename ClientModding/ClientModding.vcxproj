@@ -52,7 +52,9 @@
     <ClInclude Include="Api\DelphiClasses\TEWButtonWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TLBSWidgetHandler.h" />
     <ClInclude Include="Api\DelphiClasses\TMapPlayerObj.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTConstStringList.h" />
     <ClInclude Include="Api\DelphiClasses\TNTGameOptionWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTIntHeadList.h" />
     <ClInclude Include="Api\DelphiClasses\TNTMaskingGaugeWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTNewCharacterSkillInfoWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTNewCharacterStandardInfoWidget.h" />
@@ -83,7 +85,8 @@
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\WingManager\WingManager.h" />
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffConfig.h" />
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffManager.h" />
-    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\DefaultWeaponRarityTextStyle.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\DefaultRarityTextVnum.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\DefaultRarityTextStyle.h" />
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\StuffRarityConfig.h" />
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\StuffRarityManager.h" />
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\WeaponManager\DefaultWeaponGlow.h" />
@@ -96,6 +99,10 @@
     <ClInclude Include="Api\Enums\EntityType.h" />
     <ClInclude Include="Api\Enums\KeyCode.h" />
     <ClInclude Include="Api\Enums\KeyModifier.h" />
+    <ClInclude Include="Api\Managers\GameFileManager\GameFileConfig.h" />
+    <ClInclude Include="Api\Managers\GameFileManager\GameFileManager.h" />
+    <ClInclude Include="Api\Managers\GameFileManager\NScliManager\NScliConfig.h" />
+    <ClInclude Include="Api\Managers\GameFileManager\NScliManager\NScliManager.h" />
     <ClInclude Include="Api\Managers\Manager.h" />
     <ClInclude Include="Api\Managers\MapManager\ColorManager\ColorConfig.h" />
     <ClInclude Include="Api\Managers\MapManager\ColorManager\ColorManager.h" />
@@ -202,6 +209,8 @@
     <ClCompile Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\StuffRarityManager.cpp" />
     <ClCompile Include="Api\Managers\CharacterManager\StuffManager\WeaponManager\WeaponManager.cpp" />
     <ClCompile Include="Api\Managers\ConnectionManager\ServChanManager\ServChanManager.cpp" />
+    <ClCompile Include="Api\Managers\GameFileManager\GameFileManager.cpp" />
+    <ClCompile Include="Api\Managers\GameFileManager\NScliManager\NScliManager.cpp" />
     <ClCompile Include="Api\Managers\MapManager\ColorManager\ColorManager.cpp" />
     <ClCompile Include="Api\CustomClasses\UI\Fps.cpp" />
     <ClCompile Include="Api\CustomClasses\UI\KeyBindManager.cpp" />

@@ -18,14 +18,12 @@ public:
 
 	static TLBSWidgetHandler* getNtInstance()
 	{
-		static bool init = false;
 		static void* patternAddr = nullptr;
 
-		if (!init)
+		if (patternAddr == nullptr)
 		{
 			auto _ = Logger::PushPopModuleName("TLBSWidgetHandler");
 
-			init = true;
 			patternAddr = PatternScan(
 				"\x83\x3d\x00\x00\x00\x00\x00\x74\x0a\xa1\x00\x00\x00\x00\xe8\x00\x00\x00\x00\xc3",
 				"xx????xxxx????x????x", 2

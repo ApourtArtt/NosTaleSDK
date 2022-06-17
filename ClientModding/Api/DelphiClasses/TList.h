@@ -1,5 +1,5 @@
 #pragma once
-#include <stdlib.h>
+#include "TObject.h"
 #pragma pack(push, 1)
 
 template<class T>
@@ -10,10 +10,10 @@ public:
 		: TList(1)
 	{}
 
-	TList(uint32_t _capacity)
+	TList(uint32_t Capacity)
 		: TObject(ClassSearcher::GetClassInfoFromName("TList").GetVTable())
 		, length(0)
-		, capacity(_capacity)
+		, capacity(Capacity)
 	{
 		items = (T*)malloc(capacity * sizeof(T));
 	}
@@ -31,7 +31,7 @@ public:
 		if (length <= 0) return;
 
 		length -= 1;
-		// Should I free, or set value to nullptr at items[size] ?
+		// Should be freed if only used by this project but since that's not guaranteed, let's keep it as a memory leek.
 	}
 
 	void reserve()
@@ -60,8 +60,10 @@ public:
 		return items[index];
 	}
 
+	T* getItems() { return items; }
+
+protected:
 	T* items;				// 0x04
-private:
 	uint32_t length;		// 0x08
 	uint32_t capacity;		// 0x0c
 };

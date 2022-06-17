@@ -4,13 +4,13 @@
 #include "Api/DelphiClasses/TLBSWidgetHandler.h"
 #include "Api/DelphiClasses/TSceneManager.h"
 
-
-ClientModding::ClientModding(const ClientModdingConfig& Config)
+ClientModding::ClientModding(const ClientModdingConfig& Config) noexcept
 	: config(Config)
 	, characterMng(Config.CharacterConfig)
 	, connectionMng(Config.ConnectionConfig)
 	, discordMng(Config.DiscordConfig)
 	, mapMng(Config.MapConfig)
+	, gameFileMng(Config.GameFileConfig)
 	, packetMng(Config.PacketConfig)
 	, uiMng(Config.UIConfig)
 {
@@ -25,42 +25,7 @@ ClientModding::ClientModding(const ClientModdingConfig& Config)
 	packetMng.Subscribe(PacketType::RCVD, "aa_pst", [this](std::string& Packet) { on_PR_aa_pst(Packet); });
 }
 
-bool ClientModding::Initialize()
-{
-	auto _ = Logger::PushPopModuleName("ClientModding");
-
-	if (!ClassSearcher::Initialize())
-		return false;
-
-	if (TLBSWidgetHandler::getNtInstance() == nullptr)
-		return false;
-
-	if (TSceneManager::getNtInstance() == nullptr)
-		return false;
-
-	if (!characterMng.Initialize())
-		return false;
-
-	if (!connectionMng.Initialize())
-		return false;
-
-	if (!discordMng.Initialize())
-		return false;
-
-	if (!mapMng.Initialize())
-		return false;
-
-	if (!packetMng.Initialize())
-		return false;
-
-	if (!uiMng.Initialize())
-		return false;
-
-	Logger::Success("Successfully initialized");
-	return true;
-}
-
-void ClientModding::Run()
+void ClientModding::Run() noexcept
 {
 	auto _ = Logger::PushPopModuleName("ClientModding");
 
@@ -71,6 +36,20 @@ void ClientModding::Run()
 	}
 	Logger::Log("Now running...");
 
+
+	Logger::Log("%s", NScliManager::GetConstString(276));
+	Logger::Log("%s", NScliManager::GetConstString(277));
+	Logger::Log("%s", NScliManager::GetConstString(278));
+	Logger::Log("%s", NScliManager::GetConstString(279));
+	Logger::Log("%s", NScliManager::GetConstString(280));
+	Logger::Log("%s", NScliManager::GetConstString(281));
+	Logger::Log("%s", NScliManager::GetConstString(282));
+	Logger::Log("%s", NScliManager::GetConstString(283));
+	Logger::Log("%s", NScliManager::GetConstString(284));
+	Logger::Log("%s", NScliManager::GetConstString(285));
+	Logger::Log("%s", NScliManager::GetConstString(286));
+	Logger::Log("%s", NScliManager::GetConstString(4224));
+
 	while (true)
 	{
 		Tick();
@@ -78,17 +57,67 @@ void ClientModding::Run()
 	}
 }
 
-void ClientModding::Tick()
+void ClientModding::OnShowNostaleSplash() noexcept
+{
+	auto _ = Logger::PushPopModuleName("ClientModding");
+
+	if (!ClassSearcher::Initialize())
+		return;
+
+	if (!gameFileMng.Initialize())
+		return;
+
+	if (!discordMng.Initialize())
+		return;
+
+	onShowNostaleSplash();
+
+	Logger::Success("Successfully initialized");
+}
+
+void ClientModding::OnFreeNostaleSplash() noexcept
+{
+	auto _ = Logger::PushPopModuleName("ClientModding");
+
+	if (!TLBSWidgetHandler::getNtInstance())
+		return;
+
+	if (!TSceneManager::getNtInstance())
+		return;
+
+	if (!characterMng.Initialize())
+		return;
+
+	if (!connectionMng.Initialize())
+		return;
+
+	if (!mapMng.Initialize())
+		return;
+
+	if (!packetMng.Initialize())
+		return;
+
+	if (!uiMng.Initialize())
+		return;
+
+	onFreeNostaleSplash();
+	isReady = true;
+
+	Logger::Success("Successfully initialized");
+}
+
+void ClientModding::Tick() noexcept
 {
 	characterMng.Tick();
 	connectionMng.Tick();
 	discordMng.Tick();
 	mapMng.Tick();
+	gameFileMng.Tick();
 	packetMng.Tick();
 	uiMng.Tick();
 }
 
-void ClientModding::on_PR_tit(std::string& packet)
+void ClientModding::on_PR_tit(std::string& packet) noexcept
 {
 	auto words = Split(packet, " ");
 	std::string pseudo = words[2];
@@ -96,7 +125,7 @@ void ClientModding::on_PR_tit(std::string& packet)
 	discordMng.SetChannel(connectionMng.GetServChanManager().GetChannel());
 }
 
-void ClientModding::on_PR_st(std::string& packet)
+void ClientModding::on_PR_st(std::string& packet) noexcept
 {
 	PR_st p(packet);
 	if (!p.IsValid())
@@ -109,7 +138,7 @@ void ClientModding::on_PR_st(std::string& packet)
 	uiMng.GetSpyHpMpManager().On_PR_st(p);
 }
 
-void ClientModding::on_PR_aa_st(std::string& packet)
+void ClientModding::on_PR_aa_st(std::string& packet) noexcept
 {
 	PR_aa_st p(packet);
 	if (!p.IsValid())
@@ -122,7 +151,7 @@ void ClientModding::on_PR_aa_st(std::string& packet)
 	uiMng.GetSpyHpMpManager().On_PR_aa_st(p);
 }
 
-void ClientModding::on_PR_pst(std::string& packet)
+void ClientModding::on_PR_pst(std::string& packet) noexcept
 {
 	PR_pst p(packet);
 	if (!p.IsValid())
@@ -135,7 +164,7 @@ void ClientModding::on_PR_pst(std::string& packet)
 	uiMng.GetSpyHpMpManager().On_PR_pst(p);
 }
 
-void ClientModding::on_PR_aa_pst(std::string& packet)
+void ClientModding::on_PR_aa_pst(std::string& packet) noexcept
 {
 	PR_aa_pst p(packet);
 	if (!p.IsValid())

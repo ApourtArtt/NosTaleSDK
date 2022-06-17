@@ -1,124 +1,136 @@
 #include "Example.h"
 
-void Start(HMODULE hModule)
+ClientModdingConfig config =
 {
-    ClientModdingConfig config =
+    .CharacterConfig =
     {
-        .CharacterConfig =
+        .StuffConfig =
         {
-            .StuffConfig =
+            .WeaponConfig =
             {
-                .WeaponConfig =
+                .AdditionalWeaponsGlow = glowsMap
                 {
-                    .AdditionalWeaponsGlow = glowsMap
-                    {
-                        { RarityType(9), upgradeToGlow
-                            {
-                                { 100, WeaponGlow
-                                    {
-                                        .SecondaryGlowColor = Bgra(255, 0, 0, 255),
-                                        .SecondaryGlowSize = 1.5,
-                                        .SecondaryGlowStyle = WeaponGlowingStyle::FAST_CIRCULAR,
-                                        .PrimaryGlowColor = Bgra(0, 0, 255, 255),
-                                        .PrimaryGlowSize = 2.,
-                                        .PrimaryGlowStyle = WeaponGlowingStyle::ALWAYS,
-                                    },
-                                },
-                            },
-                        },
-                    },
-                },
-                .SpConfig =
-                {
-                    .AuraConfig = levelToId
-                    {
-                        { 20, 7907 },
-                    },
-                    .WingConfig =
-                    {
-                        .AdditionalWings = wingsMap
+                    { RarityType(9), upgradeToGlow
                         {
-                            { 25, levelToId
+                            { 100, WeaponGlow
                                 {
-                                    { 1, 1346 },
-                                    { 2, 1347 },
-                                    { 3, 1348 },
-                                    { 4, 1202 },
-                                    { 5, 1202 },
-                                    { 6, 1202 },
-                                    { 7, 1202 },
-                                    { 8, 1202 },
-                                    { 9, 1202 },
-                                    { 10, 1202 },
-                                    { 11, 1202 },
-                                    { 12, 1202 },
-                                    { 13, 1202 },
-                                    { 14, 1202 },
-                                    { 15, 1202 },
-                                    { 16, 1202 },
-                                    { 17, 1202 },
-                                    { 18, 1202 },
-                                    { 19, 1202 },
-                                    { 20, 1202 },
+                                    .SecondaryGlowColor = Bgra(255, 0, 0, 255),
+                                    .SecondaryGlowSize = 1.5,
+                                    .SecondaryGlowStyle = WeaponGlowingStyle::FAST_CIRCULAR,
+                                    .PrimaryGlowColor = Bgra(0, 0, 255, 255),
+                                    .PrimaryGlowSize = 2.,
+                                    .PrimaryGlowStyle = WeaponGlowingStyle::ALWAYS,
                                 },
                             },
                         },
                     },
                 },
-                .StuffRarityConfig = rarityToTextStyle
+            },
+            .SpConfig =
+            {
+                .AuraConfig = levelToId
+                {
+                    { 20, 7907 },
+                },
+                .WingConfig =
+                {
+                    .AdditionalWings = wingsMap
+                    {
+                        { 25, levelToId
+                            {
+                                { 1, 1346 },
+                                { 2, 1347 },
+                                { 3, 1348 },
+                                { 4, 1202 },
+                                { 5, 1202 },
+                                { 6, 1202 },
+                                { 7, 1202 },
+                                { 8, 1202 },
+                                { 9, 1202 },
+                                { 10, 1202 },
+                                { 11, 1202 },
+                                { 12, 1202 },
+                                { 13, 1202 },
+                                { 14, 1202 },
+                                { 15, 1202 },
+                                { 16, 1202 },
+                                { 17, 1202 },
+                                { 18, 1202 },
+                                { 19, 1202 },
+                                { 20, 1202 },
+                            },
+                        },
+                    },
+                },
+            },
+            .StuffRarityConfig =
+            {
+                .AdditionalRarityTextStyle = rarityToTextStyle
                 {
                     { RarityType(9), TextStyle(2, TextShadowOrientation::ShadowAll, Bgra(255, 127, 255, 255), Bgra(255, 0, 0, 255), TextAlignment::CenteredCentered) },
                 },
+                .AdditionalRarityTextVnum = rarityToTextVnum
+                {
+                    { RarityType(9), 59 },
+                }
             },
-            .InteractionConfig =
+        },
+        .InteractionConfig =
+        {
+            .NpcTalkRangeConfig =
             {
-                .NpcTalkRangeConfig =
-                {
-                    .DefaultTalkRange = 255,
-                },
+                .DefaultTalkRange = 255,
             },
         },
-        .ConnectionConfig =
-        {
+    },
+    .ConnectionConfig =
+    {
 
-        },
-        .DiscordConfig =
-        {
-            .Active = true,
-            .ApplicationId = 858502310669582346,
-            .ApplicationName = "App Name",
-            .ImageName = "ditz_logo",
-        },
-        .MapConfig =
-        {
+    },
+    .DiscordConfig =
+    {
+        .Active = true,
+        .ApplicationId = 858502310669582346,
+        .ApplicationName = "App Name",
+        .ImageName = "ditz_logo",
+    },
+    .MapConfig =
+    {
 
-        },
-        .PacketConfig =
-        {
+    },
+    .GameFileConfig =
+    {
+        .NScliConfig = {
 
-        },
-        .UIConfig =
-        {
+        }
+    },
+    .PacketConfig =
+    {
 
-            .SpyHpMpConfig =
+    },
+    .UIConfig =
+    {
+        .SpyHpMpConfig =
+        {
+            .SpyTarget = SpyHpMpConfig
             {
-                .SpyTarget = SpyHpMpConfig
-                {
-                    .Activate = true,
-                    .SpyType = SpyType::APPROXIMATION,
-                },
-                .SpyGroup =
-                {
-                    .Activate = true,
-                    .SpyType = SpyType::APPROXIMATION,
-                },
+                .Activate = true,
+                .SpyType = SpyType::APPROXIMATION,
+            },
+            .SpyGroup =
+            {
+                .Activate = true,
+                .SpyType = SpyType::APPROXIMATION,
             },
         },
-        .EventLoopDelay = 10,
-    };
+    },
+    .EventLoopDelay = 10,
+};
+Example example(config);
 
-    Example example(config);
-    if (!example.Initialize())
+void Start(HMODULE hModule)
+{
+    if (!example.IsReady())
     {
         Logger::Error("Failed initializing Example");
         return;
@@ -126,7 +138,41 @@ void Start(HMODULE hModule)
 
     Logger::Success(" -> Example-ClientModding successfully initialized");
     example.Run();
-    Sleep(5000);
+
+    system("pause");
+}
+
+extern "C" __declspec(dllexport) void __declspec(naked) ShowNostaleSplash()
+{
+    __asm
+    {
+        pushad;
+        pushfd;
+    }
+    example.OnShowNostaleSplash();
+    __asm
+    {
+        popfd;
+        popad;
+    }
+}
+
+extern "C" __declspec(dllexport) void __declspec(naked) FreeNostaleSplash()
+{
+    __asm
+    {
+        pushad;
+        pushfd;
+    }
+    example.OnFreeNostaleSplash();
+    __asm
+    {
+        popfd;
+        popad;
+
+        mov eax, 0;
+        ret;
+    }
 }
 
 DWORD WINAPI MainThread(HMODULE hModule)
@@ -134,6 +180,12 @@ DWORD WINAPI MainThread(HMODULE hModule)
     Logger::Load();
     Logger::IndentModuleName("   ");
     Logger::Success("Dll successfully injected");
+    Logger::Flush();
+
+    while (!example.IsReady())
+    {
+        Sleep(config.EventLoopDelay * 100);
+    }
 
     Start(hModule);
 

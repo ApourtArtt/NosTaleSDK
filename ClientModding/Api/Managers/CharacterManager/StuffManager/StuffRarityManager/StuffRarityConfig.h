@@ -4,8 +4,10 @@
 #include "../../../../Enums/RarityType.h"
 
 typedef std::map<RarityType, TextStyle> rarityToTextStyle;
+typedef std::map<RarityType, int32_t> rarityToTextVnum;
 
 struct StuffRarityManagerConfig
 {
-	rarityToTextStyle AdditionalWeaponsRarityTextStyle;
+	rarityToTextStyle AdditionalRarityTextStyle;
+	rarityToTextVnum AdditionalRarityTextVnum;
 };

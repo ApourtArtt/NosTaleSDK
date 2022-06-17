@@ -69,7 +69,5 @@ bool ExampleRatufuWidget::Initialize(TLBSWidget* Parent, std::function<void()> O
 	form->addWidget(button);
 	button->setVisible(true);
 
-	Logger::Log("%x [%x] [%x] [%x]", button, testFunc, testFunc, Callback(testFunc, 0));
-
 	return true;
 }

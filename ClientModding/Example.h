@@ -5,11 +5,11 @@
 class Example : public ClientModding // We need to inherit from ClientModding
 {
 public:
-	explicit Example(const ClientModdingConfig& Config);
+	[[nodiscard]] explicit Example(const ClientModdingConfig& Config) noexcept;
 
 private:
-	bool beforeRun() override;
-	void tick() override;
+	[[nodiscard]] bool beforeRun() noexcept override;
+	void tick() noexcept override;
 
 	ExampleRatufuWidget ratufuWidget;
 };

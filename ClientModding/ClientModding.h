@@ -5,6 +5,7 @@
 #include "Api/Managers/ConnectionManager/ConnectionManager.h"
 #include "Api/Managers/DiscordManager/DiscordManager.h"
 #include "Api/Managers/MapManager/MapManager.h"
+#include "Api/Managers/GameFileManager/GameFileManager.h"
 #include "Api/Managers/PacketManager/PacketManager.h"
 #include "Api/Managers/UIManager/UIManager.h"
 
@@ -16,31 +17,38 @@
 class ClientModding
 {
 public:
-	explicit ClientModding(const ClientModdingConfig& Config);
-	virtual ~ClientModding() {}
+	[[nodiscard]] explicit ClientModding(const ClientModdingConfig& Config) noexcept;
+	virtual ~ClientModding() noexcept {}
 
-	bool Initialize();
-	void Run();
+	[[nodiscard]] bool IsReady() noexcept { return isReady; }
+	void Run() noexcept;
 
-	void Tick();
+	void OnShowNostaleSplash() noexcept;
+	void OnFreeNostaleSplash() noexcept;
+
+	void Tick() noexcept;
 
 private:
-	void on_PR_tit(std::string& packet);
-	void on_PR_st(std::string& packet);
-	void on_PR_aa_st(std::string& packet);
-	void on_PR_pst(std::string& packet);
-	void on_PR_aa_pst(std::string& packet);
+	void on_PR_tit(std::string& packet) noexcept;
+	void on_PR_st(std::string& packet) noexcept;
+	void on_PR_aa_st(std::string& packet) noexcept;
+	void on_PR_pst(std::string& packet) noexcept;
+	void on_PR_aa_pst(std::string& packet) noexcept;
 
 protected:
-	virtual bool beforeRun() { return true; }
-	virtual void tick() {}
+	[[nodiscard]] virtual bool beforeRun() noexcept { return true; }
+	virtual void onShowNostaleSplash() noexcept {}
+	virtual void onFreeNostaleSplash() noexcept {}
+	virtual void tick() noexcept {}
 
 	ClientModdingConfig config;
+	bool isReady{ false };
 
 	CharacterManager characterMng;
 	ConnectionManager connectionMng;
 	DiscordManager discordMng;
 	MapManager mapMng;
+	GameFileManager gameFileMng;
 	PacketManager packetMng;
 	UIManager uiMng;
 };

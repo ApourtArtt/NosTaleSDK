@@ -1,7 +1,7 @@
 #include "Example.h"
 #include "Api/DelphiClasses/TLBSWidgetHandler.h"
 
-Example::Example(const ClientModdingConfig& Config)
+Example::Example(const ClientModdingConfig& Config) noexcept
 	: ClientModding(Config)
 {
 	// If you want to do something before ClientModding::Initialize runs.
@@ -12,7 +12,7 @@ Example::Example(const ClientModdingConfig& Config)
 	// Exception for packet handling, you can already subscribe here.
 }
 
-bool Example::beforeRun()
+bool Example::beforeRun() noexcept
 {
 	auto _ = Logger::PushPopModuleName("Example");
 	// This method is called after calling Example::Run().
@@ -31,7 +31,7 @@ bool Example::beforeRun()
 	return true;
 }
 
-void Example::tick()
+void Example::tick() noexcept
 {
 	// This method is called every tick once you call Example::Run() and after
 	// beforeRun returns true.

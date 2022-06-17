@@ -17,20 +17,28 @@ public:
 
 	[[nodiscard]] static TSceneManager* getNtInstance()
 	{
-		auto _ = Logger::PushPopModuleName("TSceneManager");
+		static void* patternAddr = nullptr;
 
-		auto patternAddr = PatternScan(
-			"\xA1\x00\x00\x00\x00\x00\x00\x00\x00\x58\x00\x0F\x84\xBF",
-			"x????????xxxxx", 1
-		);
 		if (patternAddr == nullptr)
 		{
-			Logger::Error("Failed scanning pattern");
-			return nullptr;
-		}
-		Logger::Log("patternAddr = %x", patternAddr);
+			auto _ = Logger::PushPopModuleName("TSceneManager");
 
-		Logger::Success("Successfully initialized");
+			patternAddr = PatternScan(
+				"\xA1\x00\x00\x00\x00\x00\x00\x00\x00\x58\x00\x0F\x84\xBF",
+				"x????????xxxxx", 1
+			);
+			if (patternAddr == nullptr)
+			{
+				Logger::Error("Failed scanning pattern");
+				return nullptr;
+			}
+			Logger::Log("patternAddr = %x", patternAddr);
+
+			Logger::Success("Successfully initialized");
+		}
+		
+		// Note: if it gets delete-d and new-ed, a refresh of the dereferenced address will be required.
+		// Since I don't know if this object ever gets deleted (I HIGHLY doubt it), I am not handling it.
 		return ***(TSceneManager****)patternAddr;
 	}
 

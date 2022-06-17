@@ -39,7 +39,7 @@ public:
 			positions.push_back(texts[i].second);
 		}
 
-		textStylePtr = styles.items;
+		textStylePtr = styles.getItems();
 		//textPosition = positions.items;
 		applyStyle = true;
 		nbLines = static_cast<int16_t>(texts.size());

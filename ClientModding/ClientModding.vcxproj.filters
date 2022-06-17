@@ -115,6 +115,12 @@
     <Filter Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager">
       <UniqueIdentifier>{2a241265-bdfa-4c08-9c88-d66d6a1acd95}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Api\Managers\GameFileManager">
+      <UniqueIdentifier>{d7799ce5-964e-4dd3-a06c-e2b6e0aaf97e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api\Managers\GameFileManager\NScli">
+      <UniqueIdentifier>{1aa5ba1c-d209-4bdb-8d4b-415b968a1c34}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Api\Properties\Logical\String.h">
@@ -577,7 +583,28 @@
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\StuffRarityConfig.h">
       <Filter>Api\Managers\CharacterManager\StuffManager\StuffRarityManager</Filter>
     </ClInclude>
-    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\DefaultWeaponRarityTextStyle.h">
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\DefaultRarityTextStyle.h">
+      <Filter>Api\Managers\CharacterManager\StuffManager\StuffRarityManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTConstStringList.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTIntHeadList.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\GameFileManager\GameFileConfig.h">
+      <Filter>Api\Managers\GameFileManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\GameFileManager\GameFileManager.h">
+      <Filter>Api\Managers\GameFileManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\GameFileManager\NScliManager\NScliConfig.h">
+      <Filter>Api\Managers\GameFileManager\NScli</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\GameFileManager\NScliManager\NScliManager.h">
+      <Filter>Api\Managers\GameFileManager\NScli</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\DefaultRarityTextVnum.h">
       <Filter>Api\Managers\CharacterManager\StuffManager\StuffRarityManager</Filter>
     </ClInclude>
   </ItemGroup>
@@ -720,6 +747,12 @@
     </ClCompile>
     <ClCompile Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\StuffRarityManager.cpp">
       <Filter>Api\Managers\CharacterManager\StuffManager\StuffRarityManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Managers\GameFileManager\GameFileManager.cpp">
+      <Filter>Api\Managers\GameFileManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Managers\GameFileManager\NScliManager\NScliManager.cpp">
+      <Filter>Api\Managers\GameFileManager\NScli</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
