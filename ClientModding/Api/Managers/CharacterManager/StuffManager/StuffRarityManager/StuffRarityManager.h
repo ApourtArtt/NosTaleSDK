@@ -14,4 +14,5 @@ private:
 
 	[[nodiscard]] bool initializeRarityTextStyleDisplay() noexcept;
 	[[nodiscard]] bool initializeRarityTextDisplayHover() noexcept;
+	[[nodiscard]] bool initializeRarityTextDisplaySheet() noexcept;
 };

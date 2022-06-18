@@ -33,8 +33,6 @@ namespace
 			popfd;
 			popad;
 
-			// Possible with a pattern but would require the NOP following the return
-			// I prefer to do it manually in order to avoid such a fragile pattern
 			pop ebx;
 			ret;
 		}
@@ -48,7 +46,6 @@ namespace
 	{
 		if (rarityTextVnums.count(rarity) == 0)
 		{
-			Logger::Error("fail avec %d", rarity);
 			lazyReturn = nullptr;
 			return;
 		}
@@ -77,6 +74,114 @@ namespace
 			jmp jmpbackRarityTextHover;
 		}
 	}
+
+	uintptr_t jmpbackRarityTextSheetArmor;
+	char* lazyReturnSheetArmor{ nullptr }; // Ugly, but lazy to manually handle registers
+
+	void __stdcall rarityTextDisplaySheetArmor(RarityType rarity)
+	{
+		if (rarityTextVnums.count(rarity) == 0)
+		{
+			lazyReturnSheetArmor = nullptr;
+			return;
+		}
+
+		// TODO: system to free str ?
+		String* str = new String(NScliManager::GetConstString(rarityTextVnums[rarity]));
+		lazyReturnSheetArmor = str->get();
+	}
+
+	void __declspec(naked) hk_rarityTextDisplaySheetArmor() noexcept
+	{
+		__asm
+		{
+			pushad;
+			pushfd;
+
+			push eax;
+
+			call rarityTextDisplaySheetArmor;
+
+			popfd;
+			popad;
+
+			push lazyReturnSheetArmor;
+
+			jmp jmpbackRarityTextSheetArmor;
+		}
+	}
+
+	uintptr_t jmpbackRarityTextSheetMainWeapon;
+	char* lazyReturnSheetMainWeapon{ nullptr }; // Ugly, but lazy to manually handle registers
+
+	void __stdcall rarityTextDisplaySheetMainWeapon(RarityType rarity)
+	{
+		if (rarityTextVnums.count(rarity) == 0)
+		{
+			lazyReturnSheetMainWeapon = nullptr;
+			return;
+		}
+
+		// TODO: system to free str ?
+		String* str = new String(NScliManager::GetConstString(rarityTextVnums[rarity]));
+		lazyReturnSheetMainWeapon = str->get();
+	}
+
+	void __declspec(naked) hk_rarityTextDisplaySheetMainWeapon() noexcept
+	{
+		__asm
+		{
+			pushad;
+			pushfd;
+
+			push eax;
+
+			call rarityTextDisplaySheetMainWeapon;
+
+			popfd;
+			popad;
+
+			push lazyReturnSheetMainWeapon;
+
+			jmp jmpbackRarityTextSheetMainWeapon;
+		}
+	}
+
+	uintptr_t jmpbackRarityTextSheetSecondaryWeapon;
+	char* lazyReturnSheetSecondaryWeapon{ nullptr }; // Ugly, but lazy to manually handle registers
+
+	void __stdcall rarityTextDisplaySheetSecondaryWeapon(RarityType rarity)
+	{
+		if (rarityTextVnums.count(rarity) == 0)
+		{
+			lazyReturnSheetSecondaryWeapon = nullptr;
+			return;
+		}
+
+		// TODO: system to free str ?
+		String* str = new String(NScliManager::GetConstString(rarityTextVnums[rarity]));
+		lazyReturnSheetSecondaryWeapon = str->get();
+	}
+
+	void __declspec(naked) hk_rarityTextDisplaySheetSecondaryWeapon() noexcept
+	{
+		__asm
+		{
+			pushad;
+			pushfd;
+
+			push eax;
+
+			call rarityTextDisplaySheetSecondaryWeapon;
+
+			popfd;
+			popad;
+
+			push lazyReturnSheetSecondaryWeapon;
+
+			jmp jmpbackRarityTextSheetSecondaryWeapon;
+		}
+	}
 }
 
 StuffRarityManager::StuffRarityManager(const StuffRarityManagerConfig& Config) noexcept
@@ -87,8 +192,6 @@ StuffRarityManager::StuffRarityManager(const StuffRarityManagerConfig& Config) n
 	
 	rarityTextVnums = Config.AdditionalRarityTextVnum;
 	rarityTextVnums.merge(defaultRarityTextVnum);
-
-
 }
 
 bool StuffRarityManager::initialize() noexcept
@@ -97,6 +200,9 @@ bool StuffRarityManager::initialize() noexcept
 		return false;
 
 	if (!initializeRarityTextDisplayHover())
+		return false;
+
+	if (!initializeRarityTextDisplaySheet())
 		return false;
 
 	Logger::Success("Successfully initialized");
@@ -173,9 +279,73 @@ bool StuffRarityManager::initializeRarityTextDisplayHover() noexcept
 		return false;
 	}
 
-	for (auto const& [key, val] : rarityTextVnums)
+	return true;
+}
+
+bool StuffRarityManager::initializeRarityTextDisplaySheet() noexcept
+{
 	{
-		Logger::Log("------: %d : %d : %s", (int)key, val, NScliManager::GetConstString(val));
+		auto patternArmor = PatternScan(
+			"\xba\x11\x00\x00\x00\x8b\xc6\x8b\x38\xff\x57\x0c\x8b\x00\x00\x00\x00\x00\x33\xd2\xe8\x00\x00\x00\x00\x8b\x15\x00\x00\x00\x00\xff\x74\x82\x08\x68\x00\x00\x00\x00\x8d\x00\x00\x00\x00\x00\xba\x12\x00\x00\x00\x8b\xc6",
+			"xxxxxxxxxxxxx?????xxx????xx????xxxxx????x?????xxxxxxx", 25
+		);
+		if (patternArmor == nullptr)
+		{
+			Logger::Error("Failed scanning patternArmor");
+			return false;
+		}
+		Logger::Log("patternArmor = %x", patternArmor);
+
+		if (!Hook((BYTE*)patternArmor, (BYTE*)hk_rarityTextDisplaySheetArmor, 6))
+		{
+			Logger::Error("Failed hooking");
+			return false;
+		}
+
+		jmpbackRarityTextSheetArmor = (uintptr_t)patternArmor + 10;
+		Logger::Log("jmpbackRarityTextSheetArmor = %x", jmpbackRarityTextSheetArmor);
+	}
+	{
+		auto patternMainWeapon = PatternScan(
+			"\xba\x0b\x00\x00\x00\x8b\xc6\x8b\x38\xff\x00\x00\x8b\x00\x00\x00\x00\x00\x33\xd2\xe8\x00\x00\x00\x00\x8b\x15\x00\x00\x00\x00\xff\x74\x82\x08\x68\x00\x00\x00\x00\x8d\x00\x00\x00\x00\x00\xba\x0c\x00\x00\x00\x8b\xc6",
+			"xxxxxxxxxx??x?????xxx????xx????xx??x????x?????xxxxxxx", 25
+		);
+		if (patternMainWeapon == nullptr)
+		{
+			Logger::Error("Failed scanning patternMainWeapon");
+			return false;
+		}
+		Logger::Log("patternMainWeapon = %x", patternMainWeapon);
+
+		if (!Hook((BYTE*)patternMainWeapon, (BYTE*)hk_rarityTextDisplaySheetMainWeapon, 6))
+		{
+			Logger::Error("Failed hooking");
+			return false;
+		}
+
+		jmpbackRarityTextSheetMainWeapon = (uintptr_t)patternMainWeapon + 10;
+		Logger::Log("jmpbackRarityTextSheetMainWeapon = %x", jmpbackRarityTextSheetMainWeapon);
+	}
+	{
+		auto patternSecondaryWeapon = PatternScan(
+			"\xba\x0e\x00\x00\x00\x8b\xc6\x8b\x38\xff\x00\x00\x8b\x00\x00\x00\x00\x00\x33\xd2\xe8\x00\x00\x00\x00\x8b\x15\x00\x00\x00\x00\xff\x74\x82\x08\x68\x00\x00\x00\x00\x8d\x00\x00\x00\x00\x00\xba\x0f\x00\x00\x00\x8b\xc6",
+			"xxxxxxxxxx??x?????xxx????xx????xx??x????x?????xxxxxxx", 25
+		);
+		if (patternSecondaryWeapon == nullptr)
+		{
+			Logger::Error("Failed scanning patternSecondaryWeapon");
+			return false;
+		}
+		Logger::Log("patternSecondaryWeapon = %x", patternSecondaryWeapon);
+
+		if (!Hook((BYTE*)patternSecondaryWeapon, (BYTE*)hk_rarityTextDisplaySheetSecondaryWeapon, 6))
+		{
+			Logger::Error("Failed hooking");
+			return false;
+		}
+
+		jmpbackRarityTextSheetSecondaryWeapon = (uintptr_t)patternSecondaryWeapon + 10;
+		Logger::Log("jmpbackRarityTextSheetSecondaryWeapon = %x", jmpbackRarityTextSheetSecondaryWeapon);
 	}
 
 	return true;
