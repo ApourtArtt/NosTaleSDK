@@ -46,10 +46,16 @@ namespace
 	{
 		__asm
 		{
-			push esi;
-			mov esi, [defaultTextStyle];
-			mov dword ptr[eax], esi;
-			pop esi;
+			mov byte ptr[eax], 0x02 // font type to 2
+			mov byte ptr[eax+0x1], 0x00; // shadow to "None"
+			mov dword ptr[eax + 0x2], 0xFFFFFFFF; // text color to opaque white
+			mov dword ptr[eax + 0x6], 0x00000000; // shadow to transparent
+			mov byte ptr[eax + 0xA], 0x03; // text to be centered vertically and horizontally
+
+			//push ebx;
+			//mov ebx, [defaultTextStyle];
+			//mov dword ptr[eax], ebx;
+			//pop ebx;
 			jmp jmpbackRarityResetTextStyleDisplay;
 		}
 	}
