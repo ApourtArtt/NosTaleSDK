@@ -8,6 +8,7 @@
 
 namespace
 {
+	TextStyle defaultTextStyle(2, TextShadowOrientation::ShadowNone, Bgra(255, 255, 255, 255), Bgra(0, 0, 0, 0), TextAlignment::CenteredCentered);
 	rarityToTextStyle rarityTextStyles;
 
 	void __stdcall rarityTextStyleDisplay(TextStyle* textStyle, RarityType rarity)
@@ -35,6 +36,21 @@ namespace
 
 			pop ebx;
 			ret;
+		}
+	}
+
+	uintptr_t jmpbackRarityResetTextStyleDisplay;
+	int32_t aa = 5;
+
+	void __declspec(naked) hk_rarityResetTextStyleDisplay() noexcept
+	{
+		__asm
+		{
+			push esi;
+			mov esi, [defaultTextStyle];
+			mov dword ptr[eax], esi;
+			pop esi;
+			jmp jmpbackRarityResetTextStyleDisplay;
 		}
 	}
 
@@ -219,21 +235,44 @@ void StuffRarityManager::tick() noexcept
 
 bool StuffRarityManager::initializeRarityTextStyleDisplay() noexcept
 {
-	auto pattern = PatternScan(
-		"\x0f\xbf\xc0\x83\xc0\x02\x83\xf8\x0a",
-		"xxxxxxxxx", 3
-	);
-	if (pattern == nullptr)
 	{
-		Logger::Error("Failed scanning pattern");
-		return false;
-	}
-	Logger::Log("pattern = %x", pattern);
+		auto pattern = PatternScan(
+			"\x0f\xbf\xc0\x83\xc0\x02\x83\xf8\x0a",
+			"xxxxxxxxx", 3
+		);
+		if (pattern == nullptr)
+		{
+			Logger::Error("Failed scanning pattern");
+			return false;
+		}
+		Logger::Log("patternRarityTextStyle = %x", pattern);
 
-	if (!Hook((BYTE*)pattern, (BYTE*)hk_rarityTextStyleDisplay, 6))
+		if (!Hook((BYTE*)pattern, (BYTE*)hk_rarityTextStyleDisplay, 6))
+		{
+			Logger::Error("Failed hooking");
+			return false;
+		}
+	}
 	{
-		Logger::Error("Failed hooking");
-		return false;
+		auto pattern = PatternScan(
+			"\x33\xc9\x33\xd2\x8b\xc3\xe8\x00\x00\x00\x00\x8b\x00\x00\x00\x00\x00\xc7\x40\x02\xff\xff\xff\xff\x8b\x00\x00",
+			"xxxxxxx????x?????xxxxxxxx??", 17
+		);
+		if (pattern == nullptr)
+		{
+			Logger::Error("Failed scanning pattern");
+			return false;
+		}
+		Logger::Log("patternRarityResetTextStyle = %x", pattern);
+
+		if (!Hook((BYTE*)pattern, (BYTE*)hk_rarityResetTextStyleDisplay, 6))
+		{
+			Logger::Error("Failed hooking");
+			return false;
+		}
+
+		jmpbackRarityResetTextStyleDisplay = (uintptr_t)pattern + 7;
+		Logger::Log("jmpbackRarityResetTextStyleDisplay = %x", jmpbackRarityResetTextStyleDisplay);
 	}
 
 	return true;
@@ -250,7 +289,7 @@ bool StuffRarityManager::initializeRarityTextDisplayHover() noexcept
 		Logger::Error("Failed scanning pattern");
 		return false;
 	}
-	Logger::Log("pattern = %x", pattern);
+	Logger::Log("patternTextDisplayHover = %x", pattern);
 
 	if (!Hook((BYTE*)pattern, (BYTE*)hk_rarityTextDisplayHover, 6))
 	{
