@@ -8,7 +8,6 @@
 
 namespace
 {
-	TextStyle defaultTextStyle(2, TextShadowOrientation::ShadowNone, Bgra(255, 255, 255, 255), Bgra(0, 0, 0, 0), TextAlignment::CenteredCentered);
 	rarityToTextStyle rarityTextStyles;
 
 	void __stdcall rarityTextStyleDisplay(TextStyle* textStyle, RarityType rarity)
@@ -40,7 +39,6 @@ namespace
 	}
 
 	uintptr_t jmpbackRarityResetTextStyleDisplay;
-	int32_t aa = 5;
 
 	void __declspec(naked) hk_rarityResetTextStyleDisplay() noexcept
 	{
@@ -52,10 +50,6 @@ namespace
 			mov dword ptr[eax + 0x6], 0x00000000; // shadow to transparent
 			mov byte ptr[eax + 0xA], 0x03; // text to be centered vertically and horizontally
 
-			//push ebx;
-			//mov ebx, [defaultTextStyle];
-			//mov dword ptr[eax], ebx;
-			//pop ebx;
 			jmp jmpbackRarityResetTextStyleDisplay;
 		}
 	}
