@@ -9,6 +9,5 @@ typedef std::map<RarityType, TextStyle> rarityToTextStyle;
 
 struct WeaponManagerConfig
 {
-	glowsMap AdditionalWeaponsGlow;
-	rarityToTextStyle AdditionalWeaponsRarityTextStyle;
+	glowsMap AdditionalGlow;
 };

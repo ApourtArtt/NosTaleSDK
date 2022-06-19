@@ -7,7 +7,7 @@
 namespace
 {
 	uintptr_t jmpbackUpgradeRarityDisplay;
-	std::map<RarityType, std::map<Upgrade, WeaponGlow>> weaponGlows = defaultWeaponGlows;
+	glowsMap weaponGlows = defaultWeaponGlows;
 
 	void __stdcall upgradeRarityDisplay(TMapPlayerObj* player, RarityType weaponRarity, Upgrade weaponUpgrade)
 	{
@@ -47,7 +47,7 @@ namespace
 WeaponManager::WeaponManager(const WeaponManagerConfig& Config) noexcept
 	: Manager(Config, "WeaponManager")
 {
-	for (auto const& [k1, v1] : config.AdditionalWeaponsGlow)
+	for (auto const& [k1, v1] : config.AdditionalGlow)
 	{
 		if (weaponGlows.find(k1) == weaponGlows.end())
 			weaponGlows.insert({ k1, v1 });

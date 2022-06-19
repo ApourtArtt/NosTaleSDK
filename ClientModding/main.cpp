@@ -8,7 +8,7 @@ ClientModdingConfig config =
         {
             .WeaponConfig =
             {
-                .AdditionalWeaponsGlow = glowsMap
+                .AdditionalGlow = glowsMap
                 {
                     { RarityType(9), upgradeToGlow
                         {
@@ -72,7 +72,18 @@ ClientModdingConfig config =
                 .AdditionalRarityTextVnum = rarityToTextVnum
                 {
                     { RarityType(9), 59 },
-                }
+                },
+            },
+            .ArmorConfig =
+            {
+                .AdditionalEffects = effectsMap
+                {
+                    { RarityType(9), upgradeToEffectId
+                        {
+                            { 10, 4500 },
+                        },
+                    },
+                },
             },
         },
         .InteractionConfig =
@@ -102,7 +113,7 @@ ClientModdingConfig config =
     {
         .NScliConfig = {
 
-        }
+        },
     },
     .PacketConfig =
     {
@@ -126,6 +137,7 @@ ClientModdingConfig config =
     },
     .EventLoopDelay = 10,
 };
+
 Example example(config);
 
 void Start(HMODULE hModule)
@@ -184,7 +196,7 @@ DWORD WINAPI MainThread(HMODULE hModule)
 
     while (!example.IsReady())
     {
-        Sleep(config.EventLoopDelay * 100);
+        Sleep(config.EventLoopDelay);
     }
 
     Start(hModule);

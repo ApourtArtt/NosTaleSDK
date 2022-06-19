@@ -75,6 +75,9 @@
     <ClInclude Include="Api\Managers\CharacterManager\InteractionManager\InteractionManager.h" />
     <ClInclude Include="Api\Managers\CharacterManager\InteractionManager\NpcTalkRangeNpcManager\NpcTalkRangeConfig.h" />
     <ClInclude Include="Api\Managers\CharacterManager\InteractionManager\NpcTalkRangeNpcManager\NpcTalkRangeManager.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\ArmorManager\ArmorConfig.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\ArmorManager\ArmorManager.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\ArmorManager\DefaultArmorEffect.h" />
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager\AuraConfig.h" />
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager\AuraManager.h" />
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager\DefaultAura.h" />
@@ -202,6 +205,7 @@
     <ClCompile Include="Api\Managers\CharacterManager\CharacterManager.cpp" />
     <ClCompile Include="Api\Managers\CharacterManager\InteractionManager\InteractionManager.cpp" />
     <ClCompile Include="Api\Managers\CharacterManager\InteractionManager\NpcTalkRangeNpcManager\NpcTalkRangeManager.cpp" />
+    <ClCompile Include="Api\Managers\CharacterManager\StuffManager\ArmorManager\ArmorManager.cpp" />
     <ClCompile Include="Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager\AuraManager.cpp" />
     <ClCompile Include="Api\Managers\CharacterManager\StuffManager\SpManager\SpManager.cpp" />
     <ClCompile Include="Api\Managers\CharacterManager\StuffManager\SpManager\WingManager\WingManager.cpp" />
