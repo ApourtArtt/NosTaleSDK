@@ -21,7 +21,7 @@ This is not for me, but at least you know what to do if you want to thank me for
 - [x] See target/group HP/MP
 - [ ] See cooldown timers
 - [ ] Ctrl+Z while busy without breaking action
-- [ ] Add range for talking with NPC
+- [x] Add range for talking with NPC
 
 ### You can also submit your idea in the issues
 
