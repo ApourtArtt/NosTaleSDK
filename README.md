@@ -12,7 +12,7 @@ This is not for me, but at least you know what to do if you want to thank me for
 - [x] Widget modification (tutorial TODO)
 - [x] Packet management and interaction ([tutorial](https://github.com/ApourtArtt/NostaleWidget/wiki/Packet-management))
 - [x] Wings and Auras creation and modification ([tutorial](https://github.com/ApourtArtt/NostaleWidget/wiki/Wings-management))
-- [ ] Weapons and Armors rarity/upgrade addition and glowing modding ([tutorial](https://github.com/ApourtArtt/NostaleWidget/wiki/Stuff-management)) - Armor delayed
+- [x] Weapons and Armors rarity/upgrade addition and glowing modding ([tutorial](https://github.com/ApourtArtt/NostaleWidget/wiki/Stuff-management))
 
 ### Little features
 - [x] Access to server and channel values in game
