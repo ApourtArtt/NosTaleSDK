@@ -35,20 +35,7 @@ void ClientModding::Run() noexcept
 		return;
 	}
 	Logger::Log("Now running...");
-
-
-	Logger::Log("%s", NScliManager::GetConstString(276));
-	Logger::Log("%s", NScliManager::GetConstString(277));
-	Logger::Log("%s", NScliManager::GetConstString(278));
-	Logger::Log("%s", NScliManager::GetConstString(279));
-	Logger::Log("%s", NScliManager::GetConstString(280));
-	Logger::Log("%s", NScliManager::GetConstString(281));
-	Logger::Log("%s", NScliManager::GetConstString(282));
-	Logger::Log("%s", NScliManager::GetConstString(283));
-	Logger::Log("%s", NScliManager::GetConstString(284));
-	Logger::Log("%s", NScliManager::GetConstString(285));
-	Logger::Log("%s", NScliManager::GetConstString(286));
-	Logger::Log("%s", NScliManager::GetConstString(4224));
+	Logger::Flush();
 
 	while (true)
 	{
@@ -73,6 +60,7 @@ void ClientModding::OnShowNostaleSplash() noexcept
 	onShowNostaleSplash();
 
 	Logger::Success("Successfully initialized");
+	Logger::Flush();
 }
 
 void ClientModding::OnFreeNostaleSplash() noexcept
@@ -104,6 +92,7 @@ void ClientModding::OnFreeNostaleSplash() noexcept
 	isReady = true;
 
 	Logger::Success("Successfully initialized");
+	Logger::Flush();
 }
 
 void ClientModding::Tick() noexcept

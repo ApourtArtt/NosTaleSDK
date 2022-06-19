@@ -36,20 +36,6 @@ namespace
 			elemCopy[size] = 0;
 			nscliData.emplace(elem->getVnum(), elemCopy);
 		}
-
-
-		Logger::Log("%s", NScliManager::GetConstString(276));
-		Logger::Log("%s", NScliManager::GetConstString(277));
-		Logger::Log("%s", NScliManager::GetConstString(278));
-		Logger::Log("%s", NScliManager::GetConstString(279));
-		Logger::Log("%s", NScliManager::GetConstString(280));
-		Logger::Log("%s", NScliManager::GetConstString(281));
-		Logger::Log("%s", NScliManager::GetConstString(282));
-		Logger::Log("%s", NScliManager::GetConstString(283));
-		Logger::Log("%s", NScliManager::GetConstString(284));
-		Logger::Log("%s", NScliManager::GetConstString(285));
-		Logger::Log("%s", NScliManager::GetConstString(286));
-		Logger::Log("%s", NScliManager::GetConstString(4224));
 	}
 
 	void __declspec(naked) hk_handleNSciDataNOS() noexcept
