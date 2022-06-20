@@ -1,7 +1,5 @@
 #include "Example.h"
 
-FARPROC oShowNostaleSplash = NULL;
-FARPROC oFreeNostaleSplash = NULL;
 ClientModdingConfig config =
 {
     .CharacterConfig =
@@ -140,7 +138,7 @@ ClientModdingConfig config =
     .EventLoopDelay = 10,
 };
 
-ClientModding example(config);
+Example example(config);
 
 void Start(HMODULE hModule)
 {
@@ -168,7 +166,6 @@ extern "C" __declspec(dllexport) void __declspec(naked) ShowNostaleSplash()
     {
         popfd;
         popad;
-        JMP oShowNostaleSplash;
     }
 }
 
@@ -185,9 +182,8 @@ extern "C" __declspec(dllexport) void __declspec(naked) FreeNostaleSplash()
         popfd;
         popad;
 
-        //mov eax, 0;
-        //ret;
-        __asm JMP oFreeNostaleSplash;
+        mov eax, 0;
+        ret;
     }
 }
 
@@ -210,20 +206,6 @@ DWORD WINAPI MainThread(HMODULE hModule)
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
-    if (ul_reason_for_call == DLL_PROCESS_ATTACH)
-    {
-
-    HMODULE h_lib_module = LoadLibraryA("EWSF.dll");
-    if (h_lib_module == nullptr)
-    {
-        //Can't find EWSF.dll- your error Handling here
-        return FALSE;
-    }
-
-    oShowNostaleSplash = GetProcAddress(h_lib_module, "ShowNostaleSplash");
-    oFreeNostaleSplash = GetProcAddress(h_lib_module, "FreeNostaleSplash");
-
-    }
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
