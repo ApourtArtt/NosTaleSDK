@@ -15,6 +15,7 @@ namespace
 		if (auras.count(level) == 0)
 		{
 			aura->setWeirdCounter(-1);
+			aura->setAuraStyle(-1);
 			return;
 		}
 
