@@ -25,6 +25,7 @@ namespace
 
 		if (wings.count(style) == 0 || wings[style].count(level) == 0)
 		{
+			wing->setWingStyle(-1);
 			wing->setWeirdCounter(-1);
 			return;
 		}

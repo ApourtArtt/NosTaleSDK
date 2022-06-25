@@ -9,6 +9,8 @@ public:
 
 private:
 	[[nodiscard]] bool beforeRun() noexcept override;
+	void onShowNostaleSplash() noexcept override;
+	void onFreeNostaleSplash() noexcept override;
 	void tick() noexcept override;
 
 	ExampleRatufuWidget ratufuWidget;

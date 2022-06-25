@@ -21,14 +21,25 @@ bool Example::beforeRun() noexcept
 	// You should add here, everything that must be initialized, done once.
 	// Example: if you want to create a widget, you should create it here.
 
-	if (!ratufuWidget.Initialize(TLBSWidgetHandler::getNtInstance()->getGameRootWidget(), [this]
-	{
-		packetMng.Receive("info test");
-	}))
+	bool res = ratufuWidget.Initialize(TLBSWidgetHandler::getNtInstance()->getGameRootWidget(), [this]
+		{
+			packetMng.Receive("info test");
+		});
+	if (!res)
 		return false;
 
 	Logger::Success("Successfully initialized");
 	return true;
+}
+
+void Example::onShowNostaleSplash() noexcept
+{
+	// This method is called by the game itself, before initializing the game.
+}
+
+void Example::onFreeNostaleSplash() noexcept
+{
+	// This method is called by the game itself, once initializing the game is done.
 }
 
 void Example::tick() noexcept
