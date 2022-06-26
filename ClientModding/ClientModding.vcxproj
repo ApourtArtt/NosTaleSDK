@@ -111,6 +111,8 @@
     <ClInclude Include="Api\Managers\MapManager\ColorManager\ColorManager.h" />
     <ClInclude Include="Api\Managers\MapManager\MapConfig.h" />
     <ClInclude Include="Api\Managers\PacketManager\PacketConfig.h" />
+    <ClInclude Include="Api\Managers\UIManager\CtrlZManager\CtrlZConfig.h" />
+    <ClInclude Include="Api\Managers\UIManager\CtrlZManager\CtrlZManager.h" />
     <ClInclude Include="Api\Managers\UIManager\IdleManager\IdleConfig.h" />
     <ClInclude Include="Api\Managers\UIManager\IdleManager\IdleManager.h" />
     <ClInclude Include="Api\Managers\UIManager\SpyHpMpManager\Spy.h" />
@@ -227,6 +229,7 @@
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterSkillInfoWidget.cpp" />
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterStandardInfoWidget.cpp" />
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\QuickSlotWidget.cpp" />
+    <ClCompile Include="Api\Managers\UIManager\CtrlZManager\CtrlZManager.cpp" />
     <ClCompile Include="Api\Managers\UIManager\IdleManager\IdleManager.cpp" />
     <ClCompile Include="Api\Managers\UIManager\SpyHpMpManager\Spy.cpp" />
     <ClCompile Include="Api\Managers\UIManager\SpyHpMpManager\SpyHpMpManager.cpp" />

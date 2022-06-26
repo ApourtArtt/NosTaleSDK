@@ -196,6 +196,9 @@ DWORD WINAPI MainThread(HMODULE hModule)
 
     while (!example.IsReady())
         Sleep(config.EventLoopDelay);
+    // This additional sleep is to avoid calling Start so quickly that
+    // not everything is initialized. Not clean needs to hook something.
+    Sleep(500);
     
     Start(hModule);
 

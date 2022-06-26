@@ -124,6 +124,9 @@
     <Filter Include="Api\Managers\CharacterManager\StuffManager\ArmorManager">
       <UniqueIdentifier>{8ea75404-c40a-4e59-b42a-21faab13c355}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Api\Managers\UIManager\CtrlZManager">
+      <UniqueIdentifier>{02b458ee-5a5d-4855-b515-a354fde79720}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Api\Properties\Logical\String.h">
@@ -619,6 +622,12 @@
     <ClInclude Include="Api\Managers\CharacterManager\StuffManager\ArmorManager\DefaultArmorEffect.h">
       <Filter>Api\Managers\CharacterManager\StuffManager\ArmorManager</Filter>
     </ClInclude>
+    <ClInclude Include="Api\Managers\UIManager\CtrlZManager\CtrlZManager.h">
+      <Filter>Api\Managers\UIManager\CtrlZManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\UIManager\CtrlZManager\CtrlZConfig.h">
+      <Filter>Api\Managers\UIManager\CtrlZManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClientModding.cpp" />
@@ -768,6 +777,9 @@
     </ClCompile>
     <ClCompile Include="Api\Managers\CharacterManager\StuffManager\ArmorManager\ArmorManager.cpp">
       <Filter>Api\Managers\CharacterManager\StuffManager\ArmorManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\Managers\UIManager\CtrlZManager\CtrlZManager.cpp">
+      <Filter>Api\Managers\UIManager\CtrlZManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

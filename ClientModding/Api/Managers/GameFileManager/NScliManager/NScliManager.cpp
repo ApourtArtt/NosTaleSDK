@@ -68,7 +68,6 @@ NScliManager::NScliManager(const NScliManagerConfig& Config) noexcept
 
 const char* NScliManager::GetConstString(int32_t Vnum) noexcept
 {
-	Logger::Log("ADD: %x", nscliData);
 	if (nscliData.count(Vnum) == 0)
 		return "";
 	return nscliData[Vnum];

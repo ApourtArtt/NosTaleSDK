@@ -1,6 +1,6 @@
 #include "NpcTalkRangeManager.h"
 #include "../../../../../MemoryHelper/PatternScan.h"
-#include "../../../../../MemoryHelper/PATCH.h"
+#include "../../../../../MemoryHelper/Patch.h"
 #include "../../../../DelphiClasses/TPlayerObjManager.h"
 
 NpcTalkRangeManager::NpcTalkRangeManager(const NpcTalkRangeManagerConfig& Config) noexcept

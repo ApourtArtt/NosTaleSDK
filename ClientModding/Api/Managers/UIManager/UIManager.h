@@ -3,6 +3,7 @@
 #include "UIConfig.h"
 #include "SpyHpMpManager/SpyHpMpManager.h"
 #include "IdleManager/IdleManager.h"
+#include "CtrlZManager/CtrlZManager.h"
 
 class UIManager : public Manager<UIManagerConfig>
 {
@@ -11,6 +12,7 @@ public:
 
 	[[nodiscard]] SpyHpMpManager& GetSpyHpMpManager() noexcept { return spyHpMpMng; }
 	[[nodiscard]] IdleManager& GetIdleManager() noexcept { return idleMng; }
+	[[nodiscard]] CtrlZManager& GetCtrlZManager() noexcept { return ctrlZMng; }
 
 private:
 	[[nodiscard]] bool initialize() noexcept override;
@@ -19,4 +21,5 @@ private:
 
 	SpyHpMpManager spyHpMpMng;
 	IdleManager idleMng;
+	CtrlZManager ctrlZMng;
 };
