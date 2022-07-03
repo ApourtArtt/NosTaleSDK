@@ -19,7 +19,6 @@ This is not for me, but at least you know what to do if you want to thank me for
 - [x] Change map fog color, intensity, objects color
 - [x] Idle the game when not visible
 - [x] See target/group HP/MP
-- [ ] See cooldown timers
 - [x] Ctrl+Z while busy without breaking action
 - [x] Add range for talking with NPC
 
