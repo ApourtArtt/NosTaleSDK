@@ -117,7 +117,21 @@ ClientModdingConfig config =
     },
     .PacketConfig =
     {
+        .EncryptFn = [](std::string Packet)
+        {
+            //Logger::Log("EncryptFn: %s", Packet.c_str());
+            std::string newPacket = Packet;
+            for (auto i = 0; i < newPacket.size(); i++)
+                newPacket[i] = newPacket[i] ^ 0x50;
 
+            //Logger::Log("Encrypted NewPacket: %s", newPacket.c_str());
+            return newPacket;
+        },
+        .DecryptFn = [](std::string Packet)
+        {
+            //Logger::Log("DecryptFn: %s", Packet.c_str());
+            return Packet;
+        },
     },
     .UIConfig =
     {
@@ -154,6 +168,12 @@ void Start(HMODULE hModule)
     system("pause");
 }
 
+void InitLogger()
+{
+    Logger::Load();
+    Logger::IndentModuleName("   ");
+}
+
 extern "C" __declspec(dllexport) void __declspec(naked) ShowNostaleSplash()
 {
     __asm
@@ -161,6 +181,7 @@ extern "C" __declspec(dllexport) void __declspec(naked) ShowNostaleSplash()
         pushad;
         pushfd;
     }
+    InitLogger();
     example.OnShowNostaleSplash();
     __asm
     {
@@ -189,10 +210,7 @@ extern "C" __declspec(dllexport) void __declspec(naked) FreeNostaleSplash()
 
 DWORD WINAPI MainThread(HMODULE hModule)
 {
-    Logger::Load();
-    Logger::IndentModuleName("   ");
-    Logger::Success("Dll successfully injected");
-    Logger::Flush();
+    InitLogger();
 
     while (!example.IsReady())
         Sleep(config.EventLoopDelay);

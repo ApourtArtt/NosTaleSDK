@@ -25,7 +25,7 @@ public:
 	}
 
 protected:
-	char unknown19[24];		// 0x00A4 something to do with resize
+	char unknown19[24];		// 0x00A4 something to do with resize 0xAD for minimap
 };
 static_assert(sizeof(TEWCustomFormWidget) == 0x00BC, "TEWCustomFormWidget does not have a size of 0x00BC.");
 

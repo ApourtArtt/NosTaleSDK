@@ -28,8 +28,8 @@ private:
 
 	std::string getPacketHeader(const std::string& Packet);
 
-	void onSent(char* Packet);
-	void onRcvd(char* Packet);
+	void onSent(char** Packet);
+	void onRcvd(char** Packet);
 
 	std::map<std::string, std::vector<std::function<void(std::string&)>>> sentSubscriptions;
 	std::map<std::string, std::vector<std::function<void(std::string&)>>> rcvdSubscriptions;

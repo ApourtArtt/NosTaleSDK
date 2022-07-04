@@ -7,11 +7,11 @@
 
 namespace
 {
-	std::function<void(char*)> onS, onR;
+	std::function<void(char**)> onS, onR;
 
 	void detourSendFunc()
 	{
-		char* packet;
+		char* packet; // Delphi str btw
 
 		__asm
 		{
@@ -20,7 +20,7 @@ namespace
 			mov packet, edx;
 		}
 
-		onS(packet);
+		onS(&packet);
 
 		__asm
 		{
@@ -40,7 +40,7 @@ namespace
 			mov packet, edx;
 		}
 
-		onR(packet);
+		onR(&packet);
 
 		__asm
 		{
@@ -103,8 +103,8 @@ bool PacketManager::initialize() noexcept
 	}
 	Logger::Log("lpvPacketThis = %x", lpvPacketThis);
 
-	onS = [this](char* Packet) { onSent(Packet); };
-	onR = [this](char* Packet) { onRcvd(Packet); };
+	onS = [this](char** Packet) { onSent(Packet); };
+	onR = [this](char** Packet) { onRcvd(Packet); };
 
 	hookSend = new TrampolineHook(lpvSendAddy, detourSendFunc, 6);
 	hookRecv = new TrampolineHook(lpvRecvAddy, detourRcvdFunc, 6);
@@ -133,7 +133,8 @@ void PacketManager::tick() noexcept
 
 void PacketManager::Subscribe(PacketType PacketType, const std::string& PacketHeader, const std::function<void(std::string&)>& Callback)
 {
-	auto _ = Logger::PushPopModuleName("PacketManager");
+	auto _ = Logger::PushPopModuleName(name);
+
 	rcvd.lock();
 
 	if (PacketType == PacketType::SENT)
@@ -152,6 +153,8 @@ void PacketManager::Subscribe(PacketType PacketType, const std::string& PacketHe
 
 void PacketManager::Unsubscribe(PacketType PacketType, const std::string& PacketHeader)
 {
+	auto _ = Logger::PushPopModuleName(name);
+
 	rcvd.lock();
 
 	if (PacketType == PacketType::SENT)
@@ -221,9 +224,26 @@ std::string PacketManager::getPacketHeader(const std::string& Packet)
 	return header;
 }
 
-void PacketManager::onSent(char* Packet)
+void PacketManager::onSent(char** Packet)
 {
-	std::string packet(Packet);
+	std::string packet(*Packet);
+
+	std::string encryptedPacket = config.EncryptFn(packet);
+
+	String str(encryptedPacket.c_str());
+	
+	//Logger::Log("%x %x %x", &Packet, Packet, *Packet);
+	__asm {
+		NOP
+		NOP
+		NOP
+		NOP
+		NOP
+	}
+	//memcpy((*Packet - 0x4), (str.get() - 0x4), str.size() + 0x4);
+	//*Packet = str.get();
+	//Logger::Log("EncryptedPacket2: %s", *Packet);
+
 	std::string header = getPacketHeader(packet);
 
 	sent.lock();
@@ -237,9 +257,9 @@ void PacketManager::onSent(char* Packet)
 	sent.unlock();
 }
 
-void PacketManager::onRcvd(char* Packet)
+void PacketManager::onRcvd(char** Packet)
 {
-	std::string packet(Packet);
+	std::string packet(*Packet);
 	std::string header = getPacketHeader(packet);
 
 	sent.lock();

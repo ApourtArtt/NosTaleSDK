@@ -3,6 +3,7 @@
 #include "Utils/Split.h"
 #include "Api/DelphiClasses/TLBSWidgetHandler.h"
 #include "Api/DelphiClasses/TSceneManager.h"
+#include "Api/DelphiClasses/TNTCItemDataList.h"
 
 ClientModding::ClientModding(const ClientModdingConfig& Config) noexcept
 	: config(Config)
@@ -73,6 +74,9 @@ void ClientModding::OnFreeNostaleSplash() noexcept
 	if (!TSceneManager::getNtInstance())
 		return;
 
+	if (!TNTCItemDataList::getNtInstance())
+		return;
+
 	if (!characterMng.Initialize())
 		return;
 
@@ -104,10 +108,12 @@ void ClientModding::Tick() noexcept
 	gameFileMng.Tick();
 	packetMng.Tick();
 	uiMng.Tick();
+	tick();
 }
 
 void ClientModding::on_PR_tit(std::string& packet) noexcept
 {
+	Logger::Log("Tit: %s", packet.c_str());
 	auto words = Split(packet, " ");
 	std::string pseudo = words[2];
 	discordMng.SetPseudonym(pseudo);

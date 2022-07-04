@@ -15,6 +15,7 @@ public:
 
 	void setWidgetBgra(Bgra WidgetBgra) { widgetBgra = WidgetBgra; }
 	void setImageData(ImageData ImageData) { imageData = ImageData; }
+	[[nodiscard]] ImageData getImageData() noexcept { return imageData; }
 
 protected:
 	char unknown3[28];			// 0x0024

@@ -52,12 +52,14 @@
     <ClInclude Include="Api\DelphiClasses\TEWButtonWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TLBSWidgetHandler.h" />
     <ClInclude Include="Api\DelphiClasses\TMapPlayerObj.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTCItemDataList.h" />
     <ClInclude Include="Api\DelphiClasses\TNTConstStringList.h" />
     <ClInclude Include="Api\DelphiClasses\TNTGameOptionWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTIntHeadList.h" />
     <ClInclude Include="Api\DelphiClasses\TNTMaskingGaugeWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTNewCharacterSkillInfoWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTNewCharacterStandardInfoWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTNonMemIntHeadList.h" />
     <ClInclude Include="Api\DelphiClasses\TNTPartySummaryInfoWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTQuickSlotWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTSpecialDragonFx.h" />
@@ -111,6 +113,7 @@
     <ClInclude Include="Api\Managers\MapManager\ColorManager\ColorManager.h" />
     <ClInclude Include="Api\Managers\MapManager\MapConfig.h" />
     <ClInclude Include="Api\Managers\PacketManager\PacketConfig.h" />
+    <ClInclude Include="Api\Managers\PacketManager\Packets\Rcvd\PR_equip.h" />
     <ClInclude Include="Api\Managers\UIManager\CtrlZManager\CtrlZConfig.h" />
     <ClInclude Include="Api\Managers\UIManager\CtrlZManager\CtrlZManager.h" />
     <ClInclude Include="Api\Managers\UIManager\IdleManager\IdleConfig.h" />
@@ -185,6 +188,9 @@
     <ClInclude Include="Api\Properties\Logical\Callback.h" />
     <ClInclude Include="Api\Properties\Logical\String.h" />
     <ClInclude Include="MemoryHelper\TrampolineHook.h" />
+    <ClInclude Include="PrivateModules\Project1.h" />
+    <ClInclude Include="PrivateModules\TrophySystem\TrophyConfig.h" />
+    <ClInclude Include="PrivateModules\TrophySystem\TrophyManager.h" />
     <ClInclude Include="Utils\Logger.h" />
     <ClInclude Include="Utils\Split.h" />
     <ClInclude Include="Utils\ToNumber.h" />
@@ -243,6 +249,8 @@
     <ClCompile Include="Api\Managers\MapManager\MapManager.cpp" />
     <ClCompile Include="Api\Managers\PacketManager\PacketManager.cpp" />
     <ClCompile Include="MemoryHelper\TrampolineHook.cpp" />
+    <ClCompile Include="PrivateModules\Project1.cpp" />
+    <ClCompile Include="PrivateModules\TrophySystem\TrophyManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Api\DelphiClasses\TNTMonsterSummaryInfoWidget.h" />

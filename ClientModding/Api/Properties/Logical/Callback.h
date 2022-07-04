@@ -1,24 +1,21 @@
 #pragma once
 #include <stdint.h>
 
-/**
- * @brief Game callback representation mainly used for adding funtionality to widgets.
- */
 class Callback
 {
 public:
 	template <typename CbFn, typename CbArg>
-	Callback(CbFn CallbackAddress, CbArg CallbackWidget)
-		: callbackAddress((int32_t)CallbackAddress)
-		, callbackArgument((int32_t)CallbackWidget)
+	Callback(CbFn Fn, CbArg Arg)
+		: fb((int32_t)Fn)
+		, arg((int32_t)Arg)
 	{}
 
 	Callback()
-		: callbackAddress(0)
-		, callbackArgument(0)
+		: fb(0)
+		, arg(0)
 	{}
 
 private:
-	int32_t callbackAddress;	// 0x00
-	int32_t callbackArgument;	// 0x04
+	int32_t fb; // 0x00
+	int32_t arg; // 0x04
 };

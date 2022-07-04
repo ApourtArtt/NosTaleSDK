@@ -127,6 +127,12 @@
     <Filter Include="Api\Managers\UIManager\CtrlZManager">
       <UniqueIdentifier>{02b458ee-5a5d-4855-b515-a354fde79720}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PrivateModules">
+      <UniqueIdentifier>{558d6318-8421-4b46-be87-dede565fd076}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PrivateModules\TrophySystem">
+      <UniqueIdentifier>{8c9cd869-2c39-4ead-85ac-134b9821b073}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Api\Properties\Logical\String.h">
@@ -628,6 +634,24 @@
     <ClInclude Include="Api\Managers\UIManager\CtrlZManager\CtrlZConfig.h">
       <Filter>Api\Managers\UIManager\CtrlZManager</Filter>
     </ClInclude>
+    <ClInclude Include="PrivateModules\TrophySystem\TrophyManager.h">
+      <Filter>PrivateModules\TrophySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="PrivateModules\TrophySystem\TrophyConfig.h">
+      <Filter>PrivateModules\TrophySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTCItemDataList.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTNonMemIntHeadList.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\PacketManager\Packets\Rcvd\PR_equip.h">
+      <Filter>Api\Managers\PacketManager\Packets\Rcvd</Filter>
+    </ClInclude>
+    <ClInclude Include="PrivateModules\Project1.h">
+      <Filter>PrivateModules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClientModding.cpp" />
@@ -780,6 +804,12 @@
     </ClCompile>
     <ClCompile Include="Api\Managers\UIManager\CtrlZManager\CtrlZManager.cpp">
       <Filter>Api\Managers\UIManager\CtrlZManager</Filter>
+    </ClCompile>
+    <ClCompile Include="PrivateModules\TrophySystem\TrophyManager.cpp">
+      <Filter>PrivateModules\TrophySystem</Filter>
+    </ClCompile>
+    <ClCompile Include="PrivateModules\Project1.cpp">
+      <Filter>PrivateModules</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

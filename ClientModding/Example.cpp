@@ -21,11 +21,7 @@ bool Example::beforeRun() noexcept
 	// You should add here, everything that must be initialized, done once.
 	// Example: if you want to create a widget, you should create it here.
 
-	bool res = ratufuWidget.Initialize(TLBSWidgetHandler::getNtInstance()->getGameRootWidget(), [this]
-		{
-			packetMng.Receive("info test");
-		});
-	if (!res)
+	if (!ratufuWidget.Initialize(TLBSWidgetHandler::getNtInstance()->getGameRootWidget(), [this]{ packetMng.Receive("info test"); }))
 		return false;
 
 	Logger::Success("Successfully initialized");

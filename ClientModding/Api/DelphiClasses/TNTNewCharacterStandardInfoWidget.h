@@ -33,6 +33,8 @@ class TNTTitleInfoWidget {};
 class TNTNewCharacterStandardInfoWidget : public TEWCustomFormWidget
 {
 public: // TODO make private
+	static constexpr std::string_view NAME = "TNTNewCharacterStandardInfoWidget";
+
 	char pad_00BC[4]; //0x00BC
 	TEWGraphicButtonWidget* questionMarkButton; //0x00C0 
 	TEWGraphicButtonWidget* closeButton; //0x00C4 

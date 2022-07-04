@@ -16,6 +16,7 @@ private:
     inline static std::string indent;
     inline static std::mutex mu;
     inline static std::stack<std::string> moduleNames;
+    inline static bool isInit{ false };
 
     class Defer
     {
@@ -43,19 +44,26 @@ private:
     inline static constexpr char GREEN[] = "\033[32m";
 
 public:
-
     static void Flush() { fflush(stdout); }
 
     static void Load(const std::string& Filename = "")
     {
-        AllocConsole();
-        freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
+        mu.lock();
 
-        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-        DWORD mode;
-        GetConsoleMode(hConsole, &mode);
-        mode |= ENABLE_PROCESSED_OUTPUT | ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-        SetConsoleMode(hConsole, mode);
+        if (!isInit)
+        {
+            isInit = true;
+            AllocConsole();
+            freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
+
+            HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+            DWORD mode;
+            GetConsoleMode(hConsole, &mode);
+            mode |= ENABLE_PROCESSED_OUTPUT | ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+            SetConsoleMode(hConsole, mode);
+        }
+
+        mu.unlock();
     }
 
     static void Unload()

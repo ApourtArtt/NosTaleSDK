@@ -19,9 +19,25 @@ template<class T>
 class TNTIntHeadList : public TNTDataList<IntListElement<T>*>
 {
 public:
-	TNTIntHeadList() : TNTDataList<T>() {}
-	TNTIntHeadList(uint32_t Capacity) : TNTDataList<T>(Capacity) {}
+	TNTIntHeadList() : TNTDataList<IntListElement<T>*>() {}
+	TNTIntHeadList(uint32_t Capacity) : TNTDataList<IntListElement<T>*>(Capacity) {}
+
+	[[nodiscard]] IntListElement<T>* find(int32_t vnum)
+	{
+		for (auto i = 0; i < this->length; i++)
+		{
+			IntListElement<T>* item = this->items[i];
+			if (item == nullptr)
+			{
+				Logger::Error("[TNTIntHeadList] items[%d] is nullptr", i);
+				continue;
+			}
+			if (item->getVnum() == vnum)
+				return item;
+		}
+		return nullptr;
+	}
 };
-static_assert(sizeof(TNTIntHeadList<void*>) == 0x10, "TNTIntHeadList does not have a size of 0x10.");
+static_assert(sizeof(TNTIntHeadList<IntListElement<void*>*>) == 0x10, "TNTIntHeadList does not have a size of 0x10.");
 
 #pragma pack(pop)
