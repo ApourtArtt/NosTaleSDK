@@ -188,9 +188,6 @@
     <ClInclude Include="Api\Properties\Logical\Callback.h" />
     <ClInclude Include="Api\Properties\Logical\String.h" />
     <ClInclude Include="MemoryHelper\TrampolineHook.h" />
-    <ClInclude Include="PrivateModules\Project1.h" />
-    <ClInclude Include="PrivateModules\TrophySystem\TrophyConfig.h" />
-    <ClInclude Include="PrivateModules\TrophySystem\TrophyManager.h" />
     <ClInclude Include="Utils\Logger.h" />
     <ClInclude Include="Utils\Split.h" />
     <ClInclude Include="Utils\ToNumber.h" />
@@ -249,8 +246,6 @@
     <ClCompile Include="Api\Managers\MapManager\MapManager.cpp" />
     <ClCompile Include="Api\Managers\PacketManager\PacketManager.cpp" />
     <ClCompile Include="MemoryHelper\TrampolineHook.cpp" />
-    <ClCompile Include="PrivateModules\Project1.cpp" />
-    <ClCompile Include="PrivateModules\TrophySystem\TrophyManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Api\DelphiClasses\TNTMonsterSummaryInfoWidget.h" />
