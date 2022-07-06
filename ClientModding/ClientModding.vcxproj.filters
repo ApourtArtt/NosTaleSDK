@@ -343,9 +343,6 @@
     <ClInclude Include="Api\DelphiClasses\TNTNewCharacterSkillInfoWidget.h">
       <Filter>Api\DelphiClasses</Filter>
     </ClInclude>
-    <ClInclude Include="Api\CustomClasses\UI\SkillsCooldown.h">
-      <Filter>Api\CustomClasses\UI</Filter>
-    </ClInclude>
     <ClInclude Include="MemoryHelper\TrampolineHook.h">
       <Filter>MemoryHelper</Filter>
     </ClInclude>
@@ -404,9 +401,6 @@
       <Filter>Api\Managers\PacketManager</Filter>
     </ClInclude>
     <ClInclude Include="Api\Managers\PacketManager\Packets\Rcvd\PR_aa_pst.h">
-      <Filter>Api\Managers\PacketManager\Packets\Rcvd</Filter>
-    </ClInclude>
-    <ClInclude Include="Api\Managers\PacketManager\Packets\Rcvd\PR_aa_st.h">
       <Filter>Api\Managers\PacketManager\Packets\Rcvd</Filter>
     </ClInclude>
     <ClInclude Include="Api\Managers\PacketManager\Packets\Rcvd\PR_pst.h">
@@ -637,6 +631,24 @@
     <ClInclude Include="Api\Managers\PacketManager\Packets\Rcvd\PR_equip.h">
       <Filter>Api\Managers\PacketManager\Packets\Rcvd</Filter>
     </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTSpecialaListInfoWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\PacketManager\Packets\PacketSent.h">
+      <Filter>Api\Managers\PacketManager\Packets</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TEWControlWidgetMouseEvent.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTConsignmentWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTNewServerSelectWidget2.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTLoginWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClientModding.cpp" />
@@ -661,9 +673,6 @@
     </ClCompile>
     <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterSkillInfoWidget.cpp">
       <Filter>Api\CustomClasses\Wrappers\Widgets</Filter>
-    </ClCompile>
-    <ClCompile Include="Api\CustomClasses\UI\SkillsCooldown.cpp">
-      <Filter>Api\CustomClasses\UI</Filter>
     </ClCompile>
     <ClCompile Include="MemoryHelper\TrampolineHook.cpp">
       <Filter>MemoryHelper</Filter>

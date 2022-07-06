@@ -1,5 +1,7 @@
 #include "Example.h"
 
+HMODULE hModule;
+
 ClientModdingConfig config =
 {
     .CharacterConfig =
@@ -137,11 +139,6 @@ ClientModdingConfig config =
     {
         .SpyHpMpConfig =
         {
-            .SpyTarget = SpyHpMpConfig
-            {
-                .Activate = true,
-                .SpyType = SpyType::APPROXIMATION,
-            },
             .SpyGroup =
             {
                 .Activate = true,
@@ -152,18 +149,18 @@ ClientModdingConfig config =
     .EventLoopDelay = 10,
 };
 
-Example example(config);
+Example* example = nullptr;
 
 void Start(HMODULE hModule)
 {
-    if (!example.IsReady())
+    if (!example->IsReady())
     {
         Logger::Error("Failed initializing Example");
         return;
     }
 
     Logger::Success(" -> Example-ClientModding successfully initialized");
-    example.Run();
+    example->Run();
 
     system("pause");
 }
@@ -182,7 +179,8 @@ extern "C" __declspec(dllexport) void __declspec(naked) ShowNostaleSplash()
         pushfd;
     }
     InitLogger();
-    example.OnShowNostaleSplash();
+    example = new Example(config);
+    example->OnShowNostaleSplash();
     __asm
     {
         popfd;
@@ -190,14 +188,38 @@ extern "C" __declspec(dllexport) void __declspec(naked) ShowNostaleSplash()
     }
 }
 
-extern "C" __declspec(dllexport) void __declspec(naked) FreeNostaleSplash()
+std::thread* th = nullptr;
+
+DWORD WINAPI MainThread(HMODULE hModule)
+{
+    InitLogger();
+
+    while (!example->IsReady())
+        Sleep(config.EventLoopDelay);
+    // This additional sleep is to avoid calling Start so quickly that
+    // not everything is initialized. Not clean needs to hook something.
+    Sleep(500);
+
+    Start(hModule);
+
+    Logger::Unload();
+    FreeLibraryAndExitThread(hModule, 0);
+    return 1;
+}
+
+extern "C" __declspec(dllexport) void __declspec(naked) FreeNostaleSplash() noexcept
 {
     __asm
     {
         pushad;
         pushfd;
     }
-    example.OnFreeNostaleSplash();
+    example->OnFreeNostaleSplash();
+    th = new std::thread([]
+    {
+        MainThread(hModule);
+    });
+    th->detach();
     __asm
     {
         popfd;
@@ -208,29 +230,13 @@ extern "C" __declspec(dllexport) void __declspec(naked) FreeNostaleSplash()
     }
 }
 
-DWORD WINAPI MainThread(HMODULE hModule)
-{
-    InitLogger();
 
-    while (!example.IsReady())
-        Sleep(config.EventLoopDelay);
-    // This additional sleep is to avoid calling Start so quickly that
-    // not everything is initialized. Not clean needs to hook something.
-    Sleep(500);
-    
-    Start(hModule);
-
-    Logger::Unload();
-    FreeLibraryAndExitThread(hModule, 0);
-    return 1;
-}
-
-BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
+BOOL APIENTRY DllMain(HMODULE HModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
-        CloseHandle(CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)MainThread, hModule, 0, nullptr));
+        hModule = HModule;
         break;
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:

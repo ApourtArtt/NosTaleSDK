@@ -5,6 +5,9 @@
 class PR_st : public PacketRcvd
 {
 public:
+    // st 1 1170465 99 61 100 100 34960 19942 34960 19942 838.99 3034.94 742.94
+
+
 	[[nodiscard]] explicit PR_st(const std::string& Packet)
 		: PacketRcvd(Packet)
 	{
@@ -19,6 +22,8 @@ public:
     [[nodiscard]] int8_t GetMpPercentage() const noexcept { return mpPercentage; }
     [[nodiscard]] int32_t GetCurrentHp() const noexcept { return currentHp; }
     [[nodiscard]] int32_t GetCurrentMp() const noexcept { return currentMp; }
+    [[nodiscard]] int32_t GetMaxHp() const noexcept { return maxHp; }
+    [[nodiscard]] int32_t GetMaxMp() const noexcept { return maxMp; }
     [[nodiscard]] const std::vector<int16_t>& GetBuffsId() const noexcept { return buffsId;  }
 
 private:
@@ -27,7 +32,7 @@ private:
         if (!isValid) [[unlikely]]
             return false;
 
-        if (packs.size() < 9) [[unlikely]]
+        if (packs.size() < 11) [[unlikely]]
             return false;
 
         if (!checkEntityType()) [[unlikely]]
@@ -46,6 +51,12 @@ private:
             return false;
 
         if (!checkCurrentMp()) [[unlikely]]
+            return false;
+
+        if (!checkMaxHp()) [[unlikely]]
+            return false;
+
+        if (!checkMaxMp()) [[unlikely]]
             return false;
 
         if (!checkBuffsId()) [[unlikely]]
@@ -134,9 +145,29 @@ private:
         return true;
     }
 
+    [[nodiscard]] bool checkMaxHp()
+    {
+        auto val = ToNumber<int32_t>(packs[9].c_str());
+        if (!val.has_value()) [[unlikely]]
+            return false;
+
+        maxHp = val.value();
+        return true;
+    }
+
+    [[nodiscard]] bool checkMaxMp()
+    {
+        auto val = ToNumber<int32_t>(packs[10].c_str());
+        if (!val.has_value()) [[unlikely]]
+            return false;
+
+        maxMp = val.value();
+        return true;
+    }
+
     [[nodiscard]] bool checkBuffsId()
     {
-        for (auto i = 9; i < packs.size(); i++)
+        for (auto i = 11; i < packs.size(); i++)
         {
             auto val = ToNumber<int32_t>(packs[i].c_str());
             if (!val.has_value()) [[unlikely]]
@@ -155,5 +186,7 @@ private:
     int8_t mpPercentage;
     int32_t currentHp;
     int32_t currentMp;
+    int32_t maxHp;
+    int32_t maxMp;
     std::vector<int16_t> buffsId;
 };

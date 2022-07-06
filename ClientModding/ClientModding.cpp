@@ -19,9 +19,6 @@ ClientModding::ClientModding(const ClientModdingConfig& Config) noexcept
 
 	packetMng.Subscribe(PacketType::RCVD, "tit", [this](std::string& Packet) { on_PR_tit(Packet); });
 
-	packetMng.Subscribe(PacketType::RCVD, "st", [this](std::string& Packet) { on_PR_st(Packet); });
-	packetMng.Subscribe(PacketType::RCVD, "aa_st", [this](std::string& Packet) { on_PR_aa_st(Packet); });
-
 	packetMng.Subscribe(PacketType::RCVD, "pst", [this](std::string& Packet) { on_PR_pst(Packet); });
 	packetMng.Subscribe(PacketType::RCVD, "aa_pst", [this](std::string& Packet) { on_PR_aa_pst(Packet); });
 }
@@ -118,32 +115,6 @@ void ClientModding::on_PR_tit(std::string& packet) noexcept
 	std::string pseudo = words[2];
 	discordMng.SetPseudonym(pseudo);
 	discordMng.SetChannel(connectionMng.GetServChanManager().GetChannel());
-}
-
-void ClientModding::on_PR_st(std::string& packet) noexcept
-{
-	PR_st p(packet);
-	if (!p.IsValid())
-	{
-		auto _ = Logger::PushPopModuleName("ClientModding");
-		Logger::Error("Packet [%s] is not valid", p.GetPacket().c_str());
-		return;
-	}
-
-	uiMng.GetSpyHpMpManager().On_PR_st(p);
-}
-
-void ClientModding::on_PR_aa_st(std::string& packet) noexcept
-{
-	PR_aa_st p(packet);
-	if (!p.IsValid())
-	{
-		auto _ = Logger::PushPopModuleName("ClientModding");
-		Logger::Error("Packet [%s] is not valid", p.GetPacket().c_str());
-		return;
-	}
-
-	uiMng.GetSpyHpMpManager().On_PR_aa_st(p);
 }
 
 void ClientModding::on_PR_pst(std::string& packet) noexcept

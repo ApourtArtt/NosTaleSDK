@@ -14,6 +14,5 @@ struct SpyHpMpConfig
 
 struct SpyHpMpManagerConfig
 {
-	SpyHpMpConfig SpyTarget;
 	SpyHpMpConfig SpyGroup;
 };

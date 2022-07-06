@@ -12,6 +12,8 @@
 class TSceneManager : public TObject
 {
 public:
+	static constexpr std::string_view NAME = "TSceneManager";
+
 	[[nodiscard]] MapGrid* getMapGrid() { return mapGrid; }
 	[[nodiscard]] TLBSCamera* getCamera() { return camera; }
 
@@ -21,7 +23,7 @@ public:
 
 		if (patternAddr == nullptr)
 		{
-			auto _ = Logger::PushPopModuleName("TSceneManager");
+			auto _ = Logger::PushPopModuleName(NAME.data());
 
 			patternAddr = PatternScan(
 				"\xA1\x00\x00\x00\x00\x00\x00\x00\x00\x58\x00\x0F\x84\xBF",

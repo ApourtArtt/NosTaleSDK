@@ -30,8 +30,6 @@ public:
 
 private:
 	void on_PR_tit(std::string& packet) noexcept;
-	void on_PR_st(std::string& packet) noexcept;
-	void on_PR_aa_st(std::string& packet) noexcept;
 	void on_PR_pst(std::string& packet) noexcept;
 	void on_PR_aa_pst(std::string& packet) noexcept;
 

@@ -2,6 +2,8 @@
 #include "TObject.h"
 #pragma pack(push, 1)
 
+// Note: There are plenty of memory leaks - DO NOT fix it, most is handled by the client
+// and we can not guarantee that the client won't try to access something freed.
 template<class T>
 class TList : public TObject
 {
@@ -26,12 +28,36 @@ public:
 		length += 1;
 	}
 
+	void push_front(T item)
+	{
+		insert(item, 0);
+	}
+
+	void insert(T item, uint32_t index)
+	{
+		length++;
+		if (length >= capacity)
+			capacity *= 2;
+
+		T* newItems = (T*)malloc(capacity * sizeof(T));
+		auto i = 0;
+
+		for (; i < index && i < length; i++)
+			newItems[i] = items[i];
+
+		newItems[i] = item;
+
+		for (; i < length; i++)
+			newItems[i + 1] = items[i];
+
+		items = newItems;
+	}
+
 	void pop_back()
 	{
 		if (length <= 0) return;
 
 		length -= 1;
-		// Should be freed if only used by this project but since that's not guaranteed, let's keep it as a memory leek.
 	}
 
 	void reserve()
@@ -40,7 +66,7 @@ public:
 
 		T* newItems = (T*)malloc(capacity * sizeof(T));
 
-		for (int i = 0; i < length; i++)
+		for (auto i = 0; i < length; i++)
 		{
 			newItems[i] = items[i];
 		}

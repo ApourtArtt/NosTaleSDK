@@ -1,7 +1,6 @@
 #pragma once
 #include "Fps.h"
 #include "Resolution.h"
-#include "SkillsCooldown.h"
 #include "KeyBindManager.h"
 
 /**
@@ -17,7 +16,6 @@ public:
 public:
 	Fps fps;
 	Resolution resolution;
-	SkillsCooldown skillsCooldown;
 
 private:
 	UI() {}

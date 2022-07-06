@@ -2,9 +2,6 @@
 #include "PictureView.h"
 #pragma pack(push, 1)
 
-/**
- * @brief Game widget image data representation.
- */
 class ImageData
 {
 public:
@@ -19,6 +16,16 @@ public:
 	ImageData()
 		: ImageData(0, 0, 0, nullptr)
 	{}
+
+	friend bool operator== (const ImageData& id1, const ImageData& id2)
+	{
+		return
+			id1.nbPictureViews == id2.nbPictureViews &&
+			id1.imageName == id2.imageName &&
+			id1.imageWidth == id2.imageWidth &&
+			id1.imageHeight == id2.imageHeight &&
+			id1.pictureViews == id2.pictureViews;
+	}
 
 private:
 	int16_t nbPictureViews;		// 0x00

@@ -62,6 +62,12 @@ public:
         Child->setWidgetParent(this);
     }
 
+    void addWidget(TLBSWidget* Child, uint32_t index)
+    {
+        children->insert(Child, index);
+        Child->setWidgetParent(this);
+    }
+
     void setCursor(Cursor Cursor, bool UseCustomCursor)
     {
         cursor = Cursor;
@@ -150,6 +156,7 @@ public:
     void setVisible(bool IsVisible) { visible = IsVisible; }
     void setHandlingClick(bool IsHandlingClick) { isHandlingClick = IsHandlingClick; }
     void shouldSavePosition(bool SavePosition) { savePosition = SavePosition; }
+    void setChildren(TLBSWidgetList* widgets) { children = widgets; }
     TLBSWidgetList getChildren() { return *children; }
     bool isVisible() const { return visible; }
     int getWidth() const { return border.botRightX - border.topLeftX; }
@@ -169,7 +176,7 @@ protected:
     char unknown2[2];           // 0x1C Unknown
     Cursor cursor;              // 0x1E
     bool useCustomCursor;       // 0x1F
-    TLBSWidgetList* children;     // 0x20 List of childs
+    TLBSWidgetList* children;   // 0x20 List of childs
 };
 static_assert(sizeof(TLBSWidget) == 0x24, "TLBSWidget does not have a size of 0x24.");
 

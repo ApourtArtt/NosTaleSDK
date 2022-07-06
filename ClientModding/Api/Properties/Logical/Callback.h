@@ -6,16 +6,19 @@ class Callback
 public:
 	template <typename CbFn, typename CbArg>
 	Callback(CbFn Fn, CbArg Arg)
-		: fb((int32_t)Fn)
+		: fn((int32_t)Fn)
 		, arg((int32_t)Arg)
 	{}
 
 	Callback()
-		: fb(0)
+		: fn(0)
 		, arg(0)
 	{}
 
+	[[nodiscard]] int32_t getFunc() noexcept { return fn; }
+	[[nodiscard]] int32_t getArg() noexcept { return arg; }
+
 private:
-	int32_t fb; // 0x00
+	int32_t fn; // 0x00
 	int32_t arg; // 0x04
 };
