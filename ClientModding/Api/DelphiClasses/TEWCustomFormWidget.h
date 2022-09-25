@@ -22,7 +22,10 @@ public:
 		unknown4 = 0x3;
 		isHandlingClick = true;
 		imagePadding = ImagePadding;
-		unknown15 = 0x2;
+		if (imageData.getNbPictureViews() == 9)
+			unknown15 = 0x5;
+		else
+			unknown15 = 0x2;
 	}
 
 	void SetResize(ResizeFlag value) {

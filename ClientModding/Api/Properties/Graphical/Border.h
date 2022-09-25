@@ -21,6 +21,9 @@ public:
 		, botRightY(Y + Height)
 	{}
 
+	[[nodiscar]] int16_t getHeight() { return botRightY - topLeftY; }
+	[[nodiscar]] int16_t getWidth() { return botRightX - topLeftX; }
+
 	int16_t topLeftX;                       // 0x00
 	int16_t topLeftY;                       // 0x02
 	int16_t botRightX;                      // 0x04

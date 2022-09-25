@@ -80,6 +80,7 @@ public:
 			"TNTMonsterSummaryInfoWidget",
 			"TNTNewCharacterSkillInfoWidget",
 			"TNTNewCharacterStandardInfoWidget",
+			"TNTRaidPartyInvitationWidget",
 			"TNTNewServerSelectWidget2",
 			"TNTNonMemIntHeadList",
 			"TNTPartySummaryInfoWidget",
@@ -89,6 +90,7 @@ public:
 			"TNTSpecialWingFx",
 			"TNTTimeAniIcon",
 			"TObject",
+			"TPetSelectIcon",
 			"TPlayerObjManager",
 			"TSceneManager",
 		};

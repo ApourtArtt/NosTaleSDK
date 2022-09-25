@@ -17,8 +17,6 @@ ClientModding::ClientModding(const ClientModdingConfig& Config) noexcept
 {
 	auto _ = Logger::PushPopModuleName("ClientModding");
 
-	packetMng.Subscribe(PacketType::RCVD, "tit", [this](std::string& Packet) { on_PR_tit(Packet); });
-
 	packetMng.Subscribe(PacketType::RCVD, "pst", [this](std::string& Packet) { on_PR_pst(Packet); });
 	packetMng.Subscribe(PacketType::RCVD, "aa_pst", [this](std::string& Packet) { on_PR_aa_pst(Packet); });
 }
@@ -106,15 +104,6 @@ void ClientModding::Tick() noexcept
 	packetMng.Tick();
 	uiMng.Tick();
 	tick();
-}
-
-void ClientModding::on_PR_tit(std::string& packet) noexcept
-{
-	Logger::Log("Tit: %s", packet.c_str());
-	auto words = Split(packet, " ");
-	std::string pseudo = words[2];
-	discordMng.SetPseudonym(pseudo);
-	discordMng.SetChannel(connectionMng.GetServChanManager().GetChannel());
 }
 
 void ClientModding::on_PR_pst(std::string& packet) noexcept

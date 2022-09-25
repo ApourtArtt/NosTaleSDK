@@ -5,6 +5,15 @@
 class TNTTimeAniIcon : public TNTIconWidget
 {
 public:
+	[[nodiscard]] explicit TNTTimeAniIcon(uint32_t VTable, int8_t EvenThing, TLBSWidget* Parent, TLBSWidgetList* Childs, Border Border) noexcept
+		: TNTIconWidget(VTable, EvenThing, Parent, Childs, Border)
+	{}
+
+	[[nodiscard]] explicit TNTTimeAniIcon(TLBSWidget* Parent, Border Border) noexcept
+		: TNTIconWidget(ClassSearcher::GetClassInfoFromName("TPetSelectIcon").GetVTable(), 0x1, Parent, nullptr, Border)
+	{}
+
+protected:
 	char pad_00CC[48]; //0x00CC
 	uint32_t coolDownProgressBgra; //0x00FC
 	uint32_t currentCoolDownTime; //0x0100 (ms)

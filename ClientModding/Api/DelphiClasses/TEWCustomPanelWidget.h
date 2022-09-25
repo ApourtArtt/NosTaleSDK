@@ -12,9 +12,7 @@ class TEWCustomPanelWidget : public TEWMoveWidget
 public:
 	TEWCustomPanelWidget(uint32_t VTable, int8_t EvenThing, TLBSWidget* Parent, TLBSWidgetList* Childs, Border Border)
 		: TEWMoveWidget(VTable, EvenThing, Parent, Childs, Border)
-	{
-
-	}
+	{}
 
 	TEWCustomPanelWidget(TLBSWidget* Parent, Border Border, ImageData PanelImage, ImagePadding ImagePadding, int VTable = ClassSearcher::GetClassInfoFromName("TEWCustomPanelWidget").GetVTable())
 		: TEWMoveWidget(VTable
@@ -36,6 +34,7 @@ public:
 
 	void setImagePadding(ImagePadding ImagePadding) { imagePadding = ImagePadding; }
 	ImagePadding getImagePadding() const { return imagePadding; }
+	void setUnknown15(char value) { unknown15 = value; }
 
 protected:
 	char unknown15;							// 0x80

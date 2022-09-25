@@ -27,6 +27,8 @@ public:
 			id1.pictureViews == id2.pictureViews;
 	}
 
+	[[nodiscard]] int16_t getNbPictureViews() noexcept { return nbPictureViews; }
+
 private:
 	int16_t nbPictureViews;		// 0x00
 	int32_t imageName;			// 0x02

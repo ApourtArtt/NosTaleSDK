@@ -118,6 +118,27 @@ public:
     }
 
     template <typename... Args>
+    static void Debug(FormatWithLocation fmt, Args&&... args)
+    {
+        mu.lock();
+
+        printf("%s", GetTime().c_str());
+
+        for (size_t i = 1; i < moduleNames.size(); i++)
+            printf("%s", indent.c_str());
+        if (moduleNames.size() > 0)
+            printf("[%s] ", moduleNames.top().c_str());
+
+        printf("file: %s:%d:%d (%s)\n", fmt.loc.file_name(), fmt.loc.line(), fmt.loc.column(), fmt.loc.function_name());
+        printf(fmt.value, args...);
+        printf("\n");
+
+        Flush();
+
+        mu.unlock();
+    }
+
+    template <typename... Args>
     static void Error(FormatWithLocation fmt, Args&&... args)
     {
         mu.lock();

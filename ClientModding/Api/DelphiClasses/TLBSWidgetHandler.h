@@ -6,11 +6,13 @@
 class TLBSWidgetHandler : public TObject
 {
 public:
+	static constexpr std::string_view NAME = "TNTNewCharacterSkillInfoWidget";
+
 	TGameRootWidget* getGameRootWidget()
 	{
 		if (gameRootWidget == nullptr)
 		{
-			auto _ = Logger::PushPopModuleName("TLBSWidgetHandler");
+			auto _ = Logger::PushPopModuleName(NAME.data());
 			Logger::Error("gameRootWidget == nullptr");
 		}
 		return gameRootWidget;
@@ -22,7 +24,7 @@ public:
 
 		if (patternAddr == nullptr)
 		{
-			auto _ = Logger::PushPopModuleName("TLBSWidgetHandler");
+			auto _ = Logger::PushPopModuleName(NAME.data());
 
 			patternAddr = PatternScan(
 				"\x83\x3d\x00\x00\x00\x00\x00\x74\x0a\xa1\x00\x00\x00\x00\xe8\x00\x00\x00\x00\xc3",

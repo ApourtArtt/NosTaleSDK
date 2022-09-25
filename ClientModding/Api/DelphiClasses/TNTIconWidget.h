@@ -17,7 +17,10 @@ public:
 
 	TNTIconWidget(uint32_t VTable, int8_t EvenThing, TLBSWidget* Parent, TLBSWidgetList* Childs, Border Border)
 		: TEWControlWidgetEvent(VTable, EvenThing, Parent, Childs, Border)
-	{}
+	{
+		image = new IconProperties();
+		keepTransparency = true;
+	}
 
 	TNTIconWidget(TLBSWidget* Parent, Border Border, int16_t Vnum, int16_t Unknown17)
 		: TEWControlWidgetEvent(ClassSearcher::GetClassInfoFromName("TNTIconWidget").GetVTable()
@@ -25,12 +28,12 @@ public:
 		, unknown17(Unknown17)
 	{
 		image = new IconProperties(Vnum);
-
 		keepTransparency = true;
 	}
 
 	void setSlot(int16_t Slot) noexcept { slot = Slot; }
 	void setIconProperties(IconProperties* IconProperties) noexcept { image = IconProperties; }
+	void setImageIf(int8_t Value) noexcept { imageIf = Value; }
 
 	IconProperties* getIconProperties() noexcept { return image; }
 
@@ -45,15 +48,15 @@ protected:
 	/*
 	0x98 : callback doubleleft  click
 	*/
-	char unknown17;			// 0xA0 5 for my turtle, other value = transparent. 1 on my sheep change to something animated.
+	int8_t imageIf;			// 0xA0 5 for my turtle, other value = transparent. 1 on my sheep change to something animated.
 	bool showEdgesInOrange;	// 0xA1
-	char unknown18;			// 0xA2
+	char unknown17;			// 0xA2
 	bool animate;			// 0xA3
-	char unknown19[4];		// 0xA4
+	char unknown18[4];		// 0xA4
 	IconProperties* image;	// 0xA8
-	char unknown20[4];		// 0xAC
+	char unknown19[4];		// 0xAC
 	int16_t slot;			// 0xB0
-	char unknown21[26];		// 0xB2
+	char unknown20[26];		// 0xB2
 };
 static_assert(sizeof(TNTIconWidget) == 0xCC, "TNTIconWidget does not have a size of 0xCC.");
 

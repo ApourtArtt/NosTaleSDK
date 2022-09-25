@@ -35,7 +35,11 @@ private:
 class IconProperties
 {
 public:
-	[[nodiscard]] explicit IconProperties(int16_t Vnum) noexcept {}
+	[[nodiscard]] explicit IconProperties() noexcept {}
+	[[nodiscard]] explicit IconProperties(int16_t Vnum) noexcept
+	{
+		imageId = Vnum;
+	}
 
 	void setImageId(int16_t ImageId) noexcept { imageId = ImageId; }
 	void setType(int8_t Type) noexcept { type = Type; }
