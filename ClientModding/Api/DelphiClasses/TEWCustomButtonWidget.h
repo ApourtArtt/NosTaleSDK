@@ -16,9 +16,9 @@ public:
 		makeSound = true;
 	}
 
-	Callback getCallback() const { return callback; }
+	[[nodiscard]] Callback getCallback() const { return callback; }
+	void setCallback(Callback Callback) { callback = Callback; }
 
-	// Has an ImagePadding btw (thanks to inheritance)
 protected:
 	char unknown17[4];						// 0x00A4
 	bool clickedAndHovered;					// 0x00A8

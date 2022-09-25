@@ -127,6 +127,9 @@
     <Filter Include="Api\Managers\UIManager\CtrlZManager">
       <UniqueIdentifier>{02b458ee-5a5d-4855-b515-a354fde79720}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Api\DelphiClasses\Helpers">
+      <UniqueIdentifier>{585d242b-0c3c-4175-8502-040a3a38a9a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Api\Properties\Logical\String.h">
@@ -649,6 +652,27 @@
     <ClInclude Include="Api\DelphiClasses\TNTLoginWidget.h">
       <Filter>Api\DelphiClasses</Filter>
     </ClInclude>
+    <ClInclude Include="Utils\Join.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\Helpers\ComboBox.h">
+      <Filter>Api\DelphiClasses\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\Helpers\ScrollBar.h">
+      <Filter>Api\DelphiClasses\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TPetSelectIcon.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\WStringConvertor.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\DelphiClasses\TNTCustomMessageCoreWidget.h">
+      <Filter>Api\DelphiClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Managers\PacketManager\Packets\Rcvd\PR_at.h">
+      <Filter>Api\Managers\PacketManager\Packets\Rcvd</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClientModding.cpp" />
@@ -798,6 +822,12 @@
     </ClCompile>
     <ClCompile Include="Api\Managers\UIManager\CtrlZManager\CtrlZManager.cpp">
       <Filter>Api\Managers\UIManager\CtrlZManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\DelphiClasses\Helpers\ComboBox.cpp">
+      <Filter>Api\DelphiClasses\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Api\DelphiClasses\Helpers\ScrollBar.cpp">
+      <Filter>Api\DelphiClasses\Helpers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

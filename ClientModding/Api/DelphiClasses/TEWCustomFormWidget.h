@@ -21,11 +21,15 @@ public:
 		unknown4 = 0x3;
 		isHandlingClick = true;
 		imagePadding = ImagePadding;
-		unknown15 = 0x2;
+		if (imageData.getNbPictureViews() == 9)
+			unknown15 = 0x5;
+		else
+			unknown15 = 0x2;
 	}
 
 protected:
 	char unknown19[24];		// 0x00A4 something to do with resize 0xAD for minimap
+
 };
 static_assert(sizeof(TEWCustomFormWidget) == 0x00BC, "TEWCustomFormWidget does not have a size of 0x00BC.");
 

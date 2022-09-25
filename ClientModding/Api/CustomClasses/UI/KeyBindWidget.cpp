@@ -251,8 +251,6 @@ void KeyBindWidget::makeScrollBar()
 			PictureView(506, 401, 1, 1)
 			})),
 		ImagePadding(1, 15, 1, 1, 398, 1),
-		10,
-		19.700f,
 		Callback(0, 0),
 		scrollThumb
 	);

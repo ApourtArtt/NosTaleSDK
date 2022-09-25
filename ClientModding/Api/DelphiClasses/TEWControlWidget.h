@@ -27,7 +27,7 @@ protected:
 	uint16_t unknown7;			// 0x004A
 	bool unknown8;				// 0x004C
 	int8_t currentPictureViewIndex;// 0x004D
-	int8_t unknown9;			// 0x004E Strange white thing on TEWCustomPanelWidget if 0x50 is false
+	int8_t unknown9;			// 0x004E probably currentPictureViewIndex being 2 bytes
 	ImageData imageData;		// 0x004F
 	char unknown10;				// 0x005D
 	int16_t unknown11;			// 0x005E

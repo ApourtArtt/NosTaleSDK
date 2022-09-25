@@ -2,7 +2,6 @@
 
 DiscordManager::DiscordManager(const DiscordManagerConfig& Config) noexcept
 	: Manager(Config, "DiscordManager")
-	, gameActivity(DiscordGameActivity::AFK)
 {}
 
 bool DiscordManager::initialize() noexcept
@@ -15,8 +14,6 @@ bool DiscordManager::initialize() noexcept
 
 	activity.SetType(discord::ActivityType::Playing);
 	activity.GetTimestamps().SetStart(time(0));
-	activity.GetAssets().SetLargeText(config.ApplicationName.c_str());
-	activity.GetAssets().SetLargeImage(config.ImageName.c_str());
 
 	if (discord::Core::Create(config.ApplicationId, static_cast<uint64_t>(discord::CreateFlags::Default), &core) != discord::Result::Ok)
 	{
@@ -55,45 +52,12 @@ void DiscordManager::tick() noexcept
 
 void DiscordManager::updateActivity() noexcept
 {
-	if (pseudonym.empty() || channel == -1)
-	{
-		activity.SetDetails("Logging in...");
-		activity.SetState("");
-		// TODO: little image + text on hover
-	}
-	else
-	{
-		std::string detail = pseudonym + " Ch." + std::to_string(channel);
-		activity.SetDetails(detail.c_str());
-
-		switch (gameActivity)
-		{
-		case DiscordGameActivity::AFK:
-			activity.SetState("Idle");
-			break;
-		case DiscordGameActivity::FARM:
-			activity.SetState("TODO_FARM");
-			break;
-		case DiscordGameActivity::ORGANIZE_RAID:
-			activity.SetState("TODO_ORGANIZE_RAID");
-			break;
-		case DiscordGameActivity::PARTICIPATE_RAID:
-			activity.SetState("TODO_PARTICIPATE_RAID");
-			break;
-		case DiscordGameActivity::TRAIN_PET:
-			activity.SetState("TODO_TRAIN_PET");
-			break;
-		case DiscordGameActivity::FISH:
-			activity.SetState("TODO_FISH");
-			break;
-		case DiscordGameActivity::COOK:
-			activity.SetState("TODO_COOK");
-			break;
-		default:
-			activity.SetState("Idle");
-			break;
-		}
-	}
+	activity.SetDetails(line1.c_str());
+	activity.SetState(line2.c_str());
+	activity.GetAssets().SetSmallText(littleImageHover.c_str());
+	activity.GetAssets().SetSmallImage(littleImageName.c_str());
+	activity.GetAssets().SetLargeText(bigImageHover.c_str());
+	activity.GetAssets().SetLargeImage(bigImageName.c_str());
 
 	core->ActivityManager().UpdateActivity(activity, [](discord::Result result) {});
 }

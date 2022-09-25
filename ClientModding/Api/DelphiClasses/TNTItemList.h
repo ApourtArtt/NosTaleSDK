@@ -8,7 +8,8 @@ typedef void* Item; // I don't know the type, so void* for now
 
 class TNTItemList : public TNTDataList<Item>
 {
-
+public:
+	
 protected:
 	char uknown[8];
 };

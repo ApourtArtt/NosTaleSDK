@@ -65,18 +65,18 @@ public:
 	const int16_t getNLines() const { return nbLines; }
 
 protected:
-	bool unknown13;				// 0x68 Common with the textPositionBytes 0x00 offset
-	char unknown14;				// 0x69
-	int16_t nbLines;			// 0x6A Common with the textPositionBytes 0x04 offset + Seems like an int8_t and then an unknown
-	bool applyStyle;			// 0x6C
-	TextStyle commonTextStyle;	// 0x6D
+	bool unknown13;						// 0x68 Common with the textPositionBytes 0x00 offset
+	char unknown14;						// 0x69
+	int16_t nbLines;					// 0x6A Common with the textPositionBytes 0x04 offset + Seems like an int8_t and then an unknown
+	bool applyStyle;					// 0x6C
+	TextStyle commonTextStyle;			// 0x6D
 	// Maybe a class for those following 4 int16_t. If not, then still use a TextPosition and assign its members to the variables
-	int16_t pxBeforeTextX;		// 0x78
-	int16_t pxBeforeTextY;		// 0x7A
-	int16_t x;					// 0x7C
-	int16_t y;					// 0x7E
-	TextStyle* textStylePtr;	// 0x80
-	TextPosition* textPositionArrayPtr; // 0x84 Ptr to TextPosition array
+	int16_t pxBeforeTextX;				// 0x78
+	int16_t pxBeforeTextY;				// 0x7A
+	int16_t x;							// 0x7C
+	int16_t y;							// 0x7E
+	TextStyle* textStylePtr;			// 0x80
+	TextPosition* textPositionArrayPtr;	// 0x84 Ptr to TextPosition array
 };
 static_assert(sizeof(TEWLabels) == 0x88, "TEWLabels does not have a size of 0x88.");
 

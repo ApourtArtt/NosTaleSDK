@@ -22,12 +22,14 @@ public:
 	}
 
 	wchar_t* getText() const { return textPosition.getText(); }
+	TextStyle& getTextStyle() { return textStyle; }
+	TextPosition& getTextPosition() { return textPosition; }
 
 protected:
 	char pad_00DC[8]; //0x00DC
-	class TextStyle textStyle; //0x00E4
+	TextStyle textStyle; //0x00E4
 	char pad_00EF[25]; //0x00EF
-	class TextPosition textPosition; //0x0108
+	TextPosition textPosition; //0x0108
 };
 static_assert(sizeof(TEWButtonWidget) == 0x118, "TEWButtonWidget does not have a size of 0x118");
 

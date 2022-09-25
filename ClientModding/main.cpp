@@ -103,9 +103,7 @@ ClientModdingConfig config =
     .DiscordConfig =
     {
         .Active = true,
-        .ApplicationId = 858502310669582346,
-        .ApplicationName = "App Name",
-        .ImageName = "ditz_logo",
+        .ApplicationId = 0,
     },
     .MapConfig =
     {
@@ -121,17 +119,12 @@ ClientModdingConfig config =
     {
         .EncryptFn = [](std::string Packet)
         {
-            //Logger::Log("EncryptFn: %s", Packet.c_str());
-            std::string newPacket = Packet;
-            for (auto i = 0; i < newPacket.size(); i++)
-                newPacket[i] = newPacket[i] ^ 0x50;
-
-            //Logger::Log("Encrypted NewPacket: %s", newPacket.c_str());
-            return newPacket;
+            // TODO
+            return Packet;
         },
         .DecryptFn = [](std::string Packet)
         {
-            //Logger::Log("DecryptFn: %s", Packet.c_str());
+            // TODO
             return Packet;
         },
     },
@@ -148,7 +141,6 @@ ClientModdingConfig config =
     },
     .EventLoopDelay = 10,
 };
-
 Example* example = nullptr;
 
 void Start(HMODULE hModule)

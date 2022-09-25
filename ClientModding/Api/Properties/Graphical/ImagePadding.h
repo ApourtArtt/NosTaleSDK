@@ -23,6 +23,17 @@ public:
 		, heightBot(HeightBot)
 	{}
 
+	ImagePadding(int16_t WidthMiddle, int16_t HeightMiddle, int16_t PosRight, int16_t PosBot, int16_t WidthLeft, int16_t HeightTop, int16_t WidthRight, int16_t HeightBot)
+		: widthMiddle(WidthMiddle)
+		, heightMiddle(HeightMiddle)
+		, posRight(PosRight)
+		, posBot(PosBot)
+		, widthLeft(WidthLeft)
+		, heightTop(HeightTop)
+		, widthRight(WidthRight)
+		, heightBot(HeightBot)
+	{}
+
 	void setWidthMiddle(int16_t w)	{ widthMiddle = w; }
 	void setHeightMiddle(int16_t h)	{ heightMiddle = h; }
 	void setPosRight(int16_t p)		{ posRight = p; }

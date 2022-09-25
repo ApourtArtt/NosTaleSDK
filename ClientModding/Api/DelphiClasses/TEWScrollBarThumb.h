@@ -5,11 +5,22 @@
 class TEWScrollBarThumb : public TEWCustomPanelWidget
 {
 public:
-	TEWScrollBarThumb(TLBSWidget* Parent, Border Border, ImageData PanelImage, ImagePadding ImagePadding)
-		: TEWCustomPanelWidget(Parent, Border, PanelImage, ImagePadding, 
-			ClassSearcher::GetClassInfoFromName("TEWScrollBarThumb").GetVTable())
+	TEWScrollBarThumb()
+		: TEWCustomPanelWidget(nullptr, Border(), ImageData(), ImagePadding(), ClassSearcher::GetClassInfoFromName("TEWScrollBarThumb").GetVTable())
 	{
 		unknown15 = 3;
+		isHandlingClick = true;
+		isMovable = true;
+		lockPositionToScreen = true;
+	}
+
+	TEWScrollBarThumb(TLBSWidget* Parent, Border Border, ImageData PanelImage, ImagePadding ImagePadding)
+		: TEWCustomPanelWidget(Parent, Border, PanelImage, ImagePadding, ClassSearcher::GetClassInfoFromName("TEWScrollBarThumb").GetVTable())
+	{
+		unknown15 = 3;
+		isHandlingClick = true;
+		isMovable = true;
+		lockPositionToScreen = true;
 	}
 
 private:

@@ -46,6 +46,8 @@
     <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterSkillInfoWidget.h" />
     <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterStandardInfoWidget.h" />
     <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\QuickSlotWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\Helpers\ComboBox.h" />
+    <ClInclude Include="Api\DelphiClasses\Helpers\ScrollBar.h" />
     <ClInclude Include="Api\DelphiClasses\TEWControlWidgetMouseEvent.h" />
     <ClInclude Include="Api\DelphiClasses\TLBSCamera.h" />
     <ClInclude Include="Api\DelphiClasses\TLBSRotDamper.h" />
@@ -55,6 +57,7 @@
     <ClInclude Include="Api\DelphiClasses\TNTCItemDataList.h" />
     <ClInclude Include="Api\DelphiClasses\TNTConsignmentWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTConstStringList.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTCustomMessageCoreWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTGameOptionWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTIntHeadList.h" />
     <ClInclude Include="Api\DelphiClasses\TNTLoginWidget.h" />
@@ -72,6 +75,7 @@
     <ClInclude Include="Api\DelphiClasses\TGameRootWidget.h" />
     <ClInclude Include="Api\DelphiClasses\TNTDataList.h" />
     <ClInclude Include="Api\DelphiClasses\TNTItemList.h" />
+    <ClInclude Include="Api\DelphiClasses\TPetSelectIcon.h" />
     <ClInclude Include="Api\DelphiClasses\TPlayerObjManager.h" />
     <ClInclude Include="Api\DelphiClasses\TSceneManager.h" />
     <ClInclude Include="Api\Enums\RarityType.h" />
@@ -118,6 +122,7 @@
     <ClInclude Include="Api\Managers\MapManager\MapConfig.h" />
     <ClInclude Include="Api\Managers\PacketManager\PacketConfig.h" />
     <ClInclude Include="Api\Managers\PacketManager\Packets\PacketSent.h" />
+    <ClInclude Include="Api\Managers\PacketManager\Packets\Rcvd\PR_at.h" />
     <ClInclude Include="Api\Managers\PacketManager\Packets\Rcvd\PR_equip.h" />
     <ClInclude Include="Api\Managers\UIManager\CtrlZManager\CtrlZConfig.h" />
     <ClInclude Include="Api\Managers\UIManager\CtrlZManager\CtrlZManager.h" />
@@ -192,9 +197,11 @@
     <ClInclude Include="Api\Properties\Logical\Callback.h" />
     <ClInclude Include="Api\Properties\Logical\String.h" />
     <ClInclude Include="MemoryHelper\TrampolineHook.h" />
+    <ClInclude Include="Utils\Join.h" />
     <ClInclude Include="Utils\Logger.h" />
     <ClInclude Include="Utils\Split.h" />
     <ClInclude Include="Utils\ToNumber.h" />
+    <ClInclude Include="Utils\WStringConvertor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\achievement_manager.cpp" />
@@ -211,6 +218,8 @@
     <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\types.cpp" />
     <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\user_manager.cpp" />
     <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\voice_manager.cpp" />
+    <ClCompile Include="Api\DelphiClasses\Helpers\ComboBox.cpp" />
+    <ClCompile Include="Api\DelphiClasses\Helpers\ScrollBar.cpp" />
     <ClCompile Include="Api\Managers\CharacterManager\CharacterManager.cpp" />
     <ClCompile Include="Api\Managers\CharacterManager\InteractionManager\InteractionManager.cpp" />
     <ClCompile Include="Api\Managers\CharacterManager\InteractionManager\NpcTalkRangeNpcManager\NpcTalkRangeManager.cpp" />

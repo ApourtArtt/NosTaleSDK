@@ -33,7 +33,7 @@ protected:
 	uint16_t clickPositionY; //0x0073
 	bool isMovable; //0x0075
 	bool lockPositionToScreen; //0x0076 holds wether the widget can get out of the screen or not
-	char pad_0077[1]; //0x0077
+	char pad_0077; //0x0077
 	int16_t lockLeftMargin; //0x0078 these variables hold how many pixels the widget can go outside the screen
 	int16_t lockTopMargin; //0x007A
 	int16_t lockRightMargin; //0x007C
