@@ -51,3 +51,4 @@ Patterns are designed for the client version 3175.
 [Flowx3](https://github.com/Flowx3)
 [Hatz](https://github.com/hatz02)
 [Limo96](https://github.com/Limo96)
+[Eless54](https://github.com/Eless54)
