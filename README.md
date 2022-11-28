@@ -42,6 +42,7 @@ You will also need to copy `C:\code\discordsdk\lib\x86\discord_game_sdk.dll` int
 
 ### 2) You should build the final DLL as 32 bits
 
+### 3) You should rename the built DLL to EWSF.EWS and add it to NosTale folder
 
 ## Notes
 Patterns are designed for the client version 3175.
