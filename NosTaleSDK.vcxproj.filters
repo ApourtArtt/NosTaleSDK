@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="NosTaleSDK">
+      <UniqueIdentifier>{4e790131-4bb9-42fe-a067-9d5fb1c07c62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NosTaleSDK\Entwell">
+      <UniqueIdentifier>{762e6928-e3d8-4820-8fb0-a47c427539c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NosTaleSDK\Entwell\Classes">
+      <UniqueIdentifier>{93fd1cf7-7a8e-41fd-85b7-31ea14301b33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NosTaleSDK\DelphiClasseWrappers">
+      <UniqueIdentifier>{341bf984-7f55-406b-8557-a07036270359}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TLBSWidgetHandler.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TObject.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TBaseList.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TGameRootWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TLBSWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TLBSWidgetList.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TList.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNosRevCmdList.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNosRevCmd.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTUnitManager.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TStringList.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TStrings.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TPersistent.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNosSndCmdList.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNosSndCmd.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
