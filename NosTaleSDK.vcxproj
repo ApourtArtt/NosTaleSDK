@@ -21,269 +21,95 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TBaseList.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TBuddyChatWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TByteList.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TDowsingArrowWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TBuddyChatWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TByteList.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TDowsingArrowWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWButtonWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWControlWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWControlWidgetEvent.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWCustomButtonWidget.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWFormWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWFormWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWGraphicButtonWidget.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWListView.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWListView.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWMoveWidget.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWNumberEditWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWRingArrayList.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWRollOverButtonWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWStringListView.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWStringListViewCore.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWTextOut.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWTextOutLabel.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWNumberEditWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWRingArrayList.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWRollOverButtonWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWStringListView.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWStringListViewCore.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWTextOut.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWTextOutLabel.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TGameRootWidget.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TImpossibleIconWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TLBSBkFxItem.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TLBSBkFxList.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TLBSGeometryCache.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TLBSMultiTextureCache.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TLBSMultiTextureList.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TImpossibleIconWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TLBSBkFxItem.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TLBSBkFxList.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TLBSGeometryCache.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TLBSMultiTextureCache.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TLBSMultiTextureList.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TLBSWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TLBSWidgetHandler.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TLBSWidgetList.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TList.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TLockOnTargetMarked.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TLockOnTargetMarkedCore.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TMapMonsterObj.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TMapMoveObjBase.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TMapNpcObj.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TMapObjBase.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TMiniMapWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TMovePosiMarked.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNaviChatViewer.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNaviMultiSelect.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNaviNameViewer.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNaviWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TLockOnTargetMarked.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TLockOnTargetMarkedCore.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TMapMonsterObj.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TMapMoveObjBase.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TMapNpcObj.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TMapObjBase.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TMiniMapWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TMovePosiMarked.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNaviChatViewer.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNaviMultiSelect.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNaviNameViewer.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNaviWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TNosRevCmd.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TNosRevCmdList.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TNosSndCmd.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TNosSndCmdList.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNosTaleGame.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTBottomMainUIWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTCharacterInventoryInfoWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNosTaleGame.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTBottomMainUIWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTCharacterInventoryInfoWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTCharacterSummaryInfoWidget.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTChatEditWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTChatEditWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTCItemDataList.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTCommonInfoBoard.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTCommonInfoBoard.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTConstStringList.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTCustomMessageWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTCuttonEffect.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTHintWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTIconViewer.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTIconWidgetAddEvent.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTIndividualShop.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTCustomMessageWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTCuttonEffect.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTHintWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTIconViewer.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTIconWidgetAddEvent.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTIndividualShop.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTIntHeadList.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTItemExchangeWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTItemUpgradeWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTItemZillerWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTMessageBoxWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTMiniMapWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTNewCommonInfoWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTNewFamilyInfoWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTItemExchangeWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTItemUpgradeWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTItemZillerWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTMessageBoxWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTMiniMapWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTNewCommonInfoWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTNewFamilyInfoWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTNonMemIntHeadList.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTPartySummaryInfoWidget.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTQuestSimpleViewer.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTQuestSimpleViewer.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTQuickSlotWidget.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTRuneUpgradeWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTShopOpenUIWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTSPCardUpgradeWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTRuneUpgradeWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTShopOpenUIWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTSPCardUpgradeWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTSpecialaListInfoWidget.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTSpecialCardPlusWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTSpecialCardPlusWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTSpecialDragonFx.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTSpecialWingFx.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTTaskBarWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTTatooUpgradeWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTTaskBarWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTTatooUpgradeWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTUnitManager.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTWebBrowserFormWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTWebBrowserFormWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TObject.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TPersistent.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TPetSelectIcon.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TPlayerObjManager.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TReadyWidget.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TReadyWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TSceneManager.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TSmallIntList.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TSmallIntList.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TStringList.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TStrings.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TEWCaptionBar.ixx" />
@@ -315,14 +141,8 @@
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTNewCharacterStandardInfoWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTNewServerSelectWidget2.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Objects\TNTTimeAniIcon.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TMiniMapCore.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Objects\TSvrCtlObjManager.ixx">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TMiniMapCore.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Objects\TSvrCtlObjManager.ixx" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
