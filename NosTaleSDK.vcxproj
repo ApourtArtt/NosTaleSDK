@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Implementations\PatternAddressProvider.ixx" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TBaseList.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TBuddyChatWidget.ixx" />

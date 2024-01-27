@@ -1,5 +1,6 @@
 module;
 #include <string>
+#include <vector>
 export module AddressProvider;
 
 namespace NosTaleSDK::Providers
@@ -8,6 +9,7 @@ namespace NosTaleSDK::Providers
 	{
 	public:
 		virtual ~AddressProvider() {}
-		[[nodiscard]] virtual uintptr_t Get(const std::string& AddressName) = 0;
+		[[nodiscard]] virtual uintptr_t GetOne(const std::string& AddressName) = 0;
+		[[nodiscard]] virtual std::vector<uintptr_t> GetMany(const std::string& AddressName, int32_t HowMany = -1) = 0;
 	};
 }

@@ -22,6 +22,9 @@
     <Filter Include="NosTaleSDK\Utils">
       <UniqueIdentifier>{8d4edd46-c41b-4617-88b8-7b11bd164de7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Implementations">
+      <UniqueIdentifier>{36e1b18f-b91a-4838-9c3f-c317f3181c4c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -405,6 +408,9 @@
     </ClCompile>
     <ClCompile Include="NosTaleSDK\Utils\MemoryUtils.ixx">
       <Filter>NosTaleSDK\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Implementations\PatternAddressProvider.ixx">
+      <Filter>Implementations</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

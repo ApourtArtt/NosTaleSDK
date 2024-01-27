@@ -4,7 +4,7 @@
 //import TStrings;
 
 import WrapperTLBSWidget;
-import AddressProvider;
+import PatternAddressProvider;
 
 #include <iostream>
 
@@ -20,11 +20,17 @@ int main()
 	//bb.FUpdateCount = 17;
 	//std::cout << bb.FUpdateCount;
 
-	NosTaleSDK::Wrappers::Classes::WrapperTLBSWidget rezr;
-	rezr.disp();
-	rezr.even();
-	std::cout << "ok";
+	//NosTaleSDK::Wrappers::Classes::WrapperTLBSWidget rezr;
+	//rezr.disp();
+	//rezr.even();
+	//std::cout << "ok";
 
-	NosTaleSDK::Providers::DefaultAddressProvider a("xxx?x?xx", 123);
-	std::cout << a.Get();
+	PatternAddressProvider a;
+	a.RegisterPattern("TestMain", PatternAddressProvider::PatternDef{
+		.pattern = "\x90",
+		.mask = "x",
+		.offset = 0,
+		.startFrom = 0,
+	});
+	std::cout << a.GetOne("TestMain");
 }
