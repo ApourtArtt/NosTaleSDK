@@ -2,7 +2,7 @@ module;
 #include <stdint.h>
 export module TLBSGeometryCache;
 import TObject;
-import TList;
+template<typename> struct TList;
 
 namespace NosTaleSDK::Entwell::Classes
 {
