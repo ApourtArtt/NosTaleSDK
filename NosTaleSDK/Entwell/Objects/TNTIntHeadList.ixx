@@ -5,19 +5,14 @@ import TNTDataList;
 
 namespace NosTaleSDK::Entwell::Classes
 {
+#pragma pack(push, 1)
 	template<class T>
-	class IntListElement
+	struct IntListElement
 	{
-	public:
-		[[nodiscard]] int32_t getVnum() noexcept { return vnum; }
-		[[nodiscard]] T getValue() noexcept { return value; }
-
-	protected:
 		int32_t vnum;
 		T value;
 	};
 
-#pragma pack(push, 1)
 	export template<class T>
 	struct TNTIntHeadList : public TNTDataList<IntListElement<T>*>
 	{
