@@ -1,7 +1,6 @@
 module;
 #include <stdint.h>
 export module TNTIntHeadList;
-import TEWGraphicButtonWidget;
 import TNTDataList;
 
 namespace NosTaleSDK::Entwell::Classes

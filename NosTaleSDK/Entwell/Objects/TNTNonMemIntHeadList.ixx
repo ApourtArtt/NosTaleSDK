@@ -1,6 +1,5 @@
 module;
 export module TNTNonMemIntHeadList;
-import TEWGraphicButtonWidget;
 import TNTIntHeadList;
 
 namespace NosTaleSDK::Entwell::Classes
