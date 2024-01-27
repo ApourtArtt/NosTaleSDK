@@ -12,7 +12,7 @@ namespace NosTaleSDK::Entwell::Classes
 		struct TEWMultiFileStreamSimple* unknown1;	// 0x04
 		struct TEWMultiFileStreamList* unknown2;	// 0x08
 		struct TLBSTextureCache* unknown3;			// 0x0C
-		struct TList<TLBSGeometryItem*>* unknown4;	// 0x10
+		struct TList<struct TLBSGeometryItem*>* unknown4;	// 0x10
 		int32_t nstgeId;					// 0x14 TMovePosiMarked is 0x4f000031 (1 325 400 113)
 		struct TLBSGeometryItem* unknown6;			// 0x18
 	};
