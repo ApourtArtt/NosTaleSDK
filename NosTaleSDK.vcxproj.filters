@@ -25,6 +25,18 @@
     <Filter Include="Implementations">
       <UniqueIdentifier>{36e1b18f-b91a-4838-9c3f-c317f3181c4c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="NosTaleSDK\Entwell\Properties">
+      <UniqueIdentifier>{a38400bd-4129-4d5a-97d2-ef6400e186b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NosTaleSDK\Entwell\Enumerations">
+      <UniqueIdentifier>{cce38be8-f690-4919-99ec-c2cec3f87490}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NosTaleSDK\Entwell\Properties\Graphical">
+      <UniqueIdentifier>{f8cd4ec5-6605-43e4-a5e9-e5c7792d794e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NosTaleSDK\Entwell\Properties\Logical">
+      <UniqueIdentifier>{5c9fbba7-fdf1-461c-98c6-576b8d7804ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -411,6 +423,60 @@
     </ClCompile>
     <ClCompile Include="Implementations\PatternAddressProvider.ixx">
       <Filter>Implementations</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\Array.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\ArrayRefCounted.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\Callback.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\String.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\WideString.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Graphical\Bgra.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Graphical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Graphical\Border.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Graphical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Graphical\Icon.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Graphical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Graphical\ImageData.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Graphical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Graphical\ImagePadding.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Graphical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Graphical\Item.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Graphical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Graphical\PictureDisplay.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Graphical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Graphical\PictureView.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Graphical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Graphical\TextPosition.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Graphical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Graphical\TextStyle.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Graphical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Enumerations\Cursor.ixx">
+      <Filter>NosTaleSDK\Entwell\Enumerations</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Enumerations\TextAlignment.ixx">
+      <Filter>NosTaleSDK\Entwell\Enumerations</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Enumerations\TextShadowOrientation.ixx">
+      <Filter>NosTaleSDK\Entwell\Enumerations</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
