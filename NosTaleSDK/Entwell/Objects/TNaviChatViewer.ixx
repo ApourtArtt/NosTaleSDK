@@ -5,8 +5,6 @@ import TObject;
 
 namespace NosTaleSDK::Entwell::Classes
 {
-
-    class TNTHintWidget;
 #pragma pack(push, 1)
 	export struct TNaviChatViewer : public TObject
 	{
@@ -23,8 +21,8 @@ namespace NosTaleSDK::Entwell::Classes
         char unknown8[4];               // 0x24
         char unknown9[4];               // 0x28 Used as a bool on 0x28 but seems to be a ptr
         char unknown10[4];              // 0x2C
-        TNTHintWidget* aboveHeadHint;   // 0x30 When (e.g) transforming, isVisible will be true
-        TNTHintWidget* hintWidget;      // 0x30 Idk what it is used for but isVisible turns to false when a msg is displayed
+        struct TNTHintWidget* aboveHeadHint;   // 0x30 When (e.g) transforming, isVisible will be true
+        struct TNTHintWidget* hintWidget;      // 0x30 Idk what it is used for but isVisible turns to false when a msg is displayed
         char unknown11[4];              // 0x38 pointer to something
         int16_t unknown12;              // 0x3C always ++ then reset to 0
         char unknown13[2];              // 0x3E probably padding

@@ -2,10 +2,6 @@ module;
 #include <stdint.h>
 export module TNTItemZillerWidget;
 import TEWCustomFormWidget;
-import TEWLabels;
-import TNTCoverIcon;
-import TNTIconWidget;
-import TEWGraphicButtonWidget;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -13,10 +9,10 @@ namespace NosTaleSDK::Entwell::Classes
 	export struct TNTItemZillerWidget : public TEWCustomFormWidget
 	{
 		char unknown21[4];						//0xBC
-		TEWLabels* allLabels;					//0xC0
-		TNTIconWidget* eqIcon;					//0xC4
-		TNTIconWidget* goldIcon;				//0xC8
-		TNTIconWidget* cellaIcon;				//0xCC
+		struct TEWLabels* allLabels;					//0xC0
+		struct TNTIconWidget* eqIcon;					//0xC4
+		struct TNTIconWidget* goldIcon;				//0xC8
+		struct TNTIconWidget* cellaIcon;				//0xCC
 		char unknown22[8];						//0xD0
 		void* eqItem;				//0xD8
 		char unknown23[32];						//0xDC
@@ -28,7 +24,7 @@ namespace NosTaleSDK::Entwell::Classes
 		void* cellaItem;			//0x158
 		uint16_t cellaItemId;					//0x15C
 		char unknown27[50];						//0x15E
-		TEWGraphicButtonWidget* betBtn;			//0x190
+		struct TEWGraphicButtonWidget* betBtn;			//0x190
 		uint32_t currentGoldAmount;				//0x194
 		char unknown29[4];						//0x198
 	};

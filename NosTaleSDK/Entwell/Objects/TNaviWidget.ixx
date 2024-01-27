@@ -2,17 +2,9 @@ module;
 #include <stdint.h>
 export module TNaviWidget;
 import TLBSWidget;
-import TImpossibleIconWidget;
 
 namespace NosTaleSDK::Entwell::Classes
 {
-    class TNaviNameViewer;
-    class TNaviChatViewer;
-    class TNaviMultiSelect;
-    class TDowsingArrowWidget;
-    class TReadyWidget;
-    class TImpossibleIconWidget;
-
 #pragma pack(push, 1)
 	export struct TNaviWidget : public TLBSWidget
 	{
@@ -26,11 +18,11 @@ namespace NosTaleSDK::Entwell::Classes
         uint32_t timestampClick;                            // 0x30 every click
         int16_t lastLeftClickPosX;                          // 0x34
         int16_t lastLeftClickPosY;                          // 0x36
-        TNaviNameViewer* naviNameViewer;                    // 0x38
-        TNaviChatViewer* naviChatViewer;                    // 0x3C
-        TNaviMultiSelect* naviMultiSelect;                  // 0x40
-        TDowsingArrowWidget* dowsingArrowsWidget;           // 0x44
-        TReadyWidget* readyWidget;                          // 0x48
+        struct TNaviNameViewer* naviNameViewer;                    // 0x38
+        struct TNaviChatViewer* naviChatViewer;                    // 0x3C
+        struct TNaviMultiSelect* naviMultiSelect;                  // 0x40
+        struct TDowsingArrowWidget* dowsingArrowsWidget;           // 0x44
+        struct TReadyWidget* readyWidget;                          // 0x48
         bool getUpImmediately;                              // 0x4C Retrieved from stat packet
         bool smileyGone;                                    // 0x4D Retrieved from stat packet
         bool hpStatusGone;                                  // 0x4E Retrieved from stat packet
@@ -43,7 +35,7 @@ namespace NosTaleSDK::Entwell::Classes
         bool mouseTrap;                                     // 0x55 Retrieved from stat packet
         char unknown6[2];                                   // 0x56 probably padding
         char unknown7[4];                                   // 0x58 pointer to something, but -1 as value in my case
-        TImpossibleIconWidget* impossibleWidget;            // 0x5C widget appearing when stunned/rooted
+        struct TImpossibleIconWidget* impossibleWidget;            // 0x5C widget appearing when stunned/rooted
         char TMarkWidget[500][4];                           // 0x60 Yes, 500...
         char currentCursor[1];                               // 0x830
         bool useCustomCursor2;                              // 0x831

@@ -2,10 +2,6 @@ module;
 #include <stdint.h>
 export module TNTGameOptionWidget;
 import TEWCustomFormWidget;
-import TEWLabel;
-import TEWGraphicButtonWidget;
-import TEWScrollBarTrack;
-import TEWLabels;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -13,49 +9,49 @@ namespace NosTaleSDK::Entwell::Classes
 	export struct TNTGameOptionWidget : public TEWCustomFormWidget
 	{
 		char pad_00BC[4]; //0x00BC
-		TEWLabel* windowTitle; //0x00C0
-		TEWGraphicButtonWidget* questionMarkButton; //0x00C4 by default it's hidden
-		TEWGraphicButtonWidget* closeButton; //0x00C8 
-		TLBSWidget* displayConfigurationWidget; //0x00CC 
-		TEWLabel* displayConfigurationLabel; //0x00D0 
-		TEWCustomPanelWidget* displayConfigurationPanel; //0x00D4 
-		TEWLabel* resolutionLabel; //0x00D8 
-		TEWGraphicButtonWidget* resolution1024x768Button; //0x00DC 
-		TEWGraphicButtonWidget* resolution1280x1024Button; //0x00E0 
-		TEWLabel* resolution1024x768ButtonLabel; //0x00E4 
-		TEWLabel* resolution1280x1024ButtonLabel; //0x00E8 
-		TEWGraphicButtonWidget* resolution1280x800Button; //0x00EC 
-		TEWGraphicButtonWidget* resolution1440x900Button; //0x00F0 
-		TEWGraphicButtonWidget* resolution1024x700Button; //0x00F4 
-		TEWLabel* resolution1280x800ButtonLabel; //0x00F8 
-		TEWLabel* resolution1440x900ButtonLabel; //0x00FC 
-		TEWLabel* resolution1024x700ButtonLabel; //0x0100 
-		TEWGraphicButtonWidget* resolution1680x1050Button; //0x0104 
-		TEWLabel* resolution1680x1050ButtonLabel; //0x0108 
-		TEWGraphicButtonWidget* windowModeButton; //0x010C 
-		TEWLabel* windowModeLabel; //0x0110 
-		TEWGraphicButtonWidget* fullScreenWindowModeButton; //0x0114 
-		TEWLabel* fullScreenWindowModeLabel; //0x0118 
-		TEWGraphicButtonWidget* resetUIPositionButton; //0x011C 
-		TEWLabel* resetUIPositionLabel; //0x0120 
-		TEWCustomPanelWidget* uknownPanel_1; //0x0124 
-		TEWLabel* unusedLabel_1; //0x0128 
-		TEWGraphicButtonWidget* resolutionButton_8_Unused; //0x012C 
-		TEWGraphicButtonWidget* resolutionButton_9_Unused; //0x0130 
-		TEWLabel* resolutionButtonLabel_8_Unused; //0x0134 
-		TEWLabel* resolutionButtonLabel_9_Unused; //0x0138 
-		TLBSWidget* soundWidget; //0x013C 
-		TEWLabel* soundLabel; //0x0140 
-		TEWCustomPanelWidget* soundPanel; //0x0144 
-		TEWLabel* soundEffectsLabel; //0x0148 
-		TEWScrollBarTrack* soundEffectsScrollBar; //0x014C 
-		TEWGraphicButtonWidget* soundsEffectCheckBox; //0x0150 
-		TEWLabel* bgmLabel; //0x0154 
-		TEWScrollBarTrack* bgmScrollBar; //0x0158 
-		TEWGraphicButtonWidget* bgmCheckBox; //0x015C 
-		TLBSWidget* otherSettingsWidget; //0x0160 
-		TEWLabel* otherSettingsLabel; //0x0164 
-		TEWCustomPanelWidget* otherSettingsPanel; //0x0168 
+		struct TEWLabel* windowTitle; //0x00C0
+		struct TEWGraphicButtonWidget* questionMarkButton; //0x00C4 by default it's hidden
+		struct TEWGraphicButtonWidget* closeButton; //0x00C8 
+		struct TLBSWidget* displayConfigurationWidget; //0x00CC 
+		struct TEWLabel* displayConfigurationLabel; //0x00D0 
+		struct TEWCustomPanelWidget* displayConfigurationPanel; //0x00D4 
+		struct TEWLabel* resolutionLabel; //0x00D8 
+		struct TEWGraphicButtonWidget* resolution1024x768Button; //0x00DC 
+		struct TEWGraphicButtonWidget* resolution1280x1024Button; //0x00E0 
+		struct TEWLabel* resolution1024x768ButtonLabel; //0x00E4 
+		struct TEWLabel* resolution1280x1024ButtonLabel; //0x00E8 
+		struct TEWGraphicButtonWidget* resolution1280x800Button; //0x00EC 
+		struct TEWGraphicButtonWidget* resolution1440x900Button; //0x00F0 
+		struct TEWGraphicButtonWidget* resolution1024x700Button; //0x00F4 
+		struct TEWLabel* resolution1280x800ButtonLabel; //0x00F8 
+		struct TEWLabel* resolution1440x900ButtonLabel; //0x00FC 
+		struct TEWLabel* resolution1024x700ButtonLabel; //0x0100 
+		struct TEWGraphicButtonWidget* resolution1680x1050Button; //0x0104 
+		struct TEWLabel* resolution1680x1050ButtonLabel; //0x0108 
+		struct TEWGraphicButtonWidget* windowModeButton; //0x010C 
+		struct TEWLabel* windowModeLabel; //0x0110 
+		struct TEWGraphicButtonWidget* fullScreenWindowModeButton; //0x0114 
+		struct TEWLabel* fullScreenWindowModeLabel; //0x0118 
+		struct TEWGraphicButtonWidget* resetUIPositionButton; //0x011C 
+		struct TEWLabel* resetUIPositionLabel; //0x0120 
+		struct TEWCustomPanelWidget* uknownPanel_1; //0x0124 
+		struct TEWLabel* unusedLabel_1; //0x0128 
+		struct TEWGraphicButtonWidget* resolutionButton_8_Unused; //0x012C 
+		struct TEWGraphicButtonWidget* resolutionButton_9_Unused; //0x0130 
+		struct TEWLabel* resolutionButtonLabel_8_Unused; //0x0134 
+		struct TEWLabel* resolutionButtonLabel_9_Unused; //0x0138 
+		struct TLBSWidget* soundWidget; //0x013C 
+		struct TEWLabel* soundLabel; //0x0140 
+		struct TEWCustomPanelWidget* soundPanel; //0x0144 
+		struct TEWLabel* soundEffectsLabel; //0x0148 
+		struct TEWScrollBarTrack* soundEffectsScrollBar; //0x014C 
+		struct TEWGraphicButtonWidget* soundsEffectCheckBox; //0x0150 
+		struct TEWLabel* bgmLabel; //0x0154 
+		struct TEWScrollBarTrack* bgmScrollBar; //0x0158 
+		struct TEWGraphicButtonWidget* bgmCheckBox; //0x015C 
+		struct TLBSWidget* otherSettingsWidget; //0x0160 
+		struct TEWLabel* otherSettingsLabel; //0x0164 
+		struct TEWCustomPanelWidget* otherSettingsPanel; //0x0168 
 		uint8_t isPartyBlockChecked; //0x016C
 		uint8_t isFamilyBlockChecked; //0x016D
 		uint8_t isFriendBlockChecked; //0x016E
@@ -72,25 +68,25 @@ namespace NosTaleSDK::Entwell::Classes
 		uint8_t isLockUIChecked; //0x0179
 		uint8_t uknownChecked_1; //0x017A
 		uint8_t uknownChecked_2; //0x017B
-		TEWGraphicButtonWidget* partyBlockCheckBox; //0x017C 
-		TEWGraphicButtonWidget* familyBlockCheckBox; //0x0180 
-		TEWGraphicButtonWidget* friendBlockCheckBox; //0x0184 
-		TEWGraphicButtonWidget* whisperBlockCheckBox; //0x0188 
-		TEWGraphicButtonWidget* exchangeBlockCheckBox; //0x018C 
-		TEWGraphicButtonWidget* mouseTrapCheckBox; //0x0190 
-		TEWGraphicButtonWidget* speakerBlockCheckBox; //0x0194 
-		TEWGraphicButtonWidget* blockMLInvitesCheckBox; //0x0198 
-		TEWGraphicButtonWidget* getUpImmediatelyCheckBox; //0x019C 
-		TEWGraphicButtonWidget* smileysGoneCheckBox; //0x01A0 
-		TEWGraphicButtonWidget* hpStatusGoneCheckBox; //0x01A4 
-		TEWGraphicButtonWidget* buffSeqGoneCheckBox; //0x01A8 
-		TEWGraphicButtonWidget* hatIsNotVisibleCheckBox; //0x01AC 
-		TEWGraphicButtonWidget* lockUICheckBox; //0x01B0 
-		TEWLabels* otherSettingsLabels; //0x01B4 
-		TLBSWidget* bottomWidget; //0x01B8 
-		TEWCustomPanelWidget* bottomPanel; //0x01BC 
-		TEWGraphicButtonWidget* confirmButton; //0x01C0 
-		TEWLabel* confirmLabel; //0x01C4 
+		struct TEWGraphicButtonWidget* partyBlockCheckBox; //0x017C 
+		struct TEWGraphicButtonWidget* familyBlockCheckBox; //0x0180 
+		struct TEWGraphicButtonWidget* friendBlockCheckBox; //0x0184 
+		struct TEWGraphicButtonWidget* whisperBlockCheckBox; //0x0188 
+		struct TEWGraphicButtonWidget* exchangeBlockCheckBox; //0x018C 
+		struct TEWGraphicButtonWidget* mouseTrapCheckBox; //0x0190 
+		struct TEWGraphicButtonWidget* speakerBlockCheckBox; //0x0194 
+		struct TEWGraphicButtonWidget* blockMLInvitesCheckBox; //0x0198 
+		struct TEWGraphicButtonWidget* getUpImmediatelyCheckBox; //0x019C 
+		struct TEWGraphicButtonWidget* smileysGoneCheckBox; //0x01A0 
+		struct TEWGraphicButtonWidget* hpStatusGoneCheckBox; //0x01A4 
+		struct TEWGraphicButtonWidget* buffSeqGoneCheckBox; //0x01A8 
+		struct TEWGraphicButtonWidget* hatIsNotVisibleCheckBox; //0x01AC 
+		struct TEWGraphicButtonWidget* lockUICheckBox; //0x01B0 
+		struct TEWLabels* otherSettingsLabels; //0x01B4 
+		struct TLBSWidget* bottomWidget; //0x01B8 
+		struct TEWCustomPanelWidget* bottomPanel; //0x01BC 
+		struct TEWGraphicButtonWidget* confirmButton; //0x01C0 
+		struct TEWLabel* confirmLabel; //0x01C4 
 		uint8_t isBgmChecked; //0x01C8
 		uint8_t isSoundsEffectsChecked; //0x01C9
 		uint8_t uknownChecked_3; //0x01CA

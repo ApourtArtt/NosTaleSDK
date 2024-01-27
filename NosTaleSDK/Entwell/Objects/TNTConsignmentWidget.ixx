@@ -2,7 +2,6 @@ module;
 #include <stdint.h>
 export module TNTConsignmentWidget;
 import TEWCustomFormWidget;
-import TEWControlWidgetMouseEvent;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -10,7 +9,7 @@ namespace NosTaleSDK::Entwell::Classes
 	export struct TNTConsignmentWidget : public TEWCustomFormWidget
 	{
 		char unknown20[4]; // 0x00BC
-		TEWControlWidgetMouseEvent* content; // 0x00C0
+		struct TEWControlWidgetMouseEvent* content; // 0x00C0
 		char unknown21[0x6B8]; // 0x00C4
 	};
 	static_assert(sizeof(TNTConsignmentWidget) == 0x077C, "TNTConsignmentWidget does not have a size of 0x077C.");

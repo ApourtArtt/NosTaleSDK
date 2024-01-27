@@ -2,7 +2,6 @@ module;
 #include <stdint.h>
 export module TEWScrollBarTrack;
 import TEWCustomPanelWidget;
-import TEWScrollBarThumb;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -10,7 +9,7 @@ namespace NosTaleSDK::Entwell::Classes
 	export struct TEWScrollBarTrack : public TEWCustomPanelWidget
 	{
 		char unknown19[4];				// 0xA4
-		TEWScrollBarThumb* scrollThumb;	// 0xA8
+		struct TEWScrollBarThumb* scrollThumb;	// 0xA8
 		int16_t currentIndex;			// 0xAC
 		int16_t currentMaxIndex;		// 0xAE
 		bool isWorking;					// 0xB0 If you turn this to 0 and move the bar the index will be 0 (this is normally set to 1) -- seems to be 0=vertical/1=horizontal?

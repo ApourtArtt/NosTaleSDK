@@ -1,13 +1,11 @@
 module;
-#include <stdint.h>
 export module TNTItemList;
 import TNTDataList;
 
 namespace NosTaleSDK::Entwell::Classes
 {
-	typedef void* Item;
 #pragma pack(push, 1)
-	export struct TNTItemList : public TNTDataList<Item>
+	export struct TNTItemList : public TNTDataList<struct Item>
 	{
 
 		char uknown[8];

@@ -1,9 +1,6 @@
 module;
-#include <stdint.h>
 export module TNTMiniMapWidget;
 import TEWCustomFormWidget;
-import TEWLabel;
-import TEWGraphicButtonWidget;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -12,9 +9,9 @@ namespace NosTaleSDK::Entwell::Classes
 	{
 		char unknown22[4];							//0xBC
 		void* miniMap;								//0xC0 TMiniMapWidget
-		TEWLabel* mapName;							//0xC4
-		TEWGraphicButtonWidget* openMapBtn;			//0xC8
-		TEWGraphicButtonWidget* collapseWidgetBtn;	//0xCC
+		struct TEWLabel* mapName;							//0xC4
+		struct TEWGraphicButtonWidget* openMapBtn;			//0xC8
+		struct TEWGraphicButtonWidget* collapseWidgetBtn;	//0xCC
 		char unknown23[4];							//0xD0
 		void* tsMiniMap;							//0xD4 TNTRiskMapWidget
 		char unknown24[4];							//0xD8

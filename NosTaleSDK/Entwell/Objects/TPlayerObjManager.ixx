@@ -2,7 +2,6 @@ module;
 #include <stdint.h>
 export module TPlayerObjManager;
 import TObject;
-import TMapPlayerObj;
 import TList;
 
 namespace NosTaleSDK::Entwell::Classes
@@ -19,11 +18,11 @@ namespace NosTaleSDK::Entwell::Classes
 		int32_t state; // 0x14 1=picking up, 2=attacking, 3=second weapon, 4=walking to cast skill
 		void* TByteList; //0x18 No vTable - not sure
 		char unknown1[4]; // 0x1C did not find any use but it's not padding
-		TMapPlayerObj* mapPlayerObj; //0x20
+		struct TMapPlayerObj* mapPlayerObj; //0x20
 		int32_t characterId; //0x24
 		int32_t unknown2; // 0x28 i think it's entitytype: it's used to create "guri 5 %d %d 0 %d", something_with(unknown2), 2, (byte **)ppiVar2
 		char unknown3[4]; // 0x2C
-		TList<void*>* unknown4; // 0x30 empty list in my case
+		struct TList<void*>* unknown4; // 0x30 empty list in my case
 		char unknown5[68]; //0x34
 		int16_t npcTalkRange; // 0x78
 		int16_t unknown6; // 0x7A

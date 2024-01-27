@@ -2,7 +2,6 @@ module;
 #include <stdint.h>
 export module TNaviNameViewer;
 import TObject;
-import TMapObjBase;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -12,7 +11,7 @@ namespace NosTaleSDK::Entwell::Classes
         char vCounter;                      // 0x04 By clicking v, vCounter++ and vCounter can not go above 3
         char maxVCounter;                   // 0x05 4 by default
         char unknown[2];                    // 0x06 probably padding
-        TMapObjBase* targetHovered;         // 0x08
+        struct TMapObjBase* targetHovered;         // 0x08
         char displayEntity;                 // 0x0C can be an enum if needed (0, 0x12, 0x1a, 0x1e)
         char fontStyle;                     // 0x0D
         uint16_t pseudonymPosY;             // 0x0E

@@ -2,10 +2,7 @@ module;
 #include <stdint.h>
 export module TMiniMapWidget;
 import TMiniMapCore;
-import TMapNpcObj;
-import TMapPlayerObj;
 import TList;
-import TMapMonsterObj;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -21,14 +18,14 @@ namespace NosTaleSDK::Entwell::Classes
 		float zPlayerPosition;						//0x90
 		float yPlayerPosition;						//0x94
 		char unknown15[4];							//0x98
-		TMapPlayerObj* player;						//0x9C
-		TMapNpcObj* npc;							//0xA0
+		struct TMapPlayerObj* player;						//0x9C
+		struct TMapNpcObj* npc;							//0xA0
 		void* unknownList;							//0xA4
 		void* unknownList2;							//0xA8
 		void* unknownList3;							//0xAC
-		TList<TMapNpcObj>* npcsList;				//0xB0
+		struct TList<struct TMapNpcObj>* npcsList;				//0xB0
 		void* unknownList5;							//0xB4
-		TList<TMapMonsterObj*>* bossList;			//0xB8
+		struct TList<struct TMapMonsterObj*>* bossList;			//0xB8
 		void* unknownList7;							//0xBC
 		void* unknownList8;							//0xC0
 		bool displayPlayer;							//0xC4

@@ -2,9 +2,6 @@ module;
 #include <stdint.h>
 export module TNTItemUpgradeWidget;
 import TEWCustomFormWidget;
-import TEWLabels;
-import TNTIconWidget;
-import TEWGraphicButtonWidget;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -12,9 +9,9 @@ namespace NosTaleSDK::Entwell::Classes
 	export struct TNTItemUpgradeWidget : public TEWCustomFormWidget
 	{
 		char unknown21[4];						//0xBC
-		TEWLabels* allLabels;					//0xC0
-		TNTIconWidget* eqIcon;					//0xC4
-		TNTIconWidget* requirementIcons[3];		//0xC8
+		struct TEWLabels* allLabels;					//0xC0
+		struct TNTIconWidget* eqIcon;					//0xC4
+		struct TNTIconWidget* requirementIcons[3];		//0xC8
 		char unknown22[8];						//0xD4
 		int32_t unknown23;						//0xDC
 		void* eqItem;				//0xE0
@@ -29,7 +26,7 @@ namespace NosTaleSDK::Entwell::Classes
 		void* thirdReqItem;		//0x1A0
 		uint16_t thirdReqItemId;				//0x1A4
 		char unknown27[50];						//0x1A6
-		TEWGraphicButtonWidget* reinforceBtn;	//0x1D8
+		struct TEWGraphicButtonWidget* reinforceBtn;	//0x1D8
 		char unknown28[4];						//0x1DC
 		char unknown29[4];						//0x1E0
 	};

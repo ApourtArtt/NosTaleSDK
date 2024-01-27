@@ -2,8 +2,6 @@ module;
 #include <stdint.h>
 export module TEWRingArrayList;
 import TObject;
-import TGameRootWidget;
-import TNTMessageBoxWidget;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -11,8 +9,8 @@ namespace NosTaleSDK::Entwell::Classes
 	export struct TEWRingArrayList : public TObject
 	{
 		void* TNTMessageBoxWidgetVTable;		// 0x04
-		TGameRootWidget* gameRootWidget;	// 0x08 TGameRootWidget in my case
-		TNTMessageBoxWidget** messageBoxes;		// 0x0C 5 max I think
+		struct TGameRootWidget* gameRootWidget;	// 0x08 TGameRootWidget in my case
+		struct TNTMessageBoxWidget** messageBoxes;		// 0x0C 5 max I think
 		int16_t lastUsedIndex;					// 0x10 messageBoxes[lastUsedIndex] is the last displayed
 		int8_t unknown2;						// 0x12
 		int8_t unknown3;						// 0x13

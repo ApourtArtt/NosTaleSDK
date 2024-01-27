@@ -1,8 +1,6 @@
 module;
-#include <stdint.h>
 export module TNTNewCommonInfoWidget;
 import TLBSWidget;
-import TNTCommonInfoBoard;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -11,7 +9,7 @@ namespace NosTaleSDK::Entwell::Classes
 	{
 		char unknown3[4];			// 0x24 2 int16_t, with left being right - 1 and right being number of opened TNTCommonInfoBoard
 		int sizeOfFollowingArray;	// 0x28
-		TNTCommonInfoBoard** arr;	// 0x2C -- Ugly, make a DelphiDynArray class template and use it that way - note, 00 ref count 04 size 08 actual array
+		struct TNTCommonInfoBoard** arr;	// 0x2C -- Ugly, make a DelphiDynArray class template and use it that way - note, 00 ref count 04 size 08 actual array
 		char unknown4[28];			// 0x30 no clue
 		// 0x44 : TNTItemList
 	};

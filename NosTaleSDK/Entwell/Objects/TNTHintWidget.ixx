@@ -1,5 +1,4 @@
 module;
-#include <stdint.h>
 export module TNTHintWidget;
 import TEWLabels;
 

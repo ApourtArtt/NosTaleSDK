@@ -2,11 +2,6 @@ module;
 #include <stdint.h>
 export module TNTSPCardUpgradeWidget;
 import TEWCustomFormWidget;
-import TEWLabel;
-import TEWGraphicButtonWidget;
-import TNTIconWidget;
-import TNTItemList;
-import TEWControlWidgetEX;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -14,25 +9,25 @@ namespace NosTaleSDK::Entwell::Classes
 	export struct TNTSPCardUpgradeWidget : public TEWCustomFormWidget
 	{
 		char unknown21[4];						//0xBC
-		TEWLabel* title;						//0xC0
-		TEWGraphicButtonWidget* helpBtn;		//0xC4
-		TEWGraphicButtonWidget* closeBtn;		//0xC8
-		TEWCustomPanelWidget* bgPanel;			//0xCC
-		TNTIconWidget* spIcon;					//0xD0
-		TEWLabel* cardLabel;					//0xD4
-		TEWLabel* successLabel;					//0xD8
-		TEWLabel* destroyLabel;					//0xDC
-		TEWLabel* failLabel;					//0xE0
-		TEWControlWidgetEX* plusIcon;			//0xE4
-		TNTIconWidget* goldIcon;				//0xE8
-		TNTIconWidget* reqIcon[3];				//0xEC
-		TNTItemList* itemList;					//0xF0
-		TEWLabel* goldDemandLabel;				//0xF4
-		TEWLabel* reqDemandLabel[3];			//0x100
-		TEWLabel* goldQuantityLabel;			//0x10C
-		TEWLabel* reqQuantityLabel[3];			//0x110
-		TEWGraphicButtonWidget* upgradeBtn;		//0x11C
-		TEWLabel* upgradeBtnLabel;				//0x120
+		struct TEWLabel* title;						//0xC0
+		struct TEWGraphicButtonWidget* helpBtn;		//0xC4
+		struct TEWGraphicButtonWidget* closeBtn;		//0xC8
+		struct TEWCustomPanelWidget* bgPanel;			//0xCC
+		struct TNTIconWidget* spIcon;					//0xD0
+		struct TEWLabel* cardLabel;					//0xD4
+		struct TEWLabel* successLabel;					//0xD8
+		struct TEWLabel* destroyLabel;					//0xDC
+		struct TEWLabel* failLabel;					//0xE0
+		struct TEWControlWidgetEX* plusIcon;			//0xE4
+		struct TNTIconWidget* goldIcon;				//0xE8
+		struct TNTIconWidget* reqIcon[3];				//0xEC
+		struct TNTItemList* itemList;					//0xF0
+		struct TEWLabel* goldDemandLabel;				//0xF4
+		struct TEWLabel* reqDemandLabel[3];			//0x100
+		struct TEWLabel* goldQuantityLabel;			//0x10C
+		struct TEWLabel* reqQuantityLabel[3];			//0x110
+		struct TEWGraphicButtonWidget* upgradeBtn;		//0x11C
+		struct TEWLabel* upgradeBtnLabel;				//0x120
 		int8_t unknown22;						//0x124
 		int8_t unknown23;						//0x125
 		int16_t unknown24;						//0x126

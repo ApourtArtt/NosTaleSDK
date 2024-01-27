@@ -2,7 +2,6 @@ module;
 #include <stdint.h>
 export module TSceneManager;
 import TObject;
-import TLBSCamera;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -24,7 +23,7 @@ namespace NosTaleSDK::Entwell::Classes
 		int16_t targetSkillX; //0x0054
 		int16_t targetSkillY; //0x0056
 		char pad_0058[20]; //0x0058
-		TLBSCamera* camera; //0x006C
+		struct TLBSCamera* camera; //0x006C
 		char pad_0070[48]; //0x0070
 	};
 	static_assert(sizeof(TSceneManager) == 0xA0, "TSceneManager does not have a size of 0xA0");

@@ -2,8 +2,6 @@ module;
 #include <stdint.h>
 export module TMapObjBase;
 import TObject;
-import TSmallIntList;
-import TLBSMultiTextureCache;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -20,8 +18,8 @@ namespace NosTaleSDK::Entwell::Classes
 		char* unknown4;								// 0x18 String related?
 		int32_t timestampMessageOverHead;			// 0x1C -1 when no message
 		int32_t unknown5;							// 0x20 probably same as above but for unknown4
-		TSmallIntList* unknown6;					// 0x24 Switching 0x04 of this class to 0 hides the message
-		TSmallIntList* unknown7;					// 0x28 probably same as above but for unknown4
+		struct TSmallIntList* unknown6;					// 0x24 Switching 0x04 of this class to 0 hides the message
+		struct TSmallIntList* unknown7;					// 0x28 probably same as above but for unknown4
 		char entityColor[4];							// 0x2C Note: changing alpha will not work, change the variable below
 		uint8_t entityAlpha;						// 0x30
 		char unknown8[3];							// 0x31 padding
@@ -29,7 +27,7 @@ namespace NosTaleSDK::Entwell::Classes
 		float unknown10;							// 0x38 max(1, unknown9)
 		bool showCircleUnderEntity;					// 0x3B
 		char unknown11[3];							// 0x3C padding
-		TLBSMultiTextureCache* textureSkin;			// 0x40
+		struct TLBSMultiTextureCache* textureSkin;			// 0x40
 		float entitySize;							// 0x44 0.02 is already big, normal is around 0.008
 		float entityHitBox;							// 0x48 the lower it is, the higher is the entity hitbox until 0
 		float unknown12;							// 0x4C used when changing map/using locomotion
