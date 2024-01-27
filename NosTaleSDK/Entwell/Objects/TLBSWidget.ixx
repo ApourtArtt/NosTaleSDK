@@ -10,8 +10,8 @@ namespace NosTaleSDK::Entwell::Classes
 	{
 		int8_t evenThing;           // 0x04 Unknown use yet
 		char unknown1[3];           // 0x05 Unknown
-		TLBSWidget* parent;         // 0x08 Widget holding this one
-		TLBSWidget* unknownWidget;  // 0x0C Unknown
+		struct TLBSWidget* parent;         // 0x08 Widget holding this one
+		struct TLBSWidget* unknownWidget;  // 0x0C Unknown
 		char border[8];             // 0x10
 		bool visible;               // 0x18 Is the widget visible ?
 		bool isHandlingClick;       // 0x19 Is the widget supposed to react on click ? Care : the whole Border describe the widget area

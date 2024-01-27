@@ -7,7 +7,7 @@ namespace NosTaleSDK::Entwell::Classes
 {
 #pragma pack(push, 1)
 	export template<typename T>
-		struct TBaseList : public TObject
+	struct TBaseList : public TObject
 	{
 		char unknown[4];	// 0x04
 		char unknown2[4];	// 0x08
