@@ -1,10 +1,16 @@
 #include <Windows.h>
 #include <iostream>
+import Runtime;
+import PatternAddressProvider;
 
 HMODULE hModule;
+NosTaleSDK::Runtime* runtime;
 
 void Init()
 {
+    static bool init = false;
+    if (init) return;
+    init = true;
     AllocConsole();
     freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
 
@@ -15,6 +21,15 @@ void Init()
     SetConsoleMode(hConsole, mode);
 }
 
+void InitRuntime()
+{
+    static bool init = false;
+    if (init) return;
+
+    PatternAddressProvider pap;
+    runtime = new NosTaleSDK::Runtime(pap);
+}
+
 extern "C" __declspec(dllexport) void __declspec(naked) ShowNostaleSplash()
 {
     __asm
@@ -23,6 +38,7 @@ extern "C" __declspec(dllexport) void __declspec(naked) ShowNostaleSplash()
         pushfd;
     }
 
+    Init();
     std::cout << "ShowNostaleSplash()" << std::endl;
 
     __asm
@@ -40,6 +56,7 @@ extern "C" __declspec(dllexport) void __declspec(naked) FreeNostaleSplash() noex
         pushfd;
     }
 
+    Init();
     std::cout << "FreeNostaleSplash()" << std::endl;
 
     __asm
@@ -54,6 +71,7 @@ extern "C" __declspec(dllexport) void __declspec(naked) FreeNostaleSplash() noex
 
 BOOL APIENTRY DllMain(HMODULE HModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
+    Init();
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:

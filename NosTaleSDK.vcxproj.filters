@@ -37,9 +37,11 @@
     <Filter Include="NosTaleSDK\Entwell\Properties\Logical">
       <UniqueIdentifier>{5c9fbba7-fdf1-461c-98c6-576b8d7804ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="NosTaleSDK\Plugin">
+      <UniqueIdentifier>{2e6236ab-35dd-4a03-84b7-b2201e5f14f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TLBSWidgetHandler.ixx">
       <Filter>NosTaleSDK\Entwell\Classes</Filter>
     </ClCompile>
@@ -480,6 +482,16 @@
     </ClCompile>
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TMapObjFxItem.ixx">
       <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="NosTaleSDK\Runtime.ixx">
+      <Filter>NosTaleSDK</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Plugin\Plugin.ixx">
+      <Filter>NosTaleSDK\Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Providers\VTableProvider.ixx">
+      <Filter>NosTaleSDK\Providers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
