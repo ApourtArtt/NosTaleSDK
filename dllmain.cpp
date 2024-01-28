@@ -3,30 +3,17 @@
 import Runtime;
 import PatternAddressProvider;
 import ClassSearcherVTableProvider;
+import ConsoleLogger;
 
-HMODULE hModule;
 NosTaleSDK::Runtime* runtime;
-
-void Init()
-{
-    static bool init = false;
-    if (init) return;
-    init = true;
-    AllocConsole();
-    freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
-
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    DWORD mode;
-    GetConsoleMode(hConsole, &mode);
-    mode |= ENABLE_PROCESSED_OUTPUT | ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-    SetConsoleMode(hConsole, mode);
-}
 
 void InitRuntime()
 {
     static bool init = false;
     if (init) return;
+    init = true;
 
+    ConsoleLogger cl;
     PatternAddressProvider patternProvider;
     ClassSearcherVTableProvider vTableProvider;
     runtime = new NosTaleSDK::Runtime(patternProvider, vTableProvider);
@@ -40,8 +27,7 @@ extern "C" __declspec(dllexport) void __declspec(naked) ShowNostaleSplash()
         pushfd;
     }
 
-    Init();
-    std::cout << "ShowNostaleSplash()" << std::endl;
+    runtime->OnShowNostaleSplash();
 
     __asm
     {
@@ -58,8 +44,7 @@ extern "C" __declspec(dllexport) void __declspec(naked) FreeNostaleSplash() noex
         pushfd;
     }
 
-    Init();
-    std::cout << "FreeNostaleSplash()" << std::endl;
+    runtime->OnFreeNostaleSplash();
 
     __asm
     {
@@ -73,11 +58,10 @@ extern "C" __declspec(dllexport) void __declspec(naked) FreeNostaleSplash() noex
 
 BOOL APIENTRY DllMain(HMODULE HModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
-    Init();
+    InitRuntime();
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
-        hModule = HModule;
         std::cout << "DLL_PROCESS_ATTACH" << std::endl;
         break;
     case DLL_THREAD_ATTACH:

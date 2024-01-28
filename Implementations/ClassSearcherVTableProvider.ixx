@@ -19,6 +19,16 @@ public:
 		memcpy(memoryData.data(), (char*)base, size);
 	}
 
+	[[nodiscard]] bool Load() override
+	{
+		return true;
+	}
+
+	[[nodiscard]] bool Unload() override
+	{
+		return true;
+	}
+
 	bool RegisterPattern(const std::string& ClassName)
 	{
 		if (patterns.contains(ClassName))
@@ -44,9 +54,9 @@ public:
 	}
 
 private:
+	// https://github.com/ApourtArtt/DelphiClassInfo
 	uintptr_t search(const std::string& ClassName)
 	{
-		// https://github.com/ApourtArtt/DelphiClassInfo
 		std::string pattern = getPattern(ClassName);
 		uint32_t pos = memoryData.find(pattern);
 		if (pos == std::string::npos)
@@ -65,7 +75,7 @@ private:
 		return 0;
 	}
 
-	static std::string getPattern(const std::string& className)
+	std::string getPattern(const std::string& className)
 	{
 		std::string pattern;
 		pattern += (char)className.size();

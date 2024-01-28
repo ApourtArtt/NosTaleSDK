@@ -496,5 +496,11 @@
     <ClCompile Include="Implementations\ClassSearcherVTableProvider.ixx">
       <Filter>Implementations</Filter>
     </ClCompile>
+    <ClCompile Include="NosTaleSDK\Interfaces\Logger.ixx">
+      <Filter>NosTaleSDK\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="Implementations\ConsoleLogger.ixx">
+      <Filter>Implementations</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

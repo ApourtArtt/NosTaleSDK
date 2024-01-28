@@ -16,6 +16,16 @@ public:
 		uint32_t startFrom;
 	};
 
+	[[nodiscard]] bool Load() override
+	{
+		return true;
+	}
+
+	[[nodiscard]] bool Unload() override
+	{
+		return true;
+	}
+
 	bool RegisterPattern(const std::string& AddressName, const PatternDef& Pattern)
 	{
 		if (patterns.contains(AddressName) || !results.contains(AddressName))
