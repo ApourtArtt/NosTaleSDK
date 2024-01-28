@@ -18,6 +18,7 @@ namespace NosTaleSDK::Entwell::Enumerations
 		ShadowRight = 128,
 		ShadowAll = 255,
 	};
+#pragma pack(pop)
 
 	inline TextShadowOrientation operator|(TextShadowOrientation a, TextShadowOrientation b)
 	{
@@ -28,5 +29,4 @@ namespace NosTaleSDK::Entwell::Enumerations
 	{
 		return static_cast<TextShadowOrientation>(static_cast<uint8_t>(a) & static_cast<uint8_t>(b));
 	}
-#pragma pack(pop)
 }
