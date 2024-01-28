@@ -5,7 +5,7 @@ import TEWControlWidget;
 namespace NosTaleSDK::Entwell::Classes
 {
 #pragma pack(push, 1)
-	template<typename T> class TNTIntHeadList;
+	template<typename T> struct TNTIntHeadList;
 	export struct TDowsingArrowWidget : public TEWControlWidget
 	{
 		struct TNTIntHeadList<void*>* list; // It is not void* but something that stores int16_t posX, int16_t posY, int32_t mapId and maybe some other data - can it be used to exploit hidden TS research?
