@@ -4,6 +4,7 @@ module;
 export module PatternAddressProvider;
 import AddressProvider;
 import MemoryUtils;
+import Logger;
 
 export class PatternAddressProvider : public NosTaleSDK::Interfaces::AddressProvider
 {
@@ -15,6 +16,10 @@ public:
 		int32_t offset;
 		uint32_t startFrom;
 	};
+
+	PatternAddressProvider(NosTaleSDK::Interfaces::Logger& Logger)
+		: NosTaleSDK::Interfaces::AddressProvider(Logger)
+	{}
 
 	[[nodiscard]] bool Load() override
 	{
@@ -60,7 +65,7 @@ public:
 		auto& pattern = patterns.at(AddressName);
 
 		auto& res = results.at(AddressName);
-		if (HowMany == res.size())
+		if (HowMany == int32_t(res.size()))
 			return res;
 
 		uint32_t startFrom = pattern.startFrom;

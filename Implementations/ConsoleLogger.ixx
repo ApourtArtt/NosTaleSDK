@@ -80,6 +80,7 @@ public:
 			GetTime().c_str(),
 			Msg.c_str()
 		), LIGHT_BLUE);
+		Flush();
 	}
 
 	void Fatal(const std::string& Msg, const std::source_location& Location = std::source_location::current())
@@ -92,11 +93,14 @@ public:
 			GetTime().c_str(),
 			Msg.c_str()
 		), LIGHT_BLUE);
+		Flush();
 	}
 
 	void Flush()
 	{
-
+		mu.lock();
+		fflush(stdout);
+		mu.unlock();
 	}
 
 private:

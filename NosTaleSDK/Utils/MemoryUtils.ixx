@@ -16,7 +16,7 @@ namespace NosTaleSDK::Utils
         return modinfo;
     }
 
-    export uintptr_t PatternScan(const char* Pattern, const char* Mask, uint32_t Offset = 0, uint32_t Start = 0)
+    export uintptr_t PatternScan(const char* Pattern, const char* Mask, int32_t Offset = 0, uint32_t Start = 0)
     {
         static MODULEINFO mInfo = GetModuleInfo();
         static auto base = (uint32_t)mInfo.lpBaseOfDll;

@@ -6,6 +6,7 @@ export module Runtime;
 import Plugin;
 import AddressProvider;
 import VTableProvider;
+import Logger;
 
 namespace NosTaleSDK
 {
@@ -15,10 +16,12 @@ namespace NosTaleSDK
 	{
 	public:
 		Runtime(
+			Interfaces::Logger& Logger,
 			Interfaces::AddressProvider& AddressProvider,
 			Interfaces::VTableProvider& VTableProvider
 		)
-			: addressProvider(AddressProvider)
+			: logger(Logger)
+			, addressProvider(AddressProvider)
 			, vTableProvider(VTableProvider)
 		{
 
@@ -55,6 +58,7 @@ namespace NosTaleSDK
 		}
 
 	private:
+		Interfaces::Logger& logger;
 		Interfaces::AddressProvider& addressProvider;
 		Interfaces::VTableProvider& vTableProvider;
 

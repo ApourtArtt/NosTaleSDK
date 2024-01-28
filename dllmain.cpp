@@ -13,10 +13,10 @@ void InitRuntime()
     if (init) return;
     init = true;
 
-    ConsoleLogger cl;
-    PatternAddressProvider patternProvider;
-    ClassSearcherVTableProvider vTableProvider;
-    runtime = new NosTaleSDK::Runtime(patternProvider, vTableProvider);
+    ConsoleLogger logger;
+    PatternAddressProvider patternProvider(logger);
+    ClassSearcherVTableProvider vTableProvider(logger);
+    runtime = new NosTaleSDK::Runtime(logger, patternProvider, vTableProvider);
 }
 
 extern "C" __declspec(dllexport) void __declspec(naked) ShowNostaleSplash()
