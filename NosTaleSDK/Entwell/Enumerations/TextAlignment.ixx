@@ -4,7 +4,7 @@ export module TextAlignment;
 
 namespace NosTaleSDK::Entwell::Enumerations
 {
-	enum class TextAlignment : uint8_t
+	export enum class TextAlignment : uint8_t
 	{
 		TopLeft = 0,
 		CenteredLeft = 1,
