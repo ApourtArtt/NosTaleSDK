@@ -5,6 +5,7 @@ module;
 export module Runtime;
 import Plugin;
 import AddressProvider;
+import VTableProvider;
 
 namespace NosTaleSDK
 {
@@ -13,8 +14,12 @@ namespace NosTaleSDK
 	export class Runtime
 	{
 	public:
-		Runtime(Providers::AddressProvider& AddressProvider)
+		Runtime(
+			Interfaces::AddressProvider& AddressProvider,
+			Interfaces::VTableProvider& VTableProvider
+		)
 			: addressProvider(AddressProvider)
+			, vTableProvider(VTableProvider)
 		{
 
 		}
@@ -50,7 +55,8 @@ namespace NosTaleSDK
 		}
 
 	private:
-		Providers::AddressProvider& addressProvider;
+		Interfaces::AddressProvider& addressProvider;
+		Interfaces::VTableProvider& vTableProvider;
 
 		std::vector<std::shared_ptr<Plugin::Plugin>> plugins;
 	};

@@ -2,6 +2,7 @@
 #include <iostream>
 import Runtime;
 import PatternAddressProvider;
+import ClassSearcherVTableProvider;
 
 HMODULE hModule;
 NosTaleSDK::Runtime* runtime;
@@ -26,8 +27,9 @@ void InitRuntime()
     static bool init = false;
     if (init) return;
 
-    PatternAddressProvider pap;
-    runtime = new NosTaleSDK::Runtime(pap);
+    PatternAddressProvider patternProvider;
+    ClassSearcherVTableProvider vTableProvider;
+    runtime = new NosTaleSDK::Runtime(patternProvider, vTableProvider);
 }
 
 extern "C" __declspec(dllexport) void __declspec(naked) ShowNostaleSplash()

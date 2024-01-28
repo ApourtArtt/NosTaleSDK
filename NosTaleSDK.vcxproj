@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Implementations\PatternAddressProvider.ixx" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Implementations\ClassSearcherVTableProvider.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TBaseList.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TBuddyChatWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TByteList.ixx" />
@@ -163,10 +164,10 @@
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\Callback.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\String.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\WideString.ixx" />
-    <ClCompile Include="NosTaleSDK\Providers\VTableProvider.ixx" />
+    <ClCompile Include="NosTaleSDK\Interfaces\VTableProvider.ixx" />
     <ClCompile Include="NosTaleSDK\Runtime.ixx" />
     <ClCompile Include="NosTaleSDK\Plugin\Plugin.ixx" />
-    <ClCompile Include="NosTaleSDK\Providers\AddressProvider.ixx" />
+    <ClCompile Include="NosTaleSDK\Interfaces\AddressProvider.ixx" />
     <ClCompile Include="NosTaleSDK\Utils\MemoryUtils.ixx" />
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTLBSWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTObject.ixx" />

@@ -3,7 +3,7 @@ module;
 #include <vector>
 export module VTableProvider;
 
-namespace NosTaleSDK::Providers
+namespace NosTaleSDK::Interfaces
 {
 	export class VTableProvider
 	{

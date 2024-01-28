@@ -3,7 +3,7 @@ module;
 #include <vector>
 export module AddressProvider;
 
-namespace NosTaleSDK::Providers
+namespace NosTaleSDK::Interfaces
 {
 	export class AddressProvider
 	{

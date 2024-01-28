@@ -16,9 +16,6 @@
     <Filter Include="NosTaleSDK\Wrappers\Classes">
       <UniqueIdentifier>{f36aff34-676b-41f9-ae94-306941168122}</UniqueIdentifier>
     </Filter>
-    <Filter Include="NosTaleSDK\Providers">
-      <UniqueIdentifier>{0acfe528-8f84-4c7f-b7e9-95362951af45}</UniqueIdentifier>
-    </Filter>
     <Filter Include="NosTaleSDK\Utils">
       <UniqueIdentifier>{8d4edd46-c41b-4617-88b8-7b11bd164de7}</UniqueIdentifier>
     </Filter>
@@ -39,6 +36,9 @@
     </Filter>
     <Filter Include="NosTaleSDK\Plugin">
       <UniqueIdentifier>{2e6236ab-35dd-4a03-84b7-b2201e5f14f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NosTaleSDK\Interfaces">
+      <UniqueIdentifier>{0acfe528-8f84-4c7f-b7e9-95362951af45}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -417,8 +417,8 @@
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTLBSWidget.ixx">
       <Filter>NosTaleSDK\Wrappers\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="NosTaleSDK\Providers\AddressProvider.ixx">
-      <Filter>NosTaleSDK\Providers</Filter>
+    <ClCompile Include="NosTaleSDK\Interfaces\AddressProvider.ixx">
+      <Filter>NosTaleSDK\Interfaces</Filter>
     </ClCompile>
     <ClCompile Include="NosTaleSDK\Utils\MemoryUtils.ixx">
       <Filter>NosTaleSDK\Utils</Filter>
@@ -490,8 +490,11 @@
     <ClCompile Include="NosTaleSDK\Plugin\Plugin.ixx">
       <Filter>NosTaleSDK\Plugin</Filter>
     </ClCompile>
-    <ClCompile Include="NosTaleSDK\Providers\VTableProvider.ixx">
-      <Filter>NosTaleSDK\Providers</Filter>
+    <ClCompile Include="NosTaleSDK\Interfaces\VTableProvider.ixx">
+      <Filter>NosTaleSDK\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="Implementations\ClassSearcherVTableProvider.ixx">
+      <Filter>Implementations</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
