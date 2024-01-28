@@ -57,6 +57,7 @@
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TMapMoveObjBase.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TMapNpcObj.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TMapObjBase.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TMapObjFxItem.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TMiniMapWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TMovePosiMarked.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNaviChatViewer.ixx" />

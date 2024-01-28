@@ -1,13 +1,13 @@
 module;
 #include <stdint.h>
 export module TNTSpecialDragonFx;
+import TMapObjFxItem;
 
 namespace NosTaleSDK::Entwell::Classes
 {
 #pragma pack(push, 1)
-	export struct TNTSpecialDragonFx
+	export struct TNTSpecialDragonFx : public TMapObjFxItem
 	{
-		char unknown[0xC]; // 0x00
 		int32_t weirdCounter; // 0x0C
 		char auraStyle[4]; // 0x10
 		char unknown2[4]; // 0x14

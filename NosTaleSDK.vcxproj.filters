@@ -478,5 +478,8 @@
     <ClCompile Include="NosTaleSDK\Entwell\Enumerations\TextShadowOrientation.ixx">
       <Filter>NosTaleSDK\Entwell\Enumerations</Filter>
     </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TMapObjFxItem.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
