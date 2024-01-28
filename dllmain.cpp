@@ -5,7 +5,7 @@ import PatternAddressProvider;
 import ClassSearcherVTableProvider;
 import ConsoleLogger;
 
-NosTaleSDK::Runtime* runtime;
+NosTaleSDK::Runtime* runtime{ nullptr };
 
 void InitRuntime()
 {
@@ -14,9 +14,13 @@ void InitRuntime()
     init = true;
 
     ConsoleLogger logger;
+    logger.Load();
+    logger.Flush();
     PatternAddressProvider patternProvider(logger);
     ClassSearcherVTableProvider vTableProvider(logger);
+
     runtime = new NosTaleSDK::Runtime(logger, patternProvider, vTableProvider);
+    runtime->Initialize();
 }
 
 extern "C" __declspec(dllexport) void __declspec(naked) ShowNostaleSplash()
@@ -59,20 +63,5 @@ extern "C" __declspec(dllexport) void __declspec(naked) FreeNostaleSplash() noex
 BOOL APIENTRY DllMain(HMODULE HModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
     InitRuntime();
-    switch (ul_reason_for_call)
-    {
-    case DLL_PROCESS_ATTACH:
-        std::cout << "DLL_PROCESS_ATTACH" << std::endl;
-        break;
-    case DLL_THREAD_ATTACH:
-        std::cout << "DLL_THREAD_ATTACH" << std::endl;
-        break;
-    case DLL_THREAD_DETACH:
-        std::cout << "DLL_THREAD_DETACH" << std::endl;
-        break;
-    case DLL_PROCESS_DETACH:
-        std::cout << "DLL_PROCESS_DETACH" << std::endl;
-        break;
-    }
     return TRUE;
 }

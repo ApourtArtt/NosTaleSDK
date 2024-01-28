@@ -502,5 +502,8 @@
     <ClCompile Include="Implementations\ConsoleLogger.ixx">
       <Filter>Implementations</Filter>
     </ClCompile>
+    <ClCompile Include="NosTaleSDK\Interfaces\Interface.ixx">
+      <Filter>NosTaleSDK\Interfaces</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

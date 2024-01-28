@@ -165,6 +165,7 @@
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\Callback.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\String.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\WideString.ixx" />
+    <ClCompile Include="NosTaleSDK\Interfaces\Interface.ixx" />
     <ClCompile Include="NosTaleSDK\Interfaces\Logger.ixx" />
     <ClCompile Include="NosTaleSDK\Interfaces\VTableProvider.ixx" />
     <ClCompile Include="NosTaleSDK\Runtime.ixx" />

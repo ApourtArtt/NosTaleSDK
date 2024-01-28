@@ -2,6 +2,8 @@ module;
 #include <vector>
 #include <set>
 #include <memory>
+#include <string>
+#include <format>
 export module Runtime;
 import Plugin;
 import AddressProvider;
@@ -23,38 +25,51 @@ namespace NosTaleSDK
 			: logger(Logger)
 			, addressProvider(AddressProvider)
 			, vTableProvider(VTableProvider)
-		{
-
-		}
+		{}
 
 		~Runtime()
 		{
 
 		}
 
-		void RegisterPlugin(std::shared_ptr<Plugin::Plugin> Plugin)
+		bool Initialize()
 		{
-			plugins.push_back(std::reference_wrapper(Plugin));
+			if (isInit) return true;
+			isInit = true;
+
+			if (!logger.Load())
+				return false;
+
+			logger.Info("Initializing the runtime");
+
+			logger.Info("Loading the AddressProvider");
+			if (!addressProvider.Load())
+				return false;
+
+			logger.Info("Loading the VTableProvider");
+			if (!vTableProvider.Load())
+				return false;
 		}
 
-		void UnregisterPlugin(std::shared_ptr<Plugin::Plugin> Plugin)
+		void RegisterPlugin(std::shared_ptr<Plugin::Plugin> Plugin)
 		{
-			plugins.erase(std::find(plugins.begin(), plugins.end(), Plugin));
+			logger.Info(std::format("Registering plugin: {}", Plugin->GetName()));
+			plugins.push_back(std::reference_wrapper(Plugin));
 		}
 
 		void OnShowNostaleSplash()
 		{
-
+			logger.Info("OnShowNostaleSplash");
 		}
 
 		void OnFreeNostaleSplash()
 		{
-
+			logger.Info("OnFreeNostaleSplash");
 		}
 
 		void Run()
 		{
-
+			logger.Info("Run();");
 		}
 
 	private:
@@ -63,5 +78,6 @@ namespace NosTaleSDK
 		Interfaces::VTableProvider& vTableProvider;
 
 		std::vector<std::shared_ptr<Plugin::Plugin>> plugins;
+		bool isInit{ false };
 	};
 }

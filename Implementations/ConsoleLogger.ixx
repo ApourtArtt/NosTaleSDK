@@ -11,29 +11,6 @@ import Logger;
 export class ConsoleLogger : public NosTaleSDK::Interfaces::Logger
 {
 public:
-	[[nodiscard]] bool Load() override
-	{
-		if (!AllocConsole())
-			return false;
-
-		freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
-		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-		if (hConsole == nullptr)
-			return false;
-
-		DWORD mode;
-		if (GetConsoleMode(hConsole, &mode))
-			return false;
-
-		mode |= ENABLE_PROCESSED_OUTPUT | ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-		return SetConsoleMode(hConsole, mode);
-	}
-
-	[[nodiscard]] bool Unload() override
-	{
-		return FreeConsole();
-	}
-
 	void Info(const std::string& Msg, const std::source_location& Location = std::source_location::current())
 	{
 		log(std::format("\t[INFO] file: %s:%d:%d (%s) %s\n%s",
@@ -115,6 +92,29 @@ private:
 		mu.lock();
 		printf("%s%s%s", color, msg.c_str(), RESET);
 		mu.unlock();
+	}
+
+	bool load() override
+	{
+		if (!AllocConsole())
+			return false;
+
+		freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
+		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+		if (hConsole == nullptr)
+			return false;
+
+		DWORD mode;
+		if (GetConsoleMode(hConsole, &mode))
+			return false;
+
+		mode |= ENABLE_PROCESSED_OUTPUT | ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+		return SetConsoleMode(hConsole, mode);
+	}
+
+	bool unload() override
+	{
+		return FreeConsole();
 	}
 
 	std::mutex mu;

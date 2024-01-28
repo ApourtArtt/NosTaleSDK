@@ -21,16 +21,6 @@ public:
 		memcpy(memoryData.data(), (char*)base, size);
 	}
 
-	[[nodiscard]] bool Load() override
-	{
-		return true;
-	}
-
-	[[nodiscard]] bool Unload() override
-	{
-		return true;
-	}
-
 	bool RegisterPattern(const std::string& ClassName)
 	{
 		if (patterns.contains(ClassName))
@@ -83,6 +73,16 @@ private:
 		pattern += (char)className.size();
 		pattern += className;
 		return pattern;
+	}
+
+	bool load() override
+	{
+		return true;
+	}
+
+	bool unload() override
+	{
+		return true;
 	}
 
 	std::string memoryData;

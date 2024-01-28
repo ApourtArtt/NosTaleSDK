@@ -21,16 +21,6 @@ public:
 		: NosTaleSDK::Interfaces::AddressProvider(Logger)
 	{}
 
-	[[nodiscard]] bool Load() override
-	{
-		return true;
-	}
-
-	[[nodiscard]] bool Unload() override
-	{
-		return true;
-	}
-
 	bool RegisterPattern(const std::string& AddressName, const PatternDef& Pattern)
 	{
 		if (patterns.contains(AddressName) || !results.contains(AddressName))
@@ -83,6 +73,16 @@ public:
 	}
 
 private:
+	bool load() override
+	{
+		return true;
+	}
+
+	bool unload() override
+	{
+		return true;
+	}
+
 	std::map<std::string, PatternDef> patterns;
 	std::map<std::string, std::vector<uintptr_t>> results;
 };
