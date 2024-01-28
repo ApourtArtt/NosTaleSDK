@@ -19,6 +19,5 @@ namespace NosTaleSDK::Interfaces
 
 	protected:
 		Logger& logger;
-		bool isInit{ false };
 	};
 }
