@@ -5,7 +5,7 @@ export module TextShadowOrientation;
 namespace NosTaleSDK::Entwell::Enumerations
 {
 #pragma pack(push, 1)
-	enum class TextShadowOrientation : uint8_t
+	export enum class TextShadowOrientation : uint8_t
 	{
 		ShadowNone = 0,
 		ShadowBottom = 1,
