@@ -14,6 +14,13 @@ namespace NosTaleSDK::Plugin
 
 		[[nodiscard]] std::string GetName() { return name; }
 
+		virtual void OnShowNostaleSplash() {}
+		virtual void OnFreeNostaleSplash() {}
+		virtual void BeforeRuntimeRun() {}
+		virtual void OnRuntimeTick() {}
+		virtual void OnGameTick() {}
+		virtual void AfterRuntimeRun() {}
+
 	private:
 		std::string name;
 	};

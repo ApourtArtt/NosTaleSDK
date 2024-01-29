@@ -13,11 +13,7 @@ export class ConsoleLogger : public NosTaleSDK::Interfaces::Logger
 public:
 	void Info(const std::string& Msg, const std::source_location& Location = std::source_location::current()) override
 	{
-		log(std::format("\t[INFO] file: {}:{}:{} ({}) {}\n{}\n",
-			Location.file_name(),
-			Location.line(),
-			Location.column(),
-			Location.function_name(),
+		log(std::format("\t[INFO] {}\n{}\n",
 			GetTime().c_str(),
 			Msg.c_str()
 		), LIGHT_BLUE);

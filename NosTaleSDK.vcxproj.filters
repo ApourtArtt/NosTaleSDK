@@ -34,9 +34,6 @@
     <Filter Include="NosTaleSDK\Entwell\Properties\Logical">
       <UniqueIdentifier>{5c9fbba7-fdf1-461c-98c6-576b8d7804ee}</UniqueIdentifier>
     </Filter>
-    <Filter Include="NosTaleSDK\Plugin">
-      <UniqueIdentifier>{2e6236ab-35dd-4a03-84b7-b2201e5f14f9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="NosTaleSDK\Interfaces">
       <UniqueIdentifier>{0acfe528-8f84-4c7f-b7e9-95362951af45}</UniqueIdentifier>
     </Filter>
@@ -487,9 +484,6 @@
     <ClCompile Include="NosTaleSDK\Runtime.ixx">
       <Filter>NosTaleSDK</Filter>
     </ClCompile>
-    <ClCompile Include="NosTaleSDK\Plugin\Plugin.ixx">
-      <Filter>NosTaleSDK\Plugin</Filter>
-    </ClCompile>
     <ClCompile Include="NosTaleSDK\Interfaces\VTableProvider.ixx">
       <Filter>NosTaleSDK\Interfaces</Filter>
     </ClCompile>
@@ -503,6 +497,9 @@
       <Filter>Implementations</Filter>
     </ClCompile>
     <ClCompile Include="NosTaleSDK\Interfaces\Interface.ixx">
+      <Filter>NosTaleSDK\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Interfaces\Plugin.ixx">
       <Filter>NosTaleSDK\Interfaces</Filter>
     </ClCompile>
   </ItemGroup>
