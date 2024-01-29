@@ -17,7 +17,7 @@ public:
 		uint32_t startFrom;
 	};
 
-	PatternAddressProvider(NosTaleSDK::Interfaces::Logger& Logger)
+	PatternAddressProvider(std::shared_ptr<NosTaleSDK::Interfaces::Logger> Logger)
 		: NosTaleSDK::Interfaces::AddressProvider(Logger)
 	{}
 

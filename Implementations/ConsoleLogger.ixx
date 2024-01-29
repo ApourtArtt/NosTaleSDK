@@ -11,9 +11,9 @@ import Logger;
 export class ConsoleLogger : public NosTaleSDK::Interfaces::Logger
 {
 public:
-	void Info(const std::string& Msg, const std::source_location& Location = std::source_location::current())
+	void Info(const std::string& Msg, const std::source_location& Location = std::source_location::current()) override
 	{
-		log(std::format("\t[INFO] file: %s:%d:%d (%s) %s\n%s",
+		log(std::format("\t[INFO] file: {}:{}:{} ({}) {}\n{}\n",
 			Location.file_name(),
 			Location.line(),
 			Location.column(),
@@ -23,9 +23,9 @@ public:
 		), LIGHT_BLUE);
 	}
 
-	void Debug(const std::string& Msg, const std::source_location& Location = std::source_location::current())
+	void Debug(const std::string& Msg, const std::source_location& Location = std::source_location::current()) override
 	{
-		log(std::format("\t[DEBUG] file: %s:%d:%d (%s) %s\n%s",
+		log(std::format("\t[DEBUG] file: {}:{}:{} ({}) {}\n{}\n",
 			Location.file_name(),
 			Location.line(),
 			Location.column(),
@@ -35,9 +35,9 @@ public:
 		), LIGHT_BLUE);
 	}
 
-	void Warn(const std::string& Msg, const std::source_location& Location = std::source_location::current())
+	void Warn(const std::string& Msg, const std::source_location& Location = std::source_location::current()) override
 	{
-		log(std::format("\t[WARN] file: %s:%d:%d (%s) %s\n%s",
+		log(std::format("\t[WARN] file: {}:{}:{} ({}) {}\n{}\n",
 			Location.file_name(),
 			Location.line(),
 			Location.column(),
@@ -47,22 +47,9 @@ public:
 		), LIGHT_BLUE);
 	}
 
-	void Error(const std::string& Msg, const std::source_location& Location = std::source_location::current())
+	void Error(const std::string& Msg, const std::source_location& Location = std::source_location::current()) override
 	{
-		log(std::format("\t[ERROR] file: %s:%d:%d (%s) %s\n%s",
-			Location.file_name(),
-			Location.line(),
-			Location.column(),
-			Location.function_name(),
-			GetTime().c_str(),
-			Msg.c_str()
-		), LIGHT_BLUE);
-		Flush();
-	}
-
-	void Fatal(const std::string& Msg, const std::source_location& Location = std::source_location::current())
-	{
-		log(std::format("\t[FATAL] file: %s:%d:%d (%s) %s\n%s",
+		log(std::format("\t[ERROR] file: {}:{}:{} ({}) {}\n{}\n",
 			Location.file_name(),
 			Location.line(),
 			Location.column(),
@@ -73,7 +60,20 @@ public:
 		Flush();
 	}
 
-	void Flush()
+	void Fatal(const std::string& Msg, const std::source_location& Location = std::source_location::current()) override
+	{
+		log(std::format("\t[FATAL] file: {}:{}:{} ({}) {}\n{}\n",
+			Location.file_name(),
+			Location.line(),
+			Location.column(),
+			Location.function_name(),
+			GetTime().c_str(),
+			Msg.c_str()
+		), LIGHT_BLUE);
+		Flush();
+	}
+
+	void Flush() override
 	{
 		mu.lock();
 		fflush(stdout);
@@ -96,6 +96,8 @@ private:
 
 	bool load() override
 	{
+		FreeConsole();
+
 		if (!AllocConsole())
 			return false;
 
@@ -105,11 +107,12 @@ private:
 			return false;
 
 		DWORD mode;
-		if (GetConsoleMode(hConsole, &mode))
+		if (!GetConsoleMode(hConsole, &mode))
 			return false;
 
 		mode |= ENABLE_PROCESSED_OUTPUT | ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-		return SetConsoleMode(hConsole, mode);
+		SetConsoleMode(hConsole, mode);
+		return true;
 	}
 
 	bool unload() override

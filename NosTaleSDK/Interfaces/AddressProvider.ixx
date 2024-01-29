@@ -1,6 +1,7 @@
 module;
 #include <string>
 #include <vector>
+#include <memory>
 export module AddressProvider;
 import Logger;
 import Interface;
@@ -10,7 +11,7 @@ namespace NosTaleSDK::Interfaces
 	export class AddressProvider : public Interface
 	{
 	public:
-		AddressProvider(Logger& Logger)
+		AddressProvider(std::shared_ptr<Logger> Logger)
 			: logger(Logger)
 		{}
 		virtual ~AddressProvider() {}
@@ -18,6 +19,10 @@ namespace NosTaleSDK::Interfaces
 		[[nodiscard]] virtual std::vector<uintptr_t> GetMany(const std::string& AddressName, int32_t HowMany = -1) = 0;
 
 	protected:
-		Logger& logger;
+		std::shared_ptr<Logger> logger;
+
+	private:
+		virtual bool load() = 0;
+		virtual bool unload() = 0;
 	};
 }

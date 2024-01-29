@@ -11,7 +11,7 @@ import Logger;
 export class ClassSearcherVTableProvider : public NosTaleSDK::Interfaces::VTableProvider
 {
 public:
-	ClassSearcherVTableProvider(NosTaleSDK::Interfaces::Logger& Logger)
+	ClassSearcherVTableProvider(std::shared_ptr<NosTaleSDK::Interfaces::Logger> Logger)
 		: NosTaleSDK::Interfaces::VTableProvider(Logger)
 	{
 		MODULEINFO mInfo = NosTaleSDK::Utils::GetModuleInfo();

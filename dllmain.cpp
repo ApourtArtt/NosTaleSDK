@@ -1,5 +1,6 @@
 #include <Windows.h>
 #include <iostream>
+#include <memory>
 import Runtime;
 import PatternAddressProvider;
 import ClassSearcherVTableProvider;
@@ -13,11 +14,11 @@ void InitRuntime()
     if (init) return;
     init = true;
 
-    ConsoleLogger logger;
-    logger.Load();
-    logger.Flush();
-    PatternAddressProvider patternProvider(logger);
-    ClassSearcherVTableProvider vTableProvider(logger);
+    auto logger = std::make_shared<ConsoleLogger>();
+    logger->Load();
+    logger->Flush();
+    auto patternProvider = std::make_shared<PatternAddressProvider>(logger);
+    auto vTableProvider = std::make_shared<ClassSearcherVTableProvider>(logger);
 
     runtime = new NosTaleSDK::Runtime(logger, patternProvider, vTableProvider);
     runtime->Initialize();
@@ -37,6 +38,7 @@ extern "C" __declspec(dllexport) void __declspec(naked) ShowNostaleSplash()
     {
         popfd;
         popad;
+        ret;
     }
 }
 
@@ -55,7 +57,7 @@ extern "C" __declspec(dllexport) void __declspec(naked) FreeNostaleSplash() noex
         popfd;
         popad;
 
-        mov eax, 0;
+        xor eax, eax;
         ret;
     }
 }

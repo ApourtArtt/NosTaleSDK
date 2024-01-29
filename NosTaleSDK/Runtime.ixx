@@ -18,9 +18,9 @@ namespace NosTaleSDK
 	{
 	public:
 		Runtime(
-			Interfaces::Logger& Logger,
-			Interfaces::AddressProvider& AddressProvider,
-			Interfaces::VTableProvider& VTableProvider
+			std::shared_ptr<Interfaces::Logger> Logger,
+			std::shared_ptr<Interfaces::AddressProvider> AddressProvider,
+			std::shared_ptr<Interfaces::VTableProvider> VTableProvider
 		)
 			: logger(Logger)
 			, addressProvider(AddressProvider)
@@ -37,45 +37,45 @@ namespace NosTaleSDK
 			if (isInit) return true;
 			isInit = true;
 
-			if (!logger.Load())
+			if (!logger->Load())
 				return false;
 
-			logger.Info("Initializing the runtime");
+			logger->Info("Initializing the runtime");
 
-			logger.Info("Loading the AddressProvider");
-			if (!addressProvider.Load())
+			logger->Info("Loading the AddressProvider");
+			if (!addressProvider->Load())
 				return false;
 
-			logger.Info("Loading the VTableProvider");
-			if (!vTableProvider.Load())
+			logger->Info("Loading the VTableProvider");
+			if (!vTableProvider->Load())
 				return false;
 		}
 
 		void RegisterPlugin(std::shared_ptr<Plugin::Plugin> Plugin)
 		{
-			logger.Info(std::format("Registering plugin: {}", Plugin->GetName()));
+			logger->Info(std::format("Registering plugin: {}", Plugin->GetName()));
 			plugins.push_back(std::reference_wrapper(Plugin));
 		}
 
 		void OnShowNostaleSplash()
 		{
-			logger.Info("OnShowNostaleSplash");
+			logger->Info("OnShowNostaleSplash");
 		}
 
 		void OnFreeNostaleSplash()
 		{
-			logger.Info("OnFreeNostaleSplash");
+			logger->Info("OnFreeNostaleSplash");
 		}
 
 		void Run()
 		{
-			logger.Info("Run();");
+			logger->Info("Run();");
 		}
 
 	private:
-		Interfaces::Logger& logger;
-		Interfaces::AddressProvider& addressProvider;
-		Interfaces::VTableProvider& vTableProvider;
+		std::shared_ptr<Interfaces::Logger> logger;
+		std::shared_ptr<Interfaces::AddressProvider> addressProvider;
+		std::shared_ptr<Interfaces::VTableProvider> vTableProvider;
 
 		std::vector<std::shared_ptr<Plugin::Plugin>> plugins;
 		bool isInit{ false };
