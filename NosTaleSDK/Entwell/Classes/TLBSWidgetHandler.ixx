@@ -33,6 +33,8 @@ namespace NosTaleSDK::Entwell::Classes
 		char unknown11[4];							// 0x0060
 		char unknown12[676];						// 0x0064
 	};
-	static_assert(sizeof(TLBSWidgetHandler) == 0x308, "TLBSWidgetHandler does not have a size of 0x308.");
+	static_assert(sizeof(TLBSWidgetHandler) == 0x308, "TLBSWidgetHandler size isn't 0x308.");
+	static_assert(sizeof(TLBSWidgetHandler) <= 0x308, "TLBSWidgetHandler size is upper than 0x308.");
+	static_assert(sizeof(TLBSWidgetHandler) >= 0x308, "TLBSWidgetHandler size is lower than 0x308.");
 #pragma pack(pop)
 }
