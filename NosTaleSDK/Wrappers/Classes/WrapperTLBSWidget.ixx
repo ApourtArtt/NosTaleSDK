@@ -7,7 +7,7 @@ import WrapperTObject;
 
 namespace NosTaleSDK::Wrappers::Classes
 {
-	export class WrapperTLBSWidget: public WrapperTObject
+	export class WrapperTLBSWidget : public WrapperTObject
 	{
 	public:
 		WrapperTLBSWidget()
@@ -21,7 +21,7 @@ namespace NosTaleSDK::Wrappers::Classes
 
 		}
 
-		void even() { std::cout << tType->evenThing; }
+		void even() { std::cout << tType->unknown; }
 
 	protected:
 		NosTaleSDK::Entwell::Classes::TLBSWidget* tType{ new NosTaleSDK::Entwell::Classes::TLBSWidget() };

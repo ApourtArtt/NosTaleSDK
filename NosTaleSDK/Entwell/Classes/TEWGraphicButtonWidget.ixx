@@ -8,8 +8,11 @@ namespace NosTaleSDK::Entwell::Classes
 
 	export struct TEWGraphicButtonWidget : public TEWCustomButtonWidget
 	{
-		char unknown24[4];	// 0xD8
+		uint8_t unknown35;	// 0x0D8
+		char unknown36[3];	// 0x0D9
 	};
-	static_assert(sizeof(TEWGraphicButtonWidget) == 0xDC, "TEWGraphicButtonWidget does not have a size of 0xDC.");
+	static_assert(sizeof(TEWGraphicButtonWidget) == 0xDC, "TEWGraphicButtonWidget size isn't 0xDC.");
+	static_assert(sizeof(TEWGraphicButtonWidget) <= 0xDC, "TEWGraphicButtonWidget size is upper than 0xDC.");
+	static_assert(sizeof(TEWGraphicButtonWidget) >= 0xDC, "TEWGraphicButtonWidget size is lower than 0xDC.");
 #pragma pack(pop)
 }

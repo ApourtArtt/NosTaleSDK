@@ -2,19 +2,25 @@ module;
 #include <stdint.h>
 export module TEWCustomPanelWidget;
 import TEWMoveWidget;
+import ImagePadding;
 
 namespace NosTaleSDK::Entwell::Classes
 {
 #pragma pack(push, 1)
 	export struct TEWCustomPanelWidget : public TEWMoveWidget
 	{
-		char unknown15;							// 0x80
-		char unknown16[8];						// 0x80
-		char imagePadding[0x10];				// 0x89
-		char unknown17[9];						// 0X99
-		uint8_t nbUsablePictureViews;			// 0xA2 Holds how many views this object will use
-		char unknown18;							// 0xA3
+		uint8_t unknown23;																// 0x080
+		uint32_t unknown24;																// 0x081
+		uint32_t unknown25;																// 0x085
+		struct NosTaleSDK::Entwell::Properties::Graphical::ImagePadding imagePadding;	// 0x089
+		uint32_t unknown26;																// 0x099
+		uint32_t unknown27;																// 0x09D
+		char unknown28;																	// 0x0A1
+		uint8_t nbUsablePictureViews;													// 0x0A2
+		char unknown29;																	// 0x0A3
 	};
-	static_assert(sizeof(TEWCustomPanelWidget) == 0xA4, "TEWCustomPanelWidget does not have a size of 0xA4.");
+	static_assert(sizeof(TEWCustomPanelWidget) == 0xA4, "TEWCustomPanelWidget size isn't 0xA4.");
+	static_assert(sizeof(TEWCustomPanelWidget) <= 0xA4, "TEWCustomPanelWidget size is upper than 0xA4.");
+	static_assert(sizeof(TEWCustomPanelWidget) >= 0xA4, "TEWCustomPanelWidget size is lower than 0xA4.");
 #pragma pack(pop)
 }

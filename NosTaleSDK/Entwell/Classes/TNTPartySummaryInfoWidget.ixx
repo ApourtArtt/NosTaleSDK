@@ -8,37 +8,36 @@ namespace NosTaleSDK::Entwell::Classes
 #pragma pack(push, 1)
 	export struct TNTPartySummaryInfoWidget : public TEWCustomPanelWidget
 	{
-		char unknown19[4]; // 0xA4
-		struct TEWLabel* labelLevel; // 0xA8
-		struct TEWLabel* labelPseudonym; // 0xAC
-		struct TNTMaskingGaugeWidget* gaugeHp; // 0xB0
-		struct TNTMaskingGaugeWidget* gaugeMp; // 0xB4
-		struct TNTItemList* itemListUnknown; // 0xB8
-		char unknown20[4]; // 0xBC
-		void* TPetSelectIcon; // 0xC0 (pet image)
-		struct TEWControlWidgetEX* greenCircle; // 0xC4
-		struct TEWControlWidgetEX* topLeftImage; // 0xC8
-		struct TEWControlWidgetEX* bottomLeftImageRemoved; // 0xCC
-		char unknown21[4]; // 0xD0 triggered on click
-		struct TEWControlWidgetEX* bottomLeftImage; // 0xD4
-		struct TEWGraphicButtonWidget* topRightButton; // 0xD8
-		char unknown22[4]; // 0xDC
-		char ignoreForNow; // 0xE0 1 = player 2 = pet 3 = partner
-		char entityType; // 0xE1 note: not really entityType, so not of type EntityType (mate = 3 instead of 2)
-		char unknown23[2]; // 0xE2
-		int32_t entityId; // 0xE4
-		char unknown24[4]; // 0xE8
-		struct TNTIconWidget* buff1; // 0xEC
-		struct TNTIconWidget* buff2; // 0xF0
-		struct TNTIconWidget* buff3; // 0xF4
-		struct TNTIconWidget* buff4; // 0xF8
-		struct TNTIconWidget* buff5; // 0xFC
-		struct TNTIconWidget* buff6; // 0x100
-		struct TNTIconWidget* buff7; // 0x104
-		struct TNTIconWidget* buff8; // 0x108
-		char unknown25[4]; // 0x10C
-		void* TNTGraphicButtonAtSpecialCard; // 0x110 SP button
+		char unknown30[4];														// 0x0A4
+		struct TEWLabel* level;													// 0x0A8
+		struct TEWLabel* pseudonym;												// 0x0AC
+		struct TNTMaskingGaugeWidget* gaugeHp;									// 0x0B0
+		struct TNTMaskingGaugeWidget* gaugeMp;									// 0x0B4
+		struct TNTItemList* unknown31;											// 0x0B8
+		uint8_t unknown32;														// 0x0BC
+		char unknown33[3];														// 0x0BD
+		struct TPetSelectIcon* firstPartyMemberImage;							// 0x0C0
+		struct TEWControlWidgetEX* firstPartyMemberGreenCircle;					// 0x0C4
+		struct TEWControlWidgetEX* firstPartyMemberTargetCircle;				// 0x0C8
+		struct TEWControlWidgetEX* firstPartyMemberUnusedImage;					// 0x0CC
+		bool isFirstPartyMemberFollow;											// 0x0D0
+		bool isFirstPartyMemberControlled;										// 0x0D1
+		char unknown34[2];														// 0x0D2
+		struct TEWControlWidgetEX* firstPartyMemberPowerSeed;					// 0x0D4
+		struct TEWGraphicButtonWidget* firstPartyMemberBag;						// 0x0D8
+		char unknown35[4];														// 0x0DC
+		uint8_t unknown36;														// 0x0E0 1 = player 2 = pet 3 = partner
+		uint8_t firstPartyMemberEntityType;										// 0x0E1 1 = player 3 = pet/player
+		char unknown37[2];														// 0x0E2
+		int32_t firstPartyMemberEntityId;										// 0x0E4
+		bool isFirstPartyMemberPet;												// 0x0E8
+		char unknown38[3];														// 0x0E9
+		struct TNTIconWidget* firstPartyMemberBuffIcons[8];						// 0x0EC
+		char unknown39[4];														// 0x10C
+		struct TNTGraphicButtonAtSpecialCard2* firstPartyMemberSpButton;		// 0x110
 	};
-	static_assert(sizeof(TNTPartySummaryInfoWidget) == 0x114, "TNTPartySummaryInfoWidget does not have a size of 0x114");
+	static_assert(sizeof(TNTPartySummaryInfoWidget) == 0x114, "TNTPartySummaryInfoWidget size isn't 0x114.");
+	static_assert(sizeof(TNTPartySummaryInfoWidget) <= 0x114, "TNTPartySummaryInfoWidget size is upper than 0x114.");
+	static_assert(sizeof(TNTPartySummaryInfoWidget) >= 0x114, "TNTPartySummaryInfoWidget size is lower than 0x114.");
 #pragma pack(pop)
 }

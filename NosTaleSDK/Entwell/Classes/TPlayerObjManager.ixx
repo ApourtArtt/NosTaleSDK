@@ -3,33 +3,39 @@ module;
 export module TPlayerObjManager;
 import TObject;
 template<typename> struct TList;
+import Position;
 
 namespace NosTaleSDK::Entwell::Classes
 {
 #pragma pack(push, 1)
 	export struct TPlayerObjManager : public TObject
 	{
-		int16_t currentX; // 0x04
-		int16_t currentY; // 0x06
-		int16_t destX; // 0x08
-		int16_t destY; // 0x0A
-		int32_t lastAttackTimestamp; // 0x0C Not attacking but being on the way to increases it
-		char unknown[4]; // 0x10
-		int32_t state; // 0x14 1=picking up, 2=attacking, 3=second weapon, 4=walking to cast skill
-		void* TByteList; //0x18 No vTable - not sure
-		char unknown1[4]; // 0x1C did not find any use but it's not padding
-		struct TMapPlayerObj* mapPlayerObj; //0x20
-		int32_t characterId; //0x24
-		int32_t unknown2; // 0x28 i think it's entitytype: it's used to create "guri 5 %d %d 0 %d", something_with(unknown2), 2, (byte **)ppiVar2
-		char unknown3[4]; // 0x2C
-		struct TList<void*>* unknown4; // 0x30 empty list in my case
-		char unknown5[68]; //0x34
-		int16_t npcTalkRange; // 0x78
-		int16_t unknown6; // 0x7A
-		char unknown7[45];// 0x7C
-		bool isResting; //0xA9
-		char pad_00AA[14]; //0xAA
+		struct NosTaleSDK::Entwell::Properties::Logical::Position position;		// 0x004
+		struct NosTaleSDK::Entwell::Properties::Logical::Position destination;	// 0x008
+		int32_t timestampLastAttack;											// 0x00C
+		char unknown[4];														// 0x010
+		int32_t currentState;													// 0x014 1=picking up, 2=attacking, 3=second weapon, 4=walking to cast skill
+		struct TByteList* TByteList;											// 0x018
+		char unknown2[4];														// 0x01C
+		struct TMapPlayerObj* mapPlayerObj;										// 0x020
+		int32_t characterId;													// 0x024
+		int32_t unknown3;														// 0x028 maybe entityType
+		char unknown4[4];														// 0x02C
+		struct TList<void*>* unknown5;											// 0x030
+		char unknown6[58];														// 0x034
+		int16_t rangeBonus;														// 0x06E
+		char unknown7[8];														// 0x070
+		int16_t npcTalkRange;													// 0x078
+		int16_t unknown8;														// 0x07A
+		char unknown9[28];														// 0x07C
+		bool isMouseInvented;													// 0x098
+		bool unknown10[15];														// 0x099
+		bool isMovementLocked;													// 0x0A8
+		bool isResting;															// 0x0A9
+		char unknown11[14];														// 0x0AA
 	};
-	static_assert(sizeof(TPlayerObjManager) == 0xB8, "TPlayerObjManager does not have a size of 0xB8");
+	static_assert(sizeof(TPlayerObjManager) == 0xB8, "TPlayerObjManager size isn't 0xB8.");
+	static_assert(sizeof(TPlayerObjManager) <= 0xB8, "TPlayerObjManager size is upper than 0xB8.");
+	static_assert(sizeof(TPlayerObjManager) >= 0xB8, "TPlayerObjManager size is lower than 0xB8.");
 #pragma pack(pop)
 }

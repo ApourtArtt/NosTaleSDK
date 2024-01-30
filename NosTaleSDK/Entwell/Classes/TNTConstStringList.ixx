@@ -8,6 +8,8 @@ namespace NosTaleSDK::Entwell::Classes
 	export struct TNTIntHeadList<char*> TNTConstStringList
 	{
 	};
-	static_assert(sizeof(TNTConstStringList) == 0x10, "TNTConstStringList does not have a size of 0x10.");
+	static_assert(sizeof(TNTConstStringList) == 0x10, "TNTCommonInfoBoard size isn't 0x10.");
+	static_assert(sizeof(TNTConstStringList) <= 0x10, "TNTCommonInfoBoard size is upper than 0x10.");
+	static_assert(sizeof(TNTConstStringList) >= 0x10, "TNTCommonInfoBoard size is lower than 0x10.");
 #pragma pack(pop)
 }

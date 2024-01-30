@@ -8,22 +8,32 @@ namespace NosTaleSDK::Entwell::Classes
 #pragma pack(push, 1)
 	export struct TNTQuickSlotWidget : public TEWCustomFormWidget
 	{
-		char pad_00BC[4]; //0x00BC
-		struct TEWCustomPanelWidget* moveWidgetButton; //0x00C0 this is the blue button to move the widget in-game
-		struct TNTTimeAniIcon* aSlotsAniIcons[30]; //0x00C4 Array of pointers to TNTTimeAniIcon
-		struct TNTItemList* uknownList_1; //0x013C Contains data bout the item/skill in the slot
-		struct TNTItemList* uknownList_2; //0x0140
-		struct TNTItemList* uknownList_3; //0x0144
-		struct TEWLabels* keyLabels; //0x0148 the labels for each button: 1,2,3....
-		struct TEWControlWidgetEX* aKeyGlowEffect[30]; //0x014C Array of pointers to TEWControlWidgetEX, by default all of them are disabled, they hold the intermittent yellow border glow
-		uint32_t glowEffectIntensity; //0x01C4 Constantly changing, goes from 0-95
-		char pad_01C8[4]; //0x01C8
-		struct TEWGraphicButtonWidget* firstTabButton; //0x01CC 
-		struct TEWGraphicButtonWidget* secondTabButton; //0x01D0
-		struct TEWGraphicButtonWidget* lockWidgetButton; //0x01D4
-		struct TEWGraphicButtonWidget* changeLabelsButton; //0x01D8
-		char pad_01DC[4]; //0x01DC
+		char unknown38[4];									// 0x0BC
+		struct TEWCustomPanelWidget* moveWidgetButton;		// 0x0C0
+		struct TNTTimeAniIcon* slotsAniIcons[30];			// 0x0C4
+		struct TNTItemList* unknown39;						// 0x13C
+		struct TNTItemList* unknown40;						// 0x140
+		struct TNTItemList* unknown41;						// 0x144
+		struct TNTHintWidget* leftGaugeValue;				// 0x148
+		struct TNTHintWidget* rightGaugeValue;				// 0x14C
+		struct TEWCustomPanelWidget* totalGaugeBg;			// 0x150
+		struct TEWGuageWithHintWidget* leftGauge;			// 0x154
+		struct TEWCustomPanelWidget* leftGaugePanel;		// 0x158
+		struct TEWGuageWithHintWidget* rightGauge;			// 0x15C
+		struct TEWCustomPanelWidget* rightGaugePanel;		// 0x160
+		char unknown42[4];									// 0x164
+		struct TEWLabels* keyLabels;						// 0x168
+		struct TEWControlWidgetEX* keyGlowEffect[30];		// 0x16C
+		uint32_t glowEffectIntensity;						// 0x1E4 timestamp maybe
+		char unknown43[4];									// 0x1E8
+		struct TEWGraphicButtonWidget* firstTabButton;		// 0x1EC 
+		struct TEWGraphicButtonWidget* secondTabButton;		// 0x1F0
+		struct TEWGraphicButtonWidget* lockWidgetButton;	// 0x1F4
+		struct TEWGraphicButtonWidget* changeLabelsButton;	// 0x1F8
+		char unknown44[8];									// 0x1FC
 	};
-	static_assert(sizeof(TNTQuickSlotWidget) == 0x1E0, "TNTQuickSlotWidget does not have a size of 0x1E0");
+	static_assert(sizeof(TNTQuickSlotWidget) == 0x204, "TNTQuickSlotWidget size isn't 0x204.");
+	static_assert(sizeof(TNTQuickSlotWidget) <= 0x204, "TNTQuickSlotWidget size is upper than 0x204.");
+	static_assert(sizeof(TNTQuickSlotWidget) >= 0x204, "TNTQuickSlotWidget size is lower than 0x204.");
 #pragma pack(pop)
 }

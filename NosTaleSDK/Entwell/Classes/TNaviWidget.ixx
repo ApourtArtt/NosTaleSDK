@@ -2,47 +2,51 @@ module;
 #include <stdint.h>
 export module TNaviWidget;
 import TLBSWidget;
+import Position;
 
 namespace NosTaleSDK::Entwell::Classes
 {
 #pragma pack(push, 1)
 	export struct TNaviWidget : public TLBSWidget
 	{
-        bool isLeftClicking;                                // 0x24
-        bool isRightClicking;                               // 0x25
-        char isClickingWithShift;                           // 0x26 Becomes 1 when holding shift and left clicking (causing the click to not be taken into account)
-        bool isHovering;                                    // 0x27
-        bool isMovingMouseWhileRightclicking;               // 0x28 Becomes 0 very briefly when holding right click and moving the mouse on the TNaviWidget - No read found
-        char unknown3[3];                                   // 0x29 probably padding
-        uint32_t timestampLeftClick;                        // 0x2C
-        uint32_t timestampClick;                            // 0x30 every click
-        int16_t lastLeftClickPosX;                          // 0x34
-        int16_t lastLeftClickPosY;                          // 0x36
-        struct TNaviNameViewer* naviNameViewer;                    // 0x38
-        struct TNaviChatViewer* naviChatViewer;                    // 0x3C
-        struct TNaviMultiSelect* naviMultiSelect;                  // 0x40
-        struct TDowsingArrowWidget* dowsingArrowsWidget;           // 0x44
-        struct TReadyWidget* readyWidget;                          // 0x48
-        bool getUpImmediately;                              // 0x4C Retrieved from stat packet
-        bool smileyGone;                                    // 0x4D Retrieved from stat packet
-        bool hpStatusGone;                                  // 0x4E Retrieved from stat packet
-        bool raidboxContent;                                // 0x4F Retrieved from stat packet
-        bool hatIsNotVisible;                               // 0x50 Retrieved from stat packet
-        bool lockUI;                                        // 0x51 Retrieved from stat packet
-        bool unknown4;                                      // 0x52 Unknown but retrieved from stat packet
-        bool unknown5;                                      // 0x53 Unknown but retrieved from stat packet
-        bool blockMinilandInvit;                            // 0x54 Retrieved from stat packet
-        bool mouseTrap;                                     // 0x55 Retrieved from stat packet
-        char unknown6[2];                                   // 0x56 probably padding
-        char unknown7[4];                                   // 0x58 pointer to something, but -1 as value in my case
-        struct TImpossibleIconWidget* impossibleWidget;            // 0x5C widget appearing when stunned/rooted
-        char TMarkWidget[500][4];                           // 0x60 Yes, 500...
-        char currentCursor[1];                               // 0x830
-        bool useCustomCursor2;                              // 0x831
-        int32_t unknown8;                                   // 0x832 might be another type but -1 (0xfffffff) in my case
-        bool forbiddenToClick;                              // 0x833 ex: if clicking into a wall, you will get the cursor "forbidden" if you click because this value was 1 before clicking
-        char unknown9;                                      // 0x834 probably padding
-    };
-    static_assert(sizeof(TNaviWidget) == 0x838, "TNaviWidget does not have a size of 0x838.");
+		bool isLeftClicking;																// 0x024
+		bool isRightClicking;																// 0x025
+		char isClickingWithShift;															// 0x026
+		bool isHovering;																	// 0x027
+		bool isMovingMouseWhileRightClicking;												// 0x028
+		char unknown5[3];																	// 0x029
+		uint32_t timestampLeftClick;														// 0x02C
+		uint32_t timestampClick;															// 0x030
+		struct NosTaleSDK::Entwell::Properties::Logical::Position lastLeftClickPosition;	// 0x034
+		struct TNaviNameViewer* naviNameViewer;												// 0x038
+		struct TNaviChatViewer* naviChatViewer;												// 0x03C
+		struct TNaviMultiSelect* naviMultiSelect;											// 0x040
+		struct TDowsingArrowWidget* dowsingArrowsWidget;									// 0x044
+		struct TReadyWidget* readyWidget;													// 0x048
+		bool getUpImmediately;																// 0x04C
+		bool isSmileyGone;																	// 0x04D
+		bool isHpStatusGone;																// 0x04E
+		bool raidboxContent;																// 0x04F
+		bool isHatNotVisible;																// 0x050
+		bool isUILocked;																	// 0x051
+		bool unknown6;																		// 0x052
+		bool unknown7;																		// 0x053
+		bool isMLInviteBlocked;																// 0x054
+		bool isMouseTraped;																	// 0x055
+		uint8_t unknown8;																	// 0x056
+		uint8_t unknown9;																	// 0x057
+		void* unknown10;																	// 0x058
+		struct TImpossibleIconWidget* impossibleWidget;										// 0x05C
+		struct TMarkWidget* markWidgets[500];												// 0x060
+		NosTaleSDK::Entwell::Enumerations::Cursor cursor2;									// 0x830
+		bool useCustomCursor2;																// 0x831
+		uint16_t unknown11;																	// 0x832
+		uint16_t unknown12;																	// 0x834
+		uint8_t unknown13;																	// 0x836 related to click on wall
+		char unknown14;																		// 0x837
+	};
+	static_assert(sizeof(TNaviWidget) == 0x838, "TNaviWidget size isn't 0x838.");
+	static_assert(sizeof(TNaviWidget) <= 0x838, "TNaviWidget size is upper than 0x838.");
+	static_assert(sizeof(TNaviWidget) >= 0x838, "TNaviWidget size is lower than 0x838.");
 #pragma pack(pop)
 }

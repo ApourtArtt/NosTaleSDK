@@ -10,6 +10,8 @@ namespace NosTaleSDK::Entwell::Properties::Logical
 	{
 		std::vector<T> data;
 	};
-	static_assert(sizeof(Array<void*>) == 0x10, "Array does not have a size of 0x10.");
+	static_assert(sizeof(Array<void*>) == 0x10, "Array size isn't 0x10.");
+	static_assert(sizeof(Array<void*>) <= 0x10, "Array size is upper than 0x10.");
+	static_assert(sizeof(Array<void*>) >= 0x10, "Array size is lower than 0x10.");
 #pragma pack(pop)
 }

@@ -5,7 +5,7 @@ export module Cursor;
 namespace NosTaleSDK::Entwell::Enumerations
 {
 #pragma pack(push, 1)
-	enum class Cursor : uint8_t
+	export enum class Cursor : uint8_t
 	{
 		Windows = 0x00,
 		Normal = 0x01,

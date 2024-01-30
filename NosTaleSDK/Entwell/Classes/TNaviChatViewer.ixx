@@ -2,32 +2,35 @@ module;
 #include <stdint.h>
 export module TNaviChatViewer;
 import TObject;
+import String;
 
 namespace NosTaleSDK::Entwell::Classes
 {
 #pragma pack(push, 1)
 	export struct TNaviChatViewer : public TObject
 	{
-        int16_t numberOfLines;          // 0x04
-        int16_t spaceBehindLine;        // 0x06
-        int16_t invertedChatXOffset;    // 0x08 e.g: if value +200, the chat will be 200px at the left of the character head, if -200, 200px at the right (note: also applies to hp/mana bar, shop's name etc)
-        char unknown1[2];               // 0x0A probably padding
-        char* packet;                   // 0x0C Used when 0x10 is not nullptr
-        char unknown3[4];               // 0x10 pointer to something
-        char unknown4[4];               // 0x14
-        uint32_t time;                  // 0x18
-        char* text;                     // 0x1C
-        char unknown7[4];               // 0x20
-        char unknown8[4];               // 0x24
-        char unknown9[4];               // 0x28 Used as a bool on 0x28 but seems to be a ptr
-        char unknown10[4];              // 0x2C
-        struct TNTHintWidget* aboveHeadHint;   // 0x30 When (e.g) transforming, isVisible will be true
-        struct TNTHintWidget* hintWidget;      // 0x30 Idk what it is used for but isVisible turns to false when a msg is displayed
-        char unknown11[4];              // 0x38 pointer to something
-        int16_t unknown12;              // 0x3C always ++ then reset to 0
-        char unknown13[2];              // 0x3E probably padding
-        char unknown14[4];              // 0x40 -1 in my case, no W/R found
-    };
-    static_assert(sizeof(TNaviChatViewer) == 0x44, "TNaviChatViewer does not have a size of 0x44.");
+		int16_t numberOfLines;												// 0x004
+		int16_t spaceBehindLine;											// 0x006
+		int16_t invertedChatXOffset;										// 0x008 > 0 => left // < 0 => right
+		char unknown[2];													// 0x00A
+		struct NosTaleSDK::Entwell::Properties::Logical::String* packet;    // 0x00C
+		void* unknown2;														// 0x010
+		char unknown3[4];													// 0x014
+		uint32_t timestamp;													// 0x018
+		struct NosTaleSDK::Entwell::Properties::Logical::String* text;      // 0x01C
+		char unknown4[4];													// 0x020
+		struct NosTaleSDK::Entwell::Properties::Logical::String* unknown5;  // 0x024
+		uint32_t unknown6;													// 0x028 bool or ptr
+		char unknown7[4];													// 0x02C
+		struct TNTHintWidget* aboveHeadHint;								// 0x030
+		struct TNTHintWidget* hintWidget;									// 0x034
+		void* unknown8;														// 0x038
+		int16_t unknown9;													// 0x03C
+		char unknown10[2];													// 0x03E
+		char unknown11[4];													// 0x040
+	};
+	static_assert(sizeof(TNaviChatViewer) == 0x44, "TMovePosiMarked size isn't 0x44.");
+	static_assert(sizeof(TNaviChatViewer) <= 0x44, "TMovePosiMarked size is upper than 0x44.");
+	static_assert(sizeof(TNaviChatViewer) >= 0x44, "TMovePosiMarked size is lower than 0x44.");
 #pragma pack(pop)
 }

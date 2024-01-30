@@ -2,25 +2,26 @@ module;
 #include <stdint.h>
 export module TEWLabels;
 import TEWControlWidgetEX;
+import TextStyle;
+import Position;
 
 namespace NosTaleSDK::Entwell::Classes
 {
 #pragma pack(push, 1)
 	export struct TEWLabels : public TEWControlWidgetEX
 	{
-		bool unknown13;						// 0x68 Common with the textPositionBytes 0x00 offset
-		char unknown14;						// 0x69
-		int16_t nbLines;					// 0x6A Common with the textPositionBytes 0x04 offset + Seems like an int8_t and then an unknown
-		bool applyStyle;					// 0x6C
-		char commonTextStyle[0x0B];			// 0x6D
-		// Maybe a class for those following 4 int16_t. If not, then still use a TextPosition and assign its members to the variables
-		int16_t pxBeforeTextX;				// 0x78
-		int16_t pxBeforeTextY;				// 0x7A
-		int16_t x;							// 0x7C
-		int16_t y;							// 0x7E
-		void* textStylePtr;			// 0x80
-		void* textPositionArrayPtr;	// 0x84 Ptr to TextPosition array
+		uint8_t unknown20;																		// 0x068
+		char unknown21;																			// 0x069
+		int16_t nbLines;																		// 0x06A
+		bool isStyleApplied;																	// 0x06C
+		struct NosTaleSDK::Entwell::Properties::Graphical::TextStyle textStyle;					// 0x06D
+		struct NosTaleSDK::Entwell::Properties::Logical::Position textPadding;					// 0x078
+		struct NosTaleSDK::Entwell::Properties::Logical::Position textPosition;					// 0x07C
+		struct NosTaleSDK::Entwell::Properties::Graphical::TextStyle* textStylePtr;				// 0x080
+		struct NosTaleSDK::Entwell::Properties::Graphical::TextStyle** textPositionArrayPtr;	// 0x084
 	};
-	static_assert(sizeof(TEWLabels) == 0x88, "TEWLabels does not have a size of 0x88.");
+	static_assert(sizeof(TEWLabels) == 0x88, "TEWLabels size isn't 0x88.");
+	static_assert(sizeof(TEWLabels) <= 0x88, "TEWLabels size is upper than 0x88.");
+	static_assert(sizeof(TEWLabels) >= 0x88, "TEWLabels size is lower than 0x88.");
 #pragma pack(pop)
 }

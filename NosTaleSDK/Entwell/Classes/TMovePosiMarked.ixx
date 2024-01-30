@@ -7,10 +7,12 @@ namespace NosTaleSDK::Entwell::Classes
 #pragma pack(push, 1)
 	export struct TMovePosiMarked : public TLBSBkFxItem
 	{
-		bool active;					// 0x30 if true, is displayed, if false, not displayed
-		char unk2[3];					// 0x31 prob padding
-		struct TMapPlayerObj* entity;	// 0x34 It is probably a TMapMoveObjBase but not checked
+		bool isActive;					// 0x030
+		char unknown10[3];				// 0x031
+		struct TMapPlayerObj* entity;	// 0x034
 	};
-	static_assert(sizeof(TMovePosiMarked) == 0x38, "TMovePosiMarked does not have a size of 0x38.");
+	static_assert(sizeof(TMovePosiMarked) == 0x38, "TMovePosiMarked size isn't 0x38.");
+	static_assert(sizeof(TMovePosiMarked) <= 0x38, "TMovePosiMarked size is upper than 0x38.");
+	static_assert(sizeof(TMovePosiMarked) >= 0x38, "TMovePosiMarked size is lower than 0x38.");
 #pragma pack(pop)
 }

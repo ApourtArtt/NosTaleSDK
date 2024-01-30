@@ -9,6 +9,8 @@ namespace NosTaleSDK::Entwell::Classes
 		struct TLBSWidgetList : public TList<struct TLBSWidget*>
 	{
 	};
-	static_assert(sizeof(TLBSWidgetList<struct TLBSWidget*>) == 0x10, "TLBSWidgetList does not have a size of 0x10.");
+	static_assert(sizeof(TLBSWidgetList<struct TLBSWidget*>) == 0x10, "TLBSWidgetList size isn't 0x10.");
+	static_assert(sizeof(TLBSWidgetList<struct TLBSWidget*>) <= 0x10, "TLBSWidgetList size is upper than 0x10.");
+	static_assert(sizeof(TLBSWidgetList<struct TLBSWidget*>) >= 0x10, "TLBSWidgetList size is lower than 0x10.");
 #pragma pack(pop)
 }

@@ -8,9 +8,11 @@ namespace NosTaleSDK::Entwell::Classes
 	template<typename T> struct TNTIntHeadList;
 	export struct TDowsingArrowWidget : public TEWControlWidget
 	{
-		struct TNTIntHeadList<void*>* list; // It is not void* but something that stores int16_t posX, int16_t posY, int32_t mapId and maybe some other data - can it be used to exploit hidden TS research?
+		struct TNTIntHeadList<void*>* list;	// 0x068
 	};
-	static_assert(sizeof(TDowsingArrowWidget) == 0x6C, "TDowsingArrowWidget does not have a size of 0x6C.");
+	static_assert(sizeof(TDowsingArrowWidget) == 0x6C, "TDowsingArrowWidget size isn't 0x6C.");
+	static_assert(sizeof(TDowsingArrowWidget) <= 0x6C, "TDowsingArrowWidget size is upper than 0x6C.");
+	static_assert(sizeof(TDowsingArrowWidget) >= 0x6C, "TDowsingArrowWidget size is lower than 0x6C.");
 
 #pragma pack(pop)
 }

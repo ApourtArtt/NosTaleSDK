@@ -2,19 +2,21 @@ module;
 #include <stdint.h>
 export module TLBSMultiTextureCache;
 import TObject;
-import TList;
+template<typename> struct TList;
 
 namespace NosTaleSDK::Entwell::Classes
 {
 #pragma pack(push, 1)
 	export struct TLBSMultiTextureCache : public TObject
 	{
-		char unknown1[4];						// 0x04
-		char unknown2[4];						// 0x08
-		struct TLBSMultiTextureList* unknown3;	// 0x0C
-		struct TLBSMultiTextureList* unknown4;	// 0x10
-		struct TList<void*>* unknown5;					// 0x14
+		char unknown[4];						// 0x004
+		char unknown2[4];						// 0x008
+		struct TLBSMultiTextureList* unknown3;	// 0x00C
+		struct TLBSMultiTextureList* unknown4;	// 0x010
+		struct TList<void*>* unknown5;			// 0x014
 	};
-	static_assert(sizeof(TLBSMultiTextureCache) == 0x18, "TLBSMultiTextureCache does not have a size of 0x18.");
+	static_assert(sizeof(TLBSMultiTextureCache) == 0x18, "TLBSMultiTextureCache size isn't 0x18.");
+	static_assert(sizeof(TLBSMultiTextureCache) <= 0x18, "TLBSMultiTextureCache size is upper than 0x18.");
+	static_assert(sizeof(TLBSMultiTextureCache) >= 0x18, "TLBSMultiTextureCache size is lower than 0x18.");
 #pragma pack(pop)
 }

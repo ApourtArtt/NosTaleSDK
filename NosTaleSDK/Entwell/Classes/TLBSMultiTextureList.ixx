@@ -5,9 +5,12 @@ import TList;
 namespace NosTaleSDK::Entwell::Classes
 {
 #pragma pack(push, 1)
-	export struct TLBSMultiTextureList : public TList<void*>
+	export template<typename T>
+		struct TLBSMultiTextureList : public TList<struct TLBSMultiTextureCache*>
 	{
 	};
-	static_assert(sizeof(TLBSMultiTextureList) == 0x10, "TLBSMultiTextureList does not have a size of 0x10.");
+	static_assert(sizeof(TLBSMultiTextureList<struct TLBSMultiTextureCache*>) == 0x10, "TLBSMultiTextureList size isn't 0x10.");
+	static_assert(sizeof(TLBSMultiTextureList<struct TLBSMultiTextureCache*>) <= 0x10, "TLBSMultiTextureList size is upper than 0x10.");
+	static_assert(sizeof(TLBSMultiTextureList<struct TLBSMultiTextureCache*>) >= 0x10, "TLBSMultiTextureList size is lower than 0x10.");
 #pragma pack(pop)
 }

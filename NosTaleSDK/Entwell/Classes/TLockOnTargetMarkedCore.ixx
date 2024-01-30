@@ -7,13 +7,16 @@ namespace NosTaleSDK::Entwell::Classes
 #pragma pack(push, 1)
 	export struct TLockOnTargetMarkedCore : public TLBSBkFxItem
 	{
-		char unknown9[4];		// 0x30
-		struct TMapNpcObj* target;		// 0x34 Most probably the parent (TMapMovObj or something like that) but not tested
-		bool active;			// 0x38
-		char unknown10[3];		// 0x39 prob padding
-		float targetHeight;		// 0x3C Used to display the arrow above the character, regardless of his size, as it is stored there
-		struct TMapPlayerObj* player;	// 0x40 Pointer to the character you are controlling
+		uint8_t unknown10;				// 0x030
+		char unknown11[3];				// 0x031
+		struct TMapNpcObj* target;		// 0x034
+		bool isActive;					// 0x038
+		char unknown12[3];				// 0x039
+		float targetHeight;				// 0x03C
+		struct TMapPlayerObj* entity;	// 0x040
 	};
-	static_assert(sizeof(TLockOnTargetMarkedCore) == 0x44, "TLockOnTargetMarkedCore does not have a size of 0x44.");
+	static_assert(sizeof(TLockOnTargetMarkedCore) == 0x44, "TLockOnTargetMarkedCore size isn't 0x44.");
+	static_assert(sizeof(TLockOnTargetMarkedCore) <= 0x44, "TLockOnTargetMarkedCore size is upper than 0x44.");
+	static_assert(sizeof(TLockOnTargetMarkedCore) >= 0x44, "TLockOnTargetMarkedCore size is lower than 0x44.");
 #pragma pack(pop)
 }

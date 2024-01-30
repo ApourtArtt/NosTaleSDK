@@ -8,6 +8,8 @@ namespace NosTaleSDK::Entwell::Properties::Logical
 	{
 		wchar_t* buffer;
 	};
-	static_assert(sizeof(WideString) == 0x4, "WideString does not have a size of 0x4.");
+	static_assert(sizeof(WideString) == 0x4, "WideString size isn't 0x4.");
+	static_assert(sizeof(WideString) <= 0x4, "WideString size is upper than 0x4.");
+	static_assert(sizeof(WideString) >= 0x4, "WideString size is lower than 0x4.");
 #pragma pack(pop)
 }

@@ -481,6 +481,99 @@
       <Filter>NosTaleSDK\Entwell\Classes</Filter>
     </ClCompile>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="TNTStarPetWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TEWNormalButtonWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\Position.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Enumerations\FontStyle.ixx">
+      <Filter>NosTaleSDK\Entwell\Enumerations</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TLBSTextRender.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TLBSCanvasTextureEX.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TLBSCanvasTexture.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TLBSPosDamper.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TComponent.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TControl.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TWinControl.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TScrollingWinControl.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TCustomForm.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TForm.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNosTaleMainF.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TMapObjFxList.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Graphical\WeaponGlowing.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Graphical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Enumerations\WeaponGlowingStyle.ixx">
+      <Filter>NosTaleSDK\Entwell\Enumerations</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TMarkWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTPlayerCExpGaugeWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TEWGuageWithHintWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TEWGuageWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTTrayWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTCardInventoryInfoWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTCostumeInventoryInfoWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTFishInfoWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTGraphicButtonAtSpecialCard.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TEWLabelWithHint.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TChatNameComboBoxWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TComboBoxWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTChatViewerWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
     <ClCompile Include="NosTaleSDK\Runtime.ixx">
       <Filter>NosTaleSDK</Filter>
     </ClCompile>
@@ -501,6 +594,60 @@
     </ClCompile>
     <ClCompile Include="NosTaleSDK\Interfaces\Plugin.ixx">
       <Filter>NosTaleSDK\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTNosMallBoughtListWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTNosMallGroupItemSelectWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTNosMallItemListWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTNosMallItemShopWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTNosMallMemoReadWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTNosMallPostWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTNosMallSelectedItemList.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTNosMallSlipItemList.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTNosMallStringList.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTNosMallTotalWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTNosMallPostItemList.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTGraphicButtonAtSpecialCard2.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTRiskMapWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TRiskFieldMapWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTZoneMapWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TEWPopupPanelWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TEWHintGraphicButtonWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTLoginWindowWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

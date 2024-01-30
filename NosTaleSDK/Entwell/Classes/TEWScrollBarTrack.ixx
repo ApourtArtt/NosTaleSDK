@@ -2,28 +2,31 @@ module;
 #include <stdint.h>
 export module TEWScrollBarTrack;
 import TEWCustomPanelWidget;
+import Callback;
 
 namespace NosTaleSDK::Entwell::Classes
 {
 #pragma pack(push, 1)
 	export struct TEWScrollBarTrack : public TEWCustomPanelWidget
 	{
-		char unknown19[4];				// 0xA4
-		struct TEWScrollBarThumb* scrollThumb;	// 0xA8
-		int16_t currentIndex;			// 0xAC
-		int16_t currentMaxIndex;		// 0xAE
-		bool isWorking;					// 0xB0 If you turn this to 0 and move the bar the index will be 0 (this is normally set to 1) -- seems to be 0=vertical/1=horizontal?
-		char unknown20;					// 0xB1
-		int16_t unknown21;				// 0xB2 Seems unused, could not find any read/write from/to it but there's not 0 for History panel
-		int32_t unknown22;				// 0xB4 Same
-		float scrollStep;				// 0xB8
-		int32_t unknown23;				// 0xBC Unused
-		char callback[8];				// 0xC0 Move scrollThumb function callback
-		bool isBeingPressed;			// 0xC8 Note : only on the scrolltrack background, not on the thumb
-		char unknown24;					// 0xC9 padding byte, probably
-		int16_t mousePositionPressing;	// 0xCA
-		char unknown25[12];				// 0xCC
+		char unknown30[4];													// 0x0A4
+		struct TEWScrollBarThumb* scrollThumb;								// 0x0A8
+		int16_t currentIndex;												// 0x0AC
+		int16_t count;														// 0x0AE
+		bool isHorizontal;													// 0x0B0
+		char unknown31;														// 0x0B1
+		int16_t unknown32;													// 0x0B2
+		int32_t unknown33;													// 0x0B4
+		float scrollStep;													// 0x0B8
+		char unknown34[4];													// 0x0BC
+		struct NosTaleSDK::Entwell::Properties::Logical::Callback callback;	// 0x0C0
+		bool isPressed;														// 0x0C8
+		char unknown35;														// 0x0C9
+		int16_t clickPosition;												// 0x0CA
+		char unknown36[12];													// 0x0CC
 	};
-	static_assert(sizeof(TEWScrollBarTrack) == 0xD8, "TEWScrollBarTrack does not have a size of 0xD8.");
+	static_assert(sizeof(TEWScrollBarTrack) == 0xD8, "TEWScrollBarTrack size isn't 0xD8.");
+	static_assert(sizeof(TEWScrollBarTrack) <= 0xD8, "TEWScrollBarTrack size is upper than 0xD8.");
+	static_assert(sizeof(TEWScrollBarTrack) >= 0xD8, "TEWScrollBarTrack size is lower than 0xD8.");
 #pragma pack(pop)
 }

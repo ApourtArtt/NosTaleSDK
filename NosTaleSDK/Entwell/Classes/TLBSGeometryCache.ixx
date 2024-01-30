@@ -9,13 +9,15 @@ namespace NosTaleSDK::Entwell::Classes
 #pragma pack(push, 1)
 	export struct TLBSGeometryCache : public TObject
 	{
-		struct TEWMultiFileStreamSimple* unknown1;	// 0x04
-		struct TEWMultiFileStreamList* unknown2;	// 0x08
-		struct TLBSTextureCache* unknown3;			// 0x0C
-		struct TList<struct TLBSGeometryItem*>* unknown4;	// 0x10
-		int32_t nstgeId;					// 0x14 TMovePosiMarked is 0x4f000031 (1 325 400 113)
-		struct TLBSGeometryItem* unknown6;			// 0x18
+		struct TEWMultiFileStreamSimple* unknown;			// 0x004
+		struct TEWMultiFileStreamList* unknown2;			// 0x008
+		struct TLBSTextureCache* unknown3;					// 0x00C
+		struct TList<struct TLBSGeometryItem*>* unknown4;	// 0x010
+		int32_t nstgeId;									// 0x014
+		struct TLBSGeometryItem* unknown5;					// 0x018
 	};
-	static_assert(sizeof(TLBSGeometryCache) == 0x1C, "TLBSGeometryCache does not have a size of 0x1C.");
+	static_assert(sizeof(TLBSGeometryCache) == 0x1C, "TLBSGeometryCache size isn't 0x1C.");
+	static_assert(sizeof(TLBSGeometryCache) <= 0x1C, "TLBSGeometryCache size is upper than 0x1C.");
+	static_assert(sizeof(TLBSGeometryCache) >= 0x1C, "TLBSGeometryCache size is lower than 0x1C.");
 #pragma pack(pop)
 }

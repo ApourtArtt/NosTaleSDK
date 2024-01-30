@@ -12,6 +12,8 @@ namespace NosTaleSDK::Entwell::Properties::Graphical
 		uint8_t red;
 		uint8_t alpha;
 	};
-	static_assert(sizeof(Bgra) == 0x4, "Bgra does not have a size of 0x4.");
+	static_assert(sizeof(Bgra) == 0x4, "Bgra size isn't 0x4.");
+	static_assert(sizeof(Bgra) <= 0x4, "Bgra size is upper than 0x4.");
+	static_assert(sizeof(Bgra) >= 0x4, "Bgra size is lower than 0x4.");
 #pragma pack(pop)
 }

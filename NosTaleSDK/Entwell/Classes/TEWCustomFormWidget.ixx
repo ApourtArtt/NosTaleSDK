@@ -7,8 +7,18 @@ namespace NosTaleSDK::Entwell::Classes
 #pragma pack(push, 1)
 	export struct TEWCustomFormWidget : public TEWCustomPanelWidget
 	{
-		char unknown19[24];		// 0x00A4 something to do with resize 0xAD for minimap
+		char unknown30[4];					// 0x0A4
+		struct TEWCaptionBar* captionBar;	// 0x0A8
+		uint8_t unknown31;					// 0x0AC
+		uint8_t unknown32;					// 0x0AD
+		uint8_t unknown33;					// 0x0AE
+		uint32_t unknown34;					// 0x0AF
+		uint32_t unknown35;					// 0x0B3
+		char unknown36;						// 0x0B4
+		struct TLBSWidget* unknown37;		// 0x0B8
 	};
-	static_assert(sizeof(TEWCustomFormWidget) == 0x00BC, "TEWCustomFormWidget does not have a size of 0x00BC.");
+	static_assert(sizeof(TEWCustomFormWidget) == 0xBC, "TEWCustomFormWidget size isn't 0xBC.");
+	static_assert(sizeof(TEWCustomFormWidget) <= 0xBC, "TEWCustomFormWidget size is upper than 0xBC.");
+	static_assert(sizeof(TEWCustomFormWidget) >= 0xBC, "TEWCustomFormWidget size is lower than 0xBC.");
 #pragma pack(pop)
 }

@@ -12,11 +12,16 @@ namespace NosTaleSDK::Entwell::Classes
 		int32_t vnum;
 		T value;
 	};
+	static_assert(sizeof(IntListElement<void*>) == 0x8, "IntListElement size isn't 0x8.");
+	static_assert(sizeof(IntListElement<void*>) <= 0x8, "IntListElement size is upper than 0x8.");
+	static_assert(sizeof(IntListElement<void*>) >= 0x8, "IntListElement size is lower than 0x8.");
 
 	export template<class T>
-	struct TNTIntHeadList : public TNTDataList<IntListElement<T>*>
+		struct TNTIntHeadList : public TNTDataList<IntListElement<T>*>
 	{
 	};
-	static_assert(sizeof(TNTIntHeadList<IntListElement<void*>*>) == 0x10, "TNTIntHeadList does not have a size of 0x10.");
+	static_assert(sizeof(TNTIntHeadList<IntListElement<void*>*>) == 0x10, "TNTIntHeadList size isn't 0x10.");
+	static_assert(sizeof(TNTIntHeadList<IntListElement<void*>*>) <= 0x10, "TNTIntHeadList size is upper than 0x10.");
+	static_assert(sizeof(TNTIntHeadList<IntListElement<void*>*>) >= 0x10, "TNTIntHeadList size is lower than 0x10.");
 #pragma pack(pop)
 }

@@ -7,13 +7,15 @@ namespace NosTaleSDK::Entwell::Classes
 #pragma pack(push, 1)
 	export struct TStrings : public TPersistent
 	{
-		char TStringsDefined;		// 0x04
-		char FDelimiter;			// 0x05
-		char FQuoteChar;			// 0x06
-		char FNameValueSeparator;	// 0x07
-		int FUpdateCount;			// 0x08
-		void* IStringAdapter;		// 0x0C
+		char defined;				// 0x004
+		char delimiter;				// 0x005
+		char quoteChar;				// 0x006
+		char nameValueSeparator;	// 0x007
+		int updateCount;			// 0x008
+		void* adapter;				// 0x00C
 	};
-	static_assert(sizeof(TStrings) == 0x10, "TStrings does not have a size of 0x10.");
+	static_assert(sizeof(TStrings) == 0x10, "TStrings size isn't 0x10.");
+	static_assert(sizeof(TStrings) <= 0x10, "TStrings size is upper than 0x10.");
+	static_assert(sizeof(TStrings) >= 0x10, "TStrings size is lower than 0x10.");
 #pragma pack(pop)
 }

@@ -1,15 +1,18 @@
 module;
 export module TNosSndCmdList;
-import TObject;
 import TList;
+import Callback;
 
 namespace NosTaleSDK::Entwell::Classes
 {
 #pragma pack(push, 1)
-	struct TNosSndCmdList : public TList<struct TNosSndCmds*>
+	export template<typename T>
+		struct TNosSndCmdList : public TList<struct TNosSndCmds*>
 	{
-		char callback[8];
+		struct NosTaleSDK::Entwell::Properties::Logical::Callback callback;
 	};
-	static_assert(sizeof(TNosSndCmdList) == 0x18, "TNosSndCmdList does not have a size of 0x18.");
+	static_assert(sizeof(TNosSndCmdList<struct TNosSndCmds*>) == 0x18, "TNosSndCmdList size isn't 0x18.");
+	static_assert(sizeof(TNosSndCmdList<struct TNosSndCmds*>) <= 0x18, "TNosSndCmdList size is upper than 0x18.");
+	static_assert(sizeof(TNosSndCmdList<struct TNosSndCmds*>) >= 0x18, "TNosSndCmdList size is lower than 0x18.");
 #pragma pack(pop)
 }

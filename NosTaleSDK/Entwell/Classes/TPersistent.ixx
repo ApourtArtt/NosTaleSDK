@@ -8,6 +8,8 @@ namespace NosTaleSDK::Entwell::Classes
 	export struct TPersistent : public TObject
 	{
 	};
-	static_assert(sizeof(TPersistent) == 0x04, "TPersistent does not have a size of 0x04.");
+	static_assert(sizeof(TPersistent) == 0x4, "TPersistent size isn't 0x4.");
+	static_assert(sizeof(TPersistent) <= 0x4, "TPersistent size is upper than 0x4.");
+	static_assert(sizeof(TPersistent) >= 0x4, "TPersistent size is lower than 0x4.");
 #pragma pack(pop)
 }

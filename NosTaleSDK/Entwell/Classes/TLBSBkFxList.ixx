@@ -1,7 +1,6 @@
 module;
 export module TLBSBkFxList;
 import TList;
-import TLBSBkFxItem;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -10,6 +9,8 @@ namespace NosTaleSDK::Entwell::Classes
 		struct TLBSBkFxList : public TList<struct TLBSBkFxItem*>
 	{
 	};
-	static_assert(sizeof(TLBSBkFxList<struct TLBSBkFxItem*>) == 0x10, "TLBSBkFxList does not have a size of 0x18C.");
+	static_assert(sizeof(TLBSBkFxList<struct TLBSBkFxItem*>) == 0x10, "TLBSBkFxList size isn't 0x10.");
+	static_assert(sizeof(TLBSBkFxList<struct TLBSBkFxItem*>) <= 0x10, "TLBSBkFxList size is upper than 0x10.");
+	static_assert(sizeof(TLBSBkFxList<struct TLBSBkFxItem*>) >= 0x10, "TLBSBkFxList size is lower than 0x10.");
 #pragma pack(pop)
 }

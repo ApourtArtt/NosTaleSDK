@@ -7,11 +7,13 @@ namespace NosTaleSDK::Entwell::Classes
 #pragma pack(push, 1)
 	export struct TLBSRotDamper : public TObject
 	{
-		char pad_0004[84]; //0x04
-		float min; //0x58
-		float max; //0x5C
-		float def; //0x60
+		char unknown[84];	// 0x004
+		float min;			// 0x058
+		float max;			// 0x05C
+		float def;			// 0x060
 	};
-	static_assert(sizeof(TLBSRotDamper) == 0x64, "TLBSRotDamper does not have a size of 0x64");
+	static_assert(sizeof(TLBSRotDamper) == 0x64, "TLBSMultiTextureList size isn't 0x64.");
+	static_assert(sizeof(TLBSRotDamper) <= 0x64, "TLBSMultiTextureList size is upper than 0x64.");
+	static_assert(sizeof(TLBSRotDamper) >= 0x64, "TLBSMultiTextureList size is lower than 0x64.");
 #pragma pack(pop)
 }

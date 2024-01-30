@@ -8,13 +8,15 @@ namespace NosTaleSDK::Entwell::Classes
 #pragma pack(push, 1)
 	export struct TLBSCamera : public TObject
 	{
-		char pad_0004[736]; //0x0004
-		uint32_t TLBSPosDamperPtr; //0x02E4
-		struct TLBSRotDamper* HorizontalRotDamper; //0x02E8
-		struct TLBSRotDamper* VerticalRotDamper; //0x02EC
-		struct TLBSRotDamper* ZoomRotDamper; //0x02F0
-		char pad_02F4[4]; //0x02F4
+		char unknown[736];							// 0x004
+		struct TLBSPosDamper* posDamper;			// 0x2E4
+		struct TLBSRotDamper* horizontalRotDamper;	// 0x2E8
+		struct TLBSRotDamper* verticalRotDamper;	// 0x2EC
+		struct TLBSRotDamper* zoomRotDamper;		// 0x2F0
+		char unknown2[4];							// 0x2F4
 	};
-	static_assert(sizeof(TLBSCamera) == 0x2F8, "TLBSCamera does not have a size of 0x2F8");
+	static_assert(sizeof(TLBSCamera) == 0x2F8, "TLBSCamera size isn't 0x2F8.");
+	static_assert(sizeof(TLBSCamera) <= 0x2F8, "TLBSCamera size is upper than 0x2F8.");
+	static_assert(sizeof(TLBSCamera) >= 0x2F8, "TLBSCamera size is lower than 0x2F8.");
 #pragma pack(pop)
 }

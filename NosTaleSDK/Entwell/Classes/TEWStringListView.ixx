@@ -8,6 +8,8 @@ namespace NosTaleSDK::Entwell::Classes
 	export struct TEWStringListView : public TEWStringListViewCore
 	{
 	};
-	static_assert(sizeof(TEWStringListView) == 0xB0, "TEWStringListView does not have a size of 0xB0.");
+	static_assert(sizeof(TEWStringListView) == 0xB0, "TEWStringListView size isn't 0xB0.");
+	static_assert(sizeof(TEWStringListView) <= 0xB0, "TEWStringListView size is upper than 0xB0.");
+	static_assert(sizeof(TEWStringListView) >= 0xB0, "TEWStringListView size is lower than 0xB0.");
 #pragma pack(pop)
 }

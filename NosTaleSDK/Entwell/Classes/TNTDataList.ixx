@@ -6,15 +6,13 @@ import TList;
 namespace NosTaleSDK::Entwell::Classes
 {
 #pragma pack(push, 1)
-
-    // Template declaration for TNTDataList
-    export template<class T>
-        struct TNTDataList : public TList<T>
-    {
-        // Constructors can be added here if needed
-    };
-
-    static_assert(sizeof(TNTDataList<void*>) == 0x10, "TNTDataList does not have a size of 0x10.");
+	export template<class T>
+		struct TNTDataList : public TList<T>
+	{
+	};
+	static_assert(sizeof(TNTDataList<void*>) == 0x10, "TNTDataList size isn't 0x10.");
+	static_assert(sizeof(TNTDataList<void*>) <= 0x10, "TNTDataList size is upper than 0x10.");
+	static_assert(sizeof(TNTDataList<void*>) >= 0x10, "TNTDataList size is lower than 0x10.");
 
 #pragma pack(pop)
 }
