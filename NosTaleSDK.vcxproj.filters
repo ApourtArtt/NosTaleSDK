@@ -408,12 +408,6 @@
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTSpecialCardPlusWidget.ixx">
       <Filter>NosTaleSDK\Entwell\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTObject.ixx">
-      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTLBSWidget.ixx">
-      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
-    </ClCompile>
     <ClCompile Include="NosTaleSDK\Interfaces\AddressProvider.ixx">
       <Filter>NosTaleSDK\Interfaces</Filter>
     </ClCompile>
@@ -649,5 +643,19 @@
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTLoginWindowWidget.ixx">
       <Filter>NosTaleSDK\Entwell\Classes</Filter>
     </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTLBSWidget.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTObject.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTLBSWidgetHandler.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NosTaleSDK\Wrappers\Classes\MacroWrapperDef.h">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

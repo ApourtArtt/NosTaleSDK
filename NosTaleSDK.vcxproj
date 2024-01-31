@@ -221,8 +221,12 @@
     <ClCompile Include="NosTaleSDK\Interfaces\AddressProvider.ixx" />
     <ClCompile Include="NosTaleSDK\Utils\MemoryUtils.ixx" />
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTLBSWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTLBSWidgetHandler.ixx" />
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTObject.ixx" />
     <ClCompile Include="TNTStarPetWidget.ixx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NosTaleSDK\Wrappers\Classes\MacroWrapperDef.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -291,7 +295,6 @@
       <TranslateIncludes>true</TranslateIncludes>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
-      <ExceptionHandling>false</ExceptionHandling>
       <EnableModules>true</EnableModules>
       <BuildStlModules>true</BuildStlModules>
     </ClCompile>
@@ -313,7 +316,6 @@
       <TranslateIncludes>true</TranslateIncludes>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
-      <ExceptionHandling>false</ExceptionHandling>
       <EnableModules>true</EnableModules>
       <BuildStlModules>true</BuildStlModules>
     </ClCompile>
@@ -335,7 +337,6 @@
       <TranslateIncludes>true</TranslateIncludes>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
-      <ExceptionHandling>false</ExceptionHandling>
       <EnableModules>true</EnableModules>
       <BuildStlModules>true</BuildStlModules>
     </ClCompile>
@@ -357,7 +358,6 @@
       <TranslateIncludes>true</TranslateIncludes>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
-      <ExceptionHandling>false</ExceptionHandling>
       <EnableModules>true</EnableModules>
       <BuildStlModules>true</BuildStlModules>
     </ClCompile>

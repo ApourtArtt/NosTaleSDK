@@ -1,29 +1,25 @@
 module;
-#include <stdint.h>
-#include <iostream>
+#include "MacroWrapperDef.h"
+#include <memory>
 export module WrapperTLBSWidget;
-import TLBSWidget;
 import WrapperTObject;
+import TLBSWidget;
+import VTableProvider;
 
 namespace NosTaleSDK::Wrappers::Classes
 {
-	export class WrapperTLBSWidget : public WrapperTObject
-	{
-	public:
-		WrapperTLBSWidget()
-		{
+    using namespace NosTaleSDK::Entwell::Classes;
+    export class WrapperTLBSWidget : public WrapperTObject
+    {
+        TENTWELL_WRAPPER_DEFINITION(WrapperTLBSWidget, WrapperTObject, TLBSWidget)
+    public:
+        void SetEvenThing(uintptr_t VT) { obj->evenThing = VT; }
+        uintptr_t GetEvenThing() { return obj->evenThing; }
 
-		}
+    private:
+        void initObject()
+        {
 
-		WrapperTLBSWidget(NosTaleSDK::Entwell::Classes::TLBSWidget* TType)
-			: tType(TType)
-		{
-
-		}
-
-		void even() { std::cout << tType->unknown; }
-
-	protected:
-		NosTaleSDK::Entwell::Classes::TLBSWidget* tType{ new NosTaleSDK::Entwell::Classes::TLBSWidget() };
-	};
+        }
+    };
 }

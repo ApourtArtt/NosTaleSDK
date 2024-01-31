@@ -13,8 +13,8 @@ public:
 	{
 		std::string pattern;
 		std::string mask;
-		int32_t offset;
-		uint32_t startFrom;
+		int32_t offset = 0;
+		uint32_t startFrom = 0;
 	};
 
 	PatternAddressProvider(std::shared_ptr<NosTaleSDK::Interfaces::Logger> Logger)
@@ -23,7 +23,7 @@ public:
 
 	bool RegisterPattern(const std::string& AddressName, const PatternDef& Pattern)
 	{
-		if (patterns.contains(AddressName) || !results.contains(AddressName))
+		if (patterns.contains(AddressName) || results.contains(AddressName))
 			return false;
 
 		patterns.emplace(AddressName, Pattern);

@@ -3,8 +3,8 @@ module;
 #include <source_location>
 #include <chrono>
 #include <mutex>
-#include <format>
 #include <Windows.h>
+#include <format>
 export module ConsoleLogger;
 import Logger;
 
