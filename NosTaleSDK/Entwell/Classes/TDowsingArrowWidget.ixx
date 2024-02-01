@@ -8,7 +8,7 @@ namespace NosTaleSDK::Entwell::Classes
 	template<typename T> struct TNTIntHeadList;
 	export struct TDowsingArrowWidget : public TEWControlWidget
 	{
-		struct TNTIntHeadList<void*>* list;	// 0x068
+		TNTIntHeadList<void*>* list;	// 0x068
 	};
 	static_assert(sizeof(TDowsingArrowWidget) == 0x6C, "TDowsingArrowWidget size isn't 0x6C.");
 	static_assert(sizeof(TDowsingArrowWidget) <= 0x6C, "TDowsingArrowWidget size is upper than 0x6C.");

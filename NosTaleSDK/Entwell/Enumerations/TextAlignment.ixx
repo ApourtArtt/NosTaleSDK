@@ -6,9 +6,9 @@ namespace NosTaleSDK::Entwell::Enumerations
 {
 	export enum class TextAlignment : uint8_t
 	{
-		TopLeft = 0,
-		CenteredLeft = 1,
-		CenteredRight = 2,
-		CenteredCentered = 3
+		TOP_LEFT = 0,
+		CENTERED_LEFT = 1,
+		CENTERED_RIGHT = 2,
+		CENTERED_CENTERED = 3
 	};
 }

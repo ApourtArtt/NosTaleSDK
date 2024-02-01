@@ -9,7 +9,7 @@ namespace NosTaleSDK::Entwell::Classes
 	export struct TNTChatEditWidget : public TEWCustomPanelWidget
 	{
 		char unknown30[4];							// 0x0A4
-		struct TEWCustomPanelWidget* unknown31;		// 0x0A8
+		TEWCustomPanelWidget* unknown31;			// 0x0A8
 		struct TEWEditWidget* unknown32;			// 0x0AC
 		char unknown33[8];							// 0x0B0
 		struct TNTChatViewerWidget* unknown34;		// 0x0B8
@@ -25,16 +25,16 @@ namespace NosTaleSDK::Entwell::Classes
 		uint32_t unknown44;							// 0x0D0
 		uint8_t unknown45;							// 0x0D4
 		char unknown46[3];							// 0x0D5
-		struct TEWCustomPanelWidget* unknown47;		// 0x0D8
-		struct TEWEditWidget* unknown48;			// 0x0DC
+		TEWCustomPanelWidget* unknown47;			// 0x0D8
+		TEWEditWidget* unknown48;					// 0x0DC
 		struct TChatNameComboBoxWidget* unknown49;	// 0x0E0
 		char unknown50[28];							// 0x0E4
 		uint32_t unknown51;							// 0x100
 		uint32_t unknown52;							// 0x104
 		uint32_t unknown53;							// 0x108
 		uint32_t unknown54;							// 0x10C
-		struct TLBSWidget* unknown55;				// 0x110
-		struct TEWLabel* unknown56;					// 0x114
+		TLBSWidget* unknown55;						// 0x110
+		TEWLabel* unknown56;						// 0x114
 		uint8_t unknown57;							// 0x118
 		char unknown58[1251];						// 0x119
 		int16_t unknown59;							// 0x5FC

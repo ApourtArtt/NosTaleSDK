@@ -8,8 +8,8 @@ namespace NosTaleSDK::Entwell::Classes
 #pragma pack(push, 1)
 	export struct TEWRingArrayList : public TObject
 	{
-		void* TNTMessageBoxWidgetVTable;			// 0x004
-		struct TGameRootWidget* gameRootWidget;		// 0x008 TGameRootWidget in my case
+		void* unknown;								// 0x004 Prolly callback (MessageBox)
+		struct TGameRootWidget* gameRootWidget;		// 0x008 TGameRootWidget in my case 
 		struct TNTMessageBoxWidget** messageBoxes;	// 0x00C 5 max I think
 		int16_t lastUsedIndex;						// 0x010
 		int8_t unknown2;							// 0x012

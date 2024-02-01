@@ -9,8 +9,8 @@ namespace NosTaleSDK::Entwell::Classes
 		struct TMapObjFxList : public TList<struct TMapObjFxItem*>
 	{
 	};
-	static_assert(sizeof(TMapObjFxList<struct TMapObjFxItem*>) == 0x10, "TMapObjFxList size isn't 0x10.");
-	static_assert(sizeof(TMapObjFxList<struct TMapObjFxItem*>) <= 0x10, "TMapObjFxList size is upper than 0x10.");
-	static_assert(sizeof(TMapObjFxList<struct TMapObjFxItem*>) >= 0x10, "TMapObjFxList size is lower than 0x10.");
+	static_assert(sizeof(TMapObjFxList<TMapObjFxItem*>) == 0x10, "TMapObjFxList size isn't 0x10.");
+	static_assert(sizeof(TMapObjFxList<TMapObjFxItem*>) <= 0x10, "TMapObjFxList size is upper than 0x10.");
+	static_assert(sizeof(TMapObjFxList<TMapObjFxItem*>) >= 0x10, "TMapObjFxList size is lower than 0x10.");
 #pragma pack(pop)
 }

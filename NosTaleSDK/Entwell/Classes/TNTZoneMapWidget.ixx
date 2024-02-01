@@ -1,4 +1,5 @@
 module;
+#include <stdint.h>
 export module TNTZoneMapWidget;
 import TEWPopupPanelWidget;
 
@@ -10,8 +11,8 @@ namespace NosTaleSDK::Entwell::Classes
 		char unknown32[16];								// 0x0AC
 		struct TEWHintGraphicButtonWidget* unknown33;	// 0x0BC
 		struct TEWGraphicButtonWidget* unknown34;		// 0x0C0
-		struct TEWGraphicButtonWidget* unknown35;		// 0x0C4
-		struct TEWGraphicButtonWidget* unknown36;		// 0x0C8
+		TEWGraphicButtonWidget* unknown35;				// 0x0C4
+		TEWGraphicButtonWidget* unknown36;				// 0x0C8
 		uint32_t unknown37;								// 0x0CC
 	};
 	static_assert(sizeof(TNTZoneMapWidget) == 0xD0, "TNTZoneMapWidget size isn't 0xD0.");

@@ -11,8 +11,8 @@ namespace NosTaleSDK::Entwell::Classes
 		char unknown38[4];						// 0x0BC
 		struct TEWLabels* allLabels;			// 0x0C0
 		struct TNTIconWidget* eqIcon;			// 0x0C4
-		struct TNTIconWidget* goldIcon;			// 0x0C8
-		struct TNTIconWidget* cellaIcon;		// 0x0CC
+		TNTIconWidget* goldIcon;				// 0x0C8
+		TNTIconWidget* cellaIcon;				// 0x0CC
 		char unknown39[8];						// 0x0D0
 		void* eqItem;							// 0x0D8
 		char unknown40[32];						// 0x0DC

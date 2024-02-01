@@ -13,11 +13,11 @@ namespace NosTaleSDK::Entwell::Classes
 		struct TEWStringListView* description;								// 0x0C8
 		struct TEWControlWidgetEX* charIconBg;								// 0x0CC
 		struct TNTIconViewer* itemImg;										// 0x0D0
-		struct TEWControlWidgetEX* iconBg;									// 0x0D4
+		TEWControlWidgetEX* iconBg;											// 0x0D4
 		struct TNTIconWidget* carveRuneImg;									// 0x0D8
 		struct TEWLabel* carveRuneQuantity;									// 0x0DC
-		struct TEWLabel* carveRuneDamage;									// 0x0E0
-		struct NosTaleSDK::Entwell::Properties::Logical::String* unknown41;	// 0x0E4
+		TEWLabel* carveRuneDamage;											// 0x0E0
+		Properties::Logical::String* unknown41;								// 0x0E4
 		struct TNTItemList* unknown42;										// 0x0E8
 		char unknown43[200];												// 0x0EC
 		uint8_t unknown44;													// 0x1B4
@@ -71,7 +71,7 @@ namespace NosTaleSDK::Entwell::Classes
 		uint16_t unknown92;													// 0x240
 		uint8_t unknown93;													// 0x242
 		char unknown94;														// 0x243
-		struct TNTIconWidget* unknown95[10];								// 0x244
+		TNTIconWidget* unknown95[10];										// 0x244
 		struct TEWScrollBarTrack* scrollBarTrack;							// 0x26C
 		struct TEWGraphicButtonWidget* closeBtn;							// 0x270
 		uint16_t unknown96;													// 0x274

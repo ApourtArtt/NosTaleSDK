@@ -9,8 +9,8 @@ namespace NosTaleSDK::Entwell::Classes
 		struct TLBSBkFxList : public TList<struct TLBSBkFxItem*>
 	{
 	};
-	static_assert(sizeof(TLBSBkFxList<struct TLBSBkFxItem*>) == 0x10, "TLBSBkFxList size isn't 0x10.");
-	static_assert(sizeof(TLBSBkFxList<struct TLBSBkFxItem*>) <= 0x10, "TLBSBkFxList size is upper than 0x10.");
-	static_assert(sizeof(TLBSBkFxList<struct TLBSBkFxItem*>) >= 0x10, "TLBSBkFxList size is lower than 0x10.");
+	static_assert(sizeof(TLBSBkFxList<TLBSBkFxItem*>) == 0x10, "TLBSBkFxList size isn't 0x10.");
+	static_assert(sizeof(TLBSBkFxList<TLBSBkFxItem*>) <= 0x10, "TLBSBkFxList size is upper than 0x10.");
+	static_assert(sizeof(TLBSBkFxList<TLBSBkFxItem*>) >= 0x10, "TLBSBkFxList size is lower than 0x10.");
 #pragma pack(pop)
 }

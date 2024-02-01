@@ -1,4 +1,5 @@
 module;
+#include <stdint.h>
 export module TEWHintGraphicButtonWidget;
 import TEWGraphicButtonWidget;
 
@@ -8,7 +9,7 @@ namespace NosTaleSDK::Entwell::Classes
 	export struct TEWHintGraphicButtonWidget : public TEWGraphicButtonWidget
 	{
 		char unknown37[20];						// 0x0DC
-		struct TEWCustomPanelWidget* unknown38;	// 0x0F0
+		TEWCustomPanelWidget* unknown38;		// 0x0F0
 		struct TEWLabel* unknown39;				// 0x0F4
 		uint32_t unknown40;						// 0x0F8
 	};

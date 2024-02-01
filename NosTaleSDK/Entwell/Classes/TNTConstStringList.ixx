@@ -5,7 +5,7 @@ import TNTIntHeadList;
 namespace NosTaleSDK::Entwell::Classes
 {
 #pragma pack(push, 1)
-	export struct TNTIntHeadList<char*> TNTConstStringList
+	export TNTIntHeadList<char*> TNTConstStringList
 	{
 	};
 	static_assert(sizeof(TNTConstStringList) == 0x10, "TNTCommonInfoBoard size isn't 0x10.");

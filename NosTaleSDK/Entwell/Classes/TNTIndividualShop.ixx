@@ -1,4 +1,5 @@
 module;
+#include <stdint.h>
 export module TNTIndividualShop;
 import TEWCustomFormWidget;
 
@@ -22,7 +23,7 @@ namespace NosTaleSDK::Entwell::Classes
 		uint32_t unknown50;							// 0x0E0
 		uint8_t unknown51;							// 0x0E4
 		char unknown52[83];							// 0x0E5
-		struct TEWCustomPanelWidget* unknown53;		// 0x138
+		TEWCustomPanelWidget* unknown53;			// 0x138
 		char unknown54[80];							// 0x13C
 	};
 	static_assert(sizeof(TNTIndividualShop) == 0x18C, "TNTIndividualShop size isn't 0x18C.");

@@ -16,7 +16,7 @@ namespace NosTaleSDK::Entwell::Classes
 		uint32_t unknown22;                         // 0x0D8
 		struct TEWStringListView* stringListView;   // 0x0DC
 		struct TEWScrollBar* scrollBar;             // 0x0E0
-		struct TEWCustomPanelWidget* panelWidget;   // 0x0E4
+		TEWCustomPanelWidget* panelWidget;			// 0x0E4
 		struct TEWLabel* labelColor;                // 0x0E8
 		char unknown24[4];							// 0x0EC
 		char unknown25[2];							// 0x0F0

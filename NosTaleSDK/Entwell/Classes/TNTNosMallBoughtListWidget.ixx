@@ -11,29 +11,29 @@ namespace NosTaleSDK::Entwell::Classes
 		uint32_t unknown20;							// 0x068
 		uint32_t unknown21;							// 0x06C
 		struct TEWCustomPanelWidget* unknown22;		// 0x070
-		struct TEWCustomPanelWidget* unknown23;		// 0x074
-		struct TEWControlWidgetEX* unknown24;		// 0x078
+		TEWCustomPanelWidget* unknown23;			// 0x074
+		TEWControlWidgetEX* unknown24;				// 0x078
 		struct TEWLabel* unknown25;					// 0x07C
-		struct TEWLabel* unknown26;					// 0x080
-		struct TEWLabel* unknown27;					// 0x084
-		struct TEWLabel* unknown28;					// 0x088
-		struct TEWLabel* unknown29;					// 0x08C
+		TEWLabel* unknown26;						// 0x080
+		TEWLabel* unknown27;						// 0x084
+		TEWLabel* unknown28;						// 0x088
+		TEWLabel* unknown29;						// 0x08C
 		struct TNTNosMallItemListWidget* unknown30;	// 0x090
 		struct TEWGraphicButtonWidget* unknown31;	// 0x094
-		struct TEWGraphicButtonWidget* unknown32;	// 0x098
+		TEWGraphicButtonWidget* unknown32;			// 0x098
 		uint32_t unknown33;							// 0x09C
 		char unknown34[28];							// 0x0A0
-		struct TEWCustomPanelWidget* unknown35;		// 0x0BC
-		struct TEWCustomPanelWidget* unknown36;		// 0x0C0
-		struct TEWControlWidgetEX* unknown37;		// 0x0C4
-		struct TEWLabel* unknown38;					// 0x0C8
-		struct TEWLabel* unknown39;					// 0x0CC
-		struct TEWLabel* unknown40;					// 0x0D0
-		struct TNTNosMallItemListWidget* unknown41;	// 0x0D4
-		struct TEWCustomPanelWidget* unknown42;		// 0x0D8
-		struct TEWControlWidgetEX* unknown43;		// 0x0DC
-		struct TNTNosMallItemListWidget* unknown44;	// 0x0E0
-		struct TEWLabel* unknown45;					// 0x0E4
+		TEWCustomPanelWidget* unknown35;			// 0x0BC
+		TEWCustomPanelWidget* unknown36;			// 0x0C0
+		TEWControlWidgetEX* unknown37;				// 0x0C4
+		TEWLabel* unknown38;						// 0x0C8
+		TEWLabel* unknown39;						// 0x0CC
+		TEWLabel* unknown40;						// 0x0D0
+		TNTNosMallItemListWidget* unknown41;		// 0x0D4
+		TEWCustomPanelWidget* unknown42;			// 0x0D8
+		TEWControlWidgetEX* unknown43;				// 0x0DC
+		TNTNosMallItemListWidget* unknown44;		// 0x0E0
+		TEWLabel* unknown45;						// 0x0E4
 		uint8_t unknown46;							// 0x0E8
 		char unknown47[3];							// 0x0E9
 	};

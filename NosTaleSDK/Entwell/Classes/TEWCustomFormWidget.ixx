@@ -1,4 +1,5 @@
 module;
+#include <stdint.h>
 export module TEWCustomFormWidget;
 import TEWCustomPanelWidget;
 
@@ -15,7 +16,7 @@ namespace NosTaleSDK::Entwell::Classes
 		uint32_t unknown34;					// 0x0AF
 		uint32_t unknown35;					// 0x0B3
 		char unknown36;						// 0x0B4
-		struct TLBSWidget* unknown37;		// 0x0B8
+		TLBSWidget* unknown37;				// 0x0B8
 	};
 	static_assert(sizeof(TEWCustomFormWidget) == 0xBC, "TEWCustomFormWidget size isn't 0xBC.");
 	static_assert(sizeof(TEWCustomFormWidget) <= 0xBC, "TEWCustomFormWidget size is upper than 0xBC.");

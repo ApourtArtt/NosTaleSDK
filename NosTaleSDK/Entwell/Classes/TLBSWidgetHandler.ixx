@@ -13,8 +13,8 @@ namespace NosTaleSDK::Entwell::Classes
 		uint16_t aspectRatioY;						// 0x00A
 		struct TGameRootWidget* gameRootWidget;		// 0x00C
 		struct TLBSWidget* currentClickedWidget;	// 0x010
-		struct TLBSWidget* currentHoveredWidget;	// 0x014
-		struct TLBSWidget* lastClickedWidget;		// 0x018
+		TLBSWidget* currentHoveredWidget;			// 0x014
+		TLBSWidget* lastClickedWidget;				// 0x018
 		char unknown1[4];							// 0x01C
 		char unknown2[4];							// 0x020
 		bool unknown3;								// 0x024
@@ -27,9 +27,9 @@ namespace NosTaleSDK::Entwell::Classes
 		char unknown8[4];							// 0x038
 		int8_t unknown13;							// 0x03C
 		char unknown9[3];							// 0x03D
-		void* HKL;									// 0x040
+		void* hkl;									// 0x040
 		char unknown10[24];							// 0x044
-		void* TCandidateStrArr;						// 0x05C
+		void* candidateStrArr;						// 0x05C
 		char unknown11[4];							// 0x060
 		char unknown12[676];						// 0x064
 	};

@@ -15,11 +15,11 @@ namespace NosTaleSDK::Entwell::Classes
 		uint32_t unknown102;						// 0x0C8
 		uint32_t unknown103;						// 0x0CC
 		struct TEWLabel* unknown104;				// 0x0D0
-		struct TEWCustomPanelWidget* unknown105;	// 0x0D4
+		TEWCustomPanelWidget* unknown105;			// 0x0D4
 		struct TEWScrollBar* unknown106;			// 0x0D8
 		char unknown107[36];						// 0x0DC
-		struct TList<void*>* unknown108;			// 0x100
-		struct TList<void*>* unknown109;			// 0x104
+		TList<void*>* unknown108;					// 0x100
+		TList<void*>* unknown109;					// 0x104
 		uint8_t unknown110;							// 0x108
 		uint8_t unknown111;							// 0x109
 		uint16_t unknown112;						// 0x10A
@@ -31,20 +31,20 @@ namespace NosTaleSDK::Entwell::Classes
 		struct TEWGraphicButtonWidget* unknown118;	// 0xCA0
 		uint8_t unknown119;							// 0xCA4
 		char unknown120[3];							// 0xCA5
-		struct TEWCustomPanelWidget* unknown121;	// 0xCA8
-		struct TEWLabel* unknown122;				// 0xCAC
-		struct TEWLabel* unknown123;				// 0xCB0
-		struct TEWLabel* unknown124;				// 0xCB4
-		struct TEWCustomPanelWidget* unknown125;	// 0xCB8
-		struct TEWScrollBar* unknown126;			// 0xCBC
+		TEWCustomPanelWidget* unknown121;			// 0xCA8
+		TEWLabel* unknown122;						// 0xCAC
+		TEWLabel* unknown123;						// 0xCB0
+		TEWLabel* unknown124;						// 0xCB4
+		TEWCustomPanelWidget* unknown125;			// 0xCB8
+		TEWScrollBar* unknown126;					// 0xCBC
 		char unknown127[36];						// 0xCC0
-		struct TList<void*>* unknown128;			// 0xCE4
-		struct TList<void*>* unknown129;			// 0xCE8
+		TList<void*>* unknown128;					// 0xCE4
+		TList<void*>* unknown129;					// 0xCE8
 		char unknown130[36];						// 0xCEC
 		uint8_t unknown131;							// 0xD10
 		uint8_t unknown132;							// 0xD11
 		uint16_t unknown133;						// 0xD12
-		struct TEWListView* unknown134;				// 0xD14
+		TEWListView* unknown134;					// 0xD14
 		char unknown135[252];						// 0xD18
 		uint8_t unknown136;							// 0xE14
 		char unknown137[3];							// 0xE15

@@ -9,11 +9,11 @@ namespace NosTaleSDK::Entwell::Classes
 #pragma pack(push, 1)
 	export struct TComponent : public TPersistent
 	{
-		struct TComponent* owner;				// 0x004
+		TComponent* owner;						// 0x004
 		uint32_t name;							// 0x008
 		int tag;								// 0x00C
-		struct TList<TComponent*>* components;	// 0x010
-		struct TList<void*>* freeNotifies;		// 0x014
+		TList<TComponent*>* components;			// 0x010
+		TList<void*>* freeNotifies;				// 0x014
 		long designInfo;						// 0x018
 		uint32_t state;							// 0x01C
 		void* vclComObject;						// 0x020

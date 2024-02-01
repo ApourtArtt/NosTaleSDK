@@ -1,5 +1,4 @@
 module;
-#include <stdint.h>
 export module TLBSMultiTextureCache;
 import TObject;
 template<typename> struct TList;
@@ -12,8 +11,8 @@ namespace NosTaleSDK::Entwell::Classes
 		char unknown[4];						// 0x004
 		char unknown2[4];						// 0x008
 		struct TLBSMultiTextureList* unknown3;	// 0x00C
-		struct TLBSMultiTextureList* unknown4;	// 0x010
-		struct TList<void*>* unknown5;			// 0x014
+		TLBSMultiTextureList* unknown4;			// 0x010
+		TList<void*>* unknown5;					// 0x014
 	};
 	static_assert(sizeof(TLBSMultiTextureCache) == 0x18, "TLBSMultiTextureCache size isn't 0x18.");
 	static_assert(sizeof(TLBSMultiTextureCache) <= 0x18, "TLBSMultiTextureCache size is upper than 0x18.");

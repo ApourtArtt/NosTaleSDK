@@ -19,7 +19,7 @@ namespace NosTaleSDK::Entwell::Classes
 		uint32_t unknown38;						// 0x0B4
 		struct TRiskFieldMapWidget* unknown39;	// 0x0B8
 		char unknown40[4];						// 0x0B2
-		struct TEWCustomPanelWidget* unknown41;	// 0x0C0
+		TEWCustomPanelWidget* unknown41;		// 0x0C0
 		uint16_t unknown42;						// 0x0C4
 		char unknown43[2];						// 0x0C6
 	};

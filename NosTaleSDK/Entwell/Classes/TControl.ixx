@@ -11,7 +11,7 @@ namespace NosTaleSDK::Entwell::Classes
 		void* parent;				// 0x030 TWinControl
 		char unknown2[4];			// 0x034
 		void* windowProc;			// 0x038 TWndMethod
-		struct TControl* unknown3;	// 0x03C
+		TControl* unknown3;			// 0x03C
 		int left;					// 0x040
 		int top;					// 0x044
 		int width;					// 0x048

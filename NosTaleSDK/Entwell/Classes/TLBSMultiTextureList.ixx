@@ -9,8 +9,8 @@ namespace NosTaleSDK::Entwell::Classes
 		struct TLBSMultiTextureList : public TList<struct TLBSMultiTextureCache*>
 	{
 	};
-	static_assert(sizeof(TLBSMultiTextureList<struct TLBSMultiTextureCache*>) == 0x10, "TLBSMultiTextureList size isn't 0x10.");
-	static_assert(sizeof(TLBSMultiTextureList<struct TLBSMultiTextureCache*>) <= 0x10, "TLBSMultiTextureList size is upper than 0x10.");
-	static_assert(sizeof(TLBSMultiTextureList<struct TLBSMultiTextureCache*>) >= 0x10, "TLBSMultiTextureList size is lower than 0x10.");
+	static_assert(sizeof(TLBSMultiTextureList<TLBSMultiTextureCache*>) == 0x10, "TLBSMultiTextureList size isn't 0x10.");
+	static_assert(sizeof(TLBSMultiTextureList<TLBSMultiTextureCache*>) <= 0x10, "TLBSMultiTextureList size is upper than 0x10.");
+	static_assert(sizeof(TLBSMultiTextureList<TLBSMultiTextureCache*>) >= 0x10, "TLBSMultiTextureList size is lower than 0x10.");
 #pragma pack(pop)
 }
