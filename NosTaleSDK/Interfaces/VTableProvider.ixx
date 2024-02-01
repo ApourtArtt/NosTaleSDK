@@ -1,6 +1,5 @@
 module;
 #include <string>
-#include <vector>
 #include <memory>
 export module VTableProvider;
 import Logger;

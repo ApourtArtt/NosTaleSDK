@@ -15,8 +15,8 @@ namespace NosTaleSDK::Wrappers::Classes
 	{
 		TENTWELL_WRAPPER_DEFINITION(WrapperTLBSWidget, WrapperTObject, TLBSWidget)
 	public:
-		void SetUnknown(const uintptr_t VT) const { obj->unknown = VT; }
-		uintptr_t GetUnknown() const { return obj->unknown; }
+		void SetWidgetType(const uintptr_t VT) const { obj->widgetType = static_cast<int8_t>(VT); }
+		uintptr_t GetWidgetType() const { return static_cast<uintptr_t>(obj->widgetType); }
 
 	private:
 		static void initObject()

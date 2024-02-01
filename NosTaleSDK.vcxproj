@@ -82,7 +82,7 @@
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNosSndCmdList.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNosTaleGame.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNosTaleMainF.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTBottomMainUIWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTBottomMainUiWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTCardInventoryInfoWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTCharacterInventoryInfoWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTCharacterSummaryInfoWidget.ixx" />
@@ -128,8 +128,8 @@
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTQuickSlotWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTRiskMapWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTRuneUpgradeWidget.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTShopOpenUIWidget.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTSPCardUpgradeWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTShopOpenUiWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTSpCardUpgradeWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTSpecialaListInfoWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTSpecialCardPlusWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTSpecialDragonFx.ixx" />

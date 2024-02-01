@@ -12,8 +12,8 @@ import Logger;
 export class ClassSearcherVTableProvider final : public NosTaleSDK::Interfaces::VTableProvider
 {
 public:
-	ClassSearcherVTableProvider(const std::shared_ptr<NosTaleSDK::Interfaces::Logger>& Logger)
-		: NosTaleSDK::Interfaces::VTableProvider(Logger)
+	explicit ClassSearcherVTableProvider(const std::shared_ptr<NosTaleSDK::Interfaces::Logger>& Logger)
+		: VTableProvider(Logger)
 	{
 		auto [lpBaseOfDll, SizeOfImage, EntryPoint] = NosTaleSDK::Utils::GetModuleInfo();
 		base_ = reinterpret_cast<DWORD>(lpBaseOfDll);

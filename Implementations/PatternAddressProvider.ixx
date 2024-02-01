@@ -1,4 +1,5 @@
 module;
+#include <format>
 #include <string>
 #include <map>
 #include <memory>
@@ -20,7 +21,7 @@ public:
 	};
 
 	explicit PatternAddressProvider(const std::shared_ptr<NosTaleSDK::Interfaces::Logger>& Logger)
-		: NosTaleSDK::Interfaces::AddressProvider(Logger)
+		: AddressProvider(Logger)
 	{}
 
 	bool RegisterPattern(const std::string& AddressName, const PatternDef& Pattern)
@@ -37,15 +38,22 @@ public:
 	[[nodiscard]] uintptr_t GetOne(const std::string& AddressName) override
 	{
 		if (!patterns_.contains(AddressName) || !results_.contains(AddressName))
+		{
+			logger_->Error(std::format("PatternScan failed for {}", AddressName.c_str()));
 			return 0;
+		}
 
 		if (const auto& res = results_.at(AddressName); res.size() > 0)
+		{
+			logger_->Debug(std::format("PatternScan successfully found [{}] for {}", res.at(0), AddressName.c_str()));
 			return res.at(0);
+		}
 
 		const auto& [pattern, mask, offset, startFrom] = patterns_.at(AddressName);
 		const auto address = NosTaleSDK::Utils::PatternScan(pattern, mask.c_str(), offset, startFrom);
 
 		results_[AddressName].push_back(address);
+		logger_->Debug(std::format("PatternScan successfully found [{}] for {}", address, AddressName.c_str()));
 		return address;
 	}
 

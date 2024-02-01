@@ -4,7 +4,8 @@ export module Plugin;
 
 namespace NosTaleSDK::Plugin
 {
-	export class Plugin final
+	// ReSharper disable once CppClassCanBeFinal
+	export class Plugin
 	{
 	public:
 		explicit Plugin(const std::string& Name)

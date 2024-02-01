@@ -13,8 +13,6 @@ import WrapperTLBSWidgetHandler;
 
 namespace NosTaleSDK
 {
-	using namespace NosTaleSDK;
-
 	export class Runtime
 	{
 	public:
@@ -79,7 +77,7 @@ namespace NosTaleSDK
 			//NosTaleSDK::Wrappers::Classes::WrapperTLBSWidget wWidget(vTableProvider);
 			//wWidget.SetEvenThing(4);
 
-			NosTaleSDK::Wrappers::Classes::WrapperTLBSWidgetHandler wHandler = NosTaleSDK::Wrappers::Classes::WrapperTLBSWidgetHandler::GetNtInstance(addressProvider_);
+			Wrappers::Classes::WrapperTLBSWidgetHandler wHandler = Wrappers::Classes::WrapperTLBSWidgetHandler::GetNtInstance(addressProvider_);
 			logger_->Info(std::format("vTable: {}", wHandler.GetInternal()->vTable));
 			logger_->Info(std::format("add: {}", reinterpret_cast<uintptr_t>(wHandler.GetInternal())));
 			while (true)

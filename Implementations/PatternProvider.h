@@ -1,5 +1,8 @@
 #pragma once
 
+#include <cstdint>
+#include <map>
+#include <string>
 import AddressProvider;
 
 class PatternProvider : public NosTaleSDK::Providers::AddressProvider
@@ -15,22 +18,22 @@ public:
 
 	bool RegisterPattern(const std::string& AddressName, const PatternDef& Pattern)
 	{
-		if (patterns.contains(AddressName))
+		if (patterns_.contains(AddressName))
 			return false;
 
-		patterns.emplace(AddressName, Pattern);
+		patterns_.emplace(AddressName, Pattern);
 
 		return true;
 	}
 
 	[[nodiscard]] uintptr_t Get(const std::string& AddressName) override
 	{
-		if (!patterns.contains(AddressName))
+		if (!patterns_.contains(AddressName))
 			return 0;
-		auto pattern = patterns.at(AddressName);
-		return NosTaleSDK::Utils::PatternScan(pattern.pattern.c_str(), pattern.mask.c_str(), pattern.offset, pattern.startFrom);
+		auto [pattern, mask, offset, startFrom] = patterns_.at(AddressName);
+		return NosTaleSDK::Utils::PatternScan(pattern.c_str(), mask.c_str(), offset, startFrom);
 	}
 
 private:
-	std::map<std::string, PatternDef> patterns;
+	std::map<std::string, PatternDef> patterns_;
 };
