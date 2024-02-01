@@ -6,22 +6,22 @@ export module MemoryUtils;
 
 namespace NosTaleSDK::Utils
 {
-    export const MODULEINFO GetModuleInfo()
+    export MODULEINFO GetModuleInfo()
     {
-        MODULEINFO modinfo = { 0 };
-        HMODULE hModule = GetModuleHandleW(nullptr);
-        if (hModule == 0)
+        MODULEINFO modinfo = { nullptr };
+        const HMODULE hModule = GetModuleHandleW(nullptr);
+        if (hModule == nullptr)
             return modinfo;
         K32GetModuleInformation(GetCurrentProcess(), hModule, &modinfo, sizeof(MODULEINFO));
         return modinfo;
     }
 
-    export uintptr_t PatternScan(const char* Pattern, const char* Mask, int32_t Offset = 0, uint32_t Start = 0)
+    export uintptr_t PatternScan(const char* Pattern, const char* Mask, const int32_t Offset = 0, const uint32_t Start = 0)
     {
-        static MODULEINFO mInfo = GetModuleInfo();
-        static auto base = (uint32_t)mInfo.lpBaseOfDll;
-        static auto size = (uint32_t)mInfo.SizeOfImage;
-        uint32_t patternLength = strlen(Mask);
+        auto [lpBaseOfDll, SizeOfImage, EntryPoint] = GetModuleInfo();
+        static auto base = reinterpret_cast<uint32_t>(lpBaseOfDll);
+        static auto size = static_cast<uint32_t>(SizeOfImage);
+        const uint32_t patternLength = strlen(Mask);
 
         auto i = Start;
         if (i > base)
@@ -31,7 +31,7 @@ namespace NosTaleSDK::Utils
         {
             bool found = true;
             for (DWORD j = 0; j < patternLength && found; j++)
-                found &= Mask[j] == '?' || Pattern[j] == *(char*)(base + i + j);
+                found &= Mask[j] == '?' || Pattern[j] == *reinterpret_cast<char*>(base + i + j);
             if (found)
                 return base + i + Offset;
         }

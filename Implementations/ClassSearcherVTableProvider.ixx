@@ -1,6 +1,7 @@
 module;
 #include <string>
 #include <map>
+#include <memory>
 #include <Windows.h>
 #include <Psapi.h>
 export module ClassSearcherVTableProvider;
@@ -8,40 +9,39 @@ import VTableProvider;
 import MemoryUtils;
 import Logger;
 
-export class ClassSearcherVTableProvider : public NosTaleSDK::Interfaces::VTableProvider
+export class ClassSearcherVTableProvider final : public NosTaleSDK::Interfaces::VTableProvider
 {
 public:
-	ClassSearcherVTableProvider(std::shared_ptr<NosTaleSDK::Interfaces::Logger> Logger)
+	ClassSearcherVTableProvider(const std::shared_ptr<NosTaleSDK::Interfaces::Logger>& Logger)
 		: NosTaleSDK::Interfaces::VTableProvider(Logger)
 	{
-		MODULEINFO mInfo = NosTaleSDK::Utils::GetModuleInfo();
-		base = (DWORD)mInfo.lpBaseOfDll;
-		size = (DWORD)mInfo.SizeOfImage;
-		memoryData.resize(size);
-		memcpy(memoryData.data(), (char*)base, size);
+		auto [lpBaseOfDll, SizeOfImage, EntryPoint] = NosTaleSDK::Utils::GetModuleInfo();
+		base_ = reinterpret_cast<DWORD>(lpBaseOfDll);
+		size_ = SizeOfImage;
+		memoryData_.resize(size_);
+		memcpy(memoryData_.data(), reinterpret_cast<char*>(base_), size_);
 	}
 
 	bool RegisterPattern(const std::string& ClassName)
 	{
-		if (patterns.contains(ClassName))
+		if (patterns_.contains(ClassName))
 			return false;
 
-		patterns.emplace(ClassName, 0);
+		patterns_.emplace(ClassName, 0);
 
 		return true;
 	}
 
 	[[nodiscard]] uintptr_t Get(const std::string& ClassName) override
 	{
-		if (!patterns.contains(ClassName))
+		if (!patterns_.contains(ClassName))
 			return 0;
 
-		auto& res = patterns.at(ClassName);
-		if (res != 0)
+		if (const auto& res = patterns_.at(ClassName); res != 0)
 			return res;
 
-		auto addr = search(ClassName);
-		patterns[ClassName] = addr;
+		const auto addr = search(ClassName);
+		patterns_[ClassName] = addr;
 		return addr;
 	}
 
@@ -49,29 +49,28 @@ private:
 	// https://github.com/ApourtArtt/DelphiClassInfo
 	uintptr_t search(const std::string& ClassName)
 	{
-		std::string pattern = getPattern(ClassName);
-		uint32_t pos = memoryData.find(pattern);
+		const std::string pattern = getPattern(ClassName);
+		const uint32_t pos = memoryData_.find(pattern);
 		if (pos == std::string::npos)
 			return 0;
-		uint32_t addr = base + pos;
+		const uint32_t addr = base_ + pos;
 
 		for (uint32_t j = addr - 4;; j--)
 		{
-			if (j < base)
+			if (j < base_)
 				return 0;
-			if (*(uint32_t*)j == addr)
+			if (*reinterpret_cast<uint32_t*>(j) == addr)
 			{
 				return j - 0x20;
 			}
 		}
-		return 0;
 	}
 
-	std::string getPattern(const std::string& className)
+	static std::string getPattern(const std::string& ClassName)
 	{
 		std::string pattern;
-		pattern += (char)className.size();
-		pattern += className;
+		pattern += static_cast<char>(ClassName.size());
+		pattern += ClassName;
 		return pattern;
 	}
 
@@ -85,8 +84,8 @@ private:
 		return true;
 	}
 
-	std::string memoryData;
-	uintptr_t base, size;
+	std::string memoryData_;
+	uintptr_t base_, size_;
 
-	std::map<std::string, uintptr_t> patterns;
+	std::map<std::string, uintptr_t> patterns_;
 };

@@ -11,17 +11,18 @@ namespace NosTaleSDK::Interfaces
 	export class VTableProvider : public Interface
 	{
 	public:
-		VTableProvider(std::shared_ptr<Logger> Logger)
-			: logger(Logger)
+		explicit VTableProvider(const std::shared_ptr<Logger>& Logger)
+			: logger_(Logger)
 		{}
-		virtual ~VTableProvider() {}
+
+		~VTableProvider() override {}
 		[[nodiscard]] virtual uintptr_t Get(const std::string& ClassName) = 0;
 
 	protected:
-		std::shared_ptr<Logger> logger;
+		std::shared_ptr<Logger> logger_;
 
 	private:
-		virtual bool load() = 0;
-		virtual bool unload() = 0;
+		bool load() override = 0;
+		bool unload() override = 0;
 	};
 }

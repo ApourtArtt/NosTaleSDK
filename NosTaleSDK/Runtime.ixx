@@ -1,11 +1,8 @@
 module;
 #include <vector>
-#include <set>
 #include <memory>
-#include <string>
 #include <format>
 #include <Windows.h>
-#include <iostream>
 export module Runtime;
 import Plugin;
 import AddressProvider;
@@ -22,13 +19,13 @@ namespace NosTaleSDK
 	{
 	public:
 		Runtime(
-			std::shared_ptr<Interfaces::Logger> Logger,
-			std::shared_ptr<Interfaces::AddressProvider> AddressProvider,
-			std::shared_ptr<Interfaces::VTableProvider> VTableProvider
+			const std::shared_ptr<Interfaces::Logger>& Logger,
+			const std::shared_ptr<Interfaces::AddressProvider>& AddressProvider,
+			const std::shared_ptr<Interfaces::VTableProvider>& VTableProvider
 		)
-			: logger(Logger)
-			, addressProvider(AddressProvider)
-			, vTableProvider(VTableProvider)
+			: logger_(Logger)
+			, addressProvider_(AddressProvider)
+			, vTableProvider_(VTableProvider)
 		{}
 
 		~Runtime()
@@ -38,51 +35,53 @@ namespace NosTaleSDK
 
 		bool Initialize()
 		{
-			if (isInit) return true;
-			isInit = true;
+			if (isInit_) return true;
+			isInit_ = true;
 
-			if (!logger->Load())
+			if (!logger_->Load())
 				return false;
 
-			logger->Info("Initializing the runtime");
+			logger_->Info("Initializing the runtime");
 
-			logger->Info("Loading the AddressProvider");
-			if (!addressProvider->Load())
+			logger_->Info("Loading the AddressProvider");
+			if (!addressProvider_->Load())
 				return false;
 
-			logger->Info("Loading the VTableProvider");
-			if (!vTableProvider->Load())
+			logger_->Info("Loading the VTableProvider");
+			if (!vTableProvider_->Load())
 				return false;
+			
+			return true;
 		}
 
 		void RegisterPlugin(std::shared_ptr<Plugin::Plugin> Plugin)
 		{
-			logger->Info(std::format("Registering plugin: {}", Plugin->GetName()));
-			plugins.push_back(std::reference_wrapper(Plugin));
+			logger_->Info(std::format("Registering plugin: {}", Plugin->GetName()));
+			plugins_.push_back(std::reference_wrapper(Plugin));
 		}
 
-		void OnShowNostaleSplash()
+		void OnShowNostaleSplash() const
 		{
-			logger->Info("OnShowNostaleSplash");
+			logger_->Info("OnShowNostaleSplash");
 		}
 
-		void OnFreeNostaleSplash()
+		void OnFreeNostaleSplash() const
 		{
-			logger->Info("OnFreeNostaleSplash");
+			logger_->Info("OnFreeNostaleSplash");
 		}
 
-		void Run()
+		void Run() const
 		{
-			logger->Info("Run();");
+			logger_->Info("Run();");
 
 			Sleep(5000);
 
 			//NosTaleSDK::Wrappers::Classes::WrapperTLBSWidget wWidget(vTableProvider);
 			//wWidget.SetEvenThing(4);
 
-			NosTaleSDK::Wrappers::Classes::WrapperTLBSWidgetHandler wHandler = NosTaleSDK::Wrappers::Classes::WrapperTLBSWidgetHandler::GetNtInstance(addressProvider);
-			logger->Info(std::format("vTable: {}", wHandler.GetInternal()->vTable));
-			logger->Info(std::format("add: {}", (uintptr_t)wHandler.GetInternal()));
+			NosTaleSDK::Wrappers::Classes::WrapperTLBSWidgetHandler wHandler = NosTaleSDK::Wrappers::Classes::WrapperTLBSWidgetHandler::GetNtInstance(addressProvider_);
+			logger_->Info(std::format("vTable: {}", wHandler.GetInternal()->vTable));
+			logger_->Info(std::format("add: {}", reinterpret_cast<uintptr_t>(wHandler.GetInternal())));
 			while (true)
 			{
 				Sleep(50);
@@ -90,11 +89,11 @@ namespace NosTaleSDK
 		}
 
 	private:
-		std::shared_ptr<Interfaces::Logger> logger;
-		std::shared_ptr<Interfaces::AddressProvider> addressProvider;
-		std::shared_ptr<Interfaces::VTableProvider> vTableProvider;
+		std::shared_ptr<Interfaces::Logger> logger_;
+		std::shared_ptr<Interfaces::AddressProvider> addressProvider_;
+		std::shared_ptr<Interfaces::VTableProvider> vTableProvider_;
 
-		std::vector<std::shared_ptr<Plugin::Plugin>> plugins;
-		bool isInit{ false };
+		std::vector<std::shared_ptr<Plugin::Plugin>> plugins_;
+		bool isInit_{ false };
 	};
 }

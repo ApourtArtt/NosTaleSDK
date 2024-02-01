@@ -9,37 +9,41 @@ namespace NosTaleSDK::Wrappers::Classes
     export class WrapperTObject
     {
     private:
-        TObject* obj;
+        TObject* obj_;
     public:
-        WrapperTObject() {}
-        WrapperTObject(TObject* to) : obj(to) {}
-        WrapperTObject(uintptr_t vT)
+        WrapperTObject(): obj_(nullptr)
         {
-            obj = new TObject();
-            obj->vTable = vT;
         }
-        WrapperTObject(TObject* to, uintptr_t vT)
+
+        explicit WrapperTObject(TObject* To) : obj_(To) {}
+
+        explicit WrapperTObject(const uintptr_t VT)
         {
-            obj = to;
-            obj->vTable = vT;
+            obj_ = new TObject();
+            obj_->vTable = VT;
+        }
+        WrapperTObject(TObject* To, const uintptr_t VT)
+        {
+            obj_ = To;
+            obj_->vTable = VT;
         }
         virtual ~WrapperTObject()
         {
-            if (isManaging && obj != nullptr)
+            if (isManaging_ && obj_ != nullptr)
             {
-                delete obj;
-                obj = nullptr;
-                isManaging = false;
+                delete obj_;
+                obj_ = nullptr;
+                isManaging_ = false;
             }
         }
 
-        virtual void SetInternal(TObject* to) { obj = to; }
-        virtual TObject* GetInternal() { return obj; }
+        virtual void SetInternal(TObject* To) { obj_ = To; }
+        virtual TObject* GetInternal() { return obj_; }
 
-        void SetVTable(uintptr_t VT) { obj->vTable = VT; }
-        virtual uintptr_t GetVTable() { return obj->vTable; }
+        void SetVTable(const uintptr_t VT) const { obj_->vTable = VT; }
+        virtual uintptr_t GetVTable() { return obj_->vTable; }
 
     protected:
-        bool isManaging{ false };
+        bool isManaging_{ false };
     };
 }

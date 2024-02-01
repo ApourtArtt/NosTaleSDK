@@ -13,84 +13,84 @@ std::thread* thread{ nullptr };
 
 std::shared_ptr<PatternAddressProvider> InitPatternProvider(std::shared_ptr<NosTaleSDK::Interfaces::Logger> logger)
 {
-    auto patternProvider = std::make_shared<PatternAddressProvider>(logger);
+	auto patternProvider = std::make_shared<PatternAddressProvider>(logger);
 
-    patternProvider->RegisterPattern("NosTaleSDK::Entwell::Classes::TLBSWidgetHandler::Singleton", {
-        "\x83\x3d\x00\x00\x00\x00\x00\x74\x0a\xa1\x00\x00\x00\x00\xe8\x00\x00\x00\x00\xc3",
-        "xx????xxxx????x????x", 2, 0 });
+	patternProvider->RegisterPattern("NosTaleSDK::Entwell::Classes::TLBSWidgetHandler::Singleton", {
+		const_cast<char*>("\x83\x3d\x00\x00\x00\x00\x00\x74\x0a\xa1\x00\x00\x00\x00\xe8\x00\x00\x00\x00\xc3"),
+		"xx????xxxx????x????x", 2, 0 });
 
-    return patternProvider;
+	return patternProvider;
 }
 
 bool InitRuntime()
 {
-    static bool init = false;
-    if (init)
-        return false;
-    init = true;
+	static bool init = false;
+	if (init)
+		return false;
+	init = true;
 
-    Sleep(5000);
-    auto logger = std::make_shared<ConsoleLogger>();
-    if (!logger->Load())
-        return false;
+	Sleep(5000);
+	auto logger = std::make_shared<ConsoleLogger>();
+	if (!logger->Load())
+		return false;
 
-    logger->Flush();
-    auto vTableProvider = std::make_shared<ClassSearcherVTableProvider>(logger);
-    auto patternProvider = InitPatternProvider(logger);
+	logger->Flush();
+	const auto vTableProvider = std::make_shared<ClassSearcherVTableProvider>(logger);
+	const auto patternProvider = InitPatternProvider(logger);
 
-    runtime = new NosTaleSDK::Runtime(logger, patternProvider, vTableProvider);
-    if (!runtime->Initialize())
-        return false;
+	runtime = new NosTaleSDK::Runtime(logger, patternProvider, vTableProvider);
+	if (!runtime->Initialize())
+		return false;
 
-    thread = new std::thread([]
-        {
-            runtime->Run();
-        });
-    thread->detach();
+	thread = new std::thread([]
+		{
+			runtime->Run();
+		});
+	thread->detach();
     
-    return true;
+	return true;
 }
 
 extern "C" __declspec(dllexport) void __declspec(naked) ShowNostaleSplash()
 {
-    __asm
-    {
-        pushad;
-        pushfd;
-    }
+	__asm
+	{
+		pushad;
+		pushfd;
+	}
 
-    runtime->OnShowNostaleSplash();
+	runtime->OnShowNostaleSplash();
 
-    __asm
-    {
-        popfd;
-        popad;
-        ret;
-    }
+	__asm
+	{
+		popfd;
+		popad;
+		ret;
+	}
 }
 
 extern "C" __declspec(dllexport) void __declspec(naked) FreeNostaleSplash() noexcept
 {
-    __asm
-    {
-        pushad;
-        pushfd;
-    }
+	__asm
+	{
+		pushad;
+		pushfd;
+	}
 
-    runtime->OnFreeNostaleSplash();
+	runtime->OnFreeNostaleSplash();
 
-    __asm
-    {
-        popfd;
-        popad;
+	__asm
+	{
+		popfd;
+		popad;
 
-        xor eax, eax;
-        ret;
-    }
+		xor eax, eax;
+		ret;
+	}
 }
 
-BOOL APIENTRY DllMain(HMODULE HModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
+BOOL APIENTRY DllMain(HMODULE, DWORD, LPVOID)
 {
-    InitRuntime();
-    return TRUE;
+	InitRuntime();
+	return TRUE;
 }

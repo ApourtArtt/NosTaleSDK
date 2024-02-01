@@ -8,18 +8,20 @@ import VTableProvider;
 
 namespace NosTaleSDK::Wrappers::Classes
 {
-    using namespace NosTaleSDK::Entwell::Classes;
-    export class WrapperTLBSWidget : public WrapperTObject
-    {
-        TENTWELL_WRAPPER_DEFINITION(WrapperTLBSWidget, WrapperTObject, TLBSWidget)
-    public:
-        void SetEvenThing(uintptr_t VT) { obj->evenThing = VT; }
-        uintptr_t GetEvenThing() { return obj->evenThing; }
+	using namespace NosTaleSDK::Entwell::Classes;
+	// ReSharper disable once CppClassCanBeFinal
+	// ReSharper disable once CppInconsistentNaming
+	export class WrapperTLBSWidget : public WrapperTObject
+	{
+		TENTWELL_WRAPPER_DEFINITION(WrapperTLBSWidget, WrapperTObject, TLBSWidget)
+	public:
+		void SetUnknown(const uintptr_t VT) const { obj->unknown = VT; }
+		uintptr_t GetUnknown() const { return obj->unknown; }
 
-    private:
-        void initObject()
-        {
+	private:
+		static void initObject()
+		{
 
-        }
-    };
+		}
+	};
 }

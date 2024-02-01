@@ -1,75 +1,77 @@
 module;
 #include <string>
 #include <map>
+#include <memory>
+#include <vector>
 export module PatternAddressProvider;
 import AddressProvider;
 import MemoryUtils;
 import Logger;
 
-export class PatternAddressProvider : public NosTaleSDK::Interfaces::AddressProvider
+export class PatternAddressProvider final : public NosTaleSDK::Interfaces::AddressProvider
 {
 public:
 	struct PatternDef
 	{
-		std::string pattern;
+		char* pattern;
 		std::string mask;
 		int32_t offset = 0;
 		uint32_t startFrom = 0;
 	};
 
-	PatternAddressProvider(std::shared_ptr<NosTaleSDK::Interfaces::Logger> Logger)
+	explicit PatternAddressProvider(const std::shared_ptr<NosTaleSDK::Interfaces::Logger>& Logger)
 		: NosTaleSDK::Interfaces::AddressProvider(Logger)
 	{}
 
 	bool RegisterPattern(const std::string& AddressName, const PatternDef& Pattern)
 	{
-		if (patterns.contains(AddressName) || results.contains(AddressName))
+		if (patterns_.contains(AddressName) || results_.contains(AddressName))
 			return false;
 
-		patterns.emplace(AddressName, Pattern);
-		results.emplace(AddressName, std::vector<uintptr_t>());
+		patterns_.emplace(AddressName, Pattern);
+		results_.emplace(AddressName, std::vector<uintptr_t>());
 
 		return true;
 	}
 
 	[[nodiscard]] uintptr_t GetOne(const std::string& AddressName) override
 	{
-		if (!patterns.contains(AddressName) || !results.contains(AddressName))
+		if (!patterns_.contains(AddressName) || !results_.contains(AddressName))
 			return 0;
 
-		auto& res = results.at(AddressName);
-		if (res.size() > 0)
-			return res[0];
+		if (const auto& res = results_.at(AddressName); res.size() > 0)
+			return res.at(0);
 
-		auto& pattern = patterns.at(AddressName);
-		auto address = NosTaleSDK::Utils::PatternScan(pattern.pattern.c_str(), pattern.mask.c_str(), pattern.offset, pattern.startFrom);
-		results[AddressName].push_back(address);
+		const auto& [pattern, mask, offset, startFrom] = patterns_.at(AddressName);
+		const auto address = NosTaleSDK::Utils::PatternScan(pattern, mask.c_str(), offset, startFrom);
+
+		results_[AddressName].push_back(address);
 		return address;
 	}
 
 	[[nodiscard]] std::vector<uintptr_t> GetMany(const std::string& AddressName, int32_t HowMany = -1) override
 	{
-		if (!patterns.contains(AddressName) || !results.contains(AddressName))
+		if (!patterns_.contains(AddressName) || !results_.contains(AddressName))
 			return {};
 
-		auto& pattern = patterns.at(AddressName);
+		// ReSharper disable once CppUseStructuredBinding
+		const auto& pattern = patterns_.at(AddressName);
 
-		auto& res = results.at(AddressName);
-		if (HowMany == int32_t(res.size()))
+		if (auto& res = results_.at(AddressName); HowMany == static_cast<int32_t>(res.size()))
 			return res;
 
 		uint32_t startFrom = pattern.startFrom;
 		while (HowMany > 0 || HowMany == -1)
 		{
 			HowMany--;
-			uintptr_t currAdd = NosTaleSDK::Utils::PatternScan(pattern.pattern.c_str(), pattern.mask.c_str(), pattern.offset, startFrom);
+			uintptr_t currAdd = NosTaleSDK::Utils::PatternScan(pattern.pattern, pattern.mask.c_str(), pattern.offset, startFrom);
 			if (currAdd == 0)
 				break;
-			results[AddressName].push_back(currAdd);
+			results_[AddressName].push_back(currAdd);
 			startFrom = currAdd;
 		}
 
-		return results.at(AddressName);
+		return results_.at(AddressName);
 	}
 
 private:
@@ -83,6 +85,6 @@ private:
 		return true;
 	}
 
-	std::map<std::string, PatternDef> patterns;
-	std::map<std::string, std::vector<uintptr_t>> results;
+	std::map<std::string, PatternDef> patterns_;
+	std::map<std::string, std::vector<uintptr_t>> results_;
 };

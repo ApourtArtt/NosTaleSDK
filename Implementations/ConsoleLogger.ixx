@@ -1,14 +1,14 @@
 module;
 #include <string>
 #include <source_location>
-#include <chrono>
 #include <mutex>
 #include <Windows.h>
 #include <format>
+#include <chrono>
 export module ConsoleLogger;
 import Logger;
 
-export class ConsoleLogger : public NosTaleSDK::Interfaces::Logger
+export class ConsoleLogger final : public NosTaleSDK::Interfaces::Logger
 {
 public:
 	void Info(const std::string& Msg, const std::source_location& Location = std::source_location::current()) override
@@ -71,23 +71,23 @@ public:
 
 	void Flush() override
 	{
-		mu.lock();
+		mu_.lock();
 		fflush(stdout);
-		mu.unlock();
+		mu_.unlock();
 	}
 
-private:
-	[[nodiscard]] std::string GetTime()
+private:	
+	[[nodiscard]] static std::string GetTime()
 	{
-		auto time = std::chrono::utc_clock::now();
-		return std::format("{:%Y/%m/%d %T}", time);
+		auto const time = std::chrono::utc_clock::now();
+		return "";
 	}
 
-	void log(const std::string msg, const char color[])
+	void log(const std::string& Msg, const char Color[])
 	{
-		mu.lock();
-		printf("%s%s%s", color, msg.c_str(), RESET);
-		mu.unlock();
+		mu_.lock();
+		printf("%s%s%s", Color, Msg.c_str(), RESET);
+		mu_.unlock();
 	}
 
 	bool load() override
@@ -97,8 +97,8 @@ private:
 		if (!AllocConsole())
 			return false;
 
-		freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
-		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+		freopen_s(reinterpret_cast<FILE**>(stdout), "CONOUT$", "w", stdout);
+		const HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 		if (hConsole == nullptr)
 			return false;
 
@@ -116,7 +116,7 @@ private:
 		return FreeConsole();
 	}
 
-	std::mutex mu;
+	std::mutex mu_;
 
 	inline static constexpr char RESET[] = "\033[0m";
 	inline static constexpr char LIGHT_BLUE[] = "\033[36m"; // Info

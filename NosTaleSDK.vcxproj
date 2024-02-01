@@ -9,14 +9,6 @@
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|x64">
-      <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
-      <Configuration>Release</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Implementations\ConsoleLogger.ixx" />
@@ -142,6 +134,7 @@
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTSpecialCardPlusWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTSpecialDragonFx.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTSpecialWingFx.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTStarPetWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTTaskBarWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTTatooUpgradeWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTTrayWidget.ixx" />
@@ -223,9 +216,9 @@
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTLBSWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTLBSWidgetHandler.ixx" />
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTObject.ixx" />
-    <ClCompile Include="TNTStarPetWidget.ixx" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Implementations\PatternProvider.h" />
     <ClInclude Include="NosTaleSDK\Wrappers\Classes\MacroWrapperDef.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -284,13 +277,16 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)\Output\$(Configuration)</OutDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>EnableAllWarnings</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
       <TranslateIncludes>true</TranslateIncludes>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -310,48 +306,6 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
-      <TranslateIncludes>true</TranslateIncludes>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
-      <EnableModules>true</EnableModules>
-      <BuildStlModules>true</BuildStlModules>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ClCompile>
-      <WarningLevel>EnableAllWarnings</WarningLevel>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
-      <TranslateIncludes>true</TranslateIncludes>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
-      <EnableModules>true</EnableModules>
-      <BuildStlModules>true</BuildStlModules>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ClCompile>
-      <WarningLevel>EnableAllWarnings</WarningLevel>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>

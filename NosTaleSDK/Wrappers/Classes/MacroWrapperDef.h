@@ -34,11 +34,11 @@ public:\
     }\
     virtual ~WRAPPER_NAME()\
     {\
-        if (isManaging && obj != nullptr)\
+        if (isManaging_ && obj != nullptr)\
         {\
             delete obj;\
             obj = nullptr;\
-            isManaging = false;\
+            isManaging_ = false;\
         }\
     }\
     virtual void SetInternal(TENTWELL_NAME* TEntwell) { obj = TEntwell; WRAPPER_PARENT_NAME::SetInternal(TEntwell); }\

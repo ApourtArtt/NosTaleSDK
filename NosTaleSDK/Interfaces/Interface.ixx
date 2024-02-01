@@ -9,15 +9,15 @@ namespace NosTaleSDK::Interfaces
 		virtual ~Interface() {}
 		[[nodiscard]] bool Load()
 		{
-			if (isInit)
+			if (isInit_)
 				return false;
-			bool isInit = load();
+			const bool isInit = load();
 			return isInit;
 		}
 
 		[[nodiscard]] bool Unload()
 		{
-			if (!isInit)
+			if (!isInit_)
 				return true;
 
 			return unload();
@@ -27,6 +27,6 @@ namespace NosTaleSDK::Interfaces
 		virtual bool load() = 0;
 		virtual bool unload() = 0;
 
-		bool isInit{ false };
+		bool isInit_{ false };
 	};
 }

@@ -4,15 +4,15 @@ export module Plugin;
 
 namespace NosTaleSDK::Plugin
 {
-	export class Plugin
+	export class Plugin final
 	{
 	public:
-		Plugin(const std::string& Name)
-			: name(Name)
+		explicit Plugin(const std::string& Name)
+			: name_(Name)
 		{}
 		virtual ~Plugin() {}
 
-		[[nodiscard]] std::string GetName() { return name; }
+		[[nodiscard]] std::string GetName() { return name_; }
 
 		virtual void AfterRuntimeInitialization() {}
 		virtual void OnShowNostaleSplash() {}
@@ -23,6 +23,6 @@ namespace NosTaleSDK::Plugin
 		virtual void AfterRuntimeRun() {}
 
 	private:
-		std::string name;
+		std::string name_;
 	};
 }
