@@ -79,7 +79,7 @@ public:
 private:	
 	[[nodiscard]] static std::string GetTime()
 	{
-		auto const time = std::chrono::utc_clock::now();
+		//auto const time = std::chrono::utc_clock::now();
 		return "";
 	}
 
