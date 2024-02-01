@@ -11,9 +11,9 @@ import Logger;
 NosTaleSDK::Runtime* runtime{ nullptr };
 std::thread* thread{ nullptr };
 
-std::shared_ptr<PatternAddressProvider> InitPatternProvider(std::shared_ptr<NosTaleSDK::Interfaces::Logger> logger)
+std::shared_ptr<PatternAddressProvider> InitPatternProvider(std::shared_ptr<NosTaleSDK::Interfaces::Logger> Logger)
 {
-	auto patternProvider = std::make_shared<PatternAddressProvider>(logger);
+	auto patternProvider = std::make_shared<PatternAddressProvider>(Logger);
 
 	patternProvider->RegisterPattern("NosTaleSDK::Entwell::Classes::TLBSWidgetHandler::Singleton", {
 		const_cast<char*>("\x83\x3d\x00\x00\x00\x00\x00\x74\x0a\xa1\x00\x00\x00\x00\xe8\x00\x00\x00\x00\xc3"),
@@ -29,23 +29,25 @@ bool InitRuntime()
 		return false;
 	init = true;
 
-	Sleep(5000);
-	auto logger = std::make_shared<ConsoleLogger>();
-	if (!logger->Load())
-		return false;
-
-	logger->Flush();
-	const auto vTableProvider = std::make_shared<ClassSearcherVTableProvider>(logger);
-	const auto patternProvider = InitPatternProvider(logger);
-
-	runtime = new NosTaleSDK::Runtime(logger, patternProvider, vTableProvider);
-	if (!runtime->Initialize())
-		return false;
-
 	thread = new std::thread([]
-		{
-			runtime->Run();
-		});
+	{
+		//Sleep(5000);
+		
+		auto logger = std::make_shared<ConsoleLogger>();
+		if (!logger->Load())
+			return false;
+
+		logger->Flush();
+		const auto vTableProvider = std::make_shared<ClassSearcherVTableProvider>(logger);
+		const auto patternProvider = InitPatternProvider(logger);
+
+		runtime = new NosTaleSDK::Runtime(logger, patternProvider, vTableProvider);
+		if (!runtime->Initialize())
+			return false;
+		runtime->Run();
+		
+		return true;
+	});
 	thread->detach();
     
 	return true;
