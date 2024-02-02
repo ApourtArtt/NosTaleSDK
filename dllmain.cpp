@@ -17,7 +17,7 @@ std::shared_ptr<PatternAddressProvider> InitPatternProvider(std::shared_ptr<NosT
 
 	patternProvider->RegisterPattern("NosTaleSDK::Entwell::Classes::TLBSWidgetHandler::Singleton", {
 		"\x83\x3d\x00\x00\x00\x00\x00\x74\x0a\xa1\x00\x00\x00\x00\xe8\x00\x00\x00\x00\xc3",
-		"xx????xxxx????x????x", 2, 0 });
+		"xx????xxxx????x????x", 2, 0, 2 });
 
 	patternProvider->RegisterPattern("NosTaleSDK::Entwell::Classes::TEWRingArrayList::Singleton", {
 		"\xe8\x00\x00\x00\x00\x84\xc0\x74\x00\xa1\x00\x00\x00\x00\x8b\x00\xe8\x00\x00\x00\x00\x8b\xd8\x8b\x47\x60\x89\x43\x60",
@@ -43,7 +43,7 @@ bool InitRuntime()
 
 	thread = new std::thread([]
 	{
-		//Sleep(5000);
+		Sleep(5000);
 		
 		auto logger = std::make_shared<ConsoleLogger>();
 		if (!logger->Load())

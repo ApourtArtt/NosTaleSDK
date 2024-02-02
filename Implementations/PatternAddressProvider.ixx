@@ -18,6 +18,7 @@ public:
 		std::string mask;
 		int32_t offset = 0;
 		uint32_t startFrom = 0;
+		uint32_t deref = 0;
 	};
 
 	explicit PatternAddressProvider(const std::shared_ptr<NosTaleSDK::Interfaces::Logger>& Logger)
@@ -49,8 +50,23 @@ public:
 			return res.at(0);
 		}
 
-		const auto& [pattern, mask, offset, startFrom] = patterns_.at(AddressName);
-		const auto address = NosTaleSDK::Utils::PatternScan(pattern, mask.c_str(), offset, startFrom);
+		const auto& [pattern, mask, offset, startFrom, deref] = patterns_.at(AddressName);
+		uintptr_t address = NosTaleSDK::Utils::PatternScan(pattern, mask.c_str(), offset, startFrom);
+		if (address == 0)
+		{
+			logger_->Error(std::format("PatternScan failed for {}", AddressName.c_str()));
+			return 0;
+		}
+
+		for (uint32_t i = 0; i < deref; i++)
+		{
+			address = *(uintptr_t*)address;
+			if (address == 0)
+			{
+				logger_->Error(std::format("PatternScan failed for {}", AddressName.c_str()));
+				return 0;
+			}
+		}
 
 		results_[AddressName].push_back(address);
 		logger_->Debug(std::format("PatternScan successfully found [{}] for {}", address, AddressName.c_str()));
@@ -69,12 +85,16 @@ public:
 			return res;
 
 		uint32_t startFrom = pattern.startFrom;
+		uint32_t deref = pattern.deref;
 		while (HowMany > 0 || HowMany == -1)
 		{
 			HowMany--;
 			uintptr_t currAdd = NosTaleSDK::Utils::PatternScan(pattern.pattern, pattern.mask.c_str(), pattern.offset, startFrom);
 			if (currAdd == 0)
-				break;
+			{
+				logger_->Error(std::format("PatternScan failed for {}", AddressName.c_str()));
+				return {};
+			}
 			results_[AddressName].push_back(currAdd);
 			startFrom = currAdd;
 		}

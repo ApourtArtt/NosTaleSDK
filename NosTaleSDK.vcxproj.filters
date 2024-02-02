@@ -475,9 +475,6 @@
       <Filter>NosTaleSDK\Entwell\Classes</Filter>
     </ClCompile>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="TNTStarPetWidget.ixx">
-      <Filter>NosTaleSDK\Entwell\Classes</Filter>
-    </ClCompile>
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TEWNormalButtonWidget.ixx">
       <Filter>NosTaleSDK\Entwell\Classes</Filter>
     </ClCompile>
@@ -650,6 +647,15 @@
       <Filter>NosTaleSDK\Wrappers\Classes</Filter>
     </ClCompile>
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTLBSWidgetHandler.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTStarPetWidget.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TApplication.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTGameRootWidget.ixx">
       <Filter>NosTaleSDK\Wrappers\Classes</Filter>
     </ClCompile>
   </ItemGroup>

@@ -16,9 +16,9 @@ namespace NosTaleSDK
 	{
 	public:
 		Runtime(
-			const std::shared_ptr<Interfaces::Logger>& Logger,
-			const std::shared_ptr<Interfaces::AddressProvider>& AddressProvider,
-			const std::shared_ptr<Interfaces::VTableProvider>& VTableProvider
+			const std::shared_ptr<Interfaces::Logger> Logger,
+			const std::shared_ptr<Interfaces::AddressProvider> AddressProvider,
+			const std::shared_ptr<Interfaces::VTableProvider> VTableProvider
 		)
 			: logger_(Logger)
 			, addressProvider_(AddressProvider)
@@ -69,12 +69,9 @@ namespace NosTaleSDK
 
 		void Run() const
 		{
+			Sleep(5000);
 			logger_->Info("Run();");
 
-			Sleep(5000);
-
-			//NosTaleSDK::Wrappers::Classes::WrapperTLBSWidget wWidget(vTableProvider);
-			//wWidget.SetEvenThing(4);
 
 			Wrappers::Classes::WrapperTLBSWidgetHandler wHandler = Wrappers::Classes::WrapperTLBSWidgetHandler::GetNtInstance(addressProvider_);
 			logger_->Info("TLBSWidgetHandler");
