@@ -1,25 +1,87 @@
 module;
 #include <stdint.h>
-export module TBaseList;
-import TObject;
+#include <Windows.h>
+export module TApplication;
+import TComponent;
+import String;
+import TList;
+import Callback;
 
 namespace NosTaleSDK::Entwell::Classes
 {
 #pragma pack(push, 1)
-	export template<typename T>
-		struct TBaseList : public TObject
+	// https://docwiki.embarcadero.com/Libraries/Alexandria/en/Vcl.Forms.TApplication_Properties
+	export struct TApplication : public TComponent
 	{
-		char unknown[4];		// 0x004
-		uint32_t unknown2;		// 0x008
-		uint32_t unknown3;		// 0x00C
-		char unknown4[4];		// 0x010
-		int8_t unknown5;		// 0x014
-		char unknown6[3];		// 0x015
-		uint32_t unknown7;		// 0x018
-		int unknown8;			// 0x01C
+		HWND* handle;											// 0x030
+		uint32_t bidirectionalMode;								// 0x034
+		Properties::Logical::String* bidirectionalKeyboard;		// 0x038
+		Properties::Logical::String* nonBidirectionalKeyboard;	// 0x03C
+		void* comObject;										// 0x040
+		struct TNosTaleMainF* mainForm;							// 0x044
+		struct TControl* mouseControl;							// 0x048
+		void* helpSystem;										// 0x04C
+		Properties::Logical::String* helpFile;					// 0x050
+		Properties::Logical::String* hint;						// 0x054
+		bool isHintActive;										// 0x058
+		bool isUpdateFormatSettings;							// 0x059
+		bool isUpdateMetricsSettings;							// 0x05A
+		bool isMainFormShow;									// 0x05B
+		uint32_t hintColor;										// 0x05C
+		TControl* hintControl;									// 0x060
+		void* hintCursorRect;									// 0x064
+		char padding[12];										// 0x068
+		int16_t hintHidePause;									// 0x074
+		int16_t hintPause;										// 0x078
+		char padding99[4];										// 0x076
+		bool isHintShortCut;									// 0x07C
+		char padding2[3];										// 0x07D
+		int16_t hintShortPause;									// 0x080
+		char padding3[2];										// 0x082
+		void* hintWindow;										// 0x084
+		bool isHintShown;										// 0x088
+		uint8_t timeMode;										// 0x089
+		uint16_t timeHandle;									// 0x08A
+		Properties::Logical::String* title;						// 0x08C
+		TList<void*>* topMostList;								// 0x090
+		int16_t topMostLevel;									// 0x094
+		char padding4[2];										// 0x096
+		TList<void*>* popupOwnersList;							// 0x098
+		int16_t popupLevel;										// 0x09C
+		char padding5[2];										// 0x09E
+		void* icon;												// 0x0A0
+		bool isTerminated;										// 0x0A4
+		bool isActive;											// 0x0A5
+		bool isAllowTesting;									// 0x0A6
+		char padding6;											// 0x0A7
+		HWND* testHandle;										// 0x0A8
+		bool isHandleCreated;									// 0x0AC
+		bool isRunning;											// 0x0AD
+		char padding7[2];										// 0x0AE
+		TList<void*>* windowHooksList;							// 0x0B0
+		TList<void*>* windowsList;								// 0x0B4
+		HWND* dialogHandle;										// 0x0B8
+		bool isAutoDragDocking;									// 0x0BC
+		char padding8[3];										// 0x0BD
+		Properties::Logical::Callback callback;					// 0x0C0 arg = TMultiCaster
+		Properties::Logical::Callback callback2;				// 0x0C8 arg = TMultiCaster
+		Properties::Logical::Callback callback3;				// 0x0D0 arg = TMultiCaster
+		Properties::Logical::Callback onActionExecute;			// 0x0D8 arg = TMultiCaster
+		Properties::Logical::Callback onActionUpdate;			// 0x0E0 arg = TMultiCaster
+		Properties::Logical::Callback onException;				// 0x0E8 arg = TMultiCaster
+		Properties::Logical::Callback onGetActiveFormHandle;	// 0x0F0 arg = TMultiCaster
+		Properties::Logical::Callback onGetMainFormHandle;		// 0x0F8 arg = TMultiCaster
+		Properties::Logical::Callback onMessage;				// 0x100
+		Properties::Logical::Callback onModalBegin;				// 0x108 arg = TLBSWidgetHandler
+		Properties::Logical::Callback onModalEnd;				// 0x110 arg = TLBSWidgetHandler
+		Properties::Logical::Callback onHelp;					// 0x118 arg = TMultiCaster
+		Properties::Logical::Callback onHint;					// 0x120 arg = TMultiCaster
+		Properties::Logical::Callback onIdle;					// 0x128 arg = TMultiCaster
+		Properties::Logical::Callback onDeactivate;				// 0x130 arg = TMultiCaster
+		Properties::Logical::Callback onActivate;				// 0x138 arg = TMultiCaster
 	};
-	static_assert(sizeof(TBaseList<void*>) == 0x20, "TBaseList size isn't 0x20.");
-	static_assert(sizeof(TBaseList<void*>) <= 0x20, "TBaseList size is upper than 0x20.");
-	static_assert(sizeof(TBaseList<void*>) >= 0x20, "TBaseList size is lower than 0x20.");
+	static_assert(sizeof(TApplication) == 0x140, "TApplication size isn't 0x140.");
+	static_assert(sizeof(TApplication) <= 0x140, "TApplication size is upper than 0x140.");
+	static_assert(sizeof(TApplication) >= 0x140, "TApplication size is lower than 0x140.");
 #pragma pack(pop)
 }
