@@ -291,7 +291,6 @@
     <ClCompile Include="NosTaleSDK\Runtime.ixx" />
     <ClCompile Include="NosTaleSDK\Interfaces\AddressProvider.ixx" />
     <ClCompile Include="NosTaleSDK\Utils\MemoryUtils.ixx" />
-    <ClCompile Include="NosTaleSDK\Wrappers\Classes\ModuleWrapper.ixx" />
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTGameRootWidget.ixx">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>

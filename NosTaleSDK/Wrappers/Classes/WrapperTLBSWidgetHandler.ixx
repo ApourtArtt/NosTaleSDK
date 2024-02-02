@@ -1,9 +1,9 @@
 module;
 #include "MacroWrapperDef.h"
 #include <memory>
-export module Wrapper:WTLBSWidgetHandler;
-import :WTObject;
-import :WTGameRootWidget;
+export module WrapperTLBSWidgetHandler;
+import WrapperTObject;
+import WrapperTGameRootWidget;
 import TLBSWidgetHandler;
 import VTableProvider;
 import AddressProvider;

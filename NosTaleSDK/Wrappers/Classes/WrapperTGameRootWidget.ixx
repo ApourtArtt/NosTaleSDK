@@ -1,8 +1,8 @@
 module;
 #include "MacroWrapperDef.h"
 #include <memory>
-export module Wrapper:WTGameRootWidget;
-import :WTObject;
+export module WrapperTGameRootWidget;
+import WrapperTObject;
 import TGameRootWidget;
 import VTableProvider;
 

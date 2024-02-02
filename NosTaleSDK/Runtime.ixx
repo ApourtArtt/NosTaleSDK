@@ -8,7 +8,7 @@ import Plugin;
 import AddressProvider;
 import VTableProvider;
 import Logger;
-import Wrapper;
+import WrapperTLBSWidgetHandler;
 
 namespace NosTaleSDK
 {
