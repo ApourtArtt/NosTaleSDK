@@ -19,6 +19,18 @@ std::shared_ptr<PatternAddressProvider> InitPatternProvider(std::shared_ptr<NosT
 		const_cast<char*>("\x83\x3d\x00\x00\x00\x00\x00\x74\x0a\xa1\x00\x00\x00\x00\xe8\x00\x00\x00\x00\xc3"),
 		"xx????xxxx????x????x", 2, 0 });
 
+	patternProvider->RegisterPattern("NosTaleSDK::Entwell::Classes::TEWRingArrayList::Singleton", {
+		const_cast<char*>("\xe8\x00\x00\x00\x00\x84\xc0\x74\x00\xa1\x00\x00\x00\x00\x8b\x00\xe8\x00\x00\x00\x00\x8b\xd8\x8b\x47\x60\x89\x43\x60"),
+		"x????xxx?x????xxx????xxxxxxxx", 10, 0 });
+
+	patternProvider->RegisterPattern("NosTaleSDK::Entwell::Classes::TNTCItemDataList::Singleton", {
+		const_cast<char*>("\xe8\x00\x00\x00\x00\x8b\x55\xa0\x58\xe8\x00\x00\x00\x00\x75\x00\xa1\x00\x00\x00\x00\x8b\x10\xff\x52\x08\x8b\xd7\xa1\x00\x00\x00\x00\xe8\x00\x00\x00\x00"),
+		"x????xxxxx????x?x????xxxxxxxx????x????", 17, 0 });
+
+	patternProvider->RegisterPattern("NosTaleSDK::Entwell::Classes::TNTClient::Singleton", {
+		const_cast<char*>("\x2e\x00\x00\x00\xa1\xb4\x51\x73\x00\x8b\x00\xba\x10\x5c\x6c\x00"),
+		"xxxx?????xxx????", 5, 0 });
+
 	return patternProvider;
 }
 

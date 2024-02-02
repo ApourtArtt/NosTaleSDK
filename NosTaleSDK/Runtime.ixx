@@ -78,8 +78,10 @@ namespace NosTaleSDK
 			//wWidget.SetEvenThing(4);
 
 			Wrappers::Classes::WrapperTLBSWidgetHandler wHandler = Wrappers::Classes::WrapperTLBSWidgetHandler::GetNtInstance(addressProvider_);
+			logger_->Info("TLBSWidgetHandler");
 			logger_->Info(std::format("vTable: {}", wHandler.GetInternal()->vTable));
 			logger_->Info(std::format("add: {}", reinterpret_cast<uintptr_t>(wHandler.GetInternal())));
+			
 			while (true)
 			{
 				Sleep(50);

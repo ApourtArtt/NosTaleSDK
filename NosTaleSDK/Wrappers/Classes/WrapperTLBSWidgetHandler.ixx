@@ -3,6 +3,7 @@ module;
 #include <memory>
 export module WrapperTLBSWidgetHandler;
 import WrapperTObject;
+import WrapperTGameRootWidget;
 import TLBSWidgetHandler;
 import VTableProvider;
 import AddressProvider;
@@ -27,6 +28,11 @@ namespace NosTaleSDK::Wrappers::Classes
             }
 
             return *wrapper;
+        }
+
+        WrapperTGameRootWidget* GetGameRootWidget() const
+        {
+            return new WrapperTGameRootWidget(obj->gameRootWidget);
         }
 
     private:
