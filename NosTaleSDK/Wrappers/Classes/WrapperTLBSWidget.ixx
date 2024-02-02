@@ -1,8 +1,8 @@
 module;
 #include "MacroWrapperDef.h"
 #include <memory>
-export module WrapperTLBSWidget;
-import WrapperTObject;
+export module Wrapper:WTLBSWidget;
+import :WTObject;
 import TLBSWidget;
 import VTableProvider;
 

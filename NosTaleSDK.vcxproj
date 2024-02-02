@@ -291,6 +291,7 @@
     <ClCompile Include="NosTaleSDK\Runtime.ixx" />
     <ClCompile Include="NosTaleSDK\Interfaces\AddressProvider.ixx" />
     <ClCompile Include="NosTaleSDK\Utils\MemoryUtils.ixx" />
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\ModuleWrapper.ixx" />
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTGameRootWidget.ixx">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -374,7 +375,6 @@
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTObject.ixx" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Implementations\PatternProvider.h" />
     <ClInclude Include="NosTaleSDK\Wrappers\Classes\MacroWrapperDef.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

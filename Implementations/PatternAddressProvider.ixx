@@ -14,7 +14,7 @@ export class PatternAddressProvider final : public NosTaleSDK::Interfaces::Addre
 public:
 	struct PatternDef
 	{
-		char* pattern;
+		const char* pattern;
 		std::string mask;
 		int32_t offset = 0;
 		uint32_t startFrom = 0;

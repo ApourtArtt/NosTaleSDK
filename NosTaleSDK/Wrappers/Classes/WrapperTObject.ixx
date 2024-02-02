@@ -1,6 +1,6 @@
 module;
 #include "stdint.h"
-export module WrapperTObject;
+export module Wrapper:WTObject;
 import TObject;
 
 namespace NosTaleSDK::Wrappers::Classes
