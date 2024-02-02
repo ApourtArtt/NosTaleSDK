@@ -18,7 +18,7 @@ public:
 		std::string mask;
 		int32_t offset = 0;
 		uint32_t startFrom = 0;
-		uint32_t deref = 0;
+		std::vector<int32_t> derefOffsets = {};
 	};
 
 	explicit PatternAddressProvider(const std::shared_ptr<NosTaleSDK::Interfaces::Logger>& Logger)
@@ -58,9 +58,9 @@ public:
 			return 0;
 		}
 
-		for (uint32_t i = 0; i < deref; i++)
+		for (uint32_t i = 0; i < deref.size(); i++)
 		{
-			address = *(uintptr_t*)address;
+			address = *(uintptr_t*)(address+deref[i]);
 			if (address == 0)
 			{
 				logger_->Error(std::format("PatternScan failed for {}", AddressName.c_str()));
@@ -85,7 +85,6 @@ public:
 			return res;
 
 		uint32_t startFrom = pattern.startFrom;
-		uint32_t deref = pattern.deref;
 		while (HowMany > 0 || HowMany == -1)
 		{
 			HowMany--;

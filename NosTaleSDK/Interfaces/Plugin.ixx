@@ -2,7 +2,7 @@ module;
 #include <string>
 export module Plugin;
 
-namespace NosTaleSDK::Plugin
+namespace NosTaleSDK::Interfaces
 {
 	// ReSharper disable once CppClassCanBeFinal
 	export class Plugin
