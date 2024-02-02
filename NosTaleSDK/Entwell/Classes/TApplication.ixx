@@ -46,23 +46,20 @@ namespace NosTaleSDK::Entwell::Classes
 		TList<void*>* topMostList;								// 0x090
 		int16_t topMostLevel;									// 0x094
 		char padding4[2];										// 0x096
-		TList<void*>* popupOwnersList;							// 0x098
-		int16_t popupLevel;										// 0x09C
-		char padding5[2];										// 0x09E
-		void* icon;												// 0x0A0
-		bool isTerminated;										// 0x0A4
-		bool isActive;											// 0x0A5
-		bool isAllowTesting;									// 0x0A6
-		char padding6;											// 0x0A7
-		HWND* testHandle;										// 0x0A8
-		bool isHandleCreated;									// 0x0AC
-		bool isRunning;											// 0x0AD
-		char padding7[2];										// 0x0AE
-		TList<void*>* windowHooksList;							// 0x0B0
-		TList<void*>* windowsList;								// 0x0B4
-		HWND* dialogHandle;										// 0x0B8
-		bool isAutoDragDocking;									// 0x0BC
-		char padding8[3];										// 0x0BD
+		void* icon;												// 0x098
+		bool isTerminated;										// 0x09C
+		bool isActive;											// 0x09D
+		bool isAllowTesting;									// 0x09E
+		char padding6;											// 0x09F
+		HWND* testHandle;										// 0x0A0
+		bool isHandleCreated;									// 0x0A4
+		bool isRunning;											// 0x0A5
+		char padding7[2];										// 0x0A6
+		TList<void*>* windowHooksList;							// 0x0A8
+		TList<void*>* windowsList;								// 0x0AC
+		HWND* dialogHandle;										// 0x0B0
+		bool isAutoDragDocking;									// 0x0B4
+		char padding8[11];										// 0x0B5
 		Properties::Logical::Callback callback;					// 0x0C0 arg = TMultiCaster
 		Properties::Logical::Callback callback2;				// 0x0C8 arg = TMultiCaster
 		Properties::Logical::Callback callback3;				// 0x0D0 arg = TMultiCaster
