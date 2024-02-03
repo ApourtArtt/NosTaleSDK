@@ -30,7 +30,7 @@ namespace NosTaleSDK::Wrappers::Classes
 			return *wrapper;
 		}
 
-		WrapperTGameRootWidget* GetGameRootWidget() const
+		WrapperTGameRootWidget* GetGameRootWidgetWrapper() const
 		{
 			return new WrapperTGameRootWidget(obj->gameRootWidget);
 		}
