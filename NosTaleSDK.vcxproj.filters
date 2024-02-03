@@ -658,6 +658,19 @@
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTGameRootWidget.ixx">
       <Filter>NosTaleSDK\Wrappers\Classes</Filter>
     </ClCompile>
+    <ClCompile Include="Plugins\ClockPlugin.ixx" />
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWMoveWidget.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWControlWidget.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWControlWidgetEvent.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWCustomPanelWidget.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NosTaleSDK\Wrappers\Classes\MacroWrapperDef.h">
