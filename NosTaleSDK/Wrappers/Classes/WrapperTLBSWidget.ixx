@@ -19,9 +19,8 @@ namespace NosTaleSDK::Wrappers::Classes
 		uintptr_t GetWidgetType() const { return static_cast<uintptr_t>(obj->widgetType); }
 
 	private:
-		static void initObject()
+		void initObject()
 		{
-
 		}
 	};
 }

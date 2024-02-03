@@ -1,17 +1,17 @@
 module;
 #include "MacroWrapperDef.h"
 #include <memory>
-export module WrapperTGameRootWidget;
+export module WrapperTEWMoveWidget;
 import WrapperTObject;
-import TGameRootWidget;
+import TEWMoveWidget;
 import VTableProvider;
 
 namespace NosTaleSDK::Wrappers::Classes
 {
     using namespace NosTaleSDK::Entwell::Classes;
-    export class WrapperTGameRootWidget final : public WrapperTObject
+    export class WrapperTEWMoveWidget final : public WrapperTObject
     {
-        TENTWELL_WRAPPER_DEFINITION(WrapperTGameRootWidget, WrapperTObject, TGameRootWidget)
+        TENTWELL_WRAPPER_DEFINITION(WrapperTEWMoveWidget, WrapperTObject, TEWMoveWidget)
     public:
 
     private:

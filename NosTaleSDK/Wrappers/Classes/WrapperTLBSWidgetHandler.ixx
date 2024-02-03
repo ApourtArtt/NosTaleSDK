@@ -36,7 +36,7 @@ namespace NosTaleSDK::Wrappers::Classes
         }
 
     private:
-        static void initObject()
+        void initObject()
         {
 
         }
