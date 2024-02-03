@@ -54,7 +54,7 @@ bool InitRuntime()
 		const auto vTableProvider = std::make_shared<ClassSearcherVTableProvider>(logger);
 		const auto patternProvider = InitPatternProvider(logger);
 		
-		auto clockPlugin = new NosTaleSDK::Plugins::ClockPlugin(std::static_pointer_cast<std::shared_ptr<NosTaleSDK::Interfaces::VTableProvider>>(vTableProvider));
+		auto clockPlugin = new NosTaleSDK::Plugins::ClockPlugin(vTableProvider);
 
 		runtime = new NosTaleSDK::Runtime(logger, patternProvider, vTableProvider, {
 			std::shared_ptr<NosTaleSDK::Interfaces::Plugin>(clockPlugin)

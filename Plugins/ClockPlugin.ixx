@@ -14,11 +14,10 @@ namespace NosTaleSDK::Plugins
     export class ClockPlugin final : public Interfaces::Plugin
     {
     public:
-        explicit ClockPlugin(const std::shared_ptr<Interfaces::VTableProvider>& Provider)
+        explicit ClockPlugin(const std::shared_ptr<Interfaces::VTableProvider> Provider)
             : Plugin("ClockPlugin")
-        {
-            provider_ = Provider;
-        }
+            , provider_(Provider)
+        {}
 
         void BeforeRuntimeRun() override
         {
