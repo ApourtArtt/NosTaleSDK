@@ -28,7 +28,7 @@ public:
 			Location.function_name(),
 			GetTime().c_str(),
 			Msg.c_str()
-		), LIGHT_BLUE);
+		), YELLOW);
 	}
 
 	void Warn(const std::string& Msg, const std::source_location& Location = std::source_location::current()) override
@@ -40,7 +40,7 @@ public:
 			Location.function_name(),
 			GetTime().c_str(),
 			Msg.c_str()
-		), LIGHT_BLUE);
+		), ORANGE);
 	}
 
 	void Error(const std::string& Msg, const std::source_location& Location = std::source_location::current()) override
@@ -52,7 +52,7 @@ public:
 			Location.function_name(),
 			GetTime().c_str(),
 			Msg.c_str()
-		), LIGHT_BLUE);
+		), RED);
 		Flush();
 	}
 
@@ -65,7 +65,7 @@ public:
 			Location.function_name(),
 			GetTime().c_str(),
 			Msg.c_str()
-		), LIGHT_BLUE);
+		), DARK_RED);
 		Flush();
 	}
 
