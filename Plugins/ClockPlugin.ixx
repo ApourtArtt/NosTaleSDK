@@ -9,6 +9,7 @@ import PictureView;
 
 namespace NosTaleSDK::Interfaces
 {
+    class AddressProvider;
     class VTableProvider;
 }
 
@@ -17,17 +18,18 @@ namespace NosTaleSDK::Plugins
     export class ClockPlugin final : public Interfaces::Plugin
     {
     public:
-        explicit ClockPlugin(const std::shared_ptr<Interfaces::VTableProvider> Provider)
+        explicit ClockPlugin(std::shared_ptr<Interfaces::VTableProvider> VTableProvider, std::shared_ptr<Interfaces::AddressProvider> AddressProvider)
             : Plugin("ClockPlugin")
-            , provider_(Provider)
+            , vTableProvider_(VTableProvider)
+            , addressProvider_(AddressProvider)
         {}
 
         void BeforeRuntimeRun() override
         {
-            const auto widgetHandlerWrapper = Wrappers::Classes::WrapperTLBSWidgetHandler::GetNtInstance(provider_);
+            const auto widgetHandlerWrapper = Wrappers::Classes::WrapperTLBSWidgetHandler::GetNtInstance(addressProvider_);
             const auto gameRootWrapper = widgetHandlerWrapper.GetGameRootWidgetWrapper();
             
-            panelWrapper_ = new Wrappers::Classes::WrapperTEWCustomPanelWidget(provider_);
+            panelWrapper_ = new Wrappers::Classes::WrapperTEWCustomPanelWidget(vTableProvider_);
             panelWrapper_->SetParent(gameRootWrapper->GetInternal());
             panelWrapper_->SetSize(125, 83);
             panelWrapper_->SetPosition(
@@ -50,6 +52,7 @@ namespace NosTaleSDK::Plugins
 
     private:
         Wrappers::Classes::WrapperTEWCustomPanelWidget* panelWrapper_{ nullptr };
-        std::shared_ptr<Interfaces::VTableProvider> provider_{ nullptr };
+        std::shared_ptr<Interfaces::VTableProvider> vTableProvider_{ nullptr };
+        std::shared_ptr<Interfaces::AddressProvider> addressProvider_{ nullptr };
     };
 }

@@ -21,7 +21,8 @@ protected:\
         initObject();\
     }\
 public:\
-    WRAPPER_NAME(TENTWELL_NAME* TEntwell) : WRAPPER_PARENT_NAME(TEntwell) {\
+    WRAPPER_NAME(TENTWELL_NAME* TEntwell) : WRAPPER_PARENT_NAME(TEntwell)\
+    {\
         obj = TEntwell;\
     }\
     WRAPPER_NAME(std::shared_ptr<NosTaleSDK::Interfaces::VTableProvider> Provider) : WRAPPER_PARENT_NAME()\

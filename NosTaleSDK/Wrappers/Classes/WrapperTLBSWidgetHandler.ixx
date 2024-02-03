@@ -16,7 +16,7 @@ namespace NosTaleSDK::Wrappers::Classes
 	{
 		TENTWELL_WRAPPER_DEFINITION(WrapperTLBSWidgetHandler, WrapperTObject, TLBSWidgetHandler)
 	public:
-		static WrapperTLBSWidgetHandler& GetNtInstance(const std::shared_ptr<Interfaces::AddressProvider>& Provider, const bool Refresh = false)
+		static WrapperTLBSWidgetHandler& GetNtInstance(std::shared_ptr<Interfaces::AddressProvider> Provider, const bool Refresh = false)
 		{
 			static WrapperTLBSWidgetHandler* wrapper = nullptr;
 
