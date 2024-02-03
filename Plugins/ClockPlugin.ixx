@@ -1,4 +1,4 @@
-module;
+/*module;
 #include "stdint.h"
 export module WrapperTObject;
 import TObject;
@@ -45,4 +45,4 @@ namespace NosTaleSDK::Plugins
     protected:
         bool isManaging_{ false };
     };
-}
+}*/

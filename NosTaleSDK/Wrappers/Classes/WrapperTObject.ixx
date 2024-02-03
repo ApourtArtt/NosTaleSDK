@@ -44,6 +44,7 @@ namespace NosTaleSDK::Wrappers::Classes
         virtual uintptr_t GetVTable() { return obj_->vTable; }
 
     protected:
+        void initObjectRecursive() {}
         bool isManaging_{ false };
     };
 }
