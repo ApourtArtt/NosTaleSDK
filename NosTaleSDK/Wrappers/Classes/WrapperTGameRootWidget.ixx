@@ -9,7 +9,7 @@ import VTableProvider;
 namespace NosTaleSDK::Wrappers::Classes
 {
     using namespace NosTaleSDK::Entwell::Classes;
-    export class WrapperTGameRootWidget final : public WrapperTObject
+    export class WrapperTGameRootWidget : public WrapperTObject
     {
         TENTWELL_WRAPPER_DEFINITION(WrapperTGameRootWidget, WrapperTObject, TGameRootWidget)
     public:

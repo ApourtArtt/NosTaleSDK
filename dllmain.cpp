@@ -2,11 +2,13 @@
 #include <iostream>
 #include <memory>
 #include <thread>
+#include <vector>
 import Runtime;
 import PatternAddressProvider;
 import ClassSearcherVTableProvider;
 import ConsoleLogger;
 import Logger;
+import ClockPlugin;
 
 NosTaleSDK::Runtime* runtime{ nullptr };
 std::thread* thread{ nullptr };
@@ -41,7 +43,7 @@ bool InitRuntime()
 		return false;
 	init = true;
 
-	Sleep(5000);
+	//Sleep(5000);
 
 	{
 		auto logger = std::make_shared<ConsoleLogger>();
@@ -51,12 +53,19 @@ bool InitRuntime()
 		logger->Flush();
 		const auto vTableProvider = std::make_shared<ClassSearcherVTableProvider>(logger);
 		const auto patternProvider = InitPatternProvider(logger);
+		
+		auto clockPlugin = new NosTaleSDK::Plugins::ClockPlugin(std::static_pointer_cast<std::shared_ptr<NosTaleSDK::Interfaces::VTableProvider>>(vTableProvider));
 
-		runtime = new NosTaleSDK::Runtime(logger, patternProvider, vTableProvider, {});
+		runtime = new NosTaleSDK::Runtime(logger, patternProvider, vTableProvider, {
+			std::shared_ptr<NosTaleSDK::Interfaces::Plugin>(clockPlugin)
+		});
 		if (!runtime->Initialize())
 			return false;
 
-		thread = new std::thread([] { runtime->Run(); });
+		thread = new std::thread([]
+		{
+			runtime->Run();
+		});
 		thread->detach();
 	}
 
@@ -72,6 +81,7 @@ extern "C" __declspec(dllexport) void __declspec(naked) ShowNostaleSplash()
 		pushfd;
 	}
 
+	InitRuntime();
 	runtime->OnShowNostaleSplash();
 
 	__asm
@@ -104,6 +114,5 @@ extern "C" __declspec(dllexport) void __declspec(naked) FreeNostaleSplash() noex
 
 BOOL APIENTRY DllMain(HMODULE, DWORD, LPVOID)
 {
-	InitRuntime();
 	return TRUE;
 }

@@ -1,48 +1,32 @@
-/*module;
-#include "stdint.h"
-export module WrapperTObject;
-import TObject;
+module;
+export module ClockPlugin;
+import Plugin;
+import WrapperTEWCustomPanelWidget;
+#include <memory>
+
+namespace NosTaleSDK::Interfaces
+{
+    class VTableProvider;
+}
 
 namespace NosTaleSDK::Plugins
 {
-    export class ClockPlugin
+    export class ClockPlugin final : public Interfaces::Plugin
     {
-    private:
-        TObject* obj_;
     public:
-        WrapperTObject(): obj_(nullptr)
+        explicit ClockPlugin(const std::shared_ptr<Interfaces::VTableProvider>& Provider)
+            : Plugin("ClockPlugin")
         {
+            provider_ = Provider;
         }
 
-        explicit WrapperTObject(TObject* To) : obj_(To) {}
-
-        explicit WrapperTObject(const uintptr_t VT)
+        void BeforeRuntimeRun() override
         {
-            obj_ = new TObject();
-            obj_->vTable = VT;
-        }
-        WrapperTObject(TObject* To, const uintptr_t VT)
-        {
-            obj_ = To;
-            obj_->vTable = VT;
-        }
-        virtual ~WrapperTObject()
-        {
-            if (isManaging_ && obj_ != nullptr)
-            {
-                delete obj_;
-                obj_ = nullptr;
-                isManaging_ = false;
-            }
+            panelWrapper_ = new Wrappers::Classes::WrapperTEWCustomPanelWidget(provider_);
         }
 
-        virtual void SetInternal(TObject* To) { obj_ = To; }
-        virtual TObject* GetInternal() { return obj_; }
-
-        void SetVTable(const uintptr_t VT) const { obj_->vTable = VT; }
-        virtual uintptr_t GetVTable() { return obj_->vTable; }
-
-    protected:
-        bool isManaging_{ false };
+    private:
+        Wrappers::Classes::WrapperTEWCustomPanelWidget* panelWrapper_{ nullptr };
+        std::shared_ptr<Interfaces::VTableProvider> provider_{ nullptr };
     };
-}*/
+}

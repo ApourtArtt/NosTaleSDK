@@ -51,7 +51,7 @@ namespace NosTaleSDK
 			if (!vTableProvider_->Load())
 				return false;
 
-			std::for_each(plugins_.begin(), plugins_.end(), [] (std::shared_ptr<Interfaces::Plugin> plugin)
+			std::ranges::for_each(plugins_, [] (std::shared_ptr<Interfaces::Plugin> plugin)
 			{
 				plugin->AfterRuntimeInitialization();
 			});
@@ -64,7 +64,7 @@ namespace NosTaleSDK
 			logger_->Info("OnShowNostaleSplash");
 
 
-			std::for_each(plugins_.begin(), plugins_.end(), [](std::shared_ptr<Interfaces::Plugin> plugin)
+			std::ranges::for_each(plugins_, [](std::shared_ptr<Interfaces::Plugin> plugin)
 			{
 				plugin->OnShowNostaleSplash();
 			});
@@ -81,7 +81,7 @@ namespace NosTaleSDK
 			logger_->Info(std::format("add: {}", reinterpret_cast<uintptr_t>(wHandler.GetInternal())));
 
 
-			std::for_each(plugins_.begin(), plugins_.end(), [](std::shared_ptr<Interfaces::Plugin> plugin)
+			std::ranges::for_each(plugins_, [](std::shared_ptr<Interfaces::Plugin> plugin)
 			{
 				plugin->OnFreeNostaleSplash();
 			});
@@ -91,17 +91,14 @@ namespace NosTaleSDK
 		{
 			logger_->Info("Run();");
 
-
-
-			std::for_each(plugins_.begin(), plugins_.end(), [](std::shared_ptr<Interfaces::Plugin> plugin)
+			std::ranges::for_each(plugins_, [](std::shared_ptr<Interfaces::Plugin> plugin)
 			{
 				plugin->BeforeRuntimeRun();
 			});
 			
 			while (true)
 			{
-
-				std::for_each(plugins_.begin(), plugins_.end(), [](std::shared_ptr<Interfaces::Plugin> plugin)
+				std::ranges::for_each(plugins_, [](std::shared_ptr<Interfaces::Plugin> plugin)
 				{
 					plugin->OnRuntimeTick();
 				});
@@ -109,8 +106,7 @@ namespace NosTaleSDK
 				Sleep(50);
 			}
 
-
-			std::for_each(plugins_.begin(), plugins_.end(), [](std::shared_ptr<Interfaces::Plugin> plugin)
+			std::ranges::for_each(plugins_, [](std::shared_ptr<Interfaces::Plugin> plugin)
 			{
 				plugin->AfterRuntimeRun();
 			});
