@@ -36,6 +36,7 @@ namespace NosTaleSDK::Wrappers::Classes
 		}
 
 	private:
+		// ReSharper disable once CppMemberFunctionMayBeStatic
 		void initObject()
 		{
 

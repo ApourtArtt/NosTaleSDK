@@ -9,6 +9,7 @@ import TLBSWidgetList;
 import Cursor;
 import Border;
 import Position;
+import WrapperTLBSWidgetList;
 
 namespace NosTaleSDK::Wrappers::Classes
 {
@@ -28,7 +29,7 @@ namespace NosTaleSDK::Wrappers::Classes
 			obj_->border.topLeftX = X;
 			
 			obj_->border.botRightY = Y + (obj_->border.botRightY - obj_->border.topLeftY);
-			obj_->border.topLeftX = Y;
+			obj_->border.topLeftY = Y;
 		}
 		Entwell::Properties::Logical::Position GetPosition() const
 		{
@@ -46,18 +47,30 @@ namespace NosTaleSDK::Wrappers::Classes
 		int16_t GetWidth() const { return obj_->border.botRightX - obj_->border.topLeftX; }
 		int16_t GetHeight() const { return obj_->border.botRightY - obj_->border.topLeftY; }
 
-		void SetParent(TLBSWidget* Widget) const { obj_->parent = Widget; }
+		void SetParent(WrapperTLBSWidget* WidgetWrapper) const
+		{
+			obj_->parent = WidgetWrapper->GetInternal();
+			WidgetWrapper->AddChild(obj_);
+		}
 		TLBSWidget* GetParent() const { return obj_->parent; }
 
+		void AddChild(TLBSWidget* Widget) const
+		{
+			auto childrenWrapper = new WrapperTLBSWidgetList(obj_->children);
+			childrenWrapper->pushBack(Widget);
+		}
+
 	private:
-		void initObject()
+		// ReSharper disable once CppMemberFunctionMayBeStatic
+		// ReSharper disable once CppHiddenFunction
+		void initObject() const
 		{
 			obj_->isVisible = true;
 			if (!obj_->children)
 				obj_->children = new TLBSWidgetList();
 			obj_->isHandlingClick = true;
 			obj_->cursor = Entwell::Enumerations::Cursor::NORMAL;
-			obj_->widgetType = 4;
+			obj_->widgetType = 1;
 		}
 	};
 }

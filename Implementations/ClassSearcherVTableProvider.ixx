@@ -43,7 +43,7 @@ public:
 		if (res.second != 0)
 			return res.second;
 
-		const auto addr = search(res.first);
+		const auto addr = *reinterpret_cast<uintptr_t*>(search(res.first));
 		logger_->Info(std::format("VTable for {} is {}", Pseudonym.c_str(), addr));
 		vTables_[Pseudonym].second = addr;
 		return addr;

@@ -9,6 +9,7 @@ import ClassSearcherVTableProvider;
 import ConsoleLogger;
 import Logger;
 import ClockPlugin;
+import Plugin;
 
 NosTaleSDK::Runtime* runtime{ nullptr };
 std::thread* thread{ nullptr };
@@ -41,6 +42,7 @@ std::shared_ptr<ClassSearcherVTableProvider> InitVTableProvider(std::shared_ptr<
 	auto vTableProvider = std::make_shared<ClassSearcherVTableProvider>(Logger);
 
 	vTableProvider->RegisterVTableName("NosTaleSDK::Entwell::Classes::TEWCustomPanelWidget::VTable", "TEWCustomPanelWidget");
+	vTableProvider->RegisterVTableName("NosTaleSDK::Entwell::Classes::TLBSWidgetList::VTable", "TLBSWidgetList");
 
 	return vTableProvider;
 }

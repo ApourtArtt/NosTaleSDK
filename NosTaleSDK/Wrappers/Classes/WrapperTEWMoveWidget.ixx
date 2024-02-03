@@ -15,9 +15,12 @@ namespace NosTaleSDK::Wrappers::Classes
     public:
 
     private:
-        void initObject()
+        // ReSharper disable once CppMemberFunctionMayBeStatic
+        // ReSharper disable once CppHidingFunction
+        void initObject() const
         {
-
+            obj_->isMovable = true;
+            obj_->isScreenBounded = true;
         }
     };
 }

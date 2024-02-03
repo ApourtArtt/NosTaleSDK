@@ -1,17 +1,17 @@
 module;
 #include "MacroWrapperDef.h"
 #include <memory>
-export module WrapperTEWControlWidgetEvent;
+export module WrapperTEWControlWidgetEX;
 import WrapperTEWControlWidget;
-import TEWControlWidgetEvent;
+import TEWControlWidgetEX;
 import VTableProvider;
 
 namespace NosTaleSDK::Wrappers::Classes
 {
     using namespace NosTaleSDK::Entwell::Classes;
-    export class WrapperTEWControlWidgetEvent : public WrapperTEWControlWidget
+    export class WrapperTEWControlWidgetEX : public WrapperTEWControlWidget
     {
-        TENTWELL_WRAPPER_DEFINITION(WrapperTEWControlWidgetEvent, WrapperTEWControlWidget, TEWControlWidgetEvent)
+        TENTWELL_WRAPPER_DEFINITION(WrapperTEWControlWidgetEX, WrapperTEWControlWidget, TEWControlWidgetEX)
     public:
 
     private:

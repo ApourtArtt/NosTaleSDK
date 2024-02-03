@@ -15,6 +15,8 @@ namespace NosTaleSDK::Wrappers::Classes
     public:
 
     private:
+        // ReSharper disable once CppMemberFunctionMayBeStatic
+        // ReSharper disable once CppHiddenFunction
         void initObject()
         {
 

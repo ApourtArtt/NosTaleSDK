@@ -25,10 +25,10 @@ public:\
     {\
         obj_ = TEntwell;\
     }\
-    WRAPPER_NAME(std::shared_ptr<NosTaleSDK::Interfaces::VTableProvider> Provider) : WRAPPER_PARENT_NAME()\
+    WRAPPER_NAME(std::shared_ptr<Interfaces::VTableProvider> Provider) : WRAPPER_PARENT_NAME()\
     {\
         uintptr_t vTable = Provider->Get("NosTaleSDK::Entwell::Classes::"#TENTWELL_NAME"::VTable");\
-        obj_ = new TENTWELL_NAME;\
+        obj_ = new TENTWELL_NAME();\
         obj_->vTable = vTable;\
         WRAPPER_PARENT_NAME::SetInternal(obj_);\
         initObjectRecursive();\

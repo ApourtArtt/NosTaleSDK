@@ -31,19 +31,18 @@ namespace NosTaleSDK::Wrappers::Classes
                              const Entwell::Properties::Graphical::PictureView& BottomLeft,
                              const Entwell::Properties::Graphical::PictureView& MiddleLeft) const
         {
-            if (!obj_->imageData.pictureViews)
-                obj_->imageData.pictureViews = new Entwell::Properties::Graphical::PictureDisplay();
-
-            obj_->imageData.pictureViews->nbPictureViews = 9;
-            obj_->imageData.pictureViews->pictureViews[0] = Center;
-            obj_->imageData.pictureViews->pictureViews[1] = TopLeft;
-            obj_->imageData.pictureViews->pictureViews[2] = TopMiddle;
-            obj_->imageData.pictureViews->pictureViews[3] = TopRight;
-            obj_->imageData.pictureViews->pictureViews[4] = MiddleRight;
-            obj_->imageData.pictureViews->pictureViews[5] = BottomRight;
-            obj_->imageData.pictureViews->pictureViews[6] = BottomMiddle;
-            obj_->imageData.pictureViews->pictureViews[7] = BottomLeft;
-            obj_->imageData.pictureViews->pictureViews[8] = MiddleLeft;
+            obj_->nbUsablePictureViews = 9;
+            SetPictureViews({
+                Center,
+                TopLeft,
+                TopMiddle,
+                TopRight,
+                MiddleRight,
+                BottomRight,
+                BottomMiddle,
+                BottomLeft,
+                MiddleLeft
+            });
 
             obj_->imagePadding = Entwell::Properties::Graphical::ImagePadding(
                 GetWidth() - MiddleLeft.width - MiddleRight.width,
@@ -55,12 +54,16 @@ namespace NosTaleSDK::Wrappers::Classes
                 MiddleRight.width,
                 BottomMiddle.height
             );
+
+            obj_->unknown23 = 5;
         }
 
     private:
+        // ReSharper disable once CppMemberFunctionMayBeStatic
+        // ReSharper disable once CppHidingFunction
         void initObject()
         {
-
+            
         }
     };
 }

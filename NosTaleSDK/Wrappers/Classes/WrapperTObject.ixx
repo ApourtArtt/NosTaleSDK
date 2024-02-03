@@ -44,6 +44,8 @@ namespace NosTaleSDK::Wrappers::Classes
         virtual uintptr_t GetVTable() { return obj_->vTable; }
 
     protected:
+        // ReSharper disable once CppHiddenFunction
+        // ReSharper disable once CppMemberFunctionMayBeStatic
         void initObjectRecursive() {}
         bool isManaging_{ false };
     };
