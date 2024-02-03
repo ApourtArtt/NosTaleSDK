@@ -59,7 +59,7 @@ namespace NosTaleSDK
 			return true;
 		}
 
-		void OnShowNostaleSplash() const
+		void OnShowNostaleSplash()
 		{
 			logger_->Info("OnShowNostaleSplash");
 
@@ -68,9 +68,11 @@ namespace NosTaleSDK
 			{
 				plugin->OnShowNostaleSplash();
 			});
+
+			hasShownSplashScreen_ = true;
 		}
 
-		void OnFreeNostaleSplash() const
+		void OnFreeNostaleSplash()
 		{
 			logger_->Info("OnFreeNostaleSplash");
 
@@ -85,10 +87,15 @@ namespace NosTaleSDK
 			{
 				plugin->OnFreeNostaleSplash();
 			});
+
+			hasFreedSplashScreen_ = true;
 		}
 
 		void Run() const
 		{
+			while (!hasFreedSplashScreen_)
+				Sleep(50);
+
 			logger_->Info("Run();");
 
 			std::ranges::for_each(plugins_, [](std::shared_ptr<Interfaces::Plugin> plugin)
@@ -119,5 +126,7 @@ namespace NosTaleSDK
 
 		std::vector<std::shared_ptr<Interfaces::Plugin>> plugins_;
 		bool isInit_{ false };
+		bool hasShownSplashScreen_{ false };
+		bool hasFreedSplashScreen_{ false };
 	};
 }
