@@ -3,7 +3,7 @@ module;
 #include <memory>
 #include <random>
 export module WrapperTEWCustomPanelWidget;
-import WrapperTEWControlWidgetEvent;
+import WrapperTEWMoveWidget;
 import TEWCustomPanelWidget;
 import VTableProvider;
 import ImagePadding;
@@ -13,11 +13,11 @@ import PictureDisplay;
 namespace NosTaleSDK::Wrappers::Classes
 {
     using namespace NosTaleSDK::Entwell::Classes;
-    export class WrapperTEWCustomPanelWidget : public WrapperTEWControlWidgetEvent
+    export class WrapperTEWCustomPanelWidget : public WrapperTEWMoveWidget
     {
-        TENTWELL_WRAPPER_DEFINITION(WrapperTEWCustomPanelWidget, WrapperTEWControlWidgetEvent, TEWCustomPanelWidget)
+        TENTWELL_WRAPPER_DEFINITION(WrapperTEWCustomPanelWidget, WrapperTEWMoveWidget, TEWCustomPanelWidget)
     public:
-        void SetImagePadding(const Entwell::Properties::Graphical::ImagePadding& ImagePadding) const { obj->imagePadding = ImagePadding; }
+        void SetImagePadding(const Entwell::Properties::Graphical::ImagePadding& ImagePadding) const { obj_->imagePadding = ImagePadding; }
         
 
         //9 Parts view
@@ -31,21 +31,21 @@ namespace NosTaleSDK::Wrappers::Classes
                              const Entwell::Properties::Graphical::PictureView& BottomLeft,
                              const Entwell::Properties::Graphical::PictureView& MiddleLeft) const
         {
-            if (!obj->imageData.pictureViews)
-                obj->imageData.pictureViews = new Entwell::Properties::Graphical::PictureDisplay();
+            if (!obj_->imageData.pictureViews)
+                obj_->imageData.pictureViews = new Entwell::Properties::Graphical::PictureDisplay();
 
-            obj->imageData.pictureViews->nbPictureViews = 9;
-            obj->imageData.pictureViews->pictureViews[0] = Center;
-            obj->imageData.pictureViews->pictureViews[1] = TopLeft;
-            obj->imageData.pictureViews->pictureViews[2] = TopMiddle;
-            obj->imageData.pictureViews->pictureViews[3] = TopRight;
-            obj->imageData.pictureViews->pictureViews[4] = MiddleRight;
-            obj->imageData.pictureViews->pictureViews[5] = BottomRight;
-            obj->imageData.pictureViews->pictureViews[6] = BottomMiddle;
-            obj->imageData.pictureViews->pictureViews[7] = BottomLeft;
-            obj->imageData.pictureViews->pictureViews[8] = MiddleLeft;
+            obj_->imageData.pictureViews->nbPictureViews = 9;
+            obj_->imageData.pictureViews->pictureViews[0] = Center;
+            obj_->imageData.pictureViews->pictureViews[1] = TopLeft;
+            obj_->imageData.pictureViews->pictureViews[2] = TopMiddle;
+            obj_->imageData.pictureViews->pictureViews[3] = TopRight;
+            obj_->imageData.pictureViews->pictureViews[4] = MiddleRight;
+            obj_->imageData.pictureViews->pictureViews[5] = BottomRight;
+            obj_->imageData.pictureViews->pictureViews[6] = BottomMiddle;
+            obj_->imageData.pictureViews->pictureViews[7] = BottomLeft;
+            obj_->imageData.pictureViews->pictureViews[8] = MiddleLeft;
 
-            obj->imagePadding = Entwell::Properties::Graphical::ImagePadding(
+            obj_->imagePadding = Entwell::Properties::Graphical::ImagePadding(
                 GetWidth() - MiddleLeft.width - MiddleRight.width,
                 GetHeight() - TopMiddle.height - BottomMiddle.height,
                 GetWidth() - MiddleLeft.width,

@@ -18,14 +18,14 @@ namespace NosTaleSDK::Wrappers::Classes
     {
         TENTWELL_WRAPPER_DEFINITION(WrapperTEWControlWidget, WrapperTLBSWidget, TEWControlWidget)
     public:
-        void SetImageName(const int32_t ImageName) const { obj->imageData.imageName = ImageName; }
-        int32_t GetImageName() const { return obj->imageData.imageName; }
+        void SetImageName(const int32_t ImageName) const { obj_->imageData.imageName = ImageName; }
+        int32_t GetImageName() const { return obj_->imageData.imageName; }
 
     private:
         void initObject()
         {
-            obj->color = Entwell::Properties::Graphical::Bgra(255, 255, 255, 255);
-            obj->imageData = Entwell::Properties::Graphical::ImageData(
+            obj_->color = Entwell::Properties::Graphical::Bgra(255, 255, 255, 255);
+            obj_->imageData = Entwell::Properties::Graphical::ImageData(
                 0,
                 0,
                 512,
