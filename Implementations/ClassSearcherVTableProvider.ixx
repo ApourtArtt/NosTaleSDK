@@ -4,6 +4,7 @@ module;
 #include <memory>
 #include <Windows.h>
 #include <Psapi.h>
+#include <format>
 export module ClassSearcherVTableProvider;
 import VTableProvider;
 import MemoryUtils;
@@ -22,26 +23,29 @@ public:
 		memcpy(memoryData_.data(), reinterpret_cast<char*>(base_), size_);
 	}
 
-	bool RegisterPattern(const std::string& ClassName)
+	bool RegisterVTableName(const std::string& Pseudonym, const std::string& ClassName)
 	{
-		if (patterns_.contains(ClassName))
+		if (vTables_.contains(Pseudonym))
 			return false;
 
-		patterns_.emplace(ClassName, 0);
+		std::pair<std::string, uintptr_t> pair = { ClassName, 0 };
+		vTables_.emplace(Pseudonym, pair);
 
 		return true;
 	}
 
-	[[nodiscard]] uintptr_t Get(const std::string& ClassName) override
+	[[nodiscard]] uintptr_t Get(const std::string& Pseudonym) override
 	{
-		if (!patterns_.contains(ClassName))
+		if (!vTables_.contains(Pseudonym))
 			return 0;
 
-		if (const auto& res = patterns_.at(ClassName); res != 0)
-			return res;
+		auto& res = vTables_.at(Pseudonym);
+		if (res.second != 0)
+			return res.second;
 
-		const auto addr = search(ClassName);
-		patterns_[ClassName] = addr;
+		const auto addr = search(res.first);
+		logger_->Info(std::format("VTable for {} is {}", Pseudonym.c_str(), addr));
+		vTables_[Pseudonym].second = addr;
 		return addr;
 	}
 
@@ -87,5 +91,5 @@ private:
 	std::string memoryData_;
 	uintptr_t base_, size_;
 
-	std::map<std::string, uintptr_t> patterns_;
+	std::map<std::string, std::pair<std::string, uintptr_t>> vTables_;
 };

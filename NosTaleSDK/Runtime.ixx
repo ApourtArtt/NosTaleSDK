@@ -93,6 +93,7 @@ namespace NosTaleSDK
 
 		void Run() const
 		{
+			Sleep(5000);
 			while (!hasFreedSplashScreen_)
 				Sleep(50);
 

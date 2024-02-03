@@ -36,6 +36,15 @@ std::shared_ptr<PatternAddressProvider> InitPatternProvider(std::shared_ptr<NosT
 	return patternProvider;
 }
 
+std::shared_ptr<ClassSearcherVTableProvider> InitVTableProvider(std::shared_ptr<NosTaleSDK::Interfaces::Logger> Logger)
+{
+	auto vTableProvider = std::make_shared<ClassSearcherVTableProvider>(Logger);
+
+	vTableProvider->RegisterVTableName("NosTaleSDK::Entwell::Classes::TEWCustomPanelWidget::VTable", "TEWCustomPanelWidget");
+
+	return vTableProvider;
+}
+
 bool InitRuntime()
 {
 	static bool init = false;
@@ -51,7 +60,7 @@ bool InitRuntime()
 			return false;
 
 		logger->Flush();
-		const auto vTableProvider = std::make_shared<ClassSearcherVTableProvider>(logger);
+		const auto vTableProvider = InitVTableProvider(logger);
 		const auto patternProvider = InitPatternProvider(logger);
 		
 		auto clockPlugin = new NosTaleSDK::Plugins::ClockPlugin(vTableProvider, patternProvider);
