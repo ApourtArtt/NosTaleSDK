@@ -12,10 +12,6 @@ using namespace NosTaleSDK::Entwell::Classes;
 private:\
     TENTWELL_NAME* obj{ nullptr };\
 protected:\
-    WRAPPER_NAME(bool)/*std::shared_ptr default constructor enforces us to use a type here*/\
-    {\
-        initObject();\
-    }\
     WRAPPER_NAME() {\
         isManaging_ = true;\
     }\
@@ -48,14 +44,3 @@ public:\
     virtual void SetInternal(TENTWELL_NAME* TEntwell) { obj = TEntwell; WRAPPER_PARENT_NAME::SetInternal(TEntwell); }\
     virtual TENTWELL_NAME* GetInternal() { return obj; }\
 private:
-
-/*
-
-    WRAPPER_NAME(uintptr_t VTable) : WRAPPER_PARENT_NAME(true)\
-    {\
-        obj = new TENTWELL_NAME; \
-        obj->vTable = VTable; \
-        WRAPPER_PARENT_NAME::SetInternal(obj); \
-        initObject(); \
-    }\
-*/
