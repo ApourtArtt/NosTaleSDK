@@ -1,6 +1,8 @@
 module;
 #include "MacroWrapperDef.h"
 #include <memory>
+#include <string>
+#include <Windows.h>
 export module WrapperTEWLabel;
 import WrapperTEWControlWidgetEX;
 import TEWControlWidgetEX;
@@ -22,6 +24,23 @@ namespace NosTaleSDK::Wrappers::Classes
     {
         TENTWELL_WRAPPER_DEFINITION(WrapperTEWLabel, WrapperTEWControlWidgetEX, TEWLabel)
     public:
+        void SetText(const char* Text) const
+        {
+            const size_t size = strlen(Text) + 1;
+            const auto text = new wchar_t[size]; 
+
+            size_t outSize;
+            mbstowcs_s(&outSize, text, size, Text, size-1);
+            
+            obj_->textPosition.text = Entwell::Properties::Logical::WideString(const_cast<wchar_t*>(text));
+        }
+
+        void Centered() const
+        {
+            obj_->textStyle.textAlignment = Entwell::Enumerations::TextAlignment::CENTERED_CENTERED;
+            obj_->textPosition.pxPerLine = obj_->border.botRightX - obj_->border.topLeftX;
+            obj_->textPosition.lineSpacing = obj_->border.botRightY - obj_->border.topLeftY;
+        }
 
     private:
         // ReSharper disable once CppMemberFunctionMayBeStatic
@@ -33,7 +52,7 @@ namespace NosTaleSDK::Wrappers::Classes
                 Entwell::Enumerations::TextShadowOrientation::SHADOW_NONE,
                 Entwell::Properties::Graphical::Bgra(255, 255, 255, 255),
                 Entwell::Properties::Graphical::Bgra(0, 0, 0, 0),
-                Entwell::Enumerations::TextAlignment::CENTERED_CENTERED
+                Entwell::Enumerations::TextAlignment::TOP_LEFT
             );
 
             obj_->textPosition = Entwell::Properties::Graphical::TextPosition(
@@ -44,6 +63,10 @@ namespace NosTaleSDK::Wrappers::Classes
                 true,
                 ""
             );
+
+            obj_->isBackgroundTransparent = true;
+            obj_->widgetType = 33;
+            obj_->isHandlingClick = false;
         }
     };
 }

@@ -61,6 +61,9 @@ namespace NosTaleSDK::Plugins
             timeWrapper_ = std::make_shared<Wrappers::Classes::WrapperTEWLabel>(vTableProvider_);
             timeWrapper_->SetParent(panelWrapper_.get());
             timeWrapper_->SetSize(panelWrapper_->GetWidth(), panelWrapper_->GetHeight());
+            timeWrapper_->Centered();
+            
+            timeWrapper_->SetText("Test");
         }
         
     private:

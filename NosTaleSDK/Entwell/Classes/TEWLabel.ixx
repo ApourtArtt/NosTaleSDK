@@ -10,7 +10,7 @@ namespace NosTaleSDK::Entwell::Classes
 #pragma pack(push, 1)
 	export struct TEWLabel : public TEWControlWidgetEX
 	{
-		uint8_t unknown20;									// 0x068
+		bool isBackgroundTransparent;						// 0x068
 		uint8_t unknown21;									// 0x069
 		Properties::Graphical::TextStyle textStyle;			// 0x06A
 		char unknown22[3];									// 0x075

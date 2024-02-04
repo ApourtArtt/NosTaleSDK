@@ -2,6 +2,7 @@ module;
 #include <stdint.h>
 export module TextPosition;
 import Position;
+import WideString;
 
 namespace NosTaleSDK::Entwell::Properties::Graphical
 {
@@ -11,7 +12,7 @@ namespace NosTaleSDK::Entwell::Properties::Graphical
 		Logical::Position position;	// 0x000
 		int16_t pxPerLine;			// 0x004
 		int16_t lineSpacing;		// 0x006
-		wchar_t* text;				// 0x008
+		Logical::WideString text;	// 0x008
 		bool isVisible;				// 0x00C
 		unsigned char padding[3];	// 0x00D
 	};

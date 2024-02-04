@@ -43,6 +43,7 @@ std::shared_ptr<ClassSearcherVTableProvider> InitVTableProvider(std::shared_ptr<
 
 	vTableProvider->RegisterVTableName("NosTaleSDK::Entwell::Classes::TEWCustomPanelWidget::VTable", "TEWCustomPanelWidget");
 	vTableProvider->RegisterVTableName("NosTaleSDK::Entwell::Classes::TLBSWidgetList::VTable", "TLBSWidgetList");
+	vTableProvider->RegisterVTableName("NosTaleSDK::Entwell::Classes::TEWLabel::VTable", "TEWLabel");
 
 	return vTableProvider;
 }
