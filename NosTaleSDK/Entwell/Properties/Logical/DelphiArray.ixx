@@ -1,6 +1,4 @@
 module;
-#include <stdlib.h>
-#include <stdio.h>
 #include <vector>
 #include <cstring>
 export module DelphiArray;
@@ -11,91 +9,93 @@ namespace NosTaleSDK::Entwell::Properties::Logical
     class DelphiArray
     {
     public:
-        DelphiArray(const std::vector<T>& arr) : data(arr) {}
+        explicit DelphiArray(const std::vector<T>& Arr) : data_(Arr) {}
         DelphiArray() : DelphiArray({}) {}
-        DelphiArray(T* arr)
+
+        explicit DelphiArray(T* Arr)
         {
-            int32_t length = *(int32_t*)((char*)(arr - sizeof(int32_t)));
-            data.reserve(length);
+            int32_t length = *reinterpret_cast<int32_t*>(static_cast<char*>(Arr - sizeof(int32_t)));
+            data_.reserve(length);
             for (int32_t i = 0; i < length; i++)
             {
-                auto ptr = (char*)(arr)+i * sizeof(T);
-                auto ptr2 = *(T*)(ptr);
-                data.push_back(*(T*)(ptr));
+                auto ptr = static_cast<char*>(Arr)+i * sizeof(T);
+                auto ptr2 = *static_cast<T*>(ptr);
+                data_.push_back(*static_cast<T*>(ptr));
             }
         }
 
         T* ToInternal()
         {
-            char* output = (char*)malloc(sizeof(int32_t) + (data.size() * sizeof(T)));
+            auto output = static_cast<char*>(malloc(sizeof(int32_t) + (data_.size() * sizeof(T))));
             if (!output)
                 return nullptr;
 
-            *(int32_t*)(output) = data.size() * sizeof(T);
+            *reinterpret_cast<int32_t*>(output) = data_.size() * sizeof(T);
             output += sizeof(int32_t);
 
-            for (int32_t i = 0; i < data.size(); i++)
+            for (int32_t i = 0; i < data_.size(); i++)
             {
-                memcpy((void*)(output + i * sizeof(T)), (void*)&data[i], sizeof(T));
+                memcpy(output + i * sizeof(T), static_cast<void*>(&data_[i]), sizeof(T));
             }
 
-            return (T*)output;
+            return reinterpret_cast<T*>(output);
         }
 
-        std::vector<T> GetData() { return data; }
+        std::vector<T> GetData() { return data_; }
 
-        void SetData(const std::vector<T>& arr) { data = arr; }
+        void SetData(const std::vector<T>& Arr) { data_ = Arr; }
 
     private:
-        std::vector<T> data;
+        std::vector<T> data_;
     };
 
     export template<typename T>
     class DelphiArrayRefCounted
     {
     public:
-        DelphiArrayRefCounted(const std::vector<T>& arr, int32_t refCount) : ref(refCount), data(arr) {}
+        DelphiArrayRefCounted(const std::vector<T>& Arr, const int32_t RefCount) : ref_(RefCount), data_(Arr) {}
         DelphiArrayRefCounted() : DelphiArrayRefCounted({}, 0) {}
-        DelphiArrayRefCounted(T* arr)
+
+        explicit DelphiArrayRefCounted(T* Arr)
         {
-            ref = *(int32_t*)((char*)(arr - sizeof(int32_t) * 2));;
-            int32_t length = *(int32_t*)((char*)(arr - sizeof(int32_t)));
-            data.reserve(length);
+            ref_ = *reinterpret_cast<int32_t*>(static_cast<char*>(Arr - sizeof(int32_t) * 2));;
+            int32_t length = *reinterpret_cast<int32_t*>(static_cast<char*>(Arr - sizeof(int32_t)));
+            data_.reserve(length);
             for (int32_t i = 0; i < length; i++)
             {
-                auto ptr = (char*)(arr)+i * sizeof(T);
-                auto ptr2 = *(T*)(ptr);
-                data.push_back(*(T*)(ptr));
+                auto ptr = static_cast<char*>(Arr)+i * sizeof(T);
+                auto ptr2 = *static_cast<T*>(ptr);
+                data_.push_back(*static_cast<T*>(ptr));
             }
         }
 
         T* ToInternal()
         {
-            char* output = (char*)malloc(sizeof(int32_t) * 2 + (data.size() * sizeof(T)));
+            auto output = static_cast<char*>(malloc(sizeof(int32_t) * 2 + (data_.size() * sizeof(T))));
             if (!output)
                 return nullptr;
 
-            *(int32_t*)(output) = ref;
+            *reinterpret_cast<int32_t*>(output) = ref_;
             output += sizeof(int32_t);
-            *(int32_t*)(output) = data.size() * sizeof(T);
+            *reinterpret_cast<int32_t*>(output) = data_.size() * sizeof(T);
             output += sizeof(int32_t);
 
-            for (int32_t i = 0; i < data.size(); i++)
+            for (int32_t i = 0; i < data_.size(); i++)
             {
-                memcpy((void*)(output + i * sizeof(T)), (void*)&data[i], sizeof(T));
+                memcpy(output + i * sizeof(T), static_cast<void*>(&data_[i]), sizeof(T));
             }
 
-            return (T*)output;
+            return static_cast<T*>(output);
         }
 
-        std::vector<T> GetData() { return data; }
-        int32_t GetRefCount() { return ref; }
+        std::vector<T> GetData() { return data_; }
+        int32_t GetRefCount() const { return ref_; }
 
-        void SetData(const std::vector<T>& arr) { data = arr; }
-        void SetRefCount(int32_t refCount) { ref = refCount; }
+        void SetData(const std::vector<T>& Arr) { data_ = Arr; }
+        void SetRefCount(const int32_t RefCount) { ref_ = RefCount; }
 
     private:
-        int32_t ref;
-        std::vector<T> data;
+        int32_t ref_;
+        std::vector<T> data_;
     };
 }

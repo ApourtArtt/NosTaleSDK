@@ -25,9 +25,9 @@ namespace NosTaleSDK::Wrappers::Classes
     {
         TENTWELL_WRAPPER_DEFINITION(WrapperTEWLabel, WrapperTEWControlWidgetEX, TEWLabel)
     public:
-        void SetText(const std::wstring& Text) const
+        void SetText(const std::string& Text) const
         {
-            auto arr = Entwell::Properties::Logical::DelphiArray<wchar_t>(std::vector<wchar_t>(Text.begin(), Text.end()));
+            auto arr = Entwell::Properties::Logical::DelphiArray(std::vector<wchar_t>(Text.begin(), Text.end()));
             obj_->textPosition.text = arr.ToInternal();
         }
 

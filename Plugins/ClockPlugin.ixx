@@ -1,5 +1,6 @@
 module;
 #include <memory>
+#include <string>
 export module ClockPlugin;
 import Plugin;
 import WrapperTEWCustomPanelWidget;
@@ -63,7 +64,7 @@ namespace NosTaleSDK::Plugins
             timeWrapper_->SetSize(panelWrapper_->GetWidth(), panelWrapper_->GetHeight());
             timeWrapper_->Centered();
             
-            timeWrapper_->SetText(std::wstring(L"Test"));
+            timeWrapper_->SetText("Test");
         }
         
     private:
