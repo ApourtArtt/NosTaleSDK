@@ -2,7 +2,7 @@ module;
 #include <stdint.h>
 export module TMapMonsterObj;
 import TMapMoveObjBase;
-import String;
+import DelphiString;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -25,7 +25,7 @@ namespace NosTaleSDK::Entwell::Classes
 		char unknown99;								// 0x1CB
 		uint8_t unknown100;							// 0x1CC
 		char unknown101[3];							// 0x1CD
-		Properties::Logical::String* unknown102;	// 0x1D0
+		Properties::Logical::DelphiString* unknown102;	// 0x1D0
 	};
 	static_assert(sizeof(TMapMonsterObj) == 0x1D4, "TMapMonsterObj size isn't 0x1D4.");
 	static_assert(sizeof(TMapMonsterObj) <= 0x1D4, "TMapMonsterObj size is upper than 0x1D4.");

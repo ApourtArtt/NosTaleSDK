@@ -1,7 +1,7 @@
 module;
 export module TNTLoginWindowWidget;
 import TEWCustomFormWidget;
-import String;
+import DelphiString;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -20,7 +20,7 @@ namespace NosTaleSDK::Entwell::Classes
 		TEWGraphicButtonWidget* unknown47;			// 0x110
 		TEWCustomPanelWidget* unknown48;			// 0x114
 		TEWLabel* unknown49;						// 0x118
-		Properties::Logical::String* unknown50;		// 0x11C
+		Properties::Logical::DelphiString* unknown50;		// 0x11C
 	};
 	static_assert(sizeof(TNTLoginWindowWidget) == 0x120, "TNTLoginWindowWidget size isn't 0x120.");
 	static_assert(sizeof(TNTLoginWindowWidget) <= 0x120, "TNTLoginWindowWidget size is upper than 0x120.");

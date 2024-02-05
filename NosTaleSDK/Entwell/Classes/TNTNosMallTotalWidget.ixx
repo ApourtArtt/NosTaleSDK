@@ -2,7 +2,7 @@ module;
 #include <stdint.h>
 export module TNTNosMallTotalWidget;
 import TEWCustomFormWidget;
-import String;
+import DelphiString;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -27,14 +27,14 @@ namespace NosTaleSDK::Entwell::Classes
 		struct TNTNosMallPostWidget* unknown53;			// 0x0F0
 		uint8_t unknown54;								// 0x0F4
 		char unknown55[3];								// 0x0F5
-		Properties::Logical::String* unknown56;			// 0x0F8
-		Properties::Logical::String* unknown57;			// 0x0FC
+		Properties::Logical::DelphiString* unknown56;			// 0x0F8
+		Properties::Logical::DelphiString* unknown57;			// 0x0FC
 		uint32_t unknown58;								// 0x100
 		uint32_t dispatch;								// 0x104
 		char unknown59[4];								// 0x108
 		uint8_t unknown60;								// 0x10C
 		char unknown61[3];								// 0x10D
-		Properties::Logical::String* unknown62;			// 0x110
+		Properties::Logical::DelphiString* unknown62;			// 0x110
 	};
 	static_assert(sizeof(TNTNosMallTotalWidget) == 0x114, "TNTNosMallTotalWidget size isn't 0x114.");
 	static_assert(sizeof(TNTNosMallTotalWidget) <= 0x114, "TNTNosMallTotalWidget size is upper than 0x114.");

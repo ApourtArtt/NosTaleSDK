@@ -3,7 +3,7 @@ module;
 #include <Windows.h>
 export module TApplication;
 import TComponent;
-import String;
+import DelphiString;
 import TList;
 import Callback;
 
@@ -15,14 +15,14 @@ namespace NosTaleSDK::Entwell::Classes
 	{
 		HWND* handle;											// 0x030
 		uint32_t bidirectionalMode;								// 0x034
-		Properties::Logical::String* bidirectionalKeyboard;		// 0x038
-		Properties::Logical::String* nonBidirectionalKeyboard;	// 0x03C
+		Properties::Logical::DelphiString* bidirectionalKeyboard;		// 0x038
+		Properties::Logical::DelphiString* nonBidirectionalKeyboard;	// 0x03C
 		void* comObject;										// 0x040
 		struct TNosTaleMainF* mainForm;							// 0x044
 		struct TControl* mouseControl;							// 0x048
 		void* helpSystem;										// 0x04C
-		Properties::Logical::String* helpFile;					// 0x050
-		Properties::Logical::String* hint;						// 0x054
+		Properties::Logical::DelphiString* helpFile;					// 0x050
+		Properties::Logical::DelphiString* hint;						// 0x054
 		bool isHintActive;										// 0x058
 		bool isUpdateFormatSettings;							// 0x059
 		bool isUpdateMetricsSettings;							// 0x05A
@@ -42,7 +42,7 @@ namespace NosTaleSDK::Entwell::Classes
 		bool isHintShown;										// 0x088
 		uint8_t timeMode;										// 0x089
 		uint16_t timeHandle;									// 0x08A
-		Properties::Logical::String* title;						// 0x08C
+		Properties::Logical::DelphiString* title;						// 0x08C
 		TList<void*>* topMostList;								// 0x090
 		int16_t topMostLevel;									// 0x094
 		char padding4[2];										// 0x096

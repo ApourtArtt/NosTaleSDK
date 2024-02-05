@@ -2,7 +2,6 @@ module;
 #include <stdint.h>
 export module TNTNosMallMemoReadWidget;
 import TEWCustomFormWidget;
-import String;
 
 namespace NosTaleSDK::Entwell::Classes
 {

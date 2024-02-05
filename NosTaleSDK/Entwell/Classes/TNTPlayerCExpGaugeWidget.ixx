@@ -1,7 +1,7 @@
 module;
 export module TNTPlayerCExpGaugeWidget;
 import TEWCustomPanelWidget;
-import String;
+import DelphiString;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -17,14 +17,14 @@ namespace NosTaleSDK::Entwell::Classes
 		TEWCustomPanelWidget* unknown32;			// 0x0BC
 		TEWCustomPanelWidget* unknown33;			// 0x0C0
 		TEWCustomPanelWidget* unknown34;			// 0x0C4
-		Properties::Logical::String* unknown35;		// 0x0C8
-		Properties::Logical::String* unknown36;		// 0x0CC
-		Properties::Logical::String* unknown37;		// 0x0D0
-		Properties::Logical::String* unknown38;		// 0x0D4
-		Properties::Logical::String* unknown39;		// 0x0D8
-		Properties::Logical::String* unknown40;		// 0x0DC
-		Properties::Logical::String* unknown41;		// 0x0E0
-		Properties::Logical::String* unknown42;		// 0x0E4
+		Properties::Logical::DelphiString* unknown35;		// 0x0C8
+		Properties::Logical::DelphiString* unknown36;		// 0x0CC
+		Properties::Logical::DelphiString* unknown37;		// 0x0D0
+		Properties::Logical::DelphiString* unknown38;		// 0x0D4
+		Properties::Logical::DelphiString* unknown39;		// 0x0D8
+		Properties::Logical::DelphiString* unknown40;		// 0x0DC
+		Properties::Logical::DelphiString* unknown41;		// 0x0E0
+		Properties::Logical::DelphiString* unknown42;		// 0x0E4
 		char unknown43[8];							// 0x0E8
 	};
 	static_assert(sizeof(TNTPlayerCExpGaugeWidget) == 0xF0, "TNTPlayerCExpGaugeWidget size isn't 0xF0.");

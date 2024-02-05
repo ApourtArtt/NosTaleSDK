@@ -2,7 +2,7 @@ module;
 #include <stdint.h>
 export module TEWGuageWithHintWidget;
 import TEWGuageWidget;
-import String;
+import DelphiString;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -10,7 +10,7 @@ namespace NosTaleSDK::Entwell::Classes
 	export struct TEWGuageWithHintWidget : public TEWGuageWidget
 	{
 		char unknown40[4];						// 0x0BC
-		Properties::Logical::String* unknown41;	// 0x0C0
+		Properties::Logical::DelphiString* unknown41;	// 0x0C0
 		uint32_t unknown42;						// 0x0C4
 	};
 	static_assert(sizeof(TEWGuageWithHintWidget) == 0xC8, "TEWGuageWithHintWidget size isn't 0xC8.");

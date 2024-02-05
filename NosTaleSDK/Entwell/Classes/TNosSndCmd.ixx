@@ -3,7 +3,7 @@ module;
 export module TNosSndCmd;
 import TObject;
 import Callback;
-import String;
+import DelphiString;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -12,7 +12,7 @@ namespace NosTaleSDK::Entwell::Classes
 	{
 		uint32_t unknown;						// 0x004
 		Properties::Logical::Callback callback;	// 0x008
-		Properties::Logical::String* packet;	// 0x010
+		Properties::Logical::DelphiString* packet;	// 0x010
 	};
 	static_assert(sizeof(TNosSndCmd) == 0x14, "TNosSndCmd size isn't 0x14.");
 	static_assert(sizeof(TNosSndCmd) <= 0x14, "TNosSndCmd size is upper than 0x14.");

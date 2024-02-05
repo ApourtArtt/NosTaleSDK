@@ -2,7 +2,7 @@ module;
 #include <stdint.h>
 export module TMapPlayerObj;
 import TMapMoveObjBase;
-import String;
+import DelphiString;
 import WeaponGlowing;
 
 namespace NosTaleSDK::Entwell::Classes
@@ -19,9 +19,9 @@ namespace NosTaleSDK::Entwell::Classes
 		char unknown94[4];									// 0x1C0
 		Properties::Graphical::WeaponGlowing weaponGlowing;	// 0x1C4
 		char unknown96[26];									// 0x1D6
-		Properties::Logical::String* unknown97;				// 0x1F0
-		Properties::Logical::String* unknown98;				// 0x1F4
-		Properties::Logical::String* unknown99;				// 0x1F8
+		Properties::Logical::DelphiString* unknown97;				// 0x1F0
+		Properties::Logical::DelphiString* unknown98;				// 0x1F4
+		Properties::Logical::DelphiString* unknown99;				// 0x1F8
 		uint32_t unknown100;								// 0x1FC
 		uint32_t unknown101;								// 0x200
 		uint16_t unknown102;								// 0x204

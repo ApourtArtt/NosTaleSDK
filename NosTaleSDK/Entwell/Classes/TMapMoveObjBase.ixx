@@ -2,7 +2,7 @@ module;
 #include <stdint.h>
 export module TMapMoveObjBase;
 import TMapObjBase;
-import WideString;
+import DelphiString;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -81,7 +81,7 @@ namespace NosTaleSDK::Entwell::Classes
 		int8_t showNpcShop;							// 0x160 -1: show "P" and the name of shop if any
 		uint8_t unknown71;							// 0x161
 		char unknown72[2];							// 0x162
-		Properties::Logical::WideString unknown73;	// 0x164
+		Properties::Logical::DelphiWString* unknown73;	// 0x164
 		float effectHeightMultiplier;				// 0x168 if 1.2, then everything will be 20% above
 		int32_t groupId;							// 0x16C -1 if none
 		int32_t familyId;							// 0x170 -1 if none

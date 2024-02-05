@@ -2,7 +2,7 @@ module;
 #include <stdint.h>
 export module TEWNormalButtonWidget;
 import TEWCustomButtonWidget;
-import WideString;
+import DelphiString;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -19,7 +19,7 @@ namespace NosTaleSDK::Entwell::Classes
 		char unknown42[8];							// 0x0E8
 		void* unknown43;							// 0x0F0 TEWStats*
 		char unknown44[4];							// 0x0F4
-		Properties::Logical::WideString* unknown45;	// 0x0F8
+		Properties::Logical::DelphiWString* unknown45;	// 0x0F8
 		uint8_t unknown46;							// 0x0FC
 		char unknown47[3];							// 0x0FD
 	};

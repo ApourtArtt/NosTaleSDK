@@ -2,7 +2,7 @@ module;
 #include <stdint.h>
 export module TNTChatViewerWidget;
 import TEWFormWidget;
-import WideString;
+import DelphiString;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -28,7 +28,7 @@ namespace NosTaleSDK::Entwell::Classes
 		uint8_t unknown55;														// 0x113
 		uint16_t unknown56;														// 0x114
 		uint16_t unknown57;														// 0x116
-		Properties::Logical::WideString* unknown58;								// 0x118
+		Properties::Logical::DelphiWString* unknown58;								// 0x118
 		uint8_t unknown59;														// 0x11C
 		uint8_t unknown60;														// 0x11D
 		char unknown61[2];														// 0x11E

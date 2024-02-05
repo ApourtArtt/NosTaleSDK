@@ -2,7 +2,7 @@ module;
 #include <stdint.h>
 export module TEWEditWidget;
 import TEWControlWidget;
-import WideString;
+import DelphiString;
 import Callback;
 import TextStyle;
 
@@ -11,10 +11,10 @@ namespace NosTaleSDK::Entwell::Classes
 #pragma pack(push, 1)
 	export struct TEWEditWidget : public TEWControlWidget
 	{
-		Properties::Logical::WideString text;		// 0x068
-		Properties::Logical::WideString unknown20;	// 0x06C 
-		Properties::Logical::WideString unknown21;	// 0x070 Ctrl+Click text related
-		Properties::Logical::WideString unknown22;	// 0x074 Ctrl+Click text related
+		Properties::Logical::DelphiWString* text;		// 0x068
+		Properties::Logical::DelphiWString* unknown20;	// 0x06C 
+		Properties::Logical::DelphiWString* unknown21;	// 0x070 Ctrl+Click text related
+		Properties::Logical::DelphiWString* unknown22;	// 0x074 Ctrl+Click text related
 		int32_t textCursorPosition;					// 0x078
 		int32_t pxBeforeTextCursor;					// 0x07C
 		int32_t textPadding;						// 0x080 < 0 : to the right, > 0 : to the left

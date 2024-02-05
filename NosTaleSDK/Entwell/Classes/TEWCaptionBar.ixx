@@ -4,6 +4,7 @@ export module TEWCaptionBar;
 import TEWParentMoveWidget;
 import TextStyle;
 import TextPosition;
+import DelphiString;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -23,7 +24,7 @@ namespace NosTaleSDK::Entwell::Classes
 		uint32_t unknown31;									// 0x092
 		Properties::Graphical::TextStyle textStyle;			// 0x096
 		char unknown32[3];									// 0x0A1
-		Properties::Graphical::TextPosition textPosition;	// 0x0A4
+		Properties::Graphical::TextPosition<Properties::Logical::DelphiWString> textPosition;	// 0x0A4
 	};
 	static_assert(sizeof(TEWCaptionBar) == 0xB4, "TEWCaptionBar size isn't 0xB4.");
 	static_assert(sizeof(TEWCaptionBar) <= 0xB4, "TEWCaptionBar size is upper than 0xB4.");

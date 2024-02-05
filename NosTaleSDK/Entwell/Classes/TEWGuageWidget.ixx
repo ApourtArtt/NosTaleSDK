@@ -2,7 +2,7 @@ module;
 #include <stdint.h>
 export module TEWGuageWidget;
 import TEWMoveWidget;
-import WideString;
+import DelphiString;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -23,7 +23,7 @@ namespace NosTaleSDK::Entwell::Classes
 		char unknown34[10];							// 0x0A2
 		uint32_t unknown35;							// 0x0AC TEWStats
 		char unknown36[4];							// 0x0B0
-		Properties::Logical::WideString* unknown37;	// 0x0B4
+		Properties::Logical::DelphiWString* unknown37;	// 0x0B4
 		uint8_t unknown38;							// 0x0B8
 		char unknown39[3];							// 0x0B9
 	};

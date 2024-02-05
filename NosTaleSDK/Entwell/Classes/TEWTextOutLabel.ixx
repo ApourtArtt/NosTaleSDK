@@ -2,14 +2,14 @@ module;
 #include <stdint.h>
 export module TEWTextOutLabel;
 import TEWTextOut;
-import WideString;
+import DelphiString;
 
 namespace NosTaleSDK::Entwell::Classes
 {
 #pragma pack(push, 1)
 	export struct TEWTextOutLabel : public TEWTextOut
 	{
-		Properties::Logical::WideString text;	// 0x078
+		Properties::Logical::DelphiWString* text;// 0x078
 		uint8_t unknown27;						// 0x07C
 		char unknown28[3];						// 0x07D
 		uint32_t unknown29;						// 0x080

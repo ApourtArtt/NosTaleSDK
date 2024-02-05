@@ -426,12 +426,6 @@
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\Callback.ixx">
       <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>
     </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\String.ixx">
-      <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\WideString.ixx">
-      <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>
-    </ClCompile>
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Graphical\Bgra.ixx">
       <Filter>NosTaleSDK\Entwell\Properties\Graphical</Filter>
     </ClCompile>
@@ -658,7 +652,6 @@
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTGameRootWidget.ixx">
       <Filter>NosTaleSDK\Wrappers\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="Plugins\ClockPlugin.ixx" />
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWMoveWidget.ixx">
       <Filter>NosTaleSDK\Wrappers\Classes</Filter>
     </ClCompile>
@@ -670,6 +663,27 @@
     </ClCompile>
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWCustomPanelWidget.ixx">
       <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\DelphiString.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\DelphiArray.ixx">
+      <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTList.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWControlWidgetEX.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWLabel.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTLBSWidgetList.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugins\ClockPlugin.ixx">
+      <Filter>Implementations</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

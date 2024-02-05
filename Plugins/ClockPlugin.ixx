@@ -63,7 +63,7 @@ namespace NosTaleSDK::Plugins
             timeWrapper_->SetSize(panelWrapper_->GetWidth(), panelWrapper_->GetHeight());
             timeWrapper_->Centered();
             
-            timeWrapper_->SetText("Test");
+            timeWrapper_->SetText(std::wstring(L"Test"));
         }
         
     private:

@@ -4,6 +4,7 @@ export module TEWButtonWidget;
 import TEWGraphicButtonWidget;
 import TextStyle;
 import TextPosition;
+import DelphiString;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -24,7 +25,7 @@ namespace NosTaleSDK::Entwell::Classes
 		uint8_t unknown47;									// 0x104
 		uint8_t unknown48;									// 0x105
 		char unknown49[2];									// 0x106
-		Properties::Graphical::TextPosition textPosition;	// 0x108
+		Properties::Graphical::TextPosition<Properties::Logical::DelphiWString> textPosition;	// 0x108
 	};
 	static_assert(sizeof(TEWButtonWidget) == 0x118, "TEWButtonWidget size isn't 0x118.");
 	static_assert(sizeof(TEWButtonWidget) <= 0x118, "TEWButtonWidget size is upper than 0x118.");

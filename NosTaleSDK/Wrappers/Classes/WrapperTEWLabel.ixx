@@ -2,6 +2,7 @@ module;
 #include "MacroWrapperDef.h"
 #include <memory>
 #include <string>
+#include <vector>
 #include <Windows.h>
 export module WrapperTEWLabel;
 import WrapperTEWControlWidgetEX;
@@ -15,7 +16,7 @@ import TextShadowOrientation;
 import TextAlignment;
 import Bgra;
 import Position;
-import WideString;
+import DelphiArray;
 
 namespace NosTaleSDK::Wrappers::Classes
 {
@@ -24,15 +25,10 @@ namespace NosTaleSDK::Wrappers::Classes
     {
         TENTWELL_WRAPPER_DEFINITION(WrapperTEWLabel, WrapperTEWControlWidgetEX, TEWLabel)
     public:
-        void SetText(const char* Text) const
+        void SetText(const std::wstring& Text) const
         {
-            const size_t size = strlen(Text) + 1;
-            const auto text = new wchar_t[size]; 
-
-            size_t outSize;
-            mbstowcs_s(&outSize, text, size, Text, size-1);
-            
-            obj_->textPosition.text = Entwell::Properties::Logical::WideString(const_cast<wchar_t*>(text));
+            auto arr = Entwell::Properties::Logical::DelphiArray<wchar_t>(std::vector<wchar_t>(Text.begin(), Text.end()));
+            obj_->textPosition.text = arr.ToInternal();
         }
 
         void Centered() const
@@ -55,7 +51,7 @@ namespace NosTaleSDK::Wrappers::Classes
                 Entwell::Enumerations::TextAlignment::TOP_LEFT
             );
 
-            obj_->textPosition = Entwell::Properties::Graphical::TextPosition(
+            obj_->textPosition = Entwell::Properties::Graphical::TextPosition<Entwell::Properties::Logical::DelphiWString>(
                 Entwell::Properties::Logical::Position(0, 0),
                 0,
                 0,

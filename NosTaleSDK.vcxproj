@@ -15,7 +15,7 @@
     <ClCompile Include="Implementations\PatternAddressProvider.ixx" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Implementations\ClassSearcherVTableProvider.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Classes\TApplication.ixx"/>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TApplication.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TBaseList.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TBuddyChatWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TByteList.ixx" />
@@ -204,9 +204,9 @@
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\Array.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\ArrayRefCounted.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\Callback.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\DelphiArray.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\Position.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\String.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\WideString.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\DelphiString.ixx" />
     <ClCompile Include="NosTaleSDK\Interfaces\Interface.ixx" />
     <ClCompile Include="NosTaleSDK\Interfaces\Logger.ixx" />
     <ClCompile Include="NosTaleSDK\Interfaces\Plugin.ixx" />
@@ -214,8 +214,8 @@
     <ClCompile Include="NosTaleSDK\Runtime.ixx" />
     <ClCompile Include="NosTaleSDK\Interfaces\AddressProvider.ixx" />
     <ClCompile Include="NosTaleSDK\Utils\MemoryUtils.ixx" />
-    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWControlWidget.ixx"/>
-    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWControlWidgetEvent.ixx"/>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWControlWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWControlWidgetEvent.ixx" />
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWControlWidgetEX.ixx">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -294,7 +294,7 @@
       <EnableModules>true</EnableModules>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
-    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWCustomPanelWidget.ixx"/>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWCustomPanelWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWLabel.ixx">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -373,8 +373,8 @@
       <EnableModules>true</EnableModules>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
-    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWMoveWidget.ixx"/>
-    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTGameRootWidget.ixx"/>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWMoveWidget.ixx" />
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTGameRootWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTLBSWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTLBSWidgetHandler.ixx" />
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTLBSWidgetList.ixx">
@@ -534,7 +534,7 @@
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTObject.ixx" />
-    <ClCompile Include="Plugins\ClockPlugin.ixx"/>
+    <ClCompile Include="Plugins\ClockPlugin.ixx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NosTaleSDK\Wrappers\Classes\MacroWrapperDef.h" />
