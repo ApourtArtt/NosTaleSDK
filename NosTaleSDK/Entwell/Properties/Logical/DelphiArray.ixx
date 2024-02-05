@@ -31,7 +31,7 @@ namespace NosTaleSDK::Entwell::Properties::Logical
             if (!output)
                 return nullptr;
 
-            *(int32_t*)(output) = data.size();
+            *(int32_t*)(output) = data.size() * sizeof(T);
             output += sizeof(int32_t);
 
             for (int32_t i = 0; i < data.size(); i++)
@@ -77,7 +77,7 @@ namespace NosTaleSDK::Entwell::Properties::Logical
 
             *(int32_t*)(output) = ref;
             output += sizeof(int32_t);
-            *(int32_t*)(output) = data.size();
+            *(int32_t*)(output) = data.size() * sizeof(T);
             output += sizeof(int32_t);
 
             for (int32_t i = 0; i < data.size(); i++)
