@@ -9,14 +9,14 @@ Work in progress
         <a href="https://github.com/Eless54">
             <img src="https://avatars.githubusercontent.com/u/32436964?v=4" width="100;" alt="Eless54"/>
             <br />
-            <sub><b>Null</b></sub>
+            <sub><b>Eless54</b></sub>
         </a>
     </td>
     <td align="center">
         <a href="https://github.com/ApourtArtt">
             <img src="https://avatars.githubusercontent.com/u/47370292?v=4" width="100;" alt="ApourtArtt"/>
             <br />
-            <sub><b>Null</b></sub>
+            <sub><b>ApourtArtt</b></sub>
         </a>
     </td></tr>
 </table>
@@ -31,14 +31,14 @@ Work in progress
         <a href="https://github.com/ApourtArtt">
             <img src="https://avatars.githubusercontent.com/u/47370292?v=4" width="100;" alt="ApourtArtt"/>
             <br />
-            <sub><b>Null</b></sub>
+            <sub><b>ApourtArtt</b></sub>
         </a>
     </td>
     <td align="center">
         <a href="https://github.com/Eless54">
             <img src="https://avatars.githubusercontent.com/u/32436964?v=4" width="100;" alt="Eless54"/>
             <br />
-            <sub><b>Null</b></sub>
+            <sub><b>Eless54</b></sub>
         </a>
     </td>
     <td align="center">
@@ -52,7 +52,7 @@ Work in progress
         <a href="https://github.com/Limo96">
             <img src="https://avatars.githubusercontent.com/u/1770735?v=4" width="100;" alt="Limo96"/>
             <br />
-            <sub><b>Luca</b></sub>
+            <sub><b>Limo96</b></sub>
         </a>
     </td></tr>
 </table>
