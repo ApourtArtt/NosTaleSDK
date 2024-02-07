@@ -9,7 +9,7 @@ namespace NosTaleSDK::Entwell::Classes
 #pragma pack(push, 1)
 	export struct TEWStringListViewCore : public TEWLabels
 	{
-		struct TStringList* lastMessages;				// 0x088
+		struct TStringList* lastLine;					// 0x088
 		TStringList* unknown22;							// 0x08C
 		TStringList* lines;								// 0x090
 		TStringList* unknown23;							// 0x094

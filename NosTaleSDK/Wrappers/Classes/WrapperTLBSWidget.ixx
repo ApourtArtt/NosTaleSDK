@@ -1,6 +1,8 @@
 module;
 #include "MacroWrapperDef.h"
 #include <memory>
+#include <string>
+#include <vector>
 export module WrapperTLBSWidget;
 import WrapperTObject;
 import TLBSWidget;
@@ -58,6 +60,31 @@ namespace NosTaleSDK::Wrappers::Classes
 		{
 			auto childrenWrapper = new WrapperTLBSWidgetList(obj_->children);
 			childrenWrapper->pushBack(Widget);
+		}
+
+		std::vector<TLBSWidget*> FindClassByName(const std::string& Name, std::shared_ptr<Interfaces::VTableProvider> VTableProvider) const
+		{
+			
+			if (obj_->children == nullptr)
+				return {};
+
+			const auto childrenWrapper = new WrapperTLBSWidgetList(obj_->children);
+
+			//search
+			const auto vTable = VTableProvider->Get("NosTaleSDK::Entwell::Classes::" + Name + "::VTable");
+
+			std::vector<TLBSWidget*> widgets;
+
+			for (auto i = 0; i < childrenWrapper->size(); i++)
+			{
+				const auto itemVTable = childrenWrapper->getItem(i)->vTable;
+				if (itemVTable == vTable)
+				{
+					widgets.push_back(childrenWrapper->getItem(i));
+				}
+			}
+
+			return widgets;
 		}
 
 	private:

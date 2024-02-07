@@ -42,7 +42,7 @@ namespace NosTaleSDK::Wrappers::Classes
             obj_->length += 1;
         }
         
-        void reserve() noexcept
+        void reserve()
         {
             obj_->capacity *= 2;
 
@@ -52,6 +52,18 @@ namespace NosTaleSDK::Wrappers::Classes
                 newItems[i] = obj_->items[i];
 
             obj_->items = newItems;
+        }
+
+        uint32_t size()
+        {
+            return obj_->length;
+        }
+
+        T getItem(int Index) noexcept
+        {
+            if (Index >= obj_->length || Index < 0)
+                return NULL;
+            return obj_->items[Index];
         }
 
     private:
