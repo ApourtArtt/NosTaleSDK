@@ -8,6 +8,7 @@ import WrapperTObject;
 import TStringList;
 import VTableProvider;
 import DelphiString;
+import DelphiArray;
 
 namespace NosTaleSDK::Wrappers::Classes
 {
@@ -16,15 +17,19 @@ namespace NosTaleSDK::Wrappers::Classes
 	// ReSharper disable once CppInconsistentNaming
 	export class WrapperTStringList : public WrapperTObject
 	{
-		TENTWELL_WRAPPER_DEFINITION(WrapperTStringList, WrapperTObject, TStringList<Entwell::Properties::Logical::DelphiStringFollowedBy4Zeros>)
+		TENTWELL_WRAPPER_DEFINITION(WrapperTStringList, WrapperTObject, TStringList)
 	public:
-		const std::string& GetStringAt(uint16_t Index)
+		std::string GetStringAt(const uint16_t Index) const
 		{
-			if (Index >= obj_->length || Index < 0)
+			if (Index >= obj_->length)
 				return "";
-			std::wstring ws(obj_->items[Index]);
-			return std::string(ws.begin(), ws.end());
+			const auto delphiString = obj_->items[Index * 2];
+			auto arr = Entwell::Properties::Logical::DelphiArrayRefCounted(delphiString, 12);
+			auto data = arr.GetData();
+			return std::string(data.begin(), data.end());
 		}
+
+		uint32_t GetLength() const { return obj_->length; }
 
 	private:
 		// ReSharper disable once CppMemberFunctionMayBeStatic

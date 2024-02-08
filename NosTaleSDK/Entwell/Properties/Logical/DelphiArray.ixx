@@ -56,10 +56,10 @@ namespace NosTaleSDK::Entwell::Properties::Logical
         DelphiArrayRefCounted(const std::vector<T>& Arr, const int32_t RefCount) : ref_(RefCount), data_(Arr) {}
         DelphiArrayRefCounted() : DelphiArrayRefCounted({}, 0) {}
 
-        explicit DelphiArrayRefCounted(T* Arr)
+        explicit DelphiArrayRefCounted(T* Arr, const uint32_t RightPadding = 0)
         {
             ref_ = *reinterpret_cast<int32_t*>(static_cast<char*>(Arr - sizeof(int32_t) * 2));;
-            int32_t length = *reinterpret_cast<int32_t*>(static_cast<char*>(Arr - sizeof(int32_t)));
+            int32_t length = *reinterpret_cast<int32_t*>(static_cast<char*>(Arr - sizeof(int32_t))) - RightPadding;
             data_.reserve(length);
             for (int32_t i = 0; i < length; i++)
             {

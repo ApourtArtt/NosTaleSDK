@@ -59,7 +59,7 @@ namespace NosTaleSDK::Entwell::Classes
 		int32_t selectedCommunityId;								// 0x1B8
 		uint32_t unknown68;											// 0x1BC
 		uint32_t unknown69;											// 0x1C0
-		uint16_t serversIdList[70];									// 0x1C4
+		int16_t serversIdList[70];									// 0x1C4
 		bool isThereAnyChannel;										// 0x250
 		char unknown72[3];											// 0x251
 		uint32_t unknown73;											// 0x254

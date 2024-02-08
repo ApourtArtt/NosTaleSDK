@@ -34,6 +34,10 @@ std::shared_ptr<PatternAddressProvider> InitPatternProvider(std::shared_ptr<NosT
 		"\x2e\x00\x00\x00\xa1\xb4\x51\x73\x00\x8b\x00\xba\x10\x5c\x6c\x00",
 		"xxxx?????xxx????", 5, 0 });
 
+	patternProvider->RegisterPattern("NosTaleSDK::Entwell::Value::ServerId", {
+		"\xe8\x00\x00\x00\x00\x66\x8b\x00\x00\x8b\x15\x00\x00\x00\x00\x66\x89\x02\xa1\x00\x00\x00\x00\x8b\x00",
+		"x????xx??xx????xxxx????xx", 11, 0 });
+
 	return patternProvider;
 }
 

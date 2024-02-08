@@ -31,11 +31,34 @@ namespace NosTaleSDK::Wrappers::Classes
             obj_->textPosition.text = arr.ToInternal();
         }
 
-        void Centered() const
+        void SetTextAlignment(const Entwell::Enumerations::TextAlignment TextAlignment = Entwell::Enumerations::TextAlignment::CENTERED_CENTERED) const
         {
-            obj_->textStyle.textAlignment = Entwell::Enumerations::TextAlignment::CENTERED_CENTERED;
+            obj_->textStyle.textAlignment = TextAlignment;
             obj_->textPosition.pxPerLine = obj_->border.botRightX - obj_->border.topLeftX;
             obj_->textPosition.lineSpacing = obj_->border.botRightY - obj_->border.topLeftY;
+        }
+        void SetCentered(const bool IsCentered = true) const
+        {
+            obj_->textStyle.textAlignment = IsCentered ? Entwell::Enumerations::TextAlignment::CENTERED_CENTERED :
+                                                         Entwell::Enumerations::TextAlignment::TOP_LEFT;
+            obj_->textPosition.pxPerLine = IsCentered ? obj_->border.botRightX - obj_->border.topLeftX : 0;
+            obj_->textPosition.lineSpacing = IsCentered ? obj_->border.botRightY - obj_->border.topLeftY : 0;
+        }
+        void SetVerticalCentered(const bool IsVerticalCentered = true) const
+        {
+            obj_->textStyle.textAlignment = Entwell::Enumerations::TextAlignment::CENTERED_LEFT;
+            obj_->textPosition.lineSpacing = IsVerticalCentered ? obj_->border.botRightY - obj_->border.topLeftY : 0;
+        }
+        void SetHorizontalCentered(const bool IsHorizontalCentered = true) const
+        {
+            obj_->textStyle.textAlignment = Entwell::Enumerations::TextAlignment::CENTERED_CENTERED;
+            obj_->textPosition.pxPerLine = IsHorizontalCentered ? obj_->border.botRightX - obj_->border.topLeftX : 0;
+            obj_->textPosition.lineSpacing = IsHorizontalCentered ? 12 : 0;
+        }
+
+        void SetFontStyle(const Entwell::Enumerations::FontStyle FontStyle) const
+        {
+            obj_->textStyle.fontStyle = FontStyle;
         }
 
     private:

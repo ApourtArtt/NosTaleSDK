@@ -27,11 +27,8 @@ namespace NosTaleSDK::Wrappers::Classes
 
 		void SetPosition(const int16_t X, const int16_t Y) const
 		{
-			obj_->border.botRightX = X + (obj_->border.botRightX - obj_->border.topLeftX);
-			obj_->border.topLeftX = X;
-			
-			obj_->border.botRightY = Y + (obj_->border.botRightY - obj_->border.topLeftY);
-			obj_->border.topLeftY = Y;
+			SetPositionX(X);
+			SetPositionY(Y);
 		}
 		Entwell::Properties::Logical::Position GetPosition() const
 		{
@@ -39,6 +36,12 @@ namespace NosTaleSDK::Wrappers::Classes
 					obj_->border.topLeftX,
 					obj_->border.topLeftY
 				);
+		}
+		void SetPositionUnder(const std::shared_ptr<WrapperTLBSWidget> Wrapper, const int16_t Padding = 0) const
+		{
+			auto y = Wrapper->GetPosition().y;
+			auto height = Wrapper->GetHeight();
+			SetPositionY(y + height + Padding);
 		}
 		
 		void SetSize(const int16_t Width, const int16_t Height) const
@@ -88,6 +91,17 @@ namespace NosTaleSDK::Wrappers::Classes
 		}
 
 	private:
+		void SetPositionX(const int16_t X) const
+		{
+			obj_->border.botRightX = X + (obj_->border.botRightX - obj_->border.topLeftX);
+			obj_->border.topLeftX = X;
+		}
+		void SetPositionY(const int16_t Y) const
+		{
+			obj_->border.botRightY = Y + (obj_->border.botRightY - obj_->border.topLeftY);
+			obj_->border.topLeftY = Y;
+		}
+		
 		// ReSharper disable once CppMemberFunctionMayBeStatic
 		// ReSharper disable once CppHiddenFunction
 		void initObject() const
