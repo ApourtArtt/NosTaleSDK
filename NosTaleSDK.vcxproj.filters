@@ -685,6 +685,33 @@
     <ClCompile Include="Plugins\ClockPlugin.ixx">
       <Filter>Implementations</Filter>
     </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTStrings.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWLabels.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWListView.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWStringListView.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWStringListViewCore.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTNTLoginWidget.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTNTNewServerSelectWidget2.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTPersistent.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTStringList.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NosTaleSDK\Wrappers\Classes\MacroWrapperDef.h">
