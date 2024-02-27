@@ -11,7 +11,7 @@ namespace NosTaleSDK::Entwell::Classes
 #pragma pack(push, 1)
 	export struct TStringList : public TStrings
 	{
-		Properties::Logical::DelphiArrayRefCounted<char*>* items;// 0x010
+		Properties::Logical::DelphiArrayRefCounted<char>** items;// 0x010
 		uint32_t length;									// 0x014
 		int32_t capacity;									// 0x018
 		bool isSorted;										// 0x01C

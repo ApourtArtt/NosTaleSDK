@@ -23,9 +23,14 @@ namespace NosTaleSDK::Wrappers::Classes
 		{
 			if (Index >= obj_->length)
 				return "";
-			const auto delphiString = obj_->items[Index * 2];
-			Entwell::Properties::Logical::DelphiArrayRefCountedHandler<char*> arr(delphiString, 12);
-			auto data = arr.GetData();
+
+			Entwell::Properties::Logical::DelphiArrayRefCounted<char>* item = obj_->items[Index * 2];
+			Entwell::Properties::Logical::DelphiArrayRefCountedHandler<char> arr(item);
+			std::vector<char> data = arr.GetData();
+
+			//Entwell::Properties::Logical::DelphiArrayRefCountedHandler<char>** arr(obj_->items[Index*2]);
+			//std::vector<char*> data = arr.GetData();
+
 			return std::string(data.begin(), data.end());
 		}
 
