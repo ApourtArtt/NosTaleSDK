@@ -27,7 +27,7 @@ namespace NosTaleSDK::Wrappers::Classes
     public:
         void SetText(const std::string& Text) const
         {
-            auto arr = Entwell::Properties::Logical::DelphiArray(std::vector<wchar_t>(Text.begin(), Text.end()));
+            auto arr = Entwell::Properties::Logical::DelphiArrayHandler(std::vector<wchar_t>(Text.begin(), Text.end()));
             obj_->textPosition.text = arr.ToInternal();
         }
 

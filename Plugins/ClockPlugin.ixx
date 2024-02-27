@@ -1,7 +1,8 @@
 module;
-#include <chrono>
+//#include <chrono>
 #include <memory>
 #include <string>
+#include <format>
 export module ClockPlugin;
 import Plugin;
 import WrapperTEWCustomPanelWidget;
@@ -114,13 +115,14 @@ namespace NosTaleSDK::Plugins
 
         void RefreshTime()
         {
-            const std::chrono::time_point now = std::chrono::time_point_cast<std::chrono::seconds>(std::chrono::utc_clock::now());
+            /*const std::chrono::time_point now = std::chrono::time_point_cast<std::chrono::seconds>(std::chrono::utc_clock::now());
             if (now == currentTime_ || !timeWrapper_)
                 return;
 
             currentTime_ = now;
             // Probably cause some crashes, need to check this.
-            timeWrapper_->SetText(std::format("{0:%T}", now));
+            timeWrapper_->SetText(std::format("{0:%T}", now));*/
+            timeWrapper_->SetText("test");
         }
 
         void RefreshServer()
@@ -181,7 +183,7 @@ namespace NosTaleSDK::Plugins
         std::shared_ptr<Interfaces::AddressProvider> addressProvider_{ nullptr };
 
         // Store all values to avoid useless UI update.
-        std::chrono::time_point<std::chrono::utc_clock, std::chrono::seconds> currentTime_;
+        //std::chrono::time_point<std::chrono::utc_clock, std::chrono::seconds> currentTime_;
         int16_t currentChannelDisplayed_{ -1 };
         int16_t* currentChannel_{ nullptr };
         int16_t currentServerDisplayed_ { -1 };

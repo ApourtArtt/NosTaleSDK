@@ -4,7 +4,7 @@ module;
 #include <mutex>
 #include <Windows.h>
 #include <format>
-#include <chrono>
+//#include <chrono>
 export module ConsoleLogger;
 import Logger;
 
@@ -79,8 +79,9 @@ public:
 private:	
 	[[nodiscard]] static std::string GetTime()
 	{
-		auto const time = std::chrono::utc_clock::now();
-		return std::format("{0:%x} {0:%T}", time);
+		return "";
+		//auto const time = std::chrono::utc_clock::now();
+		//return std::format("{0:%x} {0:%T}", time);
 	}
 
 	void log(const std::string& Msg, const char Color[])

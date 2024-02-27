@@ -5,14 +5,17 @@ export module DelphiArray;
 
 namespace NosTaleSDK::Entwell::Properties::Logical
 {
+    export template<typename T> class DelphiArray;
+    export template<typename T> class DelphiArrayRefCounted;
+
     export template<typename T>
-    class DelphiArray
+    class DelphiArrayHandler
     {
     public:
-        explicit DelphiArray(const std::vector<T>& Arr) : data_(Arr) {}
-        DelphiArray() : DelphiArray({}) {}
+        explicit DelphiArrayHandler(const std::vector<T>& Arr) : data_(Arr) {}
+        DelphiArrayHandler() : DelphiArrayHandler({}) {}
 
-        explicit DelphiArray(T* Arr)
+        explicit DelphiArrayHandler(DelphiArray<T>* Arr)
         {
             int32_t length = *reinterpret_cast<int32_t*>(static_cast<char*>(Arr - sizeof(int32_t)));
             data_.reserve(length);
@@ -24,7 +27,7 @@ namespace NosTaleSDK::Entwell::Properties::Logical
             }
         }
 
-        T* ToInternal()
+        DelphiArray<T>* ToInternal()
         {
             auto output = static_cast<char*>(malloc(sizeof(int32_t) + (data_.size() * sizeof(T))));
             if (!output)
@@ -38,7 +41,7 @@ namespace NosTaleSDK::Entwell::Properties::Logical
                 memcpy(output + i * sizeof(T), static_cast<void*>(&data_[i]), sizeof(T));
             }
 
-            return reinterpret_cast<T*>(output);
+            return reinterpret_cast<DelphiArray<T>*>(output);
         }
 
         std::vector<T> GetData() { return data_; }
@@ -50,26 +53,26 @@ namespace NosTaleSDK::Entwell::Properties::Logical
     };
 
     export template<typename T>
-    class DelphiArrayRefCounted
+    class DelphiArrayRefCountedHandler
     {
     public:
-        DelphiArrayRefCounted(const std::vector<T>& Arr, const int32_t RefCount) : ref_(RefCount), data_(Arr) {}
-        DelphiArrayRefCounted() : DelphiArrayRefCounted({}, 0) {}
+        DelphiArrayRefCountedHandler(const std::vector<T>& Arr, const int32_t RefCount) : ref_(RefCount), data_(Arr) {}
+        DelphiArrayRefCountedHandler() : DelphiArrayRefCountedHandler({}, 0) {}
 
-        explicit DelphiArrayRefCounted(T* Arr, const uint32_t RightPadding = 0)
+        explicit DelphiArrayRefCountedHandler(DelphiArrayRefCounted<T>* Arr, const uint32_t RightPadding = 0)
         {
-            ref_ = *reinterpret_cast<int32_t*>(static_cast<char*>(Arr - sizeof(int32_t) * 2));;
+            ref_ = *reinterpret_cast<int32_t*>(static_cast<char*>(Arr- sizeof(int32_t) * 2));
             int32_t length = *reinterpret_cast<int32_t*>(static_cast<char*>(Arr - sizeof(int32_t))) - RightPadding;
             data_.reserve(length);
             for (int32_t i = 0; i < length; i++)
             {
-                auto ptr = static_cast<char*>(Arr)+i * sizeof(T);
+                auto ptr = Arr+i * sizeof(T);
                 auto ptr2 = *static_cast<T*>(ptr);
                 data_.push_back(*static_cast<T*>(ptr));
             }
         }
 
-        T* ToInternal()
+        DelphiArrayRefCounted<T>* ToInternal()
         {
             auto output = static_cast<char*>(malloc(sizeof(int32_t) * 2 + (data_.size() * sizeof(T))));
             if (!output)
@@ -85,7 +88,7 @@ namespace NosTaleSDK::Entwell::Properties::Logical
                 memcpy(output + i * sizeof(T), static_cast<void*>(&data_[i]), sizeof(T));
             }
 
-            return static_cast<T*>(output);
+            return static_cast<DelphiArrayRefCounted<T>*>(output);
         }
 
         std::vector<T> GetData() { return data_; }

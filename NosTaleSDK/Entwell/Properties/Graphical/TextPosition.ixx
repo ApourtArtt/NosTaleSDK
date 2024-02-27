@@ -2,18 +2,18 @@ module;
 #include <stdint.h>
 export module TextPosition;
 import Position;
-import DelphiString;
+import DelphiArray;
 
 namespace NosTaleSDK::Entwell::Properties::Graphical
 {
 #pragma pack(push, 1)
-	export template<typename String>
+	export template<typename CharType>
 	struct TextPosition
 	{
 		Logical::Position position;	// 0x000
 		int16_t pxPerLine;			// 0x004
 		int16_t lineSpacing;		// 0x006
-		String* text;				// 0x008
+		Logical::DelphiArray<CharType>* text;	// 0x008
 		bool isVisible;				// 0x00C
 		unsigned char padding[3];	// 0x00D
 	};
