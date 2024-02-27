@@ -15,7 +15,7 @@ namespace NosTaleSDK::Entwell::Classes
 		uint8_t unknown21;																		// 0x069
 		Properties::Graphical::TextStyle textStyle;												// 0x06A
 		char unknown22[3];																		// 0x075
-		Properties::Graphical::TextPosition<Properties::Logical::DelphiArray<wchar_t>> textPosition;	// 0x078
+		Properties::Graphical::TextPosition<wchar_t> textPosition;	// 0x078
 		uint32_t unknown23;																		// 0x088
 		uint32_t unknown24;																		// 0x08C
 	};

@@ -74,7 +74,7 @@ namespace NosTaleSDK::Wrappers::Classes
                 Entwell::Enumerations::TextAlignment::TOP_LEFT
             );
 
-            obj_->textPosition = Entwell::Properties::Graphical::TextPosition<Entwell::Properties::Logical::DelphiWString>(
+            obj_->textPosition = Entwell::Properties::Graphical::TextPosition<wchar_t>(
                 Entwell::Properties::Logical::Position(0, 0),
                 0,
                 0,
