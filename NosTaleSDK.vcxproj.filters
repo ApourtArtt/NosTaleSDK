@@ -417,12 +417,6 @@
     <ClCompile Include="Implementations\PatternAddressProvider.ixx">
       <Filter>Implementations</Filter>
     </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\Array.ixx">
-      <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\ArrayRefCounted.ixx">
-      <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>
-    </ClCompile>
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\Callback.ixx">
       <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>
     </ClCompile>
@@ -663,9 +657,6 @@
     </ClCompile>
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWCustomPanelWidget.ixx">
       <Filter>NosTaleSDK\Wrappers\Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\DelphiString.ixx">
-      <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>
     </ClCompile>
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\DelphiArray.ixx">
       <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>

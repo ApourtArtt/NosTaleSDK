@@ -29,7 +29,7 @@ namespace NosTaleSDK::Entwell::Properties::Logical
 
         DelphiArray<T>* ToInternal()
         {
-            auto output = reinterpret_cast<char*>(malloc(sizeof(int32_t) + (data_.size() * sizeof(T))));
+            auto output = static_cast<char*>(malloc(sizeof(int32_t) + (data_.size() * sizeof(T))));
             if (!output)
                 return nullptr;
 
@@ -61,20 +61,22 @@ namespace NosTaleSDK::Entwell::Properties::Logical
 
         explicit DelphiArrayRefCountedHandler(DelphiArrayRefCounted<T>* Arr)
         {
-            ref_ = *reinterpret_cast<int32_t*>(reinterpret_cast<char*>(Arr- sizeof(int32_t) * 2));
+            ref_ = *reinterpret_cast<int32_t*>(reinterpret_cast<char*>(Arr - sizeof(int32_t) * 2));
             int32_t length = *reinterpret_cast<int32_t*>(reinterpret_cast<char*>(Arr - sizeof(int32_t)));
             data_.reserve(length);
+
             for (int32_t i = 0; i < length; i++)
             {
                 auto ptr = Arr+i * sizeof(T);
                 auto ptr2 = *reinterpret_cast<T*>(ptr);
-                data_.push_back(*reinterpret_cast<T*>(ptr));
+                auto element = *reinterpret_cast<T*>(ptr);
+                data_.push_back(element);
             }
         }
 
         DelphiArrayRefCounted<T>* ToInternal()
         {
-            auto output = reinterpret_cast<char*>(malloc(sizeof(int32_t) * 2 + (data_.size() * sizeof(T))));
+            auto output = static_cast<char*>(malloc(sizeof(int32_t) * 2 + (data_.size() * sizeof(T))));
             if (!output)
                 return nullptr;
 

@@ -1,5 +1,9 @@
 Work in progress
 
+## Requirements
+
+This project need to be run on VS Preview 17.9.2 since VS Standard don't support properly `std::chrono`
+
 ## Collaborators
 
 <!-- readme: collaborators -start -->

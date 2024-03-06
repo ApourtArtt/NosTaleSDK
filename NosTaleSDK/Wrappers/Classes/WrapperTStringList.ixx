@@ -28,8 +28,17 @@ namespace NosTaleSDK::Wrappers::Classes
 			Entwell::Properties::Logical::DelphiArrayRefCountedHandler<char> arr(item);
 			std::vector<char> data = arr.GetData();
 
-			//Entwell::Properties::Logical::DelphiArrayRefCountedHandler<char>** arr(obj_->items[Index*2]);
-			//std::vector<char*> data = arr.GetData();
+			auto endPos = -1;
+			for (auto i = 0; i < data.size(); i++)
+			{
+				if (data[i] == 0x1)
+				{
+					endPos = i;
+					break;
+				}
+			}
+
+			data.resize(endPos);
 
 			return std::string(data.begin(), data.end());
 		}

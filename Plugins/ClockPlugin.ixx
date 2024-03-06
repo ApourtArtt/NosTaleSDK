@@ -1,5 +1,5 @@
 module;
-//#include <chrono>
+#include <chrono>
 #include <memory>
 #include <string>
 #include <format>
@@ -16,11 +16,6 @@ import AddressProvider;
 import VTableProvider;
 import FontStyle;
 import TextAlignment;
-
-namespace NosTaleSDK::Entwell::Classes
-{
-    struct TNTNewServerSelectWidget2;
-}
 
 namespace NosTaleSDK::Plugins
 {
@@ -115,14 +110,12 @@ namespace NosTaleSDK::Plugins
 
         void RefreshTime()
         {
-            /*const std::chrono::time_point now = std::chrono::time_point_cast<std::chrono::seconds>(std::chrono::utc_clock::now());
+            const std::chrono::time_point now = std::chrono::time_point_cast<std::chrono::seconds>(std::chrono::utc_clock::now());
             if (now == currentTime_ || !timeWrapper_)
                 return;
 
             currentTime_ = now;
-            // Probably cause some crashes, need to check this.
-            timeWrapper_->SetText(std::format("{0:%T}", now));*/
-            timeWrapper_->SetText("test");
+            timeWrapper_->SetText(std::format("{0:%T}", now));
         }
 
         void RefreshServer()
@@ -141,7 +134,8 @@ namespace NosTaleSDK::Plugins
 
             currentServerDisplayed_ = *currentServerId_;
             auto serverName = serverSelectWrapper_->GetServerNameById(*currentServerId_);
-            serverWrapper_->SetText(std::format("{}", serverName));
+            const auto serverNameStr = std::format("{}", serverName);
+            serverWrapper_->SetText(serverNameStr);
         }
 
         void RefreshChannel()
@@ -183,7 +177,7 @@ namespace NosTaleSDK::Plugins
         std::shared_ptr<Interfaces::AddressProvider> addressProvider_{ nullptr };
 
         // Store all values to avoid useless UI update.
-        //std::chrono::time_point<std::chrono::utc_clock, std::chrono::seconds> currentTime_;
+        std::chrono::time_point<std::chrono::utc_clock, std::chrono::seconds> currentTime_;
         int16_t currentChannelDisplayed_{ -1 };
         int16_t* currentChannel_{ nullptr };
         int16_t currentServerDisplayed_ { -1 };
