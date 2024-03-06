@@ -1,4 +1,4 @@
-Work in progress
+# Work in progress, please stay on the [V1](https://github.com/ApourtArtt/NosTaleSDK/tree/V1) for now.
 
 ## Requirements
 
