@@ -7,7 +7,7 @@ export module WrapperTStringList;
 import WrapperTObject;
 import TStringList;
 import VTableProvider;
-import DelphiString;
+import DelphiArray;
 import DelphiArray;
 
 namespace NosTaleSDK::Wrappers::Classes

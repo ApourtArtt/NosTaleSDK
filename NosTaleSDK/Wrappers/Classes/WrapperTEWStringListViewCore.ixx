@@ -10,7 +10,7 @@ import TEWLabels;
 import TEWStringListViewCore;
 import VTableProvider;
 import WrapperTStringList;
-import DelphiString;
+import DelphiArray;
 
 namespace NosTaleSDK::Wrappers::Classes
 {

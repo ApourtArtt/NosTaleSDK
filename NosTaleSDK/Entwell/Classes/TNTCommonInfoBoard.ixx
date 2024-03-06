@@ -2,7 +2,7 @@ module;
 #include <stdint.h>
 export module TNTCommonInfoBoard;
 import TEWFormWidget;
-import DelphiString;
+import DelphiArray;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -17,7 +17,7 @@ namespace NosTaleSDK::Entwell::Classes
 		struct TNTIconWidget* carveRuneImg;									// 0x0D8
 		struct TEWLabel* carveRuneQuantity;									// 0x0DC
 		TEWLabel* carveRuneDamage;											// 0x0E0
-		Properties::Logical::DelphiString* unknown41;								// 0x0E4
+		Properties::Logical::DelphiArray<char>* unknown41;								// 0x0E4
 		struct TNTItemList* unknown42;										// 0x0E8
 		char unknown43[200];												// 0x0EC
 		uint8_t unknown44;													// 0x1B4

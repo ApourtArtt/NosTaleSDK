@@ -2,7 +2,7 @@ module;
 #include <stdint.h>
 export module TNTCharacterInventoryInfoWidget;
 import TEWCustomFormWidget;
-import DelphiString;
+import DelphiArray;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -15,7 +15,7 @@ namespace NosTaleSDK::Entwell::Classes
 		uint16_t nbTotalItemByScrollStep;								// 0x0C2
 		uint32_t unknown40;												// 0x0C4
 		char unknown44[4];												// 0x0C8
-		Properties::Logical::DelphiWString* unknown45;						// 0x0CC
+		Properties::Logical::DelphiArray<wchar_t>* unknown45;			// 0x0CC
 		char unknown46[20];												// 0x0D0
 		struct TEWLabel* unknown47;										// 0x0E4
 		struct TNTIconWidget* icon[60];									// 0x0E8

@@ -2,7 +2,7 @@ module;
 #include <stdint.h>
 export module TNTWebBrowserFormWidget;
 import TEWCustomFormWidget;
-import DelphiString;
+import DelphiArray;
 import Position;
 
 namespace NosTaleSDK::Entwell::Classes
@@ -17,12 +17,12 @@ namespace NosTaleSDK::Entwell::Classes
 		char unknown40[4];								// 0x0C8
 		Properties::Logical::Position windowPosition;	// 0x0CC
 		char unknown41[28];								// 0x0D0
-		Properties::Logical::DelphiString* url;				// 0x0EC
-		Properties::Logical::DelphiString* unknown42;			// 0x0F0
+		Properties::Logical::DelphiArray<char>* url;				// 0x0EC
+		Properties::Logical::DelphiArray<char>* unknown42;			// 0x0F0
 		char unknown43;									// 0x0F4
 		uint8_t unknown44;								// 0x0F5
 		char unknown45[2];								// 0x0F6
-		Properties::Logical::DelphiString* unknown46;			// 0x0F8
+		Properties::Logical::DelphiArray<char>* unknown46;			// 0x0F8
 		uint32_t closeFct;								// 0x0FC
 	};
 	static_assert(sizeof(TNTWebBrowserFormWidget) == 0x100, "TNTWebBrowserFormWidget size isn't 0x100.");

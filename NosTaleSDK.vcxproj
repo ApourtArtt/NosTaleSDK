@@ -201,12 +201,9 @@
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Graphical\TextPosition.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Graphical\TextStyle.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Graphical\WeaponGlowing.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\Array.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\ArrayRefCounted.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\Callback.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\DelphiArray.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\Position.ixx" />
-    <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\DelphiString.ixx" />
     <ClCompile Include="NosTaleSDK\Interfaces\Interface.ixx" />
     <ClCompile Include="NosTaleSDK\Interfaces\Logger.ixx" />
     <ClCompile Include="NosTaleSDK\Interfaces\Plugin.ixx" />
@@ -1299,6 +1296,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)\Output\$(Configuration)</OutDir>
+    <TargetName>Ayugra</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -2,7 +2,7 @@ module;
 #include <stdint.h>
 export module TNTTrayWidget;
 import TEWControlWidgetEX;
-import DelphiString;
+import DelphiArray;
 
 namespace NosTaleSDK::Entwell::Classes
 {
@@ -13,22 +13,22 @@ namespace NosTaleSDK::Entwell::Classes
 		uint32_t unknown21;							// 0x06C
 		uint32_t unknown22;							// 0x070
 		uint32_t unknown23;							// 0x074
-		Properties::Logical::DelphiString* unknown24;		// 0x078
-		Properties::Logical::DelphiString* unknown25;		// 0x07C
-		Properties::Logical::DelphiString* unknown26;		// 0x080
-		Properties::Logical::DelphiString* unknown27;		// 0x084
-		Properties::Logical::DelphiString* unknown28;		// 0x088
-		Properties::Logical::DelphiString* unknown30;		// 0x090
-		Properties::Logical::DelphiString* unknown31;		// 0x094
-		Properties::Logical::DelphiString* unknown29;		// 0x08C
-		Properties::Logical::DelphiString* unknown32;		// 0x098
-		Properties::Logical::DelphiString* unknown33;		// 0x09C
-		Properties::Logical::DelphiString* unknown34;		// 0x0A0
-		Properties::Logical::DelphiString* unknown35;		// 0x0A4
-		Properties::Logical::DelphiString* unknown36;		// 0x0A8
-		Properties::Logical::DelphiString* unknown37;		// 0x0AC
-		Properties::Logical::DelphiString* unknown38;		// 0x0B0
-		Properties::Logical::DelphiString* unknown39;		// 0x0B4
+		Properties::Logical::DelphiArray<char>* unknown24;		// 0x078
+		Properties::Logical::DelphiArray<char>* unknown25;		// 0x07C
+		Properties::Logical::DelphiArray<char>* unknown26;		// 0x080
+		Properties::Logical::DelphiArray<char>* unknown27;		// 0x084
+		Properties::Logical::DelphiArray<char>* unknown28;		// 0x088
+		Properties::Logical::DelphiArray<char>* unknown30;		// 0x090
+		Properties::Logical::DelphiArray<char>* unknown31;		// 0x094
+		Properties::Logical::DelphiArray<char>* unknown29;		// 0x08C
+		Properties::Logical::DelphiArray<char>* unknown32;		// 0x098
+		Properties::Logical::DelphiArray<char>* unknown33;		// 0x09C
+		Properties::Logical::DelphiArray<char>* unknown34;		// 0x0A0
+		Properties::Logical::DelphiArray<char>* unknown35;		// 0x0A4
+		Properties::Logical::DelphiArray<char>* unknown36;		// 0x0A8
+		Properties::Logical::DelphiArray<char>* unknown37;		// 0x0AC
+		Properties::Logical::DelphiArray<char>* unknown38;		// 0x0B0
+		Properties::Logical::DelphiArray<char>* unknown39;		// 0x0B4
 		char unknown40[16];							// 0x0B8
 		uint32_t unknown41;							// 0x0C8
 		char unknown42[12];							// 0x0CC
@@ -40,10 +40,10 @@ namespace NosTaleSDK::Entwell::Classes
 		uint32_t unknown48;							// 0x0EC
 		uint32_t unknown49;							// 0x0F0
 		char unknown50[60];							// 0x0F4
-		Properties::Logical::DelphiString* unknown51;		// 0x130
-		Properties::Logical::DelphiString* unknown52;		// 0x134
-		Properties::Logical::DelphiString* unknown53;		// 0x138
-		Properties::Logical::DelphiString* unknown54;		// 0x13C
+		Properties::Logical::DelphiArray<char>* unknown51;		// 0x130
+		Properties::Logical::DelphiArray<char>* unknown52;		// 0x134
+		Properties::Logical::DelphiArray<char>* unknown53;		// 0x138
+		Properties::Logical::DelphiArray<char>* unknown54;		// 0x13C
 		char unknown55;								// 0x140
 		uint8_t unknown56;							// 0x141
 		char unknown57[2];							// 0x142
