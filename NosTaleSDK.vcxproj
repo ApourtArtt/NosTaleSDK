@@ -90,6 +90,7 @@
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTChatEditWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTChatViewerWidget.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTCItemDataList.ixx" />
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTClient.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTCommonInfoBoard.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTConstStringList.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTCostumeInventoryInfoWidget.ixx" />
@@ -842,6 +843,9 @@
       <EnableModules>true</EnableModules>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTNosRevCmd.ixx" />
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTNosRevCmdList.ixx" />
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTNTClient.ixx" />
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTNTLoginWidget.ixx">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -1234,9 +1238,13 @@
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="Plugins\ClockPlugin.ixx" />
+    <ClCompile Include="Plugins\PacketLoggerPlugin.ixx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NosTaleSDK\Wrappers\Classes\MacroWrapperDef.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -1296,7 +1304,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)\Output\$(Configuration)</OutDir>
-    <TargetName>$(ProjectName)</TargetName>
+    <TargetName>Ayugra</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

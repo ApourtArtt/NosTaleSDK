@@ -6,7 +6,7 @@ template<typename> struct TList;
 namespace NosTaleSDK::Entwell::Classes
 {
 #pragma pack(push, 1)
-	struct TNosRevCmdList : public TObject
+	export struct TNosRevCmdList : public TObject
 	{
 		TList<struct TNosRevCmd*>* list;	// 0x004
 		struct TStringList* packetArgs;		// 0x008

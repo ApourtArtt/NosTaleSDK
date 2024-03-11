@@ -661,18 +661,6 @@
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\DelphiArray.ixx">
       <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>
     </ClCompile>
-    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTList.ixx">
-      <Filter>NosTaleSDK\Entwell\Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWControlWidgetEX.ixx">
-      <Filter>NosTaleSDK\Entwell\Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWLabel.ixx">
-      <Filter>NosTaleSDK\Entwell\Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTLBSWidgetList.ixx">
-      <Filter>NosTaleSDK\Entwell\Classes</Filter>
-    </ClCompile>
     <ClCompile Include="Plugins\ClockPlugin.ixx">
       <Filter>Implementations</Filter>
     </ClCompile>
@@ -703,10 +691,40 @@
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTStringList.ixx">
       <Filter>NosTaleSDK\Wrappers\Classes</Filter>
     </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTNosRevCmd.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTNosRevCmdList.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTNTClient.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTList.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWLabel.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTLBSWidgetList.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTEWControlWidgetEX.ixx">
+      <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTClient.ixx">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugins\PacketLoggerPlugin.ixx">
+      <Filter>Implementations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NosTaleSDK\Wrappers\Classes\MacroWrapperDef.h">
       <Filter>NosTaleSDK\Wrappers\Classes</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

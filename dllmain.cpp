@@ -9,6 +9,7 @@ import ClassSearcherVTableProvider;
 import ConsoleLogger;
 import Logger;
 import ClockPlugin;
+import PacketLoggerPlugin;
 import Plugin;
 
 NosTaleSDK::Runtime* runtime{ nullptr };
@@ -49,6 +50,7 @@ std::shared_ptr<ClassSearcherVTableProvider> InitVTableProvider(std::shared_ptr<
 	vTableProvider->RegisterVTableName("NosTaleSDK::Entwell::Classes::TLBSWidgetList::VTable", "TLBSWidgetList");
 	vTableProvider->RegisterVTableName("NosTaleSDK::Entwell::Classes::TEWLabel::VTable", "TEWLabel");
 	vTableProvider->RegisterVTableName("NosTaleSDK::Entwell::Classes::TNTLoginWidget::VTable", "TNTLoginWidget");
+	vTableProvider->RegisterVTableName("NosTaleSDK::Entwell::Classes::TNosRevCmdList::VTable", "TNosRevCmdList");
 
 	return vTableProvider;
 }
@@ -72,9 +74,11 @@ bool InitRuntime()
 		const auto patternProvider = InitPatternProvider(logger);
 		
 		auto clockPlugin = new NosTaleSDK::Plugins::ClockPlugin(vTableProvider, patternProvider);
+		auto packetLoggerPlugin = new NosTaleSDK::Plugins::PacketLoggerPlugin(vTableProvider, patternProvider);
 
 		runtime = new NosTaleSDK::Runtime(logger, patternProvider, vTableProvider, {
-			std::shared_ptr<NosTaleSDK::Interfaces::Plugin>(clockPlugin)
+			std::shared_ptr<NosTaleSDK::Interfaces::Plugin>(clockPlugin),
+			std::shared_ptr<NosTaleSDK::Interfaces::Plugin>(packetLoggerPlugin)
 		});
 		if (!runtime->Initialize())
 			return false;
