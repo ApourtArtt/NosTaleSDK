@@ -718,9 +718,6 @@
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTClient.ixx">
       <Filter>NosTaleSDK\Entwell\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="Implementations\ClassSearcherVTableProvider.cpp">
-      <Filter>Implementations\ClassSearcherVTableProvider</Filter>
-    </ClCompile>
     <ClCompile Include="Implementations\ConsoleLogger\ConsoleLogger.cpp">
       <Filter>Implementations\ConsoleLogger</Filter>
     </ClCompile>
@@ -733,13 +730,13 @@
     <ClCompile Include="Implementations\PacketLoggerPlugin\PacketLoggerPlugin.cpp">
       <Filter>Implementations\PacketLoggerPlugin</Filter>
     </ClCompile>
+    <ClCompile Include="Implementations\ClassSearcherVTableProvider\ClassSearcherVTableProvider.cpp">
+      <Filter>Implementations\ClassSearcherVTableProvider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NosTaleSDK\Wrappers\Classes\MacroWrapperDef.h">
       <Filter>NosTaleSDK\Wrappers\Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Implementations\ClassSearcherVTableProvider.hpp">
-      <Filter>Implementations\ClassSearcherVTableProvider</Filter>
     </ClInclude>
     <ClInclude Include="Implementations\ConsoleLogger\ConsoleLogger.hpp">
       <Filter>Implementations\ConsoleLogger</Filter>
@@ -752,6 +749,9 @@
     </ClInclude>
     <ClInclude Include="Implementations\PacketLoggerPlugin\PacketLoggerPlugin.hpp">
       <Filter>Implementations\PacketLoggerPlugin</Filter>
+    </ClInclude>
+    <ClInclude Include="Implementations\ClassSearcherVTableProvider\ClassSearcherVTableProvider.hpp">
+      <Filter>Implementations\ClassSearcherVTableProvider</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

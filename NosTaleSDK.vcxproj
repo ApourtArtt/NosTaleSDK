@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Implementations\ClassSearcherVTableProvider.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Implementations\ClassSearcherVTableProvider\ClassSearcherVTableProvider.cpp" />
     <ClCompile Include="Implementations\ClockPlugin\ClockPlugin.cpp" />
     <ClCompile Include="Implementations\ConsoleLogger\ConsoleLogger.cpp" />
     <ClCompile Include="Implementations\PacketLoggerPlugin\PacketLoggerPlugin.cpp" />
@@ -1241,7 +1241,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Implementations\ClassSearcherVTableProvider.hpp" />
+    <ClInclude Include="Implementations\ClassSearcherVTableProvider\ClassSearcherVTableProvider.hpp" />
     <ClInclude Include="Implementations\ClockPlugin\ClockPlugin.hpp" />
     <ClInclude Include="Implementations\ConsoleLogger\ConsoleLogger.hpp" />
     <ClInclude Include="Implementations\PacketLoggerPlugin\PacketLoggerPlugin.hpp" />
