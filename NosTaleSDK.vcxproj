@@ -11,10 +11,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Implementations\ConsoleLogger.ixx" />
-    <ClCompile Include="Implementations\PatternAddressProvider.ixx" />
+    <ClCompile Include="Implementations\ClassSearcherVTableProvider.cpp" />
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="Implementations\ClassSearcherVTableProvider.ixx" />
+    <ClCompile Include="Implementations\ClockPlugin\ClockPlugin.cpp" />
+    <ClCompile Include="Implementations\ConsoleLogger\ConsoleLogger.cpp" />
+    <ClCompile Include="Implementations\PacketLoggerPlugin\PacketLoggerPlugin.cpp" />
+    <ClCompile Include="Implementations\PatternAddressProvider\PatternAddressProvider.cpp" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TApplication.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TBaseList.ixx" />
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TBuddyChatWidget.ixx" />
@@ -1237,10 +1239,13 @@
       <EnableModules>true</EnableModules>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
-    <ClCompile Include="Plugins\ClockPlugin.ixx" />
-    <ClCompile Include="Plugins\PacketLoggerPlugin.ixx" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Implementations\ClassSearcherVTableProvider.hpp" />
+    <ClInclude Include="Implementations\ClockPlugin\ClockPlugin.hpp" />
+    <ClInclude Include="Implementations\ConsoleLogger\ConsoleLogger.hpp" />
+    <ClInclude Include="Implementations\PacketLoggerPlugin\PacketLoggerPlugin.hpp" />
+    <ClInclude Include="Implementations\PatternAddressProvider\PatternAddressProvider.hpp" />
     <ClInclude Include="NosTaleSDK\Wrappers\Classes\MacroWrapperDef.h" />
   </ItemGroup>
   <ItemGroup>

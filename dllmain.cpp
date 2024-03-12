@@ -1,15 +1,16 @@
+#include "Implementations/PatternAddressProvider/PatternAddressProvider.hpp"
+#include "Implementations/ClassSearcherVTableProvider/ClassSearcherVTableProvider.hpp"
+#include "Implementations/ConsoleLogger/ConsoleLogger.hpp"
+#include "Implementations/ClockPlugin/ClockPlugin.hpp"
+#include "Implementations/PacketLoggerPlugin/PacketLoggerPlugin.hpp"
+
 #include <Windows.h>
 #include <iostream>
 #include <memory>
 #include <thread>
 #include <vector>
 import Runtime;
-import PatternAddressProvider;
-import ClassSearcherVTableProvider;
-import ConsoleLogger;
 import Logger;
-import ClockPlugin;
-import PacketLoggerPlugin;
 import Plugin;
 
 NosTaleSDK::Runtime* runtime{ nullptr };

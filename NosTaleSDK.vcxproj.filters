@@ -37,6 +37,21 @@
     <Filter Include="NosTaleSDK\Interfaces">
       <UniqueIdentifier>{0acfe528-8f84-4c7f-b7e9-95362951af45}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Implementations\ClassSearcherVTableProvider">
+      <UniqueIdentifier>{84b864e8-b3e3-438e-b0e3-d478d5cf7aae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Implementations\ConsoleLogger">
+      <UniqueIdentifier>{3f740aff-1116-49be-b848-e1e42bf10c59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Implementations\PatternAddressProvider">
+      <UniqueIdentifier>{4a058f3e-84af-4ba1-a0b7-70fdea8518d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Implementations\ClockPlugin">
+      <UniqueIdentifier>{3737e7fc-e02a-4029-8516-48080c92e14c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Implementations\PacketLoggerPlugin">
+      <UniqueIdentifier>{49c14c1d-664a-48d1-b5a4-8a0892e8b268}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TLBSWidgetHandler.ixx">
@@ -414,9 +429,6 @@
     <ClCompile Include="NosTaleSDK\Utils\MemoryUtils.ixx">
       <Filter>NosTaleSDK\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="Implementations\PatternAddressProvider.ixx">
-      <Filter>Implementations</Filter>
-    </ClCompile>
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\Callback.ixx">
       <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>
     </ClCompile>
@@ -559,14 +571,8 @@
     <ClCompile Include="NosTaleSDK\Interfaces\VTableProvider.ixx">
       <Filter>NosTaleSDK\Interfaces</Filter>
     </ClCompile>
-    <ClCompile Include="Implementations\ClassSearcherVTableProvider.ixx">
-      <Filter>Implementations</Filter>
-    </ClCompile>
     <ClCompile Include="NosTaleSDK\Interfaces\Logger.ixx">
       <Filter>NosTaleSDK\Interfaces</Filter>
-    </ClCompile>
-    <ClCompile Include="Implementations\ConsoleLogger.ixx">
-      <Filter>Implementations</Filter>
     </ClCompile>
     <ClCompile Include="NosTaleSDK\Interfaces\Interface.ixx">
       <Filter>NosTaleSDK\Interfaces</Filter>
@@ -661,9 +667,6 @@
     <ClCompile Include="NosTaleSDK\Entwell\Properties\Logical\DelphiArray.ixx">
       <Filter>NosTaleSDK\Entwell\Properties\Logical</Filter>
     </ClCompile>
-    <ClCompile Include="Plugins\ClockPlugin.ixx">
-      <Filter>Implementations</Filter>
-    </ClCompile>
     <ClCompile Include="NosTaleSDK\Wrappers\Classes\WrapperTStrings.ixx">
       <Filter>NosTaleSDK\Wrappers\Classes</Filter>
     </ClCompile>
@@ -715,13 +718,40 @@
     <ClCompile Include="NosTaleSDK\Entwell\Classes\TNTClient.ixx">
       <Filter>NosTaleSDK\Entwell\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="Plugins\PacketLoggerPlugin.ixx">
-      <Filter>Implementations</Filter>
+    <ClCompile Include="Implementations\ClassSearcherVTableProvider.cpp">
+      <Filter>Implementations\ClassSearcherVTableProvider</Filter>
+    </ClCompile>
+    <ClCompile Include="Implementations\ConsoleLogger\ConsoleLogger.cpp">
+      <Filter>Implementations\ConsoleLogger</Filter>
+    </ClCompile>
+    <ClCompile Include="Implementations\PatternAddressProvider\PatternAddressProvider.cpp">
+      <Filter>Implementations\PatternAddressProvider</Filter>
+    </ClCompile>
+    <ClCompile Include="Implementations\ClockPlugin\ClockPlugin.cpp">
+      <Filter>Implementations\ClockPlugin</Filter>
+    </ClCompile>
+    <ClCompile Include="Implementations\PacketLoggerPlugin\PacketLoggerPlugin.cpp">
+      <Filter>Implementations\PacketLoggerPlugin</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NosTaleSDK\Wrappers\Classes\MacroWrapperDef.h">
       <Filter>NosTaleSDK\Wrappers\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Implementations\ClassSearcherVTableProvider.hpp">
+      <Filter>Implementations\ClassSearcherVTableProvider</Filter>
+    </ClInclude>
+    <ClInclude Include="Implementations\ConsoleLogger\ConsoleLogger.hpp">
+      <Filter>Implementations\ConsoleLogger</Filter>
+    </ClInclude>
+    <ClInclude Include="Implementations\PatternAddressProvider\PatternAddressProvider.hpp">
+      <Filter>Implementations\PatternAddressProvider</Filter>
+    </ClInclude>
+    <ClInclude Include="Implementations\ClockPlugin\ClockPlugin.hpp">
+      <Filter>Implementations\ClockPlugin</Filter>
+    </ClInclude>
+    <ClInclude Include="Implementations\PacketLoggerPlugin\PacketLoggerPlugin.hpp">
+      <Filter>Implementations\PacketLoggerPlugin</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
