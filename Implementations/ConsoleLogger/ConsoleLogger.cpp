@@ -5,7 +5,7 @@
 #include <chrono>
 import Logger;
 
-void ConsoleLogger::Info(const std::string& Msg, const std::source_location& Location) override
+void ConsoleLogger::Info(const std::string& Msg, const std::source_location& Location)
 {
 	log(std::format("\t[INFO] {}\n{}\n",
 		GetTime().c_str(),
@@ -13,7 +13,7 @@ void ConsoleLogger::Info(const std::string& Msg, const std::source_location& Loc
 	), LIGHT_BLUE);
 }
 
-void ConsoleLogger::Debug(const std::string& Msg, const std::source_location& Location) override
+void ConsoleLogger::Debug(const std::string& Msg, const std::source_location& Location)
 {
 	log(std::format("\t[DEBUG] file: {}:{}:{} ({}) {}\n{}\n",
 		Location.file_name(),
@@ -25,7 +25,7 @@ void ConsoleLogger::Debug(const std::string& Msg, const std::source_location& Lo
 	), YELLOW);
 }
 
-void ConsoleLogger::Warn(const std::string& Msg, const std::source_location& Location) override
+void ConsoleLogger::Warn(const std::string& Msg, const std::source_location& Location)
 {
 	log(std::format("\t[WARN] file: {}:{}:{} ({}) {}\n{}\n",
 		Location.file_name(),
@@ -37,7 +37,7 @@ void ConsoleLogger::Warn(const std::string& Msg, const std::source_location& Loc
 	), ORANGE);
 }
 
-void ConsoleLogger::Error(const std::string& Msg, const std::source_location& Location) override
+void ConsoleLogger::Error(const std::string& Msg, const std::source_location& Location)
 {
 	log(std::format("\t[ERROR] file: {}:{}:{} ({}) {}\n{}\n",
 		Location.file_name(),
@@ -50,7 +50,7 @@ void ConsoleLogger::Error(const std::string& Msg, const std::source_location& Lo
 	Flush();
 }
 
-void ConsoleLogger::Fatal(const std::string& Msg, const std::source_location& Location) override
+void ConsoleLogger::Fatal(const std::string& Msg, const std::source_location& Location)
 {
 	log(std::format("\t[FATAL] file: {}:{}:{} ({}) {}\n{}\n",
 		Location.file_name(),
@@ -63,7 +63,7 @@ void ConsoleLogger::Fatal(const std::string& Msg, const std::source_location& Lo
 	Flush();
 }
 
-void ConsoleLogger::Flush() override
+void ConsoleLogger::Flush()
 {
 	mu_.lock();
 	fflush(stdout);
@@ -83,7 +83,7 @@ void ConsoleLogger::log(const std::string& Msg, const char Color[])
 	mu_.unlock();
 }
 
-bool ConsoleLogger::load() override
+bool ConsoleLogger::load()
 {
 	FreeConsole();
 
@@ -104,7 +104,7 @@ bool ConsoleLogger::load() override
 	return true;
 }
 
-bool ConsoleLogger::unload() override
+bool ConsoleLogger::unload()
 {
 	return FreeConsole();
 }

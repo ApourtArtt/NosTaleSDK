@@ -24,7 +24,7 @@ bool ClassSearcherVTableProvider::RegisterVTableName(const std::string& Pseudony
 	return true;
 }
 
-[[nodiscard]] uintptr_t ClassSearcherVTableProvider::Get(const std::string& Pseudonym) override
+[[nodiscard]] uintptr_t ClassSearcherVTableProvider::Get(const std::string& Pseudonym)
 {
 	if (!vTables_.contains(Pseudonym))
 		return 0;
@@ -67,12 +67,12 @@ std::string ClassSearcherVTableProvider::getPattern(const std::string& ClassName
 	return pattern;
 }
 
-bool ClassSearcherVTableProvider::load() override
+bool ClassSearcherVTableProvider::load()
 {
 	return true;
 }
 
-bool ClassSearcherVTableProvider::unload() override
+bool ClassSearcherVTableProvider::unload()
 {
 	return true;
 }

@@ -7,7 +7,7 @@ import TNosRevCmdList;
 namespace NosTaleSDK::Plugins
 {
 
-    void PacketLoggerPlugin::BeforeRuntimeRun() override
+    void PacketLoggerPlugin::BeforeRuntimeRun()
     {
         const Wrappers::Classes::WrapperTNTClient tntClientWrapper = Wrappers::Classes::WrapperTNTClient::GetNtInstance(addressProvider_);
         nosRevCmdList_ = tntClientWrapper.GetNosRevCmdList();

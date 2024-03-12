@@ -13,7 +13,7 @@ bool PatternAddressProvider::RegisterPattern(const std::string& AddressName, con
 	return true;
 }
 
-[[nodiscard]] uintptr_t PatternAddressProvider::GetOne(const std::string& AddressName) override
+[[nodiscard]] uintptr_t PatternAddressProvider::GetOne(const std::string& AddressName)
 {
 	if (!patterns_.contains(AddressName) || !results_.contains(AddressName))
 	{
@@ -50,7 +50,7 @@ bool PatternAddressProvider::RegisterPattern(const std::string& AddressName, con
 	return address;
 }
 
-[[nodiscard]] std::vector<uintptr_t> PatternAddressProvider::GetMany(const std::string& AddressName, int32_t HowMany) override
+[[nodiscard]] std::vector<uintptr_t> PatternAddressProvider::GetMany(const std::string& AddressName, int32_t HowMany)
 {
 	if (!patterns_.contains(AddressName) || !results_.contains(AddressName))
 		return {};
@@ -78,12 +78,12 @@ bool PatternAddressProvider::RegisterPattern(const std::string& AddressName, con
 	return results_.at(AddressName);
 }
 
-bool PatternAddressProvider::load() override
+bool PatternAddressProvider::load()
 {
 	return true;
 }
 
-bool PatternAddressProvider::unload() override
+bool PatternAddressProvider::unload()
 {
 	return true;
 }

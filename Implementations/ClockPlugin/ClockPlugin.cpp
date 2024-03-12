@@ -11,7 +11,7 @@ import TextAlignment;
 
 namespace NosTaleSDK::Plugins
 {
-    void ClockPlugin::BeforeRuntimeRun() override
+    void ClockPlugin::BeforeRuntimeRun()
     {
         // Get parent of all widgets (TGameRootWidget).
         const auto widgetHandlerWrapper = Wrappers::Classes::WrapperTLBSWidgetHandler::GetNtInstance(addressProvider_);
@@ -138,7 +138,7 @@ namespace NosTaleSDK::Plugins
         channelWrapper_->SetText(std::format("Channel {}", currentChannelDisplayed_));
     }
 
-    void ClockPlugin::OnRuntimeTick() override
+    void ClockPlugin::OnRuntimeTick()
     {
         // Call all refresh functions on each tick.
         RefreshTime();
