@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Entwell">
+      <UniqueIdentifier>{361dcb87-cbed-46ec-ac5b-8695cff97abb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entwell\DelphiClasses">
+      <UniqueIdentifier>{132cc046-a2ee-4d43-9998-aab3f690e492}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Entwell\DelphiClasses\TObject.h">
+      <Filter>Entwell\DelphiClasses</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

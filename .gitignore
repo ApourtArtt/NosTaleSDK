@@ -1,4 +1,7 @@
-Debug
-Output
 .vs
 .idea
+
+
+Loader/Loader/*
+Loader/Debug/*
+Loader/Release/*
