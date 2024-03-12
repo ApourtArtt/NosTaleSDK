@@ -1,6 +1,7 @@
 module;
 export module TNosRevCmdList;
 import TObject;
+import TNosRevCmd;
 template<typename> struct TList;
 
 namespace NosTaleSDK::Entwell::Classes
@@ -8,7 +9,7 @@ namespace NosTaleSDK::Entwell::Classes
 #pragma pack(push, 1)
 	export struct TNosRevCmdList : public TObject
 	{
-		TList<struct TNosRevCmd*>* list;	// 0x004
+		TList<TNosRevCmd*>* list;	// 0x004
 		struct TStringList* packetArgs;		// 0x008
 	};
 	static_assert(sizeof(TNosRevCmdList) == 0xC, "TNosRevCmdList size isn't 0xC.");

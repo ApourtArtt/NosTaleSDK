@@ -9,6 +9,7 @@ import VTableProvider;
 import WrapperTNosRevCmd;
 import WrapperTList;
 import TNosRevCmd;
+import TList;
 
 namespace NosTaleSDK::Wrappers::Classes
 {
@@ -17,16 +18,16 @@ namespace NosTaleSDK::Wrappers::Classes
 	{
 		TENTWELL_WRAPPER_DEFINITION(WrapperTNosRevCmdList, WrapperTObject, TNosRevCmdList)
 	public:
-		std::vector<std::shared_ptr<WrapperTNosRevCmd>> GetPackets()
+		std::vector<WrapperTNosRevCmd> GetPackets()
 		{
-			std::vector<std::shared_ptr<WrapperTNosRevCmd>> packets;
+			std::vector<WrapperTNosRevCmd> packets;
 
-			auto wrapperTList = WrapperTList<TNosRevCmd*>(obj_->list);
+			WrapperTList<TNosRevCmd*> wrapperTList = WrapperTList<TNosRevCmd*>(*(obj_->list));
 
 			for(auto i = 0; i < wrapperTList.size(); i++)
 			{
 				TNosRevCmd* packet = wrapperTList.getItem(i);
-				packets.push_back(std::make_shared<WrapperTNosRevCmd>(packet));
+				packets.push_back(WrapperTNosRevCmd(packet));
 			}
 
 			return packets;
