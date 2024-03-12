@@ -5,3 +5,7 @@
 Loader/Loader/*
 Loader/Debug/*
 Loader/Release/*
+
+NosTaleSDK/NosTaleSDK/*
+NosTaleSDK/Debug/*
+NosTaleSDK/Release/*
