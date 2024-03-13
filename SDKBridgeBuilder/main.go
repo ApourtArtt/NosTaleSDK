@@ -7,13 +7,17 @@ import (
 )
 
 func main() {
-	classes, err := class_manager.GetClasses("./input/TEntwell/")
+	fmt.Println("Parsing classes")
+
+	classes, err := class_manager.GetClasses("./input/class/")
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	if err := class_manager.CreateClasses("./output/TEntwell/", "./templates", classes); err != nil {
+	fmt.Println("Executing classes templates")
+
+	if err := class_manager.CreateClasses("./output/class/", "./templates/class", classes); err != nil {
 		fmt.Println(err)
 		return
 	}

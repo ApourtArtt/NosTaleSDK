@@ -41,7 +41,7 @@ func CreateClasses(outputFolder, templatesFolder string, classes []Class) error 
 			return nil
 		}
 
-		fmt.Println("Parsing", templatesFolder+"/"+info.Name())
+		fmt.Println("Executing", templatesFolder+"/"+info.Name())
 
 		data, err := os.ReadFile(templatesFolder + "/" + info.Name())
 		if err != nil {
@@ -49,12 +49,13 @@ func CreateClasses(outputFolder, templatesFolder string, classes []Class) error 
 		}
 
 		parts := strings.Split(info.Name(), ".")
-		if len(parts) < 2 {
+		if len(parts) < 3 {
 			return fmt.Errorf("filename for %s is not valid", info.Name())
 		}
 
-		folderName := parts[0]
-		extension := parts[1]
+		filename := strings.Join(parts[0:len(parts)-3], ".")
+		folderName := parts[len(parts)-3]
+		extension := parts[len(parts)-2]
 
 		os.MkdirAll(outputFolder+"/"+folderName, 0777)
 
@@ -69,7 +70,9 @@ func CreateClasses(outputFolder, templatesFolder string, classes []Class) error 
 				return err
 			}
 
-			f, err := os.Create(outputFolder + "/" + folderName + "/" + classes[i].Name + "." + extension)
+			fn := strings.ReplaceAll(filename, "{{.Name}}", class.Name)
+
+			f, err := os.Create(outputFolder + "/" + folderName + "/" + fn + "." + extension)
 			if err != nil {
 				return err
 			}
