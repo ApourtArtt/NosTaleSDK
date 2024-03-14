@@ -1,0 +1,21 @@
+{{range $index, $element := .Includes -}}#include {{$index}}
+{{end}}
+
+namespace NosTaleSDK::Wrappers
+{
+    template<>
+    class Wrapper<Entwell::DelphiClasses::{{.Name}}> : public BaseWrapper<Entwell::DelphiClasses::{{.Name}}>
+    {
+    public:
+    {{.PublicBlock.Functions}}
+    {{.PublicBlock.Variables}}
+
+    private:
+    {{.PrivateBlock.Functions}}
+    {{.PrivateBlock.Variables}}
+
+    protected:
+    {{.ProtectedBlock.Functions}}
+    {{.ProtectedBlock.Variables}}
+    };
+}

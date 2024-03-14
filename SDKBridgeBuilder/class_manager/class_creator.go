@@ -8,7 +8,7 @@ import (
 	"text/template"
 )
 
-func findClassByName(classes []Class, className string) (Class, error) {
+func FindClassByName(classes []Class, className string) (Class, error) {
 	for i := 0; i < len(classes); i++ {
 		if classes[i].Name == className {
 			return classes[i], nil
@@ -19,7 +19,7 @@ func findClassByName(classes []Class, className string) (Class, error) {
 
 func mergeParentMembersWithChild(class Class, classes []Class) (Class, error) {
 	for parent := class.Parent; len(parent) > 0; {
-		parentClass, err := findClassByName(classes, parent)
+		parentClass, err := FindClassByName(classes, parent)
 		if err != nil {
 			return class, err
 		}

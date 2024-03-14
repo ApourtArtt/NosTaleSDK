@@ -30,11 +30,16 @@ func GetClasses(inputFolder string) ([]Class, error) {
 			return nil
 		}
 
-		fmt.Println("Parsing", inputFolder+info.Name())
+		fmt.Println("Parsing", path)
 
-		data, err := os.ReadFile(inputFolder + info.Name())
+		data, err := os.ReadFile(path)
 		if err != nil {
 			return err
+		}
+
+		if strings.Contains(string(data), "SDKBridgeBuilder:IGNORE") {
+			fmt.Println(info.Name(), "was skipped because it is marked as IGNORE")
+			return nil
 		}
 
 		class, err := parseClass(string(data))

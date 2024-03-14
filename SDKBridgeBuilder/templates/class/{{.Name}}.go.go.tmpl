@@ -1,0 +1,8 @@
+package TEntwell
+
+import "C"
+
+// go:export "C"
+type {{.Name}} struct {
+    {{range $index, $element := .Members -}}{{.Type}} {{.Name}}; // {{.Offset}} {{.Comment}}{{end}}
+}
