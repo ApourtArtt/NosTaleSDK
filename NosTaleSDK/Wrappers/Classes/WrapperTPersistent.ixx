@@ -15,7 +15,7 @@ namespace NosTaleSDK::Wrappers::Classes
 	// ReSharper disable once CppInconsistentNaming
 	export class WrapperTPersistent : public WrapperTObject
 	{
-		TENTWELL_WRAPPER_DEFINITION(WrapperTPersistent, WrapperTObject, TPersistent)
+		TENTWELL_WRAPPER_DEFINITION(WrapperTPersistent, WrapperTObject, TPersistent);
 	public:
 
 	private:

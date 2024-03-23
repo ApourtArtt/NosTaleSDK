@@ -12,7 +12,7 @@ namespace NosTaleSDK::Wrappers::Classes
     export template <typename T>
         class WrapperTList : public WrapperTObject
     {
-        TENTWELL_WRAPPER_DEFINITION(WrapperTList, WrapperTObject, TList<T>)
+        TENTWELL_WRAPPER_DEFINITION(WrapperTList, WrapperTObject, TList<T>);
     public:
         void insert(T Item, uint32_t Index) noexcept
         {

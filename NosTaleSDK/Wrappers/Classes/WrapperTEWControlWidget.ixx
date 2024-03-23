@@ -19,7 +19,7 @@ namespace NosTaleSDK::Wrappers::Classes
     using namespace NosTaleSDK::Entwell::Classes;
     export class WrapperTEWControlWidget : public WrapperTLBSWidget
     {
-        TENTWELL_WRAPPER_DEFINITION(WrapperTEWControlWidget, WrapperTLBSWidget, TEWControlWidget)
+        TENTWELL_WRAPPER_DEFINITION(WrapperTEWControlWidget, WrapperTLBSWidget, TEWControlWidget);
     public:
         void SetImageName(const int32_t ImageName) const { obj_->imageData.imageName = ImageName; }
         int32_t GetImageName() const { return obj_->imageData.imageName; }

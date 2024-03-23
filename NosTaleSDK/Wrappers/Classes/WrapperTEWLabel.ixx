@@ -23,7 +23,7 @@ namespace NosTaleSDK::Wrappers::Classes
     using namespace NosTaleSDK::Entwell::Classes;
     export class WrapperTEWLabel : public WrapperTEWControlWidgetEX
     {
-        TENTWELL_WRAPPER_DEFINITION(WrapperTEWLabel, WrapperTEWControlWidgetEX, TEWLabel)
+        TENTWELL_WRAPPER_DEFINITION(WrapperTEWLabel, WrapperTEWControlWidgetEX, TEWLabel);
     public:
         void SetText(const std::string& Text) const
         {

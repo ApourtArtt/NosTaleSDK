@@ -17,7 +17,7 @@ namespace NosTaleSDK::Wrappers::Classes
     using namespace NosTaleSDK::Entwell::Classes;
     export class WrapperTEWStringListViewCore : public WrapperTEWLabels
     {
-        TENTWELL_WRAPPER_DEFINITION(WrapperTEWStringListViewCore, WrapperTEWLabels, TEWStringListViewCore)
+        TENTWELL_WRAPPER_DEFINITION(WrapperTEWStringListViewCore, WrapperTEWLabels, TEWStringListViewCore);
     public:
         std::shared_ptr<WrapperTStringList> GetLines() const
         {

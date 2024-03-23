@@ -17,7 +17,7 @@ namespace NosTaleSDK::Wrappers::Classes
 	// ReSharper disable once CppInconsistentNaming
 	export class WrapperTStringList : public WrapperTObject
 	{
-		TENTWELL_WRAPPER_DEFINITION(WrapperTStringList, WrapperTObject, TStringList)
+		TENTWELL_WRAPPER_DEFINITION(WrapperTStringList, WrapperTObject, TStringList);
 	public:
 		std::string GetStringAt(const uint16_t Index) const
 		{

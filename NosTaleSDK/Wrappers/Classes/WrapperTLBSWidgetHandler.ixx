@@ -14,7 +14,7 @@ namespace NosTaleSDK::Wrappers::Classes
 	// ReSharper disable once CppInconsistentNaming
 	export class WrapperTLBSWidgetHandler final : public WrapperTObject
 	{
-		TENTWELL_WRAPPER_DEFINITION(WrapperTLBSWidgetHandler, WrapperTObject, TLBSWidgetHandler)
+		TENTWELL_WRAPPER_DEFINITION(WrapperTLBSWidgetHandler, WrapperTObject, TLBSWidgetHandler);
 	public:
 		static WrapperTLBSWidgetHandler& GetNtInstance(std::shared_ptr<Interfaces::AddressProvider> Provider, const bool Refresh = false)
 		{

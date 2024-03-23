@@ -13,7 +13,7 @@ namespace NosTaleSDK::Wrappers::Classes
 	using namespace NosTaleSDK::Entwell::Classes;
 	export class WrapperTNTClient : public WrapperTObject
 	{
-		TENTWELL_WRAPPER_DEFINITION(WrapperTNTClient, WrapperTObject, TNTClient)
+		TENTWELL_WRAPPER_DEFINITION(WrapperTNTClient, WrapperTObject, TNTClient);
 	public:
 		static WrapperTNTClient& GetNtInstance(std::shared_ptr<Interfaces::AddressProvider> Provider, const bool Refresh = false)
 		{

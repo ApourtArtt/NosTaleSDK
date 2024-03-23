@@ -15,7 +15,7 @@ namespace NosTaleSDK::Wrappers::Classes
     using namespace NosTaleSDK::Entwell::Classes;
     export class WrapperTEWLabels : public WrapperTEWControlWidgetEX
     {
-        TENTWELL_WRAPPER_DEFINITION(WrapperTEWLabels, WrapperTEWControlWidgetEX, TEWLabels)
+        TENTWELL_WRAPPER_DEFINITION(WrapperTEWLabels, WrapperTEWControlWidgetEX, TEWLabels);
     public:
 
     private:

@@ -15,7 +15,7 @@ namespace NosTaleSDK::Wrappers::Classes
     using namespace NosTaleSDK::Entwell::Classes;
     export class WrapperTEWListView : public WrapperTEWStringListView
     {
-        TENTWELL_WRAPPER_DEFINITION(WrapperTEWListView, WrapperTEWStringListView, TEWListView)
+        TENTWELL_WRAPPER_DEFINITION(WrapperTEWListView, WrapperTEWStringListView, TEWListView);
     public:
 
     private:

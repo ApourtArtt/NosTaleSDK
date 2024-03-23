@@ -11,7 +11,7 @@ namespace NosTaleSDK::Wrappers::Classes
     using namespace NosTaleSDK::Entwell::Classes;
     export class WrapperTEWMoveWidget : public WrapperTEWControlWidgetEvent
     {
-        TENTWELL_WRAPPER_DEFINITION(WrapperTEWMoveWidget, WrapperTEWControlWidgetEvent, TEWMoveWidget)
+        TENTWELL_WRAPPER_DEFINITION(WrapperTEWMoveWidget, WrapperTEWControlWidgetEvent, TEWMoveWidget);
     public:
 
     private:

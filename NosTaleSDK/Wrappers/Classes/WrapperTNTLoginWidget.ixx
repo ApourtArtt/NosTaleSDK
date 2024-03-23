@@ -16,7 +16,7 @@ namespace NosTaleSDK::Wrappers::Classes
     using namespace NosTaleSDK::Entwell::Classes;
     export class WrapperTNTLoginWidget : public WrapperTLBSWidget
     {
-        TENTWELL_WRAPPER_DEFINITION(WrapperTNTLoginWidget, WrapperTLBSWidget, TNTLoginWidget)
+        TENTWELL_WRAPPER_DEFINITION(WrapperTNTLoginWidget, WrapperTLBSWidget, TNTLoginWidget);
     public:
         std::shared_ptr<WrapperTNTNewServerSelectWidget2> GetServerSelectWidget() const { return std::make_shared<WrapperTNTNewServerSelectWidget2>(obj_->serverSelect); }
 

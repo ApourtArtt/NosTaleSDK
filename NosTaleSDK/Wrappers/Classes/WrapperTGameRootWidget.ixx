@@ -11,7 +11,7 @@ namespace NosTaleSDK::Wrappers::Classes
     using namespace NosTaleSDK::Entwell::Classes;
     export class WrapperTGameRootWidget : public WrapperTLBSWidget
     {
-        TENTWELL_WRAPPER_DEFINITION(WrapperTGameRootWidget, WrapperTLBSWidget, TGameRootWidget)
+        TENTWELL_WRAPPER_DEFINITION(WrapperTGameRootWidget, WrapperTLBSWidget, TGameRootWidget);
     public:
 
     private:

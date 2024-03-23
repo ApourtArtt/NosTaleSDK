@@ -20,7 +20,7 @@ namespace NosTaleSDK::Wrappers::Classes
 	// ReSharper disable once CppInconsistentNaming
 	export class WrapperTLBSWidget : public WrapperTObject
 	{
-		TENTWELL_WRAPPER_DEFINITION(WrapperTLBSWidget, WrapperTObject, TLBSWidget)
+		TENTWELL_WRAPPER_DEFINITION(WrapperTLBSWidget, WrapperTObject, TLBSWidget);
 	public:
 		void SetWidgetType(const uintptr_t VT) const { obj_->widgetType = static_cast<int8_t>(VT); }
 		uintptr_t GetWidgetType() const { return static_cast<uintptr_t>(obj_->widgetType); }

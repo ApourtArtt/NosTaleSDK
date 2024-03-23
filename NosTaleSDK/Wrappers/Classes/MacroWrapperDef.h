@@ -1,13 +1,3 @@
-#pragma once
-
-// It unfortunately does not work to export/import/using namespace in a macro :(
-#define TENTWELL_WRAPPER_IMPORT(WRAPPER_NAME, WRAPPER_PARENT_NAME, TENTWELL_NAME) \
-export module WRAPPER_NAME;\
-import WRAPPER_PARENT_NAME;\
-import TENTWELL_NAME;\
-import VTableProvider;\
-using namespace NosTaleSDK::Entwell::Classes;
-
 #define TENTWELL_WRAPPER_DEFINITION(WRAPPER_NAME, WRAPPER_PARENT_NAME, TENTWELL_NAME) \
 private:\
     TENTWELL_NAME* obj_{ nullptr };\

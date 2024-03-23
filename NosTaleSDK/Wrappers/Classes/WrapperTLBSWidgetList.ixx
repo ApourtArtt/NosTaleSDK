@@ -12,7 +12,7 @@ namespace NosTaleSDK::Wrappers::Classes
     using namespace NosTaleSDK::Entwell::Classes;
     export class WrapperTLBSWidgetList : public WrapperTList<TLBSWidget*>
     {
-        TENTWELL_WRAPPER_DEFINITION(WrapperTLBSWidgetList, WrapperTList<TLBSWidget*>, TLBSWidgetList)
+        TENTWELL_WRAPPER_DEFINITION(WrapperTLBSWidgetList, WrapperTList<TLBSWidget*>, TLBSWidgetList);
     public:
 
     private:

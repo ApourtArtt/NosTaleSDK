@@ -16,11 +16,13 @@ namespace NosTaleSDK::Wrappers::Classes
 	using namespace NosTaleSDK::Entwell::Classes;
 	export class WrapperTNosRevCmdList : public WrapperTObject
 	{
-		TENTWELL_WRAPPER_DEFINITION(WrapperTNosRevCmdList, WrapperTObject, TNosRevCmdList)
+		TENTWELL_WRAPPER_DEFINITION(WrapperTNosRevCmdList, WrapperTObject, TNosRevCmdList);
 	public:
 		std::vector<WrapperTNosRevCmd> GetPackets()
 		{
 			std::vector<WrapperTNosRevCmd> packets;
+
+			WrapperTList<TList<TNosRevCmd*>*>(obj_->list);
 
 			WrapperTList<TNosRevCmd*> wrapperTList = WrapperTList<TNosRevCmd*>(*(obj_->list));
 

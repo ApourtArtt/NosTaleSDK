@@ -17,7 +17,7 @@ namespace NosTaleSDK::Wrappers::Classes
     using namespace NosTaleSDK::Entwell::Classes;
     export class WrapperTNTNewServerSelectWidget2 : public WrapperTEWControlWidgetEX
     {
-        TENTWELL_WRAPPER_DEFINITION(WrapperTNTNewServerSelectWidget2, WrapperTEWControlWidgetEX, TNTNewServerSelectWidget2)
+        TENTWELL_WRAPPER_DEFINITION(WrapperTNTNewServerSelectWidget2, WrapperTEWControlWidgetEX, TNTNewServerSelectWidget2);
     public:
         std::string GetServerNameById(const int16_t ServerId) const
         {

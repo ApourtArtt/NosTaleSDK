@@ -12,7 +12,7 @@ namespace NosTaleSDK::Wrappers::Classes
 	using namespace NosTaleSDK::Entwell::Classes;
 	export class WrapperTNosRevCmd : public WrapperTObject
 	{
-		TENTWELL_WRAPPER_DEFINITION(WrapperTNosRevCmd, WrapperTObject, TNosRevCmd)
+		TENTWELL_WRAPPER_DEFINITION(WrapperTNosRevCmd, WrapperTObject, TNosRevCmd);
 	public:
 
 	private:

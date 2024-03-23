@@ -15,7 +15,7 @@ namespace NosTaleSDK::Wrappers::Classes
     using namespace NosTaleSDK::Entwell::Classes;
     export class WrapperTEWCustomPanelWidget : public WrapperTEWMoveWidget
     {
-        TENTWELL_WRAPPER_DEFINITION(WrapperTEWCustomPanelWidget, WrapperTEWMoveWidget, TEWCustomPanelWidget)
+        TENTWELL_WRAPPER_DEFINITION(WrapperTEWCustomPanelWidget, WrapperTEWMoveWidget, TEWCustomPanelWidget);
     public:
         void SetImagePadding(const Entwell::Properties::Graphical::ImagePadding& ImagePadding) const { obj_->imagePadding = ImagePadding; }
         
