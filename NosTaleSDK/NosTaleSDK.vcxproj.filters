@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="NosTaleSDK\Runtime.cpp">
+      <Filter>NosTaleSDK</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="NosTaleSDK">
+      <UniqueIdentifier>{e0b61697-aba8-4a64-996d-0bfd7809a19e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NosTaleSDK\Interfaces">
+      <UniqueIdentifier>{438eac59-8461-4d77-8648-840dfe9640f1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NosTaleSDK\Runtime.h">
+      <Filter>NosTaleSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="NosTaleSDK\AddressProvider.h">
+      <Filter>NosTaleSDK\Interfaces</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
