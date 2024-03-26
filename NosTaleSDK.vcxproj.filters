@@ -13,12 +13,27 @@
     <Filter Include="NosTaleSDK\Interfaces">
       <UniqueIdentifier>{438eac59-8461-4d77-8648-840dfe9640f1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TODO_TO_MOVE">
+      <UniqueIdentifier>{e3df9409-4dd3-4be4-b2b7-afa7d9d77eaf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NosTaleSDK\Runtime.h">
       <Filter>NosTaleSDK</Filter>
     </ClInclude>
-    <ClInclude Include="NosTaleSDK\AddressProvider.h">
+    <ClInclude Include="NosTaleSDK\Interfaces\AddressProvider.h">
+      <Filter>NosTaleSDK\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="NosTaleSDK\Interfaces\Interface.h">
+      <Filter>NosTaleSDK\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="NosTaleSDK\Interfaces\Logger.h">
+      <Filter>NosTaleSDK\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="NosTaleSDK\Interfaces\VTableProvider.h">
+      <Filter>NosTaleSDK\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="NosTaleSDK\Interfaces\Plugin.h">
       <Filter>NosTaleSDK\Interfaces</Filter>
     </ClInclude>
   </ItemGroup>
