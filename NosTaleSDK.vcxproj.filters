@@ -5,6 +5,15 @@
     <ClCompile Include="NosTaleSDK\Runtime.cpp">
       <Filter>NosTaleSDK</Filter>
     </ClCompile>
+    <ClCompile Include="TODO_TO_MOVE\PatternAddressProvider.cpp">
+      <Filter>TODO_TO_MOVE</Filter>
+    </ClCompile>
+    <ClCompile Include="TODO_TO_MOVE\ClassSearcherVTableProvider.cpp">
+      <Filter>TODO_TO_MOVE</Filter>
+    </ClCompile>
+    <ClCompile Include="TODO_TO_MOVE\ConsoleLogger.cpp">
+      <Filter>TODO_TO_MOVE</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="NosTaleSDK">
@@ -16,25 +25,40 @@
     <Filter Include="TODO_TO_MOVE">
       <UniqueIdentifier>{e3df9409-4dd3-4be4-b2b7-afa7d9d77eaf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{1a25febb-9523-4d66-a3c7-ae917d3a9911}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="NosTaleSDK\Runtime.h">
+    <ClInclude Include="NosTaleSDK\Runtime.hpp">
       <Filter>NosTaleSDK</Filter>
     </ClInclude>
-    <ClInclude Include="NosTaleSDK\Interfaces\AddressProvider.h">
+    <ClInclude Include="NosTaleSDK\Interfaces\AddressProvider.hpp">
       <Filter>NosTaleSDK\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="NosTaleSDK\Interfaces\Interface.h">
+    <ClInclude Include="NosTaleSDK\Interfaces\Interface.hpp">
       <Filter>NosTaleSDK\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="NosTaleSDK\Interfaces\Logger.h">
+    <ClInclude Include="NosTaleSDK\Interfaces\Logger.hpp">
       <Filter>NosTaleSDK\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="NosTaleSDK\Interfaces\VTableProvider.h">
+    <ClInclude Include="NosTaleSDK\Interfaces\VTableProvider.hpp">
       <Filter>NosTaleSDK\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="NosTaleSDK\Interfaces\Plugin.h">
+    <ClInclude Include="NosTaleSDK\Interfaces\Plugin.hpp">
       <Filter>NosTaleSDK\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="TODO_TO_MOVE\PatternAddressProvider.hpp">
+      <Filter>TODO_TO_MOVE</Filter>
+    </ClInclude>
+    <ClInclude Include="NosTaleSDK\Utils\MemoryHelper.hpp">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="TODO_TO_MOVE\ClassSearcherVTableProvider.hpp">
+      <Filter>TODO_TO_MOVE</Filter>
+    </ClInclude>
+    <ClInclude Include="TODO_TO_MOVE\ConsoleLogger.hpp">
+      <Filter>TODO_TO_MOVE</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

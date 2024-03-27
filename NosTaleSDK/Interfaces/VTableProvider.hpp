@@ -1,11 +1,11 @@
 #pragma once
 #include <string>
 #include <memory>
-#include "Logger.h"
+#include "Logger.hpp"
 
 namespace NosTaleSDK::Interfaces
 {
-	export class VTableProvider : public Interface
+	class VTableProvider : public Interface
 	{
 	public:
 		explicit VTableProvider(const std::shared_ptr<Logger>& Logger)

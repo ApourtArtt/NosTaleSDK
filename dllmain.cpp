@@ -2,8 +2,11 @@
 #include <iostream>
 #include <memory>
 #include <thread>
-#include "NosTaleSDK/Runtime.h"
 #include <vector>
+#include "TODO_TO_MOVE/PatternAddressProvider.hpp"
+#include "TODO_TO_MOVE/ClassSearcherVTableProvider.hpp"
+#include "TODO_TO_MOVE/ConsoleLogger.hpp"
+#include "NosTaleSDK/Runtime.hpp"
 
 NosTaleSDK::Runtime* runtime{ nullptr };
 std::thread* thread{ nullptr };
@@ -66,13 +69,7 @@ bool InitRuntime()
 		const auto vTableProvider = InitVTableProvider(logger);
 		const auto patternProvider = InitPatternProvider(logger);
 
-		auto clockPlugin = new NosTaleSDK::Plugins::ClockPlugin(vTableProvider, patternProvider);
-		auto packetLoggerPlugin = new NosTaleSDK::Plugins::PacketLoggerPlugin(vTableProvider, patternProvider);
-
-		runtime = new NosTaleSDK::Runtime(logger, patternProvider, vTableProvider, {
-			std::shared_ptr<NosTaleSDK::Interfaces::Plugin>(clockPlugin),
-			std::shared_ptr<NosTaleSDK::Interfaces::Plugin>(packetLoggerPlugin)
-			});
+		runtime = new NosTaleSDK::Runtime(logger, patternProvider, vTableProvider, {});
 		if (!runtime->Initialize())
 			return false;
 
