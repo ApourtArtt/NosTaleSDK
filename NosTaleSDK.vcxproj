@@ -146,6 +146,11 @@
     <ClCompile Include="TODO_TO_MOVE\PatternAddressProvider.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="NosTaleSDK\Entwell\Classes\TObject.hpp" />
+    <ClInclude Include="NosTaleSDK\Entwell\Enums\Cursor.hpp" />
+    <ClInclude Include="NosTaleSDK\Entwell\Structs\Color.hpp" />
+    <ClInclude Include="NosTaleSDK\Entwell\Structs\BoundsRect.hpp" />
+    <ClInclude Include="NosTaleSDK\Entwell\Structs\PictureView.hpp" />
     <ClInclude Include="NosTaleSDK\Interfaces\AddressProvider.hpp" />
     <ClInclude Include="NosTaleSDK\Interfaces\Interface.hpp" />
     <ClInclude Include="NosTaleSDK\Interfaces\Logger.hpp" />

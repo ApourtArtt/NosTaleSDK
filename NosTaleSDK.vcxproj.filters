@@ -28,6 +28,18 @@
     <Filter Include="Utils">
       <UniqueIdentifier>{1a25febb-9523-4d66-a3c7-ae917d3a9911}</UniqueIdentifier>
     </Filter>
+    <Filter Include="NosTaleSDK\Entwell">
+      <UniqueIdentifier>{75afa411-44cf-486c-8e37-94e3d6befab1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NosTaleSDK\Entwell\Classes">
+      <UniqueIdentifier>{20849f64-dbf0-41c4-bd34-a02c8ed67972}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NosTaleSDK\Entwell\Structs">
+      <UniqueIdentifier>{ab57598b-bf87-4274-a074-9d8a66ad8fd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NosTaleSDK\Entwell\Enums">
+      <UniqueIdentifier>{7a8da72f-598b-4f35-bc9d-85634b41d9e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NosTaleSDK\Runtime.hpp">
@@ -59,6 +71,21 @@
     </ClInclude>
     <ClInclude Include="TODO_TO_MOVE\ConsoleLogger.hpp">
       <Filter>TODO_TO_MOVE</Filter>
+    </ClInclude>
+    <ClInclude Include="NosTaleSDK\Entwell\Classes\TObject.hpp">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="NosTaleSDK\Entwell\Enums\Cursor.hpp">
+      <Filter>NosTaleSDK\Entwell\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="NosTaleSDK\Entwell\Structs\Color.hpp">
+      <Filter>NosTaleSDK\Entwell\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="NosTaleSDK\Entwell\Structs\BoundsRect.hpp">
+      <Filter>NosTaleSDK\Entwell\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="NosTaleSDK\Entwell\Structs\PictureView.hpp">
+      <Filter>NosTaleSDK\Entwell\Structs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
