@@ -4,6 +4,7 @@
 namespace NosTaleSDK::Entwell::Classes
 {
 #pragma pack(push, 1)
+	// https://docwiki.embarcadero.com/Libraries/Sydney/en/System.TObject
 	struct TObject
 	{
 		uintptr_t vTable; // 0x000

@@ -5,7 +5,7 @@
 namespace NosTaleSDK::Entwell::Structs
 {
 #pragma pack(push, 1)
-	export struct BoundsRect
+	struct BoundsRect
 	{
 		int16_t topLeftX;	// 0x000
 		int16_t topLeftY;	// 0x002

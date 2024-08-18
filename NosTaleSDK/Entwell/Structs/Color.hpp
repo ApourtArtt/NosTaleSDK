@@ -5,7 +5,7 @@
 namespace NosTaleSDK::Entwell::Structs
 {
 #pragma pack(push, 1)
-	export struct Color
+	struct Color
 	{
 		uint8_t blue;
 		uint8_t green;
