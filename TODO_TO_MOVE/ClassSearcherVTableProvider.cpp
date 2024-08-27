@@ -2,6 +2,7 @@
 #include <Windows.h>
 #include "ClassSearcherVTableProvider.hpp"
 #include "../NosTaleSDK/Utils/MemoryHelper.hpp"
+#include "../NosTaleSDK/Utils/StringObfuscator.hpp"
 
 ClassSearcherVTableProvider::ClassSearcherVTableProvider(const std::shared_ptr<NosTaleSDK::Interfaces::Logger>& Logger)
 	: VTableProvider(Logger)
@@ -11,6 +12,12 @@ ClassSearcherVTableProvider::ClassSearcherVTableProvider(const std::shared_ptr<N
 	size_ = SizeOfImage;
 	memoryData_.resize(size_);
 	memcpy(memoryData_.data(), reinterpret_cast<char*>(base_), size_);
+
+	registerVTableHelper(obf("TEWCustomPanelWidget"));
+	registerVTableHelper(obf("TEWLabel"));
+	registerVTableHelper(obf("TLBSWidgetList"));
+	registerVTableHelper(obf("TNosRevCmdList"));
+	registerVTableHelper(obf("TNTLoginWidget"));
 }
 
 bool ClassSearcherVTableProvider::RegisterVTableName(const std::string& Pseudonym, const std::string& ClassName)
@@ -34,7 +41,7 @@ bool ClassSearcherVTableProvider::RegisterVTableName(const std::string& Pseudony
 		return res.second;
 
 	const auto addr = *reinterpret_cast<uintptr_t*>(search(res.first));
-	logger_->Debug(std::format("VTable for {} is {}", Pseudonym.c_str(), addr));
+	logger_->Debug(std::format(obf("VTable for {} is {}"), Pseudonym.c_str(), addr));
 	vTables_[Pseudonym].second = addr;
 	return addr;
 }
@@ -75,4 +82,9 @@ bool ClassSearcherVTableProvider::load()
 bool ClassSearcherVTableProvider::unload()
 {
 	return true;
+}
+
+void ClassSearcherVTableProvider::registerVTableHelper(const std::string& ClassName)
+{
+	RegisterVTableName(obf("NosTaleSDK::Entwell::Classes::") + ClassName + obf("::VTable"), ClassName);
 }

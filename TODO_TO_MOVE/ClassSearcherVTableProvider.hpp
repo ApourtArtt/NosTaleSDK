@@ -18,6 +18,7 @@ private:
 	static std::string getPattern(const std::string& ClassName);
 	bool load() override;
 	bool unload() override;
+	void registerVTableHelper(const std::string& ClassName);
 
 	std::string memoryData_;
 	uintptr_t base_, size_;

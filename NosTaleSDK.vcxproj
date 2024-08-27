@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="NosTaleSDK\Runtime.cpp" />
+    <ClCompile Include="NosTaleSDK\Utils\MemoryHelper.cpp" />
     <ClCompile Include="TODO_TO_MOVE\ClassSearcherVTableProvider.cpp" />
     <ClCompile Include="TODO_TO_MOVE\ConsoleLogger.cpp" />
     <ClCompile Include="TODO_TO_MOVE\PatternAddressProvider.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="NosTaleSDK\Runtime.hpp" />
     <ClInclude Include="NosTaleSDK\Interfaces\VTableProvider.hpp" />
     <ClInclude Include="NosTaleSDK\Utils\MemoryHelper.hpp" />
+    <ClInclude Include="NosTaleSDK\Utils\StringObfuscator.hpp" />
     <ClInclude Include="TODO_TO_MOVE\ClassSearcherVTableProvider.hpp" />
     <ClInclude Include="TODO_TO_MOVE\ConsoleLogger.hpp" />
     <ClInclude Include="TODO_TO_MOVE\PatternAddressProvider.hpp" />

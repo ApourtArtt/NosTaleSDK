@@ -14,6 +14,9 @@
     <ClCompile Include="TODO_TO_MOVE\ConsoleLogger.cpp">
       <Filter>TODO_TO_MOVE</Filter>
     </ClCompile>
+    <ClCompile Include="NosTaleSDK\Utils\MemoryHelper.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="NosTaleSDK">
@@ -86,6 +89,9 @@
     </ClInclude>
     <ClInclude Include="NosTaleSDK\Entwell\Structs\PictureView.hpp">
       <Filter>NosTaleSDK\Entwell\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="NosTaleSDK\Utils\StringObfuscator.hpp">
+      <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

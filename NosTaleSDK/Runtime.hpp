@@ -15,10 +15,10 @@ namespace NosTaleSDK
 	{
 	public:
 		Runtime(
-			const std::shared_ptr<Interfaces::Logger> Logger,
-			const std::shared_ptr<Interfaces::AddressProvider> AddressProvider,
-			const std::shared_ptr<Interfaces::VTableProvider> VTableProvider,
-			const std::vector<std::shared_ptr<Interfaces::Plugin>>& Plugins
+			std::shared_ptr<Interfaces::Logger> Logger,
+			std::shared_ptr<Interfaces::AddressProvider> AddressProvider,
+			std::shared_ptr<Interfaces::VTableProvider> VTableProvider,
+			std::vector<std::shared_ptr<Interfaces::Plugin>>& Plugins
 		);
 
 		~Runtime();

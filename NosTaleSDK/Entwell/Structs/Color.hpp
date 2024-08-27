@@ -12,8 +12,8 @@ namespace NosTaleSDK::Entwell::Structs
 		uint8_t red;
 		uint8_t alpha;
 	};
-	static_assert(sizeof(Color) == 0x4, "Bgra size isn't 0x4.");
-	static_assert(sizeof(Color) <= 0x4, "Bgra size is higher than 0x4.");
-	static_assert(sizeof(Color) >= 0x4, "Bgra size is lower than 0x4.");
+	static_assert(sizeof(Color) == 0x4, "Color's size is not 0x4.");
+	static_assert(sizeof(Color) <= 0x4, "Color's size is higher than 0x4.");
+	static_assert(sizeof(Color) >= 0x4, "Color's size is lower than 0x4.");
 #pragma pack(pop)
 }
