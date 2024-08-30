@@ -2,6 +2,7 @@
 #include <format>
 #include "../NosTaleSDK/Utils/MemoryHelper.hpp"
 #include "../NosTaleSDK/Utils/StringObfuscator.hpp"
+#include "../NosTaleSDK/Utils/FormatString.hpp"
 
 PatternAddressProvider::PatternAddressProvider(const std::shared_ptr<NosTaleSDK::Interfaces::Logger>& Logger)
 	: AddressProvider(Logger)
@@ -53,19 +54,19 @@ bool PatternAddressProvider::RegisterPattern(const std::string& AddressName, uin
 {
 	if (!results_.contains(AddressName))
 	{
-		logger_->Error(std::format(obf("PatternScan failed for {}"), AddressName.c_str()));
+		logger_->Error(NosTaleSDK::Utils::FormatString(obf("PatternScan failed for {}"), AddressName.c_str()));
 		return 0;
 	}
 
 	if (const auto& res = results_.at(AddressName); res.size() > 0)
 	{
-		logger_->Debug(std::format(obf("PatternScan successfully found [{}] for {}"), res.at(0), AddressName.c_str()));
+		logger_->Debug(NosTaleSDK::Utils::FormatString(obf("PatternScan successfully found [{}] for {}"), res.at(0), AddressName.c_str()));
 		return res.at(0);
 	}
 
 	if (!patterns_.contains(AddressName))
 	{
-		logger_->Error(std::format(obf("No pattern for {}"), AddressName.c_str()));
+		logger_->Error(NosTaleSDK::Utils::FormatString(obf("No pattern for {}"), AddressName.c_str()));
 		return 0;
 	}
 
@@ -73,7 +74,7 @@ bool PatternAddressProvider::RegisterPattern(const std::string& AddressName, uin
 	uintptr_t address = NosTaleSDK::Utils::PatternScan(pattern, mask.c_str(), offset, startFrom);
 	if (address == 0)
 	{
-		logger_->Error(std::format(obf("PatternScan failed for {}"), AddressName.c_str()));
+		logger_->Error(NosTaleSDK::Utils::FormatString(obf("PatternScan failed for {}"), AddressName.c_str()));
 		return 0;
 	}
 
@@ -82,13 +83,13 @@ bool PatternAddressProvider::RegisterPattern(const std::string& AddressName, uin
 		address = *(uintptr_t*)(address + deref[i]);
 		if (address == 0)
 		{
-			logger_->Error(std::format(obf("PatternScan failed for {}"), AddressName.c_str()));
+			logger_->Error(NosTaleSDK::Utils::FormatString(obf("PatternScan failed for {}"), AddressName.c_str()));
 			return 0;
 		}
 	}
 
 	results_[AddressName].push_back(address);
-	logger_->Debug(std::format(obf("PatternScan successfully found [{}] for {}"), address, AddressName.c_str()));
+	logger_->Debug(NosTaleSDK::Utils::FormatString(obf("PatternScan successfully found [{}] for {}"), address, AddressName.c_str()));
 	return address;
 }
 
@@ -109,7 +110,7 @@ bool PatternAddressProvider::RegisterPattern(const std::string& AddressName, uin
 		uintptr_t currAdd = NosTaleSDK::Utils::PatternScan(pattern.pattern, pattern.mask.c_str(), pattern.offset, startFrom);
 		if (currAdd == 0)
 		{
-			logger_->Error(std::format(obf("PatternScan failed for {}"), AddressName.c_str()));
+			logger_->Error(NosTaleSDK::Utils::FormatString(obf("PatternScan failed for {}"), AddressName.c_str()));
 			return {};
 		}
 		results_[AddressName].push_back(currAdd);

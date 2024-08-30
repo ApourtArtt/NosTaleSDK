@@ -17,6 +17,18 @@
     <ClCompile Include="NosTaleSDK\Utils\MemoryHelper.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TObject.cpp">
+      <Filter>NosTaleSDK\Entwell\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Structs\BoundsRect.cpp">
+      <Filter>NosTaleSDK\Entwell\Structs</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Structs\PictureView.cpp">
+      <Filter>NosTaleSDK\Entwell\Structs</Filter>
+    </ClCompile>
+    <ClCompile Include="NosTaleSDK\Entwell\Structs\Color.cpp">
+      <Filter>NosTaleSDK\Entwell\Structs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="NosTaleSDK">
@@ -91,6 +103,9 @@
       <Filter>NosTaleSDK\Entwell\Structs</Filter>
     </ClInclude>
     <ClInclude Include="NosTaleSDK\Utils\StringObfuscator.hpp">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="NosTaleSDK\Utils\FormatString.hpp">
       <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>

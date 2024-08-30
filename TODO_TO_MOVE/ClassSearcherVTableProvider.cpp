@@ -3,6 +3,7 @@
 #include "ClassSearcherVTableProvider.hpp"
 #include "../NosTaleSDK/Utils/MemoryHelper.hpp"
 #include "../NosTaleSDK/Utils/StringObfuscator.hpp"
+#include "../NosTaleSDK/Utils/FormatString.hpp"
 
 ClassSearcherVTableProvider::ClassSearcherVTableProvider(const std::shared_ptr<NosTaleSDK::Interfaces::Logger>& Logger)
 	: VTableProvider(Logger)
@@ -41,7 +42,7 @@ bool ClassSearcherVTableProvider::RegisterVTableName(const std::string& Pseudony
 		return res.second;
 
 	const auto addr = *reinterpret_cast<uintptr_t*>(search(res.first));
-	logger_->Debug(std::format(obf("VTable for {} is {}"), Pseudonym.c_str(), addr));
+	logger_->Debug(NosTaleSDK::Utils::FormatString(obf("VTable for {} is {}"), Pseudonym.c_str(), addr));
 	vTables_[Pseudonym].second = addr;
 	return addr;
 }

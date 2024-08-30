@@ -11,38 +11,32 @@
 NosTaleSDK::Runtime* runtime{ nullptr };
 std::thread* thread{ nullptr };
 
-bool InitRuntime()
+void initRuntime()
 {
-	static bool init = false;
-	if (init)
-		return false;
-	init = true;
+	auto logger = std::make_shared<ConsoleLogger>();
+	if (!logger->Load())
+		return;
 
-	//Sleep(5000);
+	logger->Flush();
+	auto vTableProvider = std::make_shared<ClassSearcherVTableProvider>(logger);
+	auto patternProvider = std::make_shared<PatternAddressProvider>(logger);
+	std::vector<std::shared_ptr<NosTaleSDK::Interfaces::Plugin>> plugins;
 
-	{
-		auto logger = std::make_shared<ConsoleLogger>();
-		if (!logger->Load())
-			return false;
+	runtime = new NosTaleSDK::Runtime(logger, patternProvider, vTableProvider, plugins);
+	if (!runtime->Initialize())
+		return;
 
-		logger->Flush();
-		const auto vTableProvider = std::make_shared<PatternAddressProvider>(logger);
-		const auto patternProvider = std::make_shared<PatternAddressProvider>(logger);
-		std::vector<std::shared_ptr<NosTaleSDK::Interfaces::Plugin>> plugins;
+	thread = new std::thread([]
+		{
+			runtime->Run();
+		});
+	thread->detach();
+}
 
-		runtime = new NosTaleSDK::Runtime(logger, patternProvider, vTableProvider, plugins);
-		if (!runtime->Initialize())
-			return false;
-
-		thread = new std::thread([]
-			{
-				runtime->Run();
-			});
-		thread->detach();
-	}
-
-
-	return true;
+void InitRuntime()
+{
+	std::once_flag init;
+	std::call_once(init, initRuntime);
 }
 
 extern "C" __declspec(dllexport) void __declspec(naked) ShowNostaleSplash()

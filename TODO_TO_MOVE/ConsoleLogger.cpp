@@ -2,11 +2,12 @@
 #include <format>
 #include <chrono>
 #include "../NosTaleSDK/Utils/StringObfuscator.hpp"
+#include "../NosTaleSDK/Utils/FormatString.hpp"
 #include "ConsoleLogger.hpp"
 
 void ConsoleLogger::Info(const std::string& Msg, const std::source_location& Location)
 {
-	log(std::format(obf("\t[INFO] {}\n{}\n"),
+	log(NosTaleSDK::Utils::FormatString(obf("\t[INFO] {}\n{}\n"),
 		GetTime().c_str(),
 		Msg.c_str()
 	), LIGHT_BLUE);
@@ -14,7 +15,7 @@ void ConsoleLogger::Info(const std::string& Msg, const std::source_location& Loc
 
 void ConsoleLogger::Debug(const std::string& Msg, const std::source_location& Location)
 {
-	log(std::format(obf("\t[DEBUG] file: {}:{}:{} ({}) {}\n{}\n"),
+	log(NosTaleSDK::Utils::FormatString(obf("\t[DEBUG] file: {}:{}:{} ({}) {}\n{}\n"),
 		Location.file_name(),
 		Location.line(),
 		Location.column(),
@@ -26,7 +27,7 @@ void ConsoleLogger::Debug(const std::string& Msg, const std::source_location& Lo
 
 void ConsoleLogger::Warn(const std::string& Msg, const std::source_location& Location)
 {
-	log(std::format(obf("\t[WARN] file: {}:{}:{} ({}) {}\n{}\n"),
+	log(NosTaleSDK::Utils::FormatString(obf("\t[WARN] file: {}:{}:{} ({}) {}\n{}\n"),
 		Location.file_name(),
 		Location.line(),
 		Location.column(),
@@ -38,7 +39,7 @@ void ConsoleLogger::Warn(const std::string& Msg, const std::source_location& Loc
 
 void ConsoleLogger::Error(const std::string& Msg, const std::source_location& Location)
 {
-	log(std::format(obf("\t[ERROR] file: {}:{}:{} ({}) {}\n{}\n"),
+	log(NosTaleSDK::Utils::FormatString(obf("\t[ERROR] file: {}:{}:{} ({}) {}\n{}\n"),
 		Location.file_name(),
 		Location.line(),
 		Location.column(),
@@ -51,7 +52,7 @@ void ConsoleLogger::Error(const std::string& Msg, const std::source_location& Lo
 
 void ConsoleLogger::Fatal(const std::string& Msg, const std::source_location& Location)
 {
-	log(std::format(obf("\t[FATAL] file: {}:{}:{} ({}) {}\n{}\n"),
+	log(NosTaleSDK::Utils::FormatString(obf("\t[FATAL] file: {}:{}:{} ({}) {}\n{}\n"),
 		Location.file_name(),
 		Location.line(),
 		Location.column(),
@@ -72,7 +73,7 @@ void ConsoleLogger::Flush()
 [[nodiscard]] std::string ConsoleLogger::GetTime()
 {
 	auto const time = std::chrono::utc_clock::now();
-	return std::format(obf("{0:%x} {0:%T}"), time);
+	return std::format("{0:%x} {0:%T}", time);
 }
 
 void ConsoleLogger::log(const std::string& Msg, const char Color[])

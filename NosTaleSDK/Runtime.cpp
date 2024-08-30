@@ -3,9 +3,9 @@
 namespace NosTaleSDK
 {
 	Runtime::Runtime(
-		const std::shared_ptr<Interfaces::Logger> Logger,
-		const std::shared_ptr<Interfaces::AddressProvider> AddressProvider,
-		const std::shared_ptr<Interfaces::VTableProvider> VTableProvider,
+		std::shared_ptr<Interfaces::Logger> Logger,
+		std::shared_ptr<Interfaces::AddressProvider> AddressProvider,
+		std::shared_ptr<Interfaces::VTableProvider> VTableProvider,
 		const std::vector<std::shared_ptr<Interfaces::Plugin>>& Plugins
 	)
 		: logger_(Logger)
@@ -24,9 +24,6 @@ namespace NosTaleSDK
 		if (isInit_) return true;
 		isInit_ = true;
 
-		if (!logger_->Load())
-			return false;
-
 		logger_->Debug("Initializing the runtime");
 
 		logger_->Debug("Loading the AddressProvider");
@@ -37,7 +34,7 @@ namespace NosTaleSDK
 		if (!vTableProvider_->Load())
 			return false;
 
-		for (auto plugin : plugins_)
+		for (auto& plugin : plugins_)
 			plugin->AfterRuntimeInitialization();
 
 		return true;
@@ -47,7 +44,7 @@ namespace NosTaleSDK
 	{
 		logger_->Debug("OnShowNostaleSplash");
 
-		for (auto plugin: plugins_)
+		for (auto& plugin: plugins_)
 			plugin->OnShowNostaleSplash();
 
 		hasShownSplashScreen_ = true;
@@ -57,7 +54,7 @@ namespace NosTaleSDK
 	{
 		logger_->Debug("OnFreeNostaleSplash");
 
-		for (auto plugin : plugins_)
+		for (auto& plugin : plugins_)
 			plugin->OnFreeNostaleSplash();
 
 		hasFreedSplashScreen_ = true;
@@ -71,18 +68,18 @@ namespace NosTaleSDK
 
 		logger_->Debug("Run();");
 
-		for (auto plugin : plugins_)
+		for (auto& plugin : plugins_)
 			plugin->BeforeRuntimeRun();
 
 		while (true)
 		{
-			for (auto plugin : plugins_)
+			for (auto& plugin : plugins_)
 				plugin->OnRuntimeTick();
 
 			Sleep(50);
 		}
 
-		for (auto plugin : plugins_)
+		for (auto& plugin : plugins_)
 			plugin->AfterRuntimeRun();
 	}
 

@@ -1,0 +1,423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\achievement_manager.h" />
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\activity_manager.h" />
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\application_manager.h" />
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\core.h" />
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\discord.h" />
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\event.h" />
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\ffi.h" />
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\image_manager.h" />
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\lobby_manager.h" />
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\network_manager.h" />
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\overlay_manager.h" />
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\relationship_manager.h" />
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\storage_manager.h" />
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\store_manager.h" />
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\types.h" />
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\user_manager.h" />
+    <ClInclude Include="..\..\..\..\..\..\code\discordsdk\cpp\voice_manager.h" />
+    <ClInclude Include="Api\CustomClasses\UI\Fps.h" />
+    <ClInclude Include="Api\CustomClasses\UI\KeyBindManager.h" />
+    <ClInclude Include="Api\CustomClasses\UI\KeyBindWidget.h" />
+    <ClInclude Include="Api\CustomClasses\UI\Resolution.h" />
+    <ClInclude Include="Api\CustomClasses\UI\UI.h" />
+    <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\GameOptionWidget.h" />
+    <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\MonsterSummaryInfoWidget.h" />
+    <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterSkillInfoWidget.h" />
+    <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterStandardInfoWidget.h" />
+    <ClInclude Include="Api\CustomClasses\Wrappers\Widgets\QuickSlotWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\Helpers\ComboBox.h" />
+    <ClInclude Include="Api\DelphiClasses\Helpers\ScrollBar.h" />
+    <ClInclude Include="Api\DelphiClasses\TEWControlWidgetMouseEvent.h" />
+    <ClInclude Include="Api\DelphiClasses\TLBSCamera.h" />
+    <ClInclude Include="Api\DelphiClasses\TLBSRotDamper.h" />
+    <ClInclude Include="Api\DelphiClasses\TEWButtonWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TLBSWidgetHandler.h" />
+    <ClInclude Include="Api\DelphiClasses\TMapPlayerObj.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTCItemDataList.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTConsignmentWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTConstStringList.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTCustomMessageCoreWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTGameOptionWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTIntHeadList.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTLoginWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTMaskingGaugeWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTNewCharacterSkillInfoWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTNewCharacterStandardInfoWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTNewServerSelectWidget2.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTNonMemIntHeadList.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTPartySummaryInfoWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTQuickSlotWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTSpecialaListInfoWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTSpecialDragonFx.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTSpecialWingFx.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTTimeAniIcon.h" />
+    <ClInclude Include="Api\DelphiClasses\TGameRootWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTDataList.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTItemList.h" />
+    <ClInclude Include="Api\DelphiClasses\TPetSelectIcon.h" />
+    <ClInclude Include="Api\DelphiClasses\TPlayerObjManager.h" />
+    <ClInclude Include="Api\DelphiClasses\TSceneManager.h" />
+    <ClInclude Include="Api\Enums\RarityType.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\CharacterConfig.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\CharacterManager.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\InteractionManager\InteractionConfig.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\InteractionManager\InteractionManager.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\InteractionManager\NpcTalkRangeNpcManager\NpcTalkRangeConfig.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\InteractionManager\NpcTalkRangeNpcManager\NpcTalkRangeManager.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\ArmorManager\ArmorConfig.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\ArmorManager\ArmorManager.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\ArmorManager\DefaultArmorEffect.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager\AuraConfig.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager\AuraManager.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager\DefaultAura.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\SpConfig.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\SpManager.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\WingManager\DefaultWing.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\WingManager\WingConfig.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\SpManager\WingManager\WingManager.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffConfig.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffManager.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\DefaultRarityTextVnum.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\DefaultRarityTextStyle.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\StuffRarityConfig.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\StuffRarityManager.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\WeaponManager\DefaultWeaponGlow.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\WeaponManager\WeaponConfig.h" />
+    <ClInclude Include="Api\Managers\CharacterManager\StuffManager\WeaponManager\WeaponManager.h" />
+    <ClInclude Include="Api\Managers\ConnectionManager\ConnectionConfig.h" />
+    <ClInclude Include="Api\Managers\ConnectionManager\ServChanManager\ServChanConfig.h" />
+    <ClInclude Include="Api\Managers\DiscordManager\DiscordConfig.h" />
+    <ClInclude Include="Api\Enums\CellType.h" />
+    <ClInclude Include="Api\Enums\EntityType.h" />
+    <ClInclude Include="Api\Enums\KeyCode.h" />
+    <ClInclude Include="Api\Enums\KeyModifier.h" />
+    <ClInclude Include="Api\Managers\GameFileManager\GameFileConfig.h" />
+    <ClInclude Include="Api\Managers\GameFileManager\GameFileManager.h" />
+    <ClInclude Include="Api\Managers\GameFileManager\NScliManager\NScliConfig.h" />
+    <ClInclude Include="Api\Managers\GameFileManager\NScliManager\NScliManager.h" />
+    <ClInclude Include="Api\Managers\Manager.h" />
+    <ClInclude Include="Api\Managers\MapManager\ColorManager\ColorConfig.h" />
+    <ClInclude Include="Api\Managers\MapManager\ColorManager\ColorManager.h" />
+    <ClInclude Include="Api\Managers\MapManager\MapConfig.h" />
+    <ClInclude Include="Api\Managers\PacketManager\PacketConfig.h" />
+    <ClInclude Include="Api\Managers\PacketManager\Packets\PacketSent.h" />
+    <ClInclude Include="Api\Managers\PacketManager\Packets\Rcvd\PR_at.h" />
+    <ClInclude Include="Api\Managers\PacketManager\Packets\Rcvd\PR_equip.h" />
+    <ClInclude Include="Api\Managers\UIManager\CtrlZManager\CtrlZConfig.h" />
+    <ClInclude Include="Api\Managers\UIManager\CtrlZManager\CtrlZManager.h" />
+    <ClInclude Include="Api\Managers\UIManager\IdleManager\IdleConfig.h" />
+    <ClInclude Include="Api\Managers\UIManager\IdleManager\IdleManager.h" />
+    <ClInclude Include="Api\Managers\UIManager\SpyHpMpManager\Spy.h" />
+    <ClInclude Include="Api\Managers\UIManager\SpyHpMpManager\SpyHpMpManager.h" />
+    <ClInclude Include="Api\Managers\UIManager\SpyHpMpManager\SpyHpMpConfig.h" />
+    <ClInclude Include="Api\Managers\UIManager\UIManager.h" />
+    <ClInclude Include="Api\Managers\UIManager\UIConfig.h" />
+    <ClInclude Include="Api\Managers\PacketManager\Packets\PacketRcvd.h" />
+    <ClInclude Include="Api\Managers\PacketManager\Packets\Rcvd\PR_aa_pst.h" />
+    <ClInclude Include="Api\Managers\PacketManager\Packets\Rcvd\PR_pst.h" />
+    <ClInclude Include="Api\Managers\PacketManager\Packets\Rcvd\PR_st.h" />
+    <ClInclude Include="Api\Properties\Graphical\WeaponGlowingStyle.h" />
+    <ClInclude Include="Api\Properties\Logical\MapGrid.h" />
+    <ClInclude Include="Api\Properties\Logical\PartnerEquipmentIcons.h" />
+    <ClInclude Include="Api\Properties\Logical\PartnerInformation.h" />
+    <ClInclude Include="Api\Properties\Logical\PartnerResistanceIcons.h" />
+    <ClInclude Include="Api\Properties\Logical\PartnerSkills.h" />
+    <ClInclude Include="Api\Properties\Logical\PartnerSkillsAutomaticButtons.h" />
+    <ClInclude Include="Api\Properties\Logical\PartnerSpSkillIcons.h" />
+    <ClInclude Include="Api\Properties\Logical\PartnerSpSkillLevel.h" />
+    <ClInclude Include="Api\Properties\Logical\PetInformation.h" />
+    <ClInclude Include="Api\DelphiClasses\ClassSearcher.h" />
+    <ClInclude Include="Api\Managers\DiscordManager\DiscordManager.h" />
+    <ClInclude Include="MemoryHelper\HwndGetter.h" />
+    <ClInclude Include="MemoryHelper\Patch.h" />
+    <ClInclude Include="MemoryHelper\PatternScan.h" />
+    <ClInclude Include="Api\Managers\ConnectionManager\ConnectionManager.h" />
+    <ClInclude Include="Api\Managers\ConnectionManager\ServChanManager\ServChanManager.h" />
+    <ClInclude Include="Api\Managers\MapManager\MapManager.h" />
+    <ClInclude Include="Api\DelphiClasses\TEWControlWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TEWControlWidgetEvent.h" />
+    <ClInclude Include="Api\DelphiClasses\TEWCustomButtonWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TEWGraphicButtonWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TEWCustomFormWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TEWCustomPanelWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TEWScrollBarThumb.h" />
+    <ClInclude Include="Api\DelphiClasses\TEWScrollBarTrack.h" />
+    <ClInclude Include="Api\DelphiClasses\TEWMoveWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTCoverIcon.h" />
+    <ClInclude Include="Api\DelphiClasses\TNTIconWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TEWControlWidgetEX.h" />
+    <ClInclude Include="Api\DelphiClasses\TEWLabels.h" />
+    <ClInclude Include="Api\DelphiClasses\TEWLabel.h" />
+    <ClInclude Include="Api\DelphiClasses\TEWEditWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TEWCaptionBar.h" />
+    <ClInclude Include="Api\DelphiClasses\TEWParentMoveWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TEWScrollBar.h" />
+    <ClInclude Include="Api\DelphiClasses\TLBSWidget.h" />
+    <ClInclude Include="Api\DelphiClasses\TLBSWidgetList.h" />
+    <ClInclude Include="Api\DelphiClasses\TList.h" />
+    <ClInclude Include="Api\DelphiClasses\TObject.h" />
+    <ClInclude Include="Api\Managers\PacketManager\PacketManager.h" />
+    <ClInclude Include="Api\Properties\Graphical\Cursor.h" />
+    <ClInclude Include="Api\Properties\Graphical\Bgra.h" />
+    <ClInclude Include="Api\Properties\Graphical\Border.h" />
+    <ClInclude Include="Api\Properties\Graphical\GhostBorder.h" />
+    <ClInclude Include="Api\Properties\Graphical\IconProperties.h" />
+    <ClInclude Include="Api\Properties\Graphical\ImageData.h" />
+    <ClInclude Include="Api\Properties\Graphical\ImagePadding.h" />
+    <ClInclude Include="Api\Properties\Graphical\PictureView.h" />
+    <ClInclude Include="Api\Properties\Graphical\TextAlignment.h" />
+    <ClInclude Include="Api\Properties\Graphical\TextPosition.h" />
+    <ClInclude Include="Api\Properties\Graphical\TextShadowOrientation.h" />
+    <ClInclude Include="Api\Properties\Graphical\TextStyle.h" />
+    <ClInclude Include="Api\Properties\Logical\Callback.h" />
+    <ClInclude Include="Api\Properties\Logical\String.h" />
+    <ClInclude Include="MemoryHelper\TrampolineHook.h" />
+    <ClInclude Include="Utils\Join.h" />
+    <ClInclude Include="Utils\Logger.h" />
+    <ClInclude Include="Utils\Split.h" />
+    <ClInclude Include="Utils\ToNumber.h" />
+    <ClInclude Include="Utils\WStringConvertor.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\achievement_manager.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\activity_manager.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\application_manager.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\core.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\image_manager.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\lobby_manager.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\network_manager.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\overlay_manager.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\relationship_manager.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\storage_manager.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\store_manager.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\types.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\user_manager.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\code\discordsdk\cpp\voice_manager.cpp" />
+    <ClCompile Include="Api\DelphiClasses\Helpers\ComboBox.cpp" />
+    <ClCompile Include="Api\DelphiClasses\Helpers\ScrollBar.cpp" />
+    <ClCompile Include="Api\Managers\CharacterManager\CharacterManager.cpp" />
+    <ClCompile Include="Api\Managers\CharacterManager\InteractionManager\InteractionManager.cpp" />
+    <ClCompile Include="Api\Managers\CharacterManager\InteractionManager\NpcTalkRangeNpcManager\NpcTalkRangeManager.cpp" />
+    <ClCompile Include="Api\Managers\CharacterManager\StuffManager\ArmorManager\ArmorManager.cpp" />
+    <ClCompile Include="Api\Managers\CharacterManager\StuffManager\SpManager\AuraManager\AuraManager.cpp" />
+    <ClCompile Include="Api\Managers\CharacterManager\StuffManager\SpManager\SpManager.cpp" />
+    <ClCompile Include="Api\Managers\CharacterManager\StuffManager\SpManager\WingManager\WingManager.cpp" />
+    <ClCompile Include="Api\Managers\CharacterManager\StuffManager\StuffManager.cpp" />
+    <ClCompile Include="Api\Managers\CharacterManager\StuffManager\StuffRarityManager\StuffRarityManager.cpp" />
+    <ClCompile Include="Api\Managers\CharacterManager\StuffManager\WeaponManager\WeaponManager.cpp" />
+    <ClCompile Include="Api\Managers\ConnectionManager\ServChanManager\ServChanManager.cpp" />
+    <ClCompile Include="Api\Managers\GameFileManager\GameFileManager.cpp" />
+    <ClCompile Include="Api\Managers\GameFileManager\NScliManager\NScliManager.cpp" />
+    <ClCompile Include="Api\Managers\MapManager\ColorManager\ColorManager.cpp" />
+    <ClCompile Include="Api\CustomClasses\UI\Fps.cpp" />
+    <ClCompile Include="Api\CustomClasses\UI\KeyBindManager.cpp" />
+    <ClCompile Include="Api\CustomClasses\UI\KeyBindWidget.cpp" />
+    <ClCompile Include="Api\CustomClasses\UI\Resolution.cpp" />
+    <ClCompile Include="Api\CustomClasses\UI\UI.cpp" />
+    <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\GameOptionWidget.cpp" />
+    <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\MonsterSummaryInfoWidget.cpp" />
+    <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterSkillInfoWidget.cpp" />
+    <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\NewCharacterStandardInfoWidget.cpp" />
+    <ClCompile Include="Api\CustomClasses\Wrappers\Widgets\QuickSlotWidget.cpp" />
+    <ClCompile Include="Api\Managers\UIManager\CtrlZManager\CtrlZManager.cpp" />
+    <ClCompile Include="Api\Managers\UIManager\IdleManager\IdleManager.cpp" />
+    <ClCompile Include="Api\Managers\UIManager\SpyHpMpManager\Spy.cpp" />
+    <ClCompile Include="Api\Managers\UIManager\SpyHpMpManager\SpyHpMpManager.cpp" />
+    <ClCompile Include="Api\Managers\UIManager\UIManager.cpp" />
+    <ClCompile Include="Api\Managers\DiscordManager\DiscordManager.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Api\Managers\ConnectionManager\ConnectionManager.cpp" />
+    <ClCompile Include="Api\Managers\MapManager\MapManager.cpp" />
+    <ClCompile Include="Api\Managers\PacketManager\PacketManager.cpp" />
+    <ClCompile Include="MemoryHelper\TrampolineHook.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Api\DelphiClasses\TNTMonsterSummaryInfoWidget.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{f1dcb18f-4c67-4573-a6c1-d8463091fe47}</ProjectGuid>
+    <RootNamespace>ClientModding</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>ClientModding</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <PublicIncludeDirectories>
+    </PublicIncludeDirectories>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <SourcePath>$(VC_SourcePath);</SourcePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <PublicIncludeDirectories>$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <SourcePath>;$(SourcePath)</SourcePath>
+    <ExternalIncludePath>$(ExternalIncludePath)</ExternalIncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <PublicModuleDirectories>$(PublicModuleDirectories)</PublicModuleDirectories>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <PublicIncludeDirectories>$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <SourcePath>$(VC_SourcePath);</SourcePath>
+    <LibraryPath>C:\code\discordsdk\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <PublicIncludeDirectories>$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <SourcePath>$(VC_SourcePath);</SourcePath>
+    <LibraryPath>C:\code\discordsdk\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\code\discordsdk\cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\code\discordsdk\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\code\discordsdk\cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\code\discordsdk\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\code\discordsdk\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>discord_game_sdk.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\code\discordsdk\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>discord_game_sdk.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -18,7 +18,7 @@ namespace NosTaleSDK
 			std::shared_ptr<Interfaces::Logger> Logger,
 			std::shared_ptr<Interfaces::AddressProvider> AddressProvider,
 			std::shared_ptr<Interfaces::VTableProvider> VTableProvider,
-			std::vector<std::shared_ptr<Interfaces::Plugin>>& Plugins
+			const std::vector<std::shared_ptr<Interfaces::Plugin>>& Plugins
 		);
 
 		~Runtime();
@@ -33,8 +33,8 @@ namespace NosTaleSDK
 		std::shared_ptr<Interfaces::Logger> logger_;
 		std::shared_ptr<Interfaces::AddressProvider> addressProvider_;
 		std::shared_ptr<Interfaces::VTableProvider> vTableProvider_;
-
 		std::vector<std::shared_ptr<Interfaces::Plugin>> plugins_;
+
 		bool isInit_{ false };
 		bool hasShownSplashScreen_{ false };
 		bool hasFreedSplashScreen_{ false };

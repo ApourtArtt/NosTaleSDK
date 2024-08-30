@@ -140,6 +140,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="NosTaleSDK\Entwell\Classes\TObject.cpp" />
+    <ClCompile Include="NosTaleSDK\Entwell\Structs\BoundsRect.cpp" />
+    <ClCompile Include="NosTaleSDK\Entwell\Structs\Color.cpp" />
+    <ClCompile Include="NosTaleSDK\Entwell\Structs\PictureView.cpp" />
     <ClCompile Include="NosTaleSDK\Runtime.cpp" />
     <ClCompile Include="NosTaleSDK\Utils\MemoryHelper.cpp" />
     <ClCompile Include="TODO_TO_MOVE\ClassSearcherVTableProvider.cpp" />
@@ -158,6 +162,7 @@
     <ClInclude Include="NosTaleSDK\Interfaces\Plugin.hpp" />
     <ClInclude Include="NosTaleSDK\Runtime.hpp" />
     <ClInclude Include="NosTaleSDK\Interfaces\VTableProvider.hpp" />
+    <ClInclude Include="NosTaleSDK\Utils\FormatString.hpp" />
     <ClInclude Include="NosTaleSDK\Utils\MemoryHelper.hpp" />
     <ClInclude Include="NosTaleSDK\Utils\StringObfuscator.hpp" />
     <ClInclude Include="TODO_TO_MOVE\ClassSearcherVTableProvider.hpp" />
