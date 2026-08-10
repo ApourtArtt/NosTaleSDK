@@ -72,12 +72,6 @@ bool InitRuntime()
 		runtime = new NosTaleSDK::Runtime(logger, patternProvider, vTableProvider, {});
 		if (!runtime->Initialize())
 			return false;
-
-		thread = new std::thread([]
-			{
-				runtime->Run();
-			});
-		thread->detach();
 	}
 
 
@@ -112,6 +106,12 @@ extern "C" __declspec(dllexport) void __declspec(naked) FreeNostaleSplash() noex
 	}
 
 	runtime->OnFreeNostaleSplash();
+
+	thread = new std::thread([]
+		{
+			runtime->Run();
+		});
+	thread->detach();
 
 	__asm
 	{
